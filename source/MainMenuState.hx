@@ -16,6 +16,7 @@ import flixel.math.FlxMath;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
 import lime.app.Application;
 import Achievements;
 import editors.MasterEditorMenu;
@@ -35,17 +36,16 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
+		'options',
 		'credits',
-		#if !switch 'donate', #end
-		'options'
 	];
+	public static var firstStart:Bool = true;
 
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
+	public static var finishedFunnyMove:Bool = false;
 
 	override function create()
 	{
@@ -99,6 +99,21 @@ class MainMenuState extends MusicBeatState
 		
 		// magenta.scrollFactor.set();
 
+		var black:FlxSprite = new FlxSprite(-300).loadGraphic(Paths.image('blackFade'));
+		black.scrollFactor.x = 0;
+		black.scrollFactor.y = 0;
+		black.setGraphicSize(Std.int(black.width * 1.1));
+		black.updateHitbox();
+		//black.screenCenter();
+		if(FlxG.save.data.antialiasing)
+			black.antialiasing = true;
+		add(black);
+		if (firstStart) {
+			FlxTween.tween(black,{x: -100}, 1.4, {ease: FlxEase.expoInOut});
+		} else {
+			black.x = -100;
+		};
+	
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
@@ -106,6 +121,20 @@ class MainMenuState extends MusicBeatState
 		/*if(optionShit.length > 6) {
 			scale = 6 / optionShit.length;
 		}*/
+
+
+		var icon = new HealthIcon("ace", true);
+		icon.x = FlxG.width * 1.1;
+		icon.y = FlxG.height * 0.8;
+		if(FlxG.save.data.antialiasing)
+			icon.antialiasing = true;
+		icon.updateHitbox();
+		add(icon);
+		if (firstStart) {
+			FlxTween.tween(icon,{x: (FlxG.width * 0.88)}, 1.4, {ease: FlxEase.expoInOut});	
+		} else {
+			icon.x = FlxG.width * 0.88;
+		};
 
 		for (i in 0...optionShit.length)
 		{
@@ -118,7 +147,6 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.screenCenter(X);
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -126,7 +154,34 @@ class MainMenuState extends MusicBeatState
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+
+                  menuItem.y = 70 + (i * 160);
+			if (firstStart) {
+				FlxTween.tween(menuItem,{x: 30 + (i * 45)}, 1.4, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween) 
+					{ 
+						finishedFunnyMove = true; 
+						changeItem();
+					}});
+			} else {
+				
+				menuItem.x = 30 + (i * 45);
+			};
 		}
+		
+		icon.angle = -4;
+
+		new FlxTimer().start(0.01, function(tmr:FlxTimer)
+			{
+				if(icon.angle == -4) 
+					FlxTween.angle(icon, icon.angle, 4, 4, {ease: FlxEase.quartInOut});
+				if (icon.angle == 4) 
+					FlxTween.angle(icon, icon.angle, -4, 4, {ease: FlxEase.quartInOut});
+			}, 0);
+
+		firstStart = false;
+
+
+
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
@@ -134,7 +189,7 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin: Vs Ace");
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -245,10 +300,10 @@ class MainMenuState extends MusicBeatState
 									#end
 									case 'awards':
 										MusicBeatState.switchState(new AchievementsMenuState());
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
 									case 'options':
 										LoadingState.loadAndSwitchState(new options.OptionsState());
+									case 'credits':
+										MusicBeatState.switchState(new CreditsState());
 								}
 							});
 						}
@@ -268,7 +323,7 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			spr.screenCenter(X);
+
 		});
 	}
 
@@ -284,7 +339,6 @@ class MainMenuState extends MusicBeatState
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.animation.play('idle');
-			spr.updateHitbox();
 
 			if (spr.ID == curSelected)
 			{
@@ -295,6 +349,7 @@ class MainMenuState extends MusicBeatState
 				}
 				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
 				spr.centerOffsets();
+				spr.updateHitbox();
 			}
 		});
 	}
