@@ -25,7 +25,7 @@
 				13,
 				14
 			],
-			"name": "m-sa"
+			"name": "m-saku-left"
 		},
 		{
 			"loop": false,
@@ -50,7 +50,7 @@
 				28,
 				29
 			],
-			"name": "m-sa"
+			"name": "m-saku-right"
 		},
 		{
 			"loop": false,
@@ -137,7 +137,7 @@
 			"fps": 24,
 			"anim": "singDOWN-alt",
 			"indices": [],
-			"name": ""m-saku-"
+			"name": "m-saku-"
 		},
 		{
 			"loop": false,
