@@ -1,0 +1,115 @@
+{
+	"dialogue_pos": "right",
+	"position": [
+		0,
+		50
+	],
+	"scale": 1.25,
+	"animations": [
+		{
+			"loop_name": "Neutral",
+			"idle_offsets": [
+				20,
+				100
+			],
+			"idle_name": "Neutral",
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Booba",
+			"idle_offsets": [
+				20,
+				94
+			],
+			"idle_name": "Booba",
+			"anim": "Booba",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Flushed",
+			"idle_offsets": [
+				20,
+				94
+			],
+			"idle_name": "Flushed",
+			"anim": "Flushed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Happy",
+			"idle_offsets": [
+				20,
+				100
+			],
+			"idle_name": "Happy",
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Miss",
+			"idle_offsets": [
+				20,
+				75
+			],
+			"idle_name": "Miss",
+			"anim": "Miss",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Smug",
+			"idle_offsets": [
+				20,
+				100
+			],
+			"idle_name": "Smug",
+			"anim": "Smug",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Disgruntled",
+			"idle_offsets": [
+				20,
+				100
+			],
+			"idle_name": "Disgruntled",
+			"anim": "Disgruntled",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Confused",
+			"idle_offsets": [
+				65,
+				95
+			],
+			"idle_name": "Confused",
+			"anim": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "MBFPortraits"
+}

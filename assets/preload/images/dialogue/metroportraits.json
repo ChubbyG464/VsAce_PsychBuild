@@ -1,0 +1,154 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		0,
+		50
+	],
+	"scale": 1.25,
+	"animations": [
+		{
+			"loop_name": "Neutral",
+			"idle_offsets": [
+				-120,
+				90
+			],
+			"idle_name": "Neutral",
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Confused",
+			"idle_offsets": [
+				-120,
+				92
+			],
+			"idle_name": "Confused",
+			"anim": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Happy",
+			"idle_offsets": [
+				-120,
+				85
+			],
+			"idle_name": "Happy",
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Smug",
+			"idle_offsets": [
+				-120,
+				84
+			],
+			"idle_name": "Smug",
+			"anim": "Smug",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Surprised",
+			"idle_offsets": [
+				-120,
+				90
+			],
+			"idle_name": "Surprised",
+			"anim": "Surprised",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Flushed",
+			"idle_offsets": [
+				-120,
+				84
+			],
+			"idle_name": "Flushed",
+			"anim": "Flushed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Angry",
+			"idle_offsets": [
+				-140,
+				65
+			],
+			"idle_name": "Angry",
+			"anim": "Angry",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Annoyed",
+			"idle_offsets": [
+				-120,
+				69
+			],
+			"idle_name": "Annoyed",
+			"anim": "Annoyed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Ball",
+			"idle_offsets": [
+				-120,
+				85
+			],
+			"idle_name": "Ball2",
+			"anim": "Ball",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Flexing",
+			"idle_offsets": [
+				-107,
+				94
+			],
+			"idle_name": "Flexing",
+			"anim": "Flexing",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Sad",
+			"idle_offsets": [
+				-107,
+				94
+			],
+			"idle_name": "Sad",
+			"anim": "Sad",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "MetroPortraits"
+}

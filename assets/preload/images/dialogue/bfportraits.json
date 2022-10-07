@@ -1,0 +1,37 @@
+{
+	"position": [
+		0,
+		50
+	],
+	"dialogue_pos": "right",
+	"scale": 1.25,
+	"image": "BFPortraits",
+	"animations": [
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Neutral",
+			"idle_offsets": [
+				30,
+				40
+			],
+			"loop_name": "Neutral",
+			"idle_name": "Neutral"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Happy",
+			"idle_offsets": [
+				30,
+				40
+			],
+			"loop_name": "Happy",
+			"idle_name": "Happy"
+		}
+	]
+}

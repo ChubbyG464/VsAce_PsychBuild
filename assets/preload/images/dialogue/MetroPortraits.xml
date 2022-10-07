@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="MetroPortraits.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Angry0000" x="10" y="10" width="639" height="481" />
+	<SubTexture name="Annoyed0000" x="659" y="10" width="464" height="485"/>
+	<SubTexture name="Ball0000" x="1133" y="10" width="624" height="504"/>
+	<SubTexture name="Ball20000" x="10" y="524" width="624" height="504"/>
+	<SubTexture name="Confused0000" x="644" y="524" width="522" height="511"/>
+	<SubTexture name="Flushed0000" x="1176" y="524" width="463" height="504"/>
+	<SubTexture name="Happy0000" x="10" y="1045" width="464" height="504"/>
+	<SubTexture name="Neutral0000" x="484" y="1045" width="464" height="509" />
+	<SubTexture name="Smug0000" x="958" y="1045" width="464" height="504"/>
+	<SubTexture name="Surprised0000" x="1432" y="1045" width="516" height="511"/>
+	<SubTexture name="Flexing0000" x="2000" y="11" width="716" height="514"/>
+	<SubTexture name="Sad0000" x="2756" y="11" width="514" height="514"/>
+</TextureAtlas>

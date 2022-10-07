@@ -1,0 +1,115 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		0,
+		50
+	],
+	"scale": 1.25,
+	"animations": [
+		{
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Neutral",
+			"loop_name": "Neutral"
+		},
+		{
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Happy",
+			"loop_name": "Happy"
+		},
+		{
+			"loop_name": "Blush",
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"idle_name": "Blush",
+			"anim": "Blush",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Talking",
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"idle_name": "Talking",
+			"anim": "Talking",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Smug",
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"idle_name": "Smug",
+			"anim": "Smug",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Sad",
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"idle_name": "Sad",
+			"anim": "Sad",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Laugh",
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"idle_name": "Laugh",
+			"anim": "Laugh",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Eyeroll",
+			"idle_offsets": [
+				-120,
+				100
+			],
+			"idle_name": "Eyeroll",
+			"anim": "Eyeroll",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "ZerktroPortraits"
+}

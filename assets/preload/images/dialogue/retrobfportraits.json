@@ -1,0 +1,76 @@
+{
+	"position": [
+		0,
+		50
+	],
+	"dialogue_pos": "right",
+	"scale": 1.25,
+	"image": "RetroBFPortraits",
+	"animations": [
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Neutral",
+			"idle_offsets": [
+				30,
+				60
+			],
+			"loop_name": "Neutral",
+			"idle_name": "Neutral"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Happy",
+			"idle_offsets": [
+				30,
+				60
+			],
+			"loop_name": "Happy",
+			"idle_name": "Happy"
+		},
+		{
+			"loop_name": "Sad",
+			"idle_offsets": [
+				30,
+				60
+			],
+			"idle_name": "Sad",
+			"anim": "Sad",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Confused",
+			"idle_offsets": [
+				43,
+				60
+			],
+			"idle_name": "Confused",
+			"anim": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Flushed",
+			"idle_offsets": [
+				30,
+				60
+			],
+			"idle_name": "Flushed",
+			"anim": "Flushed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	]
+}

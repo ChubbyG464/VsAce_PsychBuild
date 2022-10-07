@@ -1,0 +1,102 @@
+{
+	"position": [
+		0,
+		50
+	],
+	"dialogue_pos": "left",
+	"scale": 1.25,
+	"image": "MakuPortraits",
+	"animations": [
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Neutral",
+			"idle_offsets": [
+				10,
+				100
+			],
+			"loop_name": "Neutral",
+			"idle_name": "Neutral"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Happy",
+			"idle_offsets": [
+				10,
+				100
+			],
+			"loop_name": "Happy",
+			"idle_name": "Happy"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Surprised",
+			"idle_offsets": [
+				10,
+				100
+			],
+			"loop_name": "Surprised",
+			"idle_name": "Surprised"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Sad",
+			"idle_offsets": [
+				10,
+				100
+			],
+			"loop_name": "Sad",
+			"idle_name": "Sad"
+		},
+		{
+			"loop_name": "Giggling",
+			"idle_offsets": [
+				10,
+				100
+			],
+			"idle_name": "Giggling",
+			"anim": "Giggling",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Flustered",
+			"idle_offsets": [
+				10,
+				100
+			],
+			"idle_name": "Flustered",
+			"anim": "Flustered",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Cheering",
+			"idle_offsets": [
+				240,
+				273
+			],
+			"idle_name": "Cheering",
+			"anim": "Cheering",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	]
+}

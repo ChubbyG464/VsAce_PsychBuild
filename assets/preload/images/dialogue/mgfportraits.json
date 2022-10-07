@@ -1,0 +1,63 @@
+{
+	"dialogue_pos": "center",
+	"position": [
+		0,
+		50
+	],
+	"scale": 1.25,
+	"animations": [
+		{
+			"loop_name": "Neutral",
+			"idle_offsets": [
+				-150,
+				90
+			],
+			"idle_name": "Neutral",
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Happy",
+			"idle_offsets": [
+				-150,
+				90
+			],
+			"idle_name": "Happy",
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Sad",
+			"idle_offsets": [
+				-101,
+				131
+			],
+			"idle_name": "Sad",
+			"anim": "Sad",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Cheering",
+			"idle_offsets": [
+				-29,
+				101
+			],
+			"idle_name": "Cheering",
+			"anim": "Cheering",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "MGFPortraits"
+}

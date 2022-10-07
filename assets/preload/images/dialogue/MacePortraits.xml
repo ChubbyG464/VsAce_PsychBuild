@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="MacePortraits.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Blush0000" x="11" y="11" width="511" height="568"/>
+	<SubTexture name="Confused0000" x="562" y="11" width="530" height="568"/>
+	<SubTexture name="Happy0000" x="1132" y="11" width="511" height="568"/>
+	<SubTexture name="Neutral0000" x="11" y="619" width="468" height="568"/>
+	<SubTexture name="Relieved0000" x="519" y="619" width="478" height="552"/>
+	<SubTexture name="Smug0000" x="1037" y="619" width="468" height="568"/>
+	<SubTexture name="Surprised0000" x="11" y="1227" width="534" height="568"/>
+	<SubTexture name="Upset0000" x="585" y="1227" width="511" height="568"/>
+	<SubTexture name="Worried0000" x="1136" y="1227" width="511" height="568"/>
+</TextureAtlas>

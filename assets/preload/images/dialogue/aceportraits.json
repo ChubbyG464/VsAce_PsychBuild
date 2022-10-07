@@ -1,0 +1,141 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		90,
+		-30
+	],
+	"scale": 1.25,
+	"animations": [
+		{
+			"loop_offsets": [
+				-4,
+				0
+			],
+			"anim": "shocked",
+			"idle_offsets": [
+				0,
+				-10
+			],
+			"loop_name": "Shocked",
+			"idle_name": "Shocked"
+		},
+		{
+			"idle_offsets": [
+				0,
+				-13
+			],
+			"anim": "confused",
+			"loop_offsets": [
+				-3,
+				0
+			],
+			"idle_name": "Confused",
+			"loop_name": "Confused"
+		},
+		{
+			"loop_name": "Happy",
+			"idle_offsets": [
+				0,
+				-10
+			],
+			"idle_name": "Happy",
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Neutral",
+			"idle_offsets": [
+				0,
+				-10
+			],
+			"idle_name": "Neutral",
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Annoyed",
+			"idle_offsets": [
+				0,
+				-10
+			],
+			"idle_name": "Annoyed",
+			"anim": "Annoyed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Smug",
+			"idle_offsets": [
+				0,
+				-10
+			],
+			"idle_name": "Smug",
+			"anim": "Smug",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Tired",
+			"idle_offsets": [
+				0,
+				-10
+			],
+			"idle_name": "Tired",
+			"anim": "Tired",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Eyeroll",
+			"idle_offsets": [
+				0,
+				-10
+			],
+			"idle_name": "Eyeroll",
+			"anim": "Eyeroll",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Embarassed",
+			"idle_offsets": [
+				30,
+				-10
+			],
+			"idle_name": "Embarassed",
+			"anim": "Embarassed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Blush",
+			"idle_offsets": [
+				30,
+				-10
+			],
+			"idle_name": "Blush",
+			"anim": "Blush",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "AcePortraits"
+}

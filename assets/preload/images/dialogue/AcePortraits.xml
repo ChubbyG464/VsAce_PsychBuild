@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="AcePortraits.png">
+	<!-- Created with Adobe Animate version 19.0.0.326 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Annoyed0000" x="0" y="0" width="445" height="510"/>
+	<SubTexture name="Blush0000" x="446" y="0" width="478" height="510"/>
+	<SubTexture name="Confused0000" x="925" y="0" width="445" height="506"/>
+	<SubTexture name="Embarassed0000" x="1371" y="0" width="478" height="510"/>
+	<SubTexture name="Eyeroll0000" x="0" y="511" width="445" height="510"/>
+	<SubTexture name="Happy0000" x="446" y="511" width="445" height="510"/>
+	<SubTexture name="Neutral0000" x="892" y="511" width="445" height="510"/>
+	<SubTexture name="Shocked0000" x="1338" y="511" width="461" height="510"/>
+	<SubTexture name="Smug0000" x="0" y="1022" width="445" height="510"/>
+	<SubTexture name="Tired0000" x="446" y="1022" width="364" height="518"/>
+</TextureAtlas>
