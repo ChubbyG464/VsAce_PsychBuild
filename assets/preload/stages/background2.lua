@@ -1,6 +1,6 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('background1', 'stages/ace/background1', -1400, -1400);
+	makeLuaSprite('background1', 'stages/ace/Background1', -1400, -1400);
 	setScrollFactor('background1', 1.1, 1.1);
 	
 	makeLuaSprite('Fences', 'stages/ace/Fences', -1922, -1720);
