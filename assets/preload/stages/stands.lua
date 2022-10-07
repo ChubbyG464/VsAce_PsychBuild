@@ -1,6 +1,6 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('stands', 'stands', -500, -400);
+	makeLuaSprite('stands', 'stages/minus/stands', -500, -400);
 	setLuaSpriteScrollFactor('stands', 0.9, 0.9);
 
 	-- sprites that only load if Low Quality is turned off

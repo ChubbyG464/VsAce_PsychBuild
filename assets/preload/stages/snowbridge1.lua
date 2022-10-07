@@ -1,17 +1,17 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('snowbridge1', 'snowbridge1', -1400, -1400);
+	makeLuaSprite('snowbridge1', 'stages/bridge/cold/snowbridge1', -1400, -1400);
 	setScrollFactor('snowbridge1', 1.1, 1.1);
 	
-	makeLuaSprite('snowbackground1', 'snowbackground1', -1400, -1400);
+	makeLuaSprite('snowbackground1', 'stages/bridge/cold/snowbackground1', -1400, -1400);
 	setScrollFactor('snowbackground1', 1.1, 1.1);
 	scaleObject('snowbackground1', 1, 1);
 
-	makeLuaSprite('snowforeground1', 'snowforeground1', -1400, -1400);
+	makeLuaSprite('snowforeground1', 'stages/bridge/cold/snowforeground1', -1400, -1400);
 	setLuaSpriteScrollFactor('snowforeground1', 1, 1);
 	scaleObject('snowforeground1', 1, 1);
 
-	makeAnimatedLuaSprite('BackC','AceCrowd', -780,-275)
+	makeAnimatedLuaSprite('BackC','stages/ace/AceCrowd', -780,-275)
 	addAnimationByPrefix('BackC','dance','jam',24,true)
 	objectPlayAnimation('BackC','dance',false)
 	setScrollFactor('BackC', 1.1, 1.1);

@@ -1,30 +1,30 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('background1', 'background1', -1400, -1400);
+	makeLuaSprite('background1', 'stages/ace/background1', -1400, -1400);
 	setScrollFactor('background1', 1.1, 1.1);
 	
-	makeLuaSprite('Fences', 'Fences', -1922, -1720);
+	makeLuaSprite('Fences', 'stages/ace/Fences', -1922, -1720);
 	setScrollFactor('Fences', 1.1, 1.1);
 	scaleObject('Fences', 1, 1);
 
-	makeLuaSprite('P2Snow1', 'P2Snow1', -1400, -1400);
+	makeLuaSprite('P2Snow1', 'stages/ace/P2Snow1', -1400, -1400);
 	setLuaSpriteScrollFactor('P2Snow1', 1.1, 1.1);
 	scaleObject('P2Snow1', 1, 1);
 
-	makeLuaSprite('Overlay', 'Overlay', -1400, -1400);
+	makeLuaSprite('Overlay', 'stages/ace/Overlay', -1400, -1400);
 	setLuaSpriteScrollFactor('Overlay', 1.1, 1.1);
 	scaleObject('Overlay', 1, 1);
 
-	makeLuaSprite('Lamps', 'Lamps', -1400, -1400);
+	makeLuaSprite('Lamps', 'stages/ace/Lamps', -1400, -1400);
 	setLuaSpriteScrollFactor('Lamps', 1.1, 1.1);
 	scaleObject('Lamps', 1, 1);
 
-	makeAnimatedLuaSprite('BackC','Back_Characters', -820,-795)
+	makeAnimatedLuaSprite('BackC','stages/ace/Back_Characters', -820,-795)
 	addAnimationByPrefix('BackC','dance','bop',24,true)
 	objectPlayAnimation('BackC','dance',false)
 	setScrollFactor('BackC', 1.1, 1.1);
 
-	makeAnimatedLuaSprite('FrontC','Front_Characters', -1285,-610)
+	makeAnimatedLuaSprite('FrontC','stages/ace/Front_Characters', -1285,-610)
 	addAnimationByPrefix('FrontC','dance','bop',24,true)
 	objectPlayAnimation('FrontC','dance',false)
 	setScrollFactor('FrontC', 1.1, 1.1);

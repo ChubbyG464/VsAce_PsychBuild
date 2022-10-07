@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="AceCrowd.png">
+	<!-- Created with Adobe Animate version 20.0.0.17400 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="jam0000" x="10" y="10" width="3278" height="1073" frameX="0" frameY="-7" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0001" x="10" y="10" width="3278" height="1073" frameX="0" frameY="-7" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0002" x="3298" y="10" width="3274" height="1074" frameX="-3" frameY="-7" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0003" x="3298" y="10" width="3274" height="1074" frameX="-3" frameY="-7" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0004" x="10" y="1094" width="3272" height="1075" frameX="-4" frameY="-5" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0005" x="10" y="1094" width="3272" height="1075" frameX="-4" frameY="-5" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0006" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0007" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0008" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0009" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0010" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0011" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0012" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+	<SubTexture name="jam0013" x="3292" y="1094" width="3269" height="1080" frameX="-6" frameY="0" frameWidth="3278" frameHeight="1081"/>
+</TextureAtlas>

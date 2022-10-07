@@ -1,38 +1,38 @@
 function onCreate()
 	-- background shit
-	makeLuaSprite('background1', 'background1', -1400, -1400);
+	makeLuaSprite('background1', 'stages/ace/background1', -1400, -1400);
 	setScrollFactor('background1', 1.1, 1.1);
 	
-	makeLuaSprite('Fences', 'Fences', -1922, -1720);
+	makeLuaSprite('Fences', 'stages/ace/Fences', -1922, -1720);
 	setScrollFactor('Fences', 1.1, 1.1);
 	scaleObject('Fences', 1, 1);
 
-	makeLuaSprite('P3Snow1', 'P3Snow1', -1925, -1720);
+	makeLuaSprite('P3Snow1', 'stages/ace/P3Snow1', -1925, -1720);
 	setLuaSpriteScrollFactor('P3Snow1', 1.1, 1.1);
 	scaleObject('P3Snow1', 1, 1);
 
-	makeLuaSprite('P3Snow2', 'P3Snow2', -1400, -1400);
+	makeLuaSprite('P3Snow2', 'stages/ace/P3Snow2', -1400, -1400);
 	setLuaSpriteScrollFactor('P3Snow2', 1.1, 1.1);
 	scaleObject('P3Snow2', 1, 1);
 
-	makeLuaSprite('P3Snow3', 'P3Snow3', -1400, -1320);
+	makeLuaSprite('P3Snow3', 'stages/ace/P3Snow3', -1400, -1320);
 	setLuaSpriteScrollFactor('P3Snow3', 1.1, 1.1);
 	scaleObject('P3Snow3', 1, 1);
 
-	makeLuaSprite('Overlay', 'Overlay', -1400, -1400);
+	makeLuaSprite('Overlay', 'stages/ace/Overlay', -1400, -1400);
 	setLuaSpriteScrollFactor('Overlay', 1.1, 1.1);
 	scaleObject('Overlay', 1, 1);
 
-	makeLuaSprite('Lamps', 'Lamps', -1400, -1400);
+	makeLuaSprite('Lamps', 'stages/ace/Lamps', -1400, -1400);
 	setLuaSpriteScrollFactor('Lamps', 1.1, 1.1);
 	scaleObject('Lamps', 1, 1);
 
-	makeAnimatedLuaSprite('BackC','Back_Characters', -820,-795)
+	makeAnimatedLuaSprite('BackC','stages/ace/Back_Characters', -820,-795)
 	addAnimationByPrefix('BackC','dance','bop',24,true)
 	objectPlayAnimation('BackC','dance',false)
 	setScrollFactor('BackC', 1.1, 1.1);
 
-	makeAnimatedLuaSprite('FrontC','Front_Characters', -1285,-610)
+	makeAnimatedLuaSprite('FrontC','stages/ace/Front_Characters', -1285,-610)
 	addAnimationByPrefix('FrontC','dance','bop',24,true)
 	objectPlayAnimation('FrontC','dance',false)
 	setScrollFactor('FrontC', 1.1, 1.1);

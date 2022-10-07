@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="wallart.png">
+	<SubTexture name="vibe0000" x="1" y="1" width="4177" height="1154" frameX="-0" frameY="-573" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0001" x="1" y="1" width="4177" height="1154" frameX="-0" frameY="-573" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0002" x="1" y="1157" width="4177" height="1152" frameX="-0" frameY="-574" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0003" x="1" y="1157" width="4177" height="1152" frameX="-0" frameY="-574" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0004" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0005" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0006" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0007" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0008" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0009" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0010" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0011" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0012" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0013" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+	<SubTexture name="vibe0014" x="1" y="2311" width="4177" height="1099" frameX="-0" frameY="-618" frameWidth="4177" frameHeight="2557"/>
+</TextureAtlas>
