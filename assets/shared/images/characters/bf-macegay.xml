@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Mace.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Mace Down0000" x="25" y="25" width="1060" height="1276" frameX="0" frameY="-8" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0001" x="25" y="25" width="1060" height="1276" frameX="0" frameY="-8" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0002" x="1110" y="25" width="1037" height="1288" frameX="-3" frameY="0" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0003" x="1110" y="25" width="1037" height="1288" frameX="-3" frameY="0" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0004" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0005" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0006" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0007" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0008" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0009" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0010" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0011" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0012" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Down0013" x="2172" y="25" width="1026" height="1290" frameX="-4" frameY="-3" frameWidth="1060" frameHeight="1293"/>
+	<SubTexture name="Mace Idle0000" x="3223" y="25" width="1044" height="1324" frameX="0" frameY="-7" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0001" x="3223" y="25" width="1044" height="1324" frameX="0" frameY="-7" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0002" x="4292" y="25" width="1024" height="1338" frameX="-19" frameY="0" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0003" x="4292" y="25" width="1024" height="1338" frameX="-19" frameY="0" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0004" x="5341" y="25" width="1014" height="1336" frameX="-27" frameY="-4" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0005" x="5341" y="25" width="1014" height="1336" frameX="-27" frameY="-4" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0006" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0007" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0008" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0009" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0010" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0011" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0012" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Idle0013" x="6380" y="25" width="1007" height="1335" frameX="-33" frameY="-5" frameWidth="1044" frameHeight="1340"/>
+	<SubTexture name="Mace Left0000" x="25" y="1388" width="1060" height="1341" frameX="0" frameY="-13" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0001" x="25" y="1388" width="1060" height="1341" frameX="0" frameY="-13" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0002" x="1110" y="1388" width="1044" height="1350" frameX="-15" frameY="-4" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0003" x="1110" y="1388" width="1044" height="1350" frameX="-15" frameY="-4" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0004" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0005" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0006" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0007" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0008" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0009" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0010" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0011" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0012" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Left0013" x="2179" y="1388" width="1043" height="1354" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1354"/>
+	<SubTexture name="Mace Miss Down0000" x="3247" y="1388" width="1060" height="1276" frameX="0" frameY="-2" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0001" x="4332" y="1388" width="1037" height="1282" frameX="-3" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0002" x="4332" y="1388" width="1037" height="1282" frameX="-3" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0003" x="4332" y="1388" width="1037" height="1282" frameX="-3" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0004" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0005" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0006" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0007" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0008" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0009" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0010" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0011" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0012" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Down0013" x="5394" y="1388" width="1026" height="1287" frameX="-4" frameY="0" frameWidth="1060" frameHeight="1287"/>
+	<SubTexture name="Mace Miss Left0000" x="6445" y="1388" width="1060" height="1341" frameX="0" frameY="-12" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0001" x="25" y="2767" width="1044" height="1349" frameX="-15" frameY="-4" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0002" x="25" y="2767" width="1044" height="1349" frameX="-15" frameY="-4" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0003" x="25" y="2767" width="1044" height="1349" frameX="-15" frameY="-4" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0004" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0005" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0006" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0007" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0008" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0009" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0010" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0011" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0012" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Left0013" x="1094" y="2767" width="1043" height="1353" frameX="-15" frameY="0" frameWidth="1060" frameHeight="1353"/>
+	<SubTexture name="Mace Miss Right0000" x="6368" y="2767" width="1111" height="1368" frameX="0" frameY="-1" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Miss Right0001" x="2162" y="2767" width="1061" height="1366" frameX="-25" frameY="0" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0002" x="2162" y="2767" width="1061" height="1366" frameX="-25" frameY="0" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0003" x="2162" y="2767" width="1061" height="1366" frameX="-25" frameY="0" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0004" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0005" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0006" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0007" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0008" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0009" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0010" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0011" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0012" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Right0013" x="3248" y="2767" width="1051" height="1360" frameX="-25" frameY="-5" frameWidth="1112" frameHeight="1369"/>
+	<SubTexture name="Mace Miss Up0000" x="2185" y="4230" width="1015" height="1473"/>
+	<SubTexture name="Mace Miss Up0001" x="4324" y="2767" width="999" height="1438" frameX="-4" frameY="-25" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0002" x="4324" y="2767" width="999" height="1438" frameX="-4" frameY="-25" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0003" x="4324" y="2767" width="999" height="1438" frameX="-4" frameY="-25" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0004" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0005" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0006" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0007" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0008" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0009" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0010" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0011" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0012" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Miss Up0013" x="5348" y="2767" width="995" height="1424" frameX="-5" frameY="-35" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Right0000" x="6368" y="2767" width="1111" height="1368"/>
+	<SubTexture name="Mace Right0001" x="6368" y="2767" width="1111" height="1368"/>
+	<SubTexture name="Mace Right0002" x="25" y="4230" width="1060" height="1363" frameX="-26" frameY="-3" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0003" x="25" y="4230" width="1060" height="1363" frameX="-26" frameY="-3" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0004" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0005" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0006" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0007" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0008" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0009" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0010" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0011" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0012" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Right0013" x="1110" y="4230" width="1050" height="1360" frameX="-27" frameY="-5" frameWidth="1111" frameHeight="1368"/>
+	<SubTexture name="Mace Up0000" x="2185" y="4230" width="1015" height="1473"/>
+	<SubTexture name="Mace Up0001" x="2185" y="4230" width="1015" height="1473"/>
+	<SubTexture name="Mace Up0002" x="3225" y="4230" width="999" height="1437" frameX="-4" frameY="-26" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0003" x="3225" y="4230" width="999" height="1437" frameX="-4" frameY="-26" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0004" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0005" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0006" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0007" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0008" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0009" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0010" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0011" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0012" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+	<SubTexture name="Mace Up0013" x="4249" y="4230" width="995" height="1425" frameX="-5" frameY="-34" frameWidth="1015" frameHeight="1473"/>
+</TextureAtlas>

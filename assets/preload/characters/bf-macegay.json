@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Mace Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				26,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Mace Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-29,
+				-50
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Mace Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-48,
+				130
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Mace Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				25
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Mace Right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				26,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "Mace Miss Left"
+		},
+		{
+			"offsets": [
+				-29,
+				-50
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "Mace Miss Down"
+		},
+		{
+			"offsets": [
+				-48,
+				110
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "Mace Miss Up"
+		},
+		{
+			"offsets": [
+				-30,
+				25
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "Mace Miss Right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bf-macegay",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "mace",
+	"flip_x": true,
+	"healthbar_colors": [
+		186,
+		226,
+		255
+	],
+	"camera_position": [
+		227,
+		-120
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "m-saku-idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				30,
+				27
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "m-saku-left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				90,
+				239
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "m-saku-up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-50,
+				36
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "m-saku-right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				100,
+				-170
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "m-saku-down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				180
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "m-saku-up-alt",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				110,
+				60
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "m-saku-left-alt",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-40,
+				140
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "m-saku-right-alt",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				50,
+				-190
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "m-saku-down-alt",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/maku",
+	"position": [
+		-200,
+		150
+	],
+	"healthicon": "maku",
+	"flip_x": false,
+	"healthbar_colors": [
+		23,
+		216,
+		228
+	],
+	"camera_position": [
+		-200,
+		200
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

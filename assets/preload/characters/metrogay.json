@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				9,
+				127
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Metro Up"
+		},
+		{
+			"offsets": [
+				10,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Metro Idle"
+		},
+		{
+			"offsets": [
+				16,
+				30
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Metro Left"
+		},
+		{
+			"offsets": [
+				0,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Metro Down"
+		},
+		{
+			"offsets": [
+				16,
+				37
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Metro Right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/metrogay",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "metro",
+	"flip_x": false,
+	"healthbar_colors": [
+		23,
+		216,
+		228
+	],
+	"camera_position": [
+		-133,
+		-37
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

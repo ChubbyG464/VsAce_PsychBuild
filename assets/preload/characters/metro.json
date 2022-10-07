@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"anim": "idle",
+			"fps": 24,
+			"name": "Minus Retro Idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				10,
+				-160
+			],
+			"loop": false,
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Minus Retro Down Note",
+			"indices": []
+		},
+		{
+			"offsets": [
+				180,
+				17
+			],
+			"loop": false,
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Minus Retro Left Note",
+			"indices": []
+		},
+		{
+			"offsets": [
+				80,
+				129
+			],
+			"loop": false,
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Minus Retro Up Note",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				46
+			],
+			"loop": false,
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Minus Retro Right Note",
+			"indices": []
+		},
+		{
+			"offsets": [
+				6,
+				6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hey!",
+			"indices": [],
+			"name": "Minus Retro IsThatAllYouGotMaceVariant"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/metro",
+	"position": [
+		-170,
+		-40
+	],
+	"healthicon": "retro",
+	"flip_x": false,
+	"healthbar_colors": [
+		23,
+		216,
+		228
+	],
+	"camera_position": [
+		0,
+		300
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

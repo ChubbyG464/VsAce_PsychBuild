@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Minace_Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				85,
+				-136
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Minace_Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-138,
+				183
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "Minace_Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-167,
+				-127
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Minace_Right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-45,
+				-180
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "Minace_Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				85,
+				-136
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "Minace_MISS_Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-45,
+				-180
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "Minace_MISS_Down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-138,
+				183
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "Minace_MISS_Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-167,
+				-127
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "Minace_MISS_Right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bf-mace-play",
+	"position": [
+		0,
+		50
+	],
+	"healthicon": "ace",
+	"flip_x": true,
+	"healthbar_colors": [
+		186,
+		226,
+		255
+	],
+	"camera_position": [
+		0,
+		200
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
