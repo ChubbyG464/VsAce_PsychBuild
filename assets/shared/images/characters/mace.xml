@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="mace.png">
+<TextureAtlas imagePath="Mace.png">
 	<!-- Created with Adobe Animate version 20.0.0.17400 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Minace_Down0000" x="10" y="10" width="677" height="696" frameX="-11" frameY="-21" frameWidth="688" frameHeight="717"/>

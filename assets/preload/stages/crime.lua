@@ -8,7 +8,7 @@ function onCreate()
 	setLuaSpriteScrollFactor('W2foreground', 1.1, 1.1);
 	scaleObject('W2foreground', 1, 1);
 
-	makeAnimatedLuaSprite('BackC','stages/ace/wallart', -780,-275)
+	makeAnimatedLuaSprite('BackC','stages/ace/wallart', -1400,-1400)
 	addAnimationByPrefix('BackC','dance','vibe',24,true)
 	objectPlayAnimation('BackC','dance',false)
 	setScrollFactor('BackC', 1.1, 1.1);
