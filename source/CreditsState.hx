@@ -1,332 +1,503 @@
 package;
 
-#if desktop
-import Discord.DiscordClient;
-#end
-import flash.text.TextField;
+import flixel.FlxBasic;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
+import flixel.addons.text.FlxTypeText;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
+import flixel.system.FlxSound;
 import flixel.text.FlxText;
-import flixel.util.FlxColor;
-import flixel.tweens.FlxTween;
 import flixel.tweens.FlxEase;
-#if MODS_ALLOWED
-import sys.FileSystem;
-import sys.io.File;
-#end
-import lime.utils.Assets;
+import flixel.tweens.FlxTween;
+import flixel.util.FlxColor;
 
 using StringTools;
+#if windows
+import Discord.DiscordClient;
+#end
+
+// yoinked code from retrospecter srry arcy
+class CreditGroup extends FlxBasic
+{
+	public var name:FlxTypeText; // Positions are based off this text location
+	public var nameStr:String;
+	public var tag:FlxTypeText;
+	public var icon:FlxSprite;
+	public var color:FlxColor;
+	public var link:String;
+	public var nodes:Array<CreditGroup>; // Left, Down, Up, Right
+
+
+	public function new(Name:FlxTypeText, NameString:String, Tag:FlxTypeText, Icon:FlxSprite, Color:FlxColor, Link:String)
+	{
+		super();
+
+		name = Name;
+		nameStr = NameString;
+		tag = Tag;
+		icon = Icon;
+		color = Color;
+		link = Link;
+		nodes = [null, null, null, null];
+
+	}
+
+	public function tweenPosition(X:Float, Y:Float, Duration:Float = 1, ?Options:TweenOptions)
+	{
+		FlxTween.tween(name, {x: X, y: Y}, Duration, Options);
+		FlxTween.tween(tag, {x: X, y: Y + 20}, Duration, Options);
+		FlxTween.tween(icon, {x: X - 50, y: Y}, Duration, Options);
+	}
+
+	public function setPosition(X:Float, Y:Float)
+	{
+		name.setPosition(X, Y);
+		tag.setPosition(X, Y + 20);
+		icon.setPosition(X - 50, Y);
+	}
+
+
+	public function select()
+	{
+		name.setFormat("VCR OSD Mono", 24, color);
+	}
+
+	public function deselect()
+	{
+		name.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
+	}
+}
 
 class CreditsState extends MusicBeatState
 {
-	var curSelected:Int = -1;
+	// Array key:
+	// 0 - Name
+	// 1 - Twitter Tag
+	// 2 - Icon name
+	// 3 - Color
+	// 4 - Twitter Link
+	// 5 - Array of quot- just kidding no quotes
 
-	private var grpOptions:FlxTypedGroup<Alphabet>;
-	private var iconArray:Array<AttachedSprite> = [];
-	private var creditsStuff:Array<Array<String>> = [];
+	var sectionArrays:Array<Dynamic> = [
+		[
+			// Artists
+			['Aurum', '@AurumArt_', 'aurum', FlxColor.fromRGB(255, 221, 114), 'https://twitter.com/AurumArt_', []],
+			['BonesTheSkelebunny01', '@BSkelebunny01', 'bon', FlxColor.fromRGB(255, 51, 187), 'https://twitter.com/BSkelebunny01', []],
+			['Dax', '@Daxite_', 'dax', FlxColor.fromRGB(0, 38, 230), 'https://twitter.com/daxite_', []],
+			['D6', '@DSiiiiiix', 'd6', FlxColor.fromRGB(107, 104, 120), 'https://twitter.com/DSiiiiiix', []],
+			['Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/KamexVGM', []],
+			['Lectro', '@LectroArt', 'lectro', FlxColor.fromRGB(255, 255, 58), 'https://twitter.com/LectroArt', []],
+			['Juno Songs', '@JunoSongsYT', 'juno', FlxColor.fromRGB(191, 0, 230), 'https://twitter.com/JunoSongsYT', []],
+			['Pincer', '@PincerProd', 'pincer', FlxColor.fromRGB(25, 255, 255), 'https://twitter.com/PincerProd', []],
+			['Shiba Chichi', '@lolychichi', 'chichi', FlxColor.fromRGB(255, 179, 191), 'https://twitter.com/lolychichi', []],
+			['Sinna_roll', '@Sinna_roll', 'zhi', FlxColor.fromRGB(204, 255, 102), 'https://twitter.com/Sinna_roll', []],
+			['Springy_4264', '@Springy_4264', 'springy', FlxColor.fromRGB(179, 0, 30), 'https://twitter.com/Springy_4264', []],
+			['Wildface', '@wildface1010', 'wildface', FlxColor.fromRGB(233, 19, 19), 'https://twitter.com/wildface1010', []],
+			['Wolfwrathknight', '@Wolfwrathknight', 'wolf', FlxColor.fromRGB(0, 124, 254), 'https://twitter.com/wolfwrathknight', []]
+		],
+		[
+			// Animators
+			['Aurum', '@AurumArt_', 'aurum', FlxColor.fromRGB(255, 221, 114), 'https://twitter.com/AurumArt_', []],
+			['Shiba Chichi', '@lolychichi', 'chichi', FlxColor.fromRGB(255, 179, 191), 'https://twitter.com/lolychichi', []],
+			['Tenzu', '@Tenzubushi', 'tenzu', FlxColor.GRAY, 'https://twitter.com/Tenzubushi', []],
+			['Wildface', '@wildface1010', 'wildface', FlxColor.fromRGB(233, 19, 19), 'https://twitter.com/wildface1010', []]
+		],
+		[
+			// Audio
+			['Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/kamexvgm', []]
+		],
+		[
+			// Programming
+			['ArcyDev', '@AwkwardArcy', 'arcy', FlxColor.fromRGB(255, 140, 25), 'https://twitter.com/AwkwardArcy', []],
+			['AyeTSG', '@AyeTSG', 'tsg', FlxColor.fromRGB(120, 114, 114), 'https://twitter.com/ayetsg', []],
+			['Candy', '@D0GFREAK', 'candy', FlxColor.fromRGB(255, 192, 203), 'https://twitter.com/D0GFREAK', []],
+			['Mk', '@Mkv8Art', 'mk', FlxColor.fromRGB(255, 25, 102), 'https://twitter.com/Mkv8Art', []],
+			['Tech', '@ThatTechCoyote', 'tech', FlxColor.fromRGB(153, 0, 0), 'https://twitter.com/ThatTechCoyote', []],
+			['Neo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch', []]
+		],
+		[
+			// Charting
+			['ChubbyGamer464', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(201, 162, 92), 'https://twitter.com/ChubbyAlt', []],
+			['Clipee', '@LilyClipster', 'clip', FlxColor.fromRGB(230, 230, 0), 'https://twitter.com/LilyClipster', []],
+			['DJ', '@AlchoholicDj', 'dj', FlxColor.fromRGB(0, 0, 230), 'https://twitter.com/AlchoholicDj', []],
+			['Fogu', '@FoguDragon', 'ayma', FlxColor.fromRGB(168, 50, 58), 'https://twitter.com/FoguDragon', []]
+		],
+		[
+			// Special Thanks
+			['RetroSpecter', '@RetroSpecter_', 'retro', FlxColor.fromRGB(23, 216, 228), 'https://twitter.com/Retrospecter_', []],
+			['Kade', '@KadeDev', 'kade', FlxColor.fromRGB(25, 77, 0), 'https://twitter.com/kade0912', []],
+			['TKTems', '@TKtems', 'tk', FlxColor.fromRGB(0, 230, 191), 'https://twitter.com/TKTems', []],
+			['TiredPinkPanda', '@TiredPinkPanda', 'panda', FlxColor.fromRGB(158, 22, 22), 'https://twitter.com/TiredPinkPanda', []]
+		]
+	];
 
-	var bg:FlxSprite;
-	var descText:FlxText;
-	var intendedColor:Int;
-	var colorTween:FlxTween;
-	var descBox:AttachedSprite;
+	var titleNames:Array<String> = ['Artists', 'Animators', 'Programming', 'Special Thanks'];
+	var title2Names:Array<String> = ['', 'Audio', 'Charting', ''];
 
-	var offsetThing:Float = -75;
+	var iconList:FlxTypedGroup<FlxSprite>;
+	var titleList:FlxTypedGroup<FlxText>;
+	var secondTitleList:FlxTypedGroup<FlxText>;
+	var cur_section:Int = 0;
+	var curSelected:CreditGroup;
+	var textLength:FlxText;
+	// var quoteText:FlxTypeText;
+	// var memeText:FlxTypeText;
+	// var quotePerson:FlxTypeText;
+
+	var creditSections:FlxTypedGroup<FlxTypedGroup<CreditGroup>>;
+	var credit2Sections:FlxTypedGroup<FlxTypedGroup<CreditGroup>>;
+	var artistCredits:FlxTypedGroup<CreditGroup>;
+	var allowInputs:Bool = true;
+
+	//var shh:FlxSound;
 
 	override function create()
 	{
-		#if desktop
+		#if windows
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Reading Credits", null);
 		#end
 
-		persistentUpdate = true;
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		add(bg);
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
+		bg.color = 0xFF803fff;
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.updateHitbox();
 		bg.screenCenter();
-		
-		grpOptions = new FlxTypedGroup<Alphabet>();
-		add(grpOptions);
+		bg.antialiasing = FlxG.save.data.antialiasing;
+		bg.alpha = 0.75;
+		add(bg);
 
-		#if MODS_ALLOWED
-		var path:String = 'modsList.txt';
-		if(FileSystem.exists(path))
+		iconList = new FlxTypedGroup<FlxSprite>();
+		titleList = new FlxTypedGroup<FlxText>();
+		secondTitleList = new FlxTypedGroup<FlxText>();
+		creditSections = new FlxTypedGroup<FlxTypedGroup<CreditGroup>>();
+		credit2Sections = new FlxTypedGroup<FlxTypedGroup<CreditGroup>>();
+		artistCredits = new FlxTypedGroup<CreditGroup>();
+
+		var title:FlxText = new FlxText(0, 25, 0, 'CREDITS', 100);
+		title.setFormat("VCR OSD Mono", 100, FlxColor.WHITE);
+		title.screenCenter(X);
+		add(title);
+
+		var instructions:FlxText = new FlxText(10, 10, 500, 'Move to select a person\nConfirm to go to their Twitter page\nQ and E to change sections');
+		instructions.setFormat("VCR OSD Mono", 18, FlxColor.WHITE, FlxTextAlign.LEFT);
+		add(instructions);
+
+		// textLength = new FlxText(0, 600, 0, '');
+		// textLength.setFormat("VCR OSD Mono", 36, FlxColor.WHITE);
+		// quoteText = new FlxTypeText(textLength.x, 600, 1280, '');
+		// quoteText.setFormat("VCR OSD Mono", 36, FlxColor.WHITE);
+		// quoteText.sounds = [FlxG.sound.load(Paths.sound('bfText'), 0.6)];
+		// add(quoteText);
+		// memeText = new FlxTypeText(textLength.x, 600, 0, '');
+		// memeText.setFormat("VCR OSD Mono", 36, FlxColor.WHITE);
+		// memeText.sounds = [FlxG.sound.load(Paths.sound('bfText'), 0.6)];
+		// memeText.visible = false;
+		// add(memeText);
+		// quotePerson = new FlxTypeText(650, 675, 0, '');
+		// quotePerson.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
+		// add(quotePerson);
+
+		for (i in 0...titleNames.length)
 		{
-			var leMods:Array<String> = CoolUtil.coolTextFile(path);
-			for (i in 0...leMods.length)
+			var subTitle:FlxText = new FlxText(2175, 150, 0, titleNames[i], 50);
+			subTitle.setFormat("VCR OSD Mono", 50, FlxColor.WHITE);
+			titleList.add(subTitle);
+
+			var secondSubTitle:FlxText = new FlxText(2175, 400, 0, title2Names[i], 50);
+			secondSubTitle.setFormat("VCR OSD Mono", 50, FlxColor.WHITE);
+			secondTitleList.add(secondSubTitle);
+		}
+
+		// Hard code workaround
+		credit2Sections.add(new FlxTypedGroup<CreditGroup>());
+
+		for (i in 0...sectionArrays.length)
+		{
+			var section:FlxTypedGroup<CreditGroup> = new FlxTypedGroup<CreditGroup>();
+
+			for (j in 0...sectionArrays[i].length)
 			{
-				if(leMods.length > 1 && leMods[0].length > 0) {
-					var modSplit:Array<String> = leMods[i].split('|');
-					if(!Paths.ignoreModFolders.contains(modSplit[0].toLowerCase()) && !modsAdded.contains(modSplit[0]))
-					{
-						if(modSplit[1] == '1')
-							pushModCreditsToList(modSplit[0]);
-						else
-							modsAdded.push(modSplit[0]);
-					}
-				}
+				var icon:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('crediticons/' + sectionArrays[i][j][2], 'preload'));
+				icon.setGraphicSize(50, 50);
+				icon.antialiasing = FlxG.save.data.antialiasing;
+				icon.updateHitbox();
+				var name:FlxTypeText = new FlxTypeText(0, 0, 0, sectionArrays[i][j][0]);
+				name.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
+				name.start(0.1);
+				add(name);
+				var tag:FlxTypeText = new FlxTypeText(0, 0, 0, sectionArrays[i][j][1]);
+				tag.setFormat("VCR OSD Mono", 18, 0xFFd1d1d1);
+				tag.start(0.1);
+				add(tag);
+				var credit:CreditGroup = new CreditGroup(name, sectionArrays[i][j][0], tag, icon, sectionArrays[i][j][3], sectionArrays[i][j][4]);
+
+				iconList.add(icon);
+				section.add(credit);
 			}
-		}
 
-		var arrayOfFolders:Array<String> = Paths.getModDirectories();
-		arrayOfFolders.push('');
-		for (folder in arrayOfFolders)
-		{
-			pushModCreditsToList(folder);
-		}
-		#end
-
-		var pisspoop:Array<Array<String>> = [ //Name - Icon name - Description - Link - BG Color
-			['Psych Engine Team'],
-			['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',								'https://twitter.com/Shadow_Mario_',	'444444'],
-			['RiverOaken',			'river',			'Main Artist/Animator of Psych Engine',							'https://twitter.com/RiverOaken',		'B42F71'],
-			['shubs',				'shubs',			'Additional Programmer of Psych Engine',						'https://twitter.com/yoshubs',			'5E99DF'],
-			[''],
-			['Former Engine Members'],
-			['bb-panzu',			'bb',				'Ex-Programmer of Psych Engine',								'https://twitter.com/bbsub3',			'3E813A'],
-			[''],
-			['Engine Contributors'],
-			['iFlicky',				'flicky',			'Composer of Psync and Tea Time\nMade the Dialogue Sounds',		'https://twitter.com/flicky_i',			'9E29CF'],
-			['SqirraRNG',			'sqirra',			'Crash Handler and Base code for\nChart Editor\'s Waveform',	'https://twitter.com/gedehari',			'E1843A'],
-			['PolybiusProxy',		'proxy',			'.MP4 Video Loader Library (hxCodec)',							'https://twitter.com/polybiusproxy',	'DCD294'],
-			['KadeDev',				'kade',				'Fixed some cool stuff on Chart Editor\nand other PRs',			'https://twitter.com/kade0912',			'64A250'],
-			['Keoiki',				'keoiki',			'Note Splash Animations',										'https://twitter.com/Keoiki_',			'D2D2D2'],
-			['Nebula the Zorua',	'nebula',			'LUA JIT Fork and some Lua reworks',							'https://twitter.com/Nebula_Zorua',		'7D40B2'],
-			['Smokey',				'smokey',			'Sprite Atlas Support',											'https://twitter.com/Smokey_5_',		'483D92'],
-			[''],
-			["Funkin' Crew"],
-			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",							'https://twitter.com/ninja_muffin99',	'CF2D2D'],
-			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",								'https://twitter.com/PhantomArcade3K',	'FADC45'],
-			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",								'https://twitter.com/evilsk8r',			'5ABD4B'],
-			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",								'https://twitter.com/kawaisprite',		'378FC7']
-		];
-		
-		for(i in pisspoop){
-			creditsStuff.push(i);
-		}
-	
-		for (i in 0...creditsStuff.length)
-		{
-			var isSelectable:Bool = !unselectableCheck(i);
-			var optionText:Alphabet = new Alphabet(0, 70 * i, creditsStuff[i][0], !isSelectable, false);
-			optionText.isMenuItem = true;
-			optionText.screenCenter(X);
-			optionText.yAdd -= 70;
-			if(isSelectable) {
-				optionText.x -= 70;
-			}
-			optionText.forceX = optionText.x;
-			//optionText.yMult = 90;
-			optionText.targetY = i;
-			grpOptions.add(optionText);
-
-			if(isSelectable) {
-				if(creditsStuff[i][5] != null)
-				{
-					Paths.currentModDirectory = creditsStuff[i][5];
-				}
-
-				var icon:AttachedSprite = new AttachedSprite('credits/' + creditsStuff[i][1]);
-				icon.xAdd = optionText.width + 10;
-				icon.sprTracker = optionText;
-	
-				// using a FlxGroup is too much fuss!
-				iconArray.push(icon);
-				add(icon);
-				Paths.currentModDirectory = '';
-
-				if(curSelected == -1) curSelected = i;
-			}
-		}
-		
-		descBox = new AttachedSprite();
-		descBox.makeGraphic(1, 1, FlxColor.BLACK);
-		descBox.xAdd = -10;
-		descBox.yAdd = -10;
-		descBox.alphaMult = 0.6;
-		descBox.alpha = 0.6;
-		add(descBox);
-
-		descText = new FlxText(50, FlxG.height + offsetThing - 25, 1180, "", 32);
-		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER/*, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK*/);
-		descText.scrollFactor.set();
-		//descText.borderSize = 2.4;
-		descBox.sprTracker = descText;
-		add(descText);
-
-		bg.color = getCurrentBGColor();
-		intendedColor = bg.color;
-		changeSelection();
-		super.create();
-	}
-
-	var quitting:Bool = false;
-	var holdTime:Float = 0;
-	override function update(elapsed:Float)
-	{
-		if (FlxG.sound.music.volume < 0.7)
-		{
-			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
-		}
-
-		if(!quitting)
-		{
-			if(creditsStuff.length > 1)
+			for (i in 0...section.length)
 			{
-				var shiftMult:Int = 1;
-				if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
+				section.members[i].setPosition(2175 + ((i % 3) * 400), 250 + (Std.int(i / 3) * 100));
 
-				var upP = controls.UI_UP_P;
-				var downP = controls.UI_DOWN_P;
-
-				if (upP)
+				// Left
+				if (i % 3 != 0)
 				{
-					changeSelection(-1 * shiftMult);
-					holdTime = 0;
+					section.members[i].nodes[0] = section.members[i - 1];
 				}
-				if (downP)
+				else if (i + 2 < section.length)
 				{
-					changeSelection(1 * shiftMult);
-					holdTime = 0;
-				}
-
-				if(controls.UI_DOWN || controls.UI_UP)
-				{
-					var checkLastHold:Int = Math.floor((holdTime - 0.5) * 10);
-					holdTime += elapsed;
-					var checkNewHold:Int = Math.floor((holdTime - 0.5) * 10);
-
-					if(holdTime > 0.5 && checkNewHold - checkLastHold > 0)
-					{
-						changeSelection((checkNewHold - checkLastHold) * (controls.UI_UP ? -shiftMult : shiftMult));
-					}
-				}
-			}
-
-			if(controls.ACCEPT && (creditsStuff[curSelected][3] == null || creditsStuff[curSelected][3].length > 4)) {
-				CoolUtil.browserLoad(creditsStuff[curSelected][3]);
-			}
-			if (controls.BACK)
-			{
-				if(colorTween != null) {
-					colorTween.cancel();
-				}
-				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new MainMenuState());
-				quitting = true;
-			}
-		}
-		
-		for (item in grpOptions.members)
-		{
-			if(!item.isBold)
-			{
-				var lerpVal:Float = CoolUtil.boundTo(elapsed * 12, 0, 1);
-				if(item.targetY == 0)
-				{
-					var lastX:Float = item.x;
-					item.screenCenter(X);
-					item.x = FlxMath.lerp(lastX, item.x - 70, lerpVal);
-					item.forceX = item.x;
+					section.members[i].nodes[0] = section.members[i + 2];
 				}
 				else
 				{
-					item.x = FlxMath.lerp(item.x, 200 + -40 * Math.abs(item.targetY), lerpVal);
-					item.forceX = item.x;
+					section.members[i].nodes[0] = section.members[section.length - 1];
+				}
+				// Down
+				if (i + 3 < section.length)
+				{
+					section.members[i].nodes[1] = section.members[i + 3];
+				}
+				else
+				{
+					section.members[i].nodes[1] = section.members[i % 3];
+				}
+				// Up
+				if (i - 3 >= 0)
+				{
+					section.members[i].nodes[2] = section.members[i - 3];
+				}
+				else
+				{
+					var remainder:Int = section.length % 3;
+					var column:Int = i % 3;
+					if (remainder < column + 1)
+					{
+						section.members[i].nodes[2] = section.members[section.length - remainder - (3 - column - 1) - 1];
+					}
+					else if (remainder > column + 1)
+					{
+						section.members[i].nodes[2] = section.members[section.length - (3 - column - 1)];
+					}
+					else
+					{
+						section.members[i].nodes[2] = section.members[section.length - 1];
+					}
+				}
+				// Right
+				if (i + 1 >= section.length)
+				{
+					section.members[i].nodes[3] = section.members[i - (i % 3)];
+				}
+				else if (i % 3 != 2)
+				{
+					section.members[i].nodes[3] = section.members[i + 1];
+				}
+				else if (i - 2 < section.length)
+				{
+					section.members[i].nodes[3] = section.members[i - 2];
+				}
+				else
+				{
+					section.members[i].nodes[3] = section.members[section.length - 1];
 				}
 			}
+
+			if (i == 2 || i == 4)
+			{
+				credit2Sections.add(section);
+			}
+			else
+			{
+				creditSections.add(section);
+			}
 		}
+
+		// this should make everything connect together hopefullyskjgs (candy)
+		// arcy is a fucking legend
+
+		// Animators/Audio
+		creditSections.members[1].members[3].nodes[1] = credit2Sections.members[1].members[0]; // Down | Wildface -> Kamex
+		credit2Sections.members[1].members[0].nodes[1] = creditSections.members[1].members[0]; // Down | Kamex -> Aurum
+		credit2Sections.members[1].members[0].nodes[2] = creditSections.members[1].members[3]; // Up | Kamex -> Wildface
+		creditSections.members[1].members[0].nodes[2] = credit2Sections.members[1].members[0]; // Up | Aurum -> Kamex
+		creditSections.members[1].members[3].nodes[2] = creditSections.members[1].members[0]; // Up | Wildface -> Aurum (idk if this actually worked or not but the code is functional so -vsn)
+
+		// Programming/Charters
+		creditSections.members[2].members[0].nodes[2] = credit2Sections.members[2].members[3];	// Up	| Arcy -> Ayma
+		credit2Sections.members[2].members[0].nodes[2] = creditSections.members[2].members[3];	// Up	| Chubby -> Mk
+		creditSections.members[2].members[1].nodes[2] = credit2Sections.members[2].members[1];	// Up	| TSG -> Clipee
+		credit2Sections.members[2].members[1].nodes[2] = creditSections.members[2].members[4];	// Up	| Clipee -> tech
+		creditSections.members[2].members[2].nodes[2] = credit2Sections.members[2].members[2];	// Up	| candy -> DJ
+		credit2Sections.members[2].members[2].nodes[2] = creditSections.members[2].members[5];	// Up	| DJ -> tech
+
+		creditSections.members[2].members[3].nodes[1] = credit2Sections.members[2].members[0];	// Down	| Mk -> Chubby
+		credit2Sections.members[2].members[3].nodes[1] = creditSections.members[2].members[0];	// Down	| Ayma -> Arcy
+		creditSections.members[2].members[4].nodes[1] = credit2Sections.members[2].members[1];	// Down	| tech -> Clipee
+		credit2Sections.members[2].members[1].nodes[1] = creditSections.members[2].members[1];	// Down	| Clipee -> TSG
+		creditSections.members[2].members[5].nodes[1] = credit2Sections.members[2].members[2];	// Down	| neeo -> dj
+		credit2Sections.members[2].members[2].nodes[1] = creditSections.members[2].members[2];	// Down	| DJ -> candy
+
+
+
+		credit2Sections.add(new FlxTypedGroup<CreditGroup>());
+
+		// Initialize
+		titleList.members[cur_section].setPosition(640 - (titleList.members[cur_section].width / 2), 150);
+		secondTitleList.members[cur_section].setPosition(640 - (secondTitleList.members[cur_section].width / 2), 400);
+		for (i in 0...creditSections.members[cur_section].length)
+		{
+			creditSections.members[cur_section].members[i].setPosition(175 + ((i % 3) * 400), 250 + (Std.int(i / 3) * 75));
+		}
+		for (i in 0...credit2Sections.members[cur_section].length)
+		{
+			credit2Sections.members[cur_section].members[i].setPosition(175 + ((i % 3) * 400), 500 + (Std.int(i / 3) * 75));
+		}
+
+		curSelected = creditSections.members[cur_section].members[0];
+		curSelected.select();
+
+		/*shh = new FlxSound().loadEmbedded(Paths.sound('forD6', 'shared'));
+		FlxG.sound.list.add(shh);*/
+
+		add(titleList);
+		add(secondTitleList);
+		add(iconList);
+		add(creditSections);
+		add(credit2Sections);
+
+
+
+		super.create();
+	}
+
+	override function update(elapsed:Float)
+	{
+		// For animations on beat
+		if (FlxG.sound.music != null)
+		{
+			Conductor.songPosition = FlxG.sound.music.time;
+		}
+
+
+		if (controls.BACK)
+		{
+			FlxG.switchState(new MainMenuState());
+		}
+		else if (controls.ACCEPT)
+		{
+			// (tsg - 8/14/2021) dont try to open null links (such as kevin's)
+			if (curSelected.link != null) {
+				FlxG.openURL(curSelected.link);
+			}
+		}
+
+		if (allowInputs && FlxG.keys.justPressed.Q)
+		{
+			changeSection(-1);
+		}
+		else if (allowInputs && FlxG.keys.justPressed.E)
+		{
+			changeSection(1);
+		}
+		else if (controls.UI_LEFT_P)
+		{
+			move(0);
+		}
+		else if (controls.UI_RIGHT_P)
+		{
+			move(3);
+		}
+		else if (controls.UI_UP_P)
+		{
+			move(2);
+		}
+		else if (controls.UI_DOWN_P)
+		{
+			move(1);
+		}
+
+		for (i in 0...iconList.length)
+		{
+			iconList.members[i].setGraphicSize(Std.int(FlxMath.lerp(50, iconList.members[i].width, 0.50)));
+			iconList.members[i].updateHitbox();
+		}
+
 		super.update(elapsed);
 	}
 
-	var moveTween:FlxTween = null;
-	function changeSelection(change:Int = 0)
+	override function beatHit()
 	{
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
-		do {
-			curSelected += change;
-			if (curSelected < 0)
-				curSelected = creditsStuff.length - 1;
-			if (curSelected >= creditsStuff.length)
-				curSelected = 0;
-		} while(unselectableCheck(curSelected));
-
-		var newColor:Int =  getCurrentBGColor();
-		if(newColor != intendedColor) {
-			if(colorTween != null) {
-				colorTween.cancel();
-			}
-			intendedColor = newColor;
-			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
-				onComplete: function(twn:FlxTween) {
-					colorTween = null;
-				}
-			});
-		}
-
-		var bullShit:Int = 0;
-
-		for (item in grpOptions.members)
+		for (i in 0...iconList.length)
 		{
-			item.targetY = bullShit - curSelected;
-			bullShit++;
-
-			if(!unselectableCheck(bullShit-1)) {
-				item.alpha = 0.6;
-				if (item.targetY == 0) {
-					item.alpha = 1;
-				}
-			}
+			FlxTween.tween(iconList.members[i], {width: 60, height: 60}, 0.05, {ease: FlxEase.cubeOut});
 		}
-
-		descText.text = creditsStuff[curSelected][2];
-		descText.y = FlxG.height - descText.height + offsetThing - 60;
-
-		if(moveTween != null) moveTween.cancel();
-		moveTween = FlxTween.tween(descText, {y : descText.y + 75}, 0.25, {ease: FlxEase.sineOut});
-
-		descBox.setGraphicSize(Std.int(descText.width + 20), Std.int(descText.height + 25));
-		descBox.updateHitbox();
 	}
 
-	#if MODS_ALLOWED
-	private var modsAdded:Array<String> = [];
-	function pushModCreditsToList(folder:String)
+	// 0 - Left
+	// 1 - Down
+	// 2 - Up
+	// 3 - Right
+	function move(direction:Int)
 	{
-		if(modsAdded.contains(folder)) return;
+		FlxG.sound.play(Paths.sound('scrollMenu'));
 
-		var creditsFile:String = null;
-		if(folder != null && folder.trim().length > 0) creditsFile = Paths.mods(folder + '/data/credits.txt');
-		else creditsFile = Paths.mods('data/credits.txt');
+		curSelected.deselect();
+		curSelected = curSelected.nodes[direction];
+		curSelected.select();
 
-		if (FileSystem.exists(creditsFile))
+
+	}
+
+	function changeSection(direction:Int)
+	{
+		allowInputs = false;
+
+		FlxTween.tween(titleList.members[cur_section], {x: (direction < 0 ? 2175 : -1825) - (titleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut});
+		FlxTween.tween(secondTitleList.members[cur_section], {x: (direction < 0 ? 2175 : -1825) - (secondTitleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut});
+		for (i in 0...creditSections.members[cur_section].length)
 		{
-			var firstarray:Array<String> = File.getContent(creditsFile).split('\n');
-			for(i in firstarray)
-			{
-				var arr:Array<String> = i.replace('\\n', '\n').split("::");
-				if(arr.length >= 5) arr.push(folder);
-				creditsStuff.push(arr);
-			}
-			creditsStuff.push(['']);
+			creditSections.members[cur_section].members[i].tweenPosition((direction < 0 ? 2175 : -1825) + ((i % 3) * 400),  250 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
 		}
-		modsAdded.push(folder);
-	}
-	#end
-
-	function getCurrentBGColor() {
-		var bgColor:String = creditsStuff[curSelected][4];
-		if(!bgColor.startsWith('0x')) {
-			bgColor = '0xFF' + bgColor;
+		for (i in 0...credit2Sections.members[cur_section].length)
+		{
+			credit2Sections.members[cur_section].members[i].tweenPosition((direction < 0 ? 2175 : -1825) + ((i % 3) * 400),  500 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
 		}
-		return Std.parseInt(bgColor);
+
+		cur_section += direction;
+
+		if (cur_section >= creditSections.length)
+		{
+			cur_section = 0;
+		}
+		else if (cur_section < 0)
+		{
+			cur_section = creditSections.length - 1;
+		}
+
+		curSelected.deselect();
+		curSelected = creditSections.members[cur_section].members[0];
+		curSelected.select();
+
+
+		titleList.members[cur_section].setPosition((direction < 0 ? -1825 : 2175) + (titleList.members[cur_section].width / 2), 150);
+		secondTitleList.members[cur_section].setPosition((direction < 0 ? -1825 : 2175) + (titleList.members[cur_section].width / 2), 400);
+		FlxTween.tween(titleList.members[cur_section], {x: 640 - (titleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut, onComplete: function(flx:FlxTween) { allowInputs = true; }});
+		FlxTween.tween(secondTitleList.members[cur_section], {x: 640 - (secondTitleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut, onComplete: function(flx:FlxTween) { allowInputs = true; }});
+		for (i in 0...creditSections.members[cur_section].length)
+		{
+			creditSections.members[cur_section].members[i].setPosition((direction < 0 ? -1825 : 2175) + ((i % 3) * 400), 250 + (Std.int(i / 3) * 75));
+			creditSections.members[cur_section].members[i].tweenPosition(175 + ((i % 3) * 400),  250 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
+		}
+
+		for (i in 0...credit2Sections.members[cur_section].length)
+		{
+			credit2Sections.members[cur_section].members[i].setPosition((direction < 0 ? -1825 : 2175) + ((i % 3) * 400), 500 + (Std.int(i / 3) * 75));
+			credit2Sections.members[cur_section].members[i].tweenPosition(175 + ((i % 3) * 400),  500 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
+		}
 	}
 
-	private function unselectableCheck(num:Int):Bool {
-		return creditsStuff[num].length <= 1;
-	}
+
+
 }
