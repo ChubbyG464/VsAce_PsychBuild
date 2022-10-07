@@ -1,0 +1,6 @@
+:blank:Maaaaaaaace!
+Happy:Mace:Hey Maku!
+Happy:Maku:Hiya, sweetie! What are you doing out here all alone?
+Neutral:Mace:Just felt like relaxing, it's so peaceful right now.
+Flustered:Maku:Would you like to sing together?
+Happy:Mace:I'd love to!

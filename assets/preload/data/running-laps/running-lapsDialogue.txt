@@ -1,0 +1,12 @@
+Blush:Mace:Wow... Beautiful.
+Neutral:MBF:Beep?
+Surprised:Mace:Ah!
+Relieved:Mace:Oh, sorry. I didn't see you there. I'm not used to anyone else being out here at this hour.
+Confused:MBF:Beep boop?
+Confused:Mace:What am I doing?
+Happy:Mace:I was just taking some pictures of the sunset for our Photo Club. The football field is the best place for it.
+Neutral:MBF:Bep
+Surprised:Mace:Oh, you're the new guy from the Paradise Wing!
+Happy:Mace:The name's Mace. Nice to meet you!
+Happy:MBF:Beep boop brap?
+Surprised:Mace:You want a practice partner for Choir? Uh, s-sure! I don't sing much but I can try! 

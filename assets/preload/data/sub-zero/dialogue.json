@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixelText",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Jesus, you're really good at this!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Beepboopba!!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "gfportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": ":O"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Okay, okay, we gotta do one more. This is too much fun!"
+		}
+	]
+}

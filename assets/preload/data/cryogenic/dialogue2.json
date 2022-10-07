@@ -1,0 +1,60 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixelText",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Phew, that was fun, but I'm beat."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Beep!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Man, I think that was one of my fastest songs. Haha, I'm really not used to this."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Boop!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Anyway, let'\\s take a break, I can show you guys around if you wanna chill for a while."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Bep!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "gfportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": ":D"
+		}
+	]
+}

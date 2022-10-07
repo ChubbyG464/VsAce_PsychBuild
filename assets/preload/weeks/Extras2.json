@@ -1,0 +1,50 @@
+{
+	"storyName": "Hidden2",
+	"difficulties": "Easy,Normal,Hard,Swapped",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "week1",
+	"startUnlocked": false,
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"north",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"cold-hearted",
+			"sakuroma",
+			[
+				248,
+				54,
+				107
+			]
+		],
+		[
+			"ectospasm",
+			"retro",
+			[
+				23,
+				216,
+				228
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Extras2",
+	"hiddenUntilUnlocked": false
+}

@@ -1,0 +1,84 @@
+{
+	"dialogue": [
+		{
+			"sound": "PixelText",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "That was great! I wanna do it again."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "And I thought I had a lot of stamina."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Maybe later though, I'm starving."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Want to grab a bite to eat? McDemon's maybe?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Sure."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "I'll see if Maku wants to join. Triple Lunch Date!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Flushed",
+			"text": "Okay, but she has to sit between us. I can't let the rest of the team know about you and me yet."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I'm not sure how some of them would react."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "ESPECIALLY Terrus."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Pfft, alright, I get it. Come on, let's go!"
+		}
+	]
+}

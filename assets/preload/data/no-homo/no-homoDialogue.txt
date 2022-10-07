@@ -1,0 +1,9 @@
+:blank:[The Next Day...]
+Sad:Metro:Hey, dude, sorry about yesterday.
+Neutral:Mace:It's fine. Just please let me fend for myself unless I ask for help.
+Neutral:Metro:Yeah, I gotcha. Won't happen again, I promise.
+Neutral:Mace:...
+Neutral:Metro:...
+Happy:Metro:Man, it's really peaceful out today. I kinda wanna sing with you.
+Blush:Mace:R-right here? Right now? What if someone sees us?
+Smug:Metro:Free show for them, I guess.

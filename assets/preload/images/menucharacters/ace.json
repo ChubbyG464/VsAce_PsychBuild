@@ -1,0 +1,11 @@
+{
+	
+	"image": "campaign_menu_UI_characters",
+	"position": [
+		160,
+		111
+	],
+	"scale": 0.40,
+	"idle_anim": "Ace_Idle",
+	"confirm_anim": "Ace_Idle"
+}

@@ -1,0 +1,148 @@
+{
+	"dialogue": [
+		{
+			"expression": "Smug",
+			"text": "Hey, nerd! Still taking those silly little pictures out here?",
+			"boxState": "normal",
+			"sound": "pixeltext",
+			"speed": 0.04,
+			"portrait": "MetroPortraits"
+		},
+		{
+			"expression": "Surprised",
+			"text": "Oh, hey, Metro!",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits"
+		},
+		{
+			"sound": "PixelText",
+			"speed": 0.04,
+			"portrait": "Metroportraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "'Sup."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "Maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "What have you been up to?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Flexing",
+			"text": "Just got done with the daily workout routine."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "MetroPortraits",
+			"boxState": "normal",
+			"expression": "Flushed",
+			"text": "Was gonna shower and I was wondering if you wanted to joi--"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Disgruntled",
+			"text": "Breh."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "O-oh, maybe later, haha!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "Maceportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Metro, This is Paradise Boyfri--"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "Metroportraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "I know who he is."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Disgruntled",
+			"text": "Beep."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "Wait, you two know each other?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "I already kicked your ass once, don't make me do it again."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "Beep boop BRIPPITY BRAP"
+		},
+		{
+			"sound": "",
+			"speed": 0.03,
+			"portrait": "metroportraits",
+			"boxState": "angry",
+			"expression": "Angry",
+			"text": "WHAT'D YOU SAY ABOUT MY MOTHER?!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Upset",
+			"text": "Guys, please don't do this..."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "Don't worry man, I'll handle this little son of a bitch for you. Once and for all."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Disgruntled",
+			"text": "Boop."
+		}
+	]
+}

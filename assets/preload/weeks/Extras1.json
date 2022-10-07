@@ -1,0 +1,32 @@
+{
+	"storyName": "Hidden1",
+	"difficulties": "Easy,Normal,Hard,Swapped",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "week0",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": false,
+	"hideStoryMode": true,
+	"songs": [
+		[
+			"Frostbite",
+			"ace-frost",
+			[
+				186,
+				226,
+				255
+			]
+		]
+	],
+	"weekCharacters": [
+		"dad",
+		"bf",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "Frostbite"
+}

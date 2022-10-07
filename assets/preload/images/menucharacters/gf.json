@@ -1,11 +1,11 @@
 {
 	
-	"image": "Menu_GF",
+	"image": "campaign_menu_UI_characters",
 	"position": [
-		0,
-		-25
+		25,
+		65
 	],
-	"scale": 1,
-	"idle_anim": "M GF Idle",
-	"confirm_anim": "M GF Idle"
+	"scale": 0.45,
+	"idle_anim": "GF Dancing Beat WHITE",
+	"confirm_anim": "GF Dancing Beat WHITE"
 }

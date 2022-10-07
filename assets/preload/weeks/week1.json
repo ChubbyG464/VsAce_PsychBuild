@@ -1,22 +1,50 @@
 {
-	"songs": [
-		["Bopeebo", "dad", [146, 113, 253]],
-		["Fresh", "dad", [146, 113, 253]],
-		["Dad Battle", "dad", [146, 113, 253]]
+	"storyName": "Ace (again)",
+	"difficulties": "Easy,Normal,Hard,Swapped",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "week0",
+	"freeplayColor": [
+		146,
+		113,
+		253
 	],
-
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"groundhog-day",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"cold-front",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"cryogenic",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		]
+	],
 	"weekCharacters": [
-		"dad",
-		"bf",
+		"ace",
+		"bf-cold",
 		"gf"
 	],
-	"weekBackground": "stage",
-
-	"storyName": "Daddy Dearest",
-	"weekBefore": "tutorial",
-	"weekName": "Week 1",
-	"startUnlocked": true,
-
-	"hideStoryMode": false,
-	"hideFreeplay": false
+	"hiddenUntilUnlocked": false,
+	"weekName": "week-ace1"
 }

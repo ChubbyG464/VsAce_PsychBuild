@@ -1,0 +1,10 @@
+{
+	"idle_anim": "Minace_Idle",
+	"image": "campaign_menu_UI_characters",
+	"position": [
+		160,
+		111
+	],
+	"scale": 0.40,
+	"confirm_anim": "Minace_Idle"
+}

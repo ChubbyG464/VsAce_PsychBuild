@@ -1,0 +1,76 @@
+{
+	"dialogue": [
+		{
+			"sound": "PixelText",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Relieved",
+			"text": "I needed that. Thanks, PBF."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Beep bop!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Cheering",
+			"text": "Maaaaaaaace!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "Oh, hey, Maku! Who's that behind you?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "This is the new cheerleader! I wanted to show her the field we'll be performing on."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "She said to call her IGF. Infernal Girlfriend or something? I think it sounds neat!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mgfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": ":D"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Booba",
+			"text": "BOOPA"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "Uh ohhhh..."
+		}
+	]
+}

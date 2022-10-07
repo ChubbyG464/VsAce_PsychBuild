@@ -1,0 +1,10 @@
+{
+	"idle_anim": "Minus_BF_Idle",
+	"image": "campaign_menu_UI_characters",
+	"position": [
+		60,
+		55
+	],
+	"scale": 0.8,
+	"confirm_anim": "Minus_BF_Idle"
+}

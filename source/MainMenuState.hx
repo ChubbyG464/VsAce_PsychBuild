@@ -105,7 +105,7 @@ class MainMenuState extends MusicBeatState
 		black.setGraphicSize(Std.int(black.width * 1.1));
 		black.updateHitbox();
 		//black.screenCenter();
-		if(FlxG.save.data.antialiasing)
+		if(ClientPrefs.globalAntialiasing)
 			black.antialiasing = true;
 		add(black);
 		if (firstStart) {
@@ -126,7 +126,7 @@ class MainMenuState extends MusicBeatState
 		var icon = new HealthIcon("ace", true);
 		icon.x = FlxG.width * 1.1;
 		icon.y = FlxG.height * 0.8;
-		if(FlxG.save.data.antialiasing)
+		if(ClientPrefs.globalAntialiasing)
 			icon.antialiasing = true;
 		icon.updateHitbox();
 		add(icon);

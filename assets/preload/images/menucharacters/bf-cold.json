@@ -1,0 +1,11 @@
+{
+	
+	"image": "campaign_menu_UI_characters",
+	"position": [
+		60,
+		25
+	],
+	"scale": 0.9,
+	"idle_anim": "BF idle dance white",
+	"confirm_anim": "BF HEY!!"
+}

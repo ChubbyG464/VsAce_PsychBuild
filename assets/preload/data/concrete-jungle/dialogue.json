@@ -1,0 +1,52 @@
+{
+	"dialogue": [
+		{
+			"expression": "Happy",
+			"text": "Beep!",
+			"boxState": "normal",
+			"portrait": "bfportraits",
+			"speed": 0.045,
+			"sound": "pixelText"
+		},
+		{
+			"expression": "Happy",
+			"text": "Huh? Oh, hey there! I'm Ace, what's up?",
+			"boxState": "normal",
+			"portrait": "aceportraits",
+			"speed": 0.045,
+			"sound": "pixelText"
+		},
+		{
+			"expression": "Neutral",
+			"text": ":D",
+			"boxState": "normal",
+			"portrait": "gfportraits",
+			"speed": 0.045,
+			"sound": "pixeltext"
+		},
+		{
+			"expression": "Neutral",
+			"text": "Manhattan? There's a bus that will take you there, but the next one doesn't arrive for a few minutes.",
+			"boxState": "normal",
+			"portrait": "aceportraits",
+			"speed": 0.045,
+			"sound": "pixelText"
+		},
+		{
+			"expression": "talk",
+			"text": "Beep boop?",
+			"boxState": "normal",
+			"portrait": "bfportraits",
+			"speed": 0.045,
+			"sound": "pixelText"
+		},
+		{
+			"expression": "Happy",
+			"text": "You want to battle in the meantime? Sure!",
+			"boxState": "normal",
+			"portrait": "aceportraits",
+			"speed": 0.045,
+			"sound": "pixelText"
+		}
+	]
+}

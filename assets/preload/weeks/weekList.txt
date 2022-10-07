@@ -1,7 +1,11 @@
-tutorial
+week0
+Extras1
 week1
+Extras2
 week2
+Extras3
 week3
+tutorial
 week4
 week5
 week6

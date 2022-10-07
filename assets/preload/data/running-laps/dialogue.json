@@ -1,0 +1,100 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixeltext",
+			"speed": 0.05,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "Wow, Beautiful."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "MBFPortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "angry",
+			"expression": "Surprised",
+			"text": "Ah!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Relieved",
+			"text": "Oh, sorry. I didn't see you there. I'm not used to anyone else being out here at this hour."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Beep boop?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "What am I doing?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "I was just taking some pictures of the sunset for our Photo Club. The football field is the best place for it."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Bep"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "Oh, you're the new guy from the Paradise Wing!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "The name's Mace. Nice to meet you!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Beep boop brap?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "You want a practice partner for Choir? Uh, s-sure! I don't sing much but I can try!"
+		}
+	]
+}

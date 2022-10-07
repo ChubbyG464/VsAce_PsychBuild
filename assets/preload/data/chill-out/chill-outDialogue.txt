@@ -1,0 +1,20 @@
+Worried:Mace:Please stop...
+Surprised:Metro:Sheesh, it got cold out here. Even the sunrise is over.
+Neutral:MBF:Beep bap?
+Surprised:Metro:Woah, Mace, you okay?
+Upset:Mace:No. You need to stop getting so angry all the time.
+Neutral:Metro:Sorry, I thought he was--
+Upset:Mace:Bothering me? Just like everyone else I meet?
+Annoyed:Metro:Look, I--
+Sad:Metro:*sigh* Sorry, man. I'll give you some space.
+Annoyed:Metro:(Don't think this is over between us, you little runt. Now you've REALLY pissed me off.)
+Relieved:Mace:Sorry about that... I had no idea you guys had beef. I almost thought there'd be another fight...
+Neutral:Mace:That man is way too overprotective of the people he cares about.
+Neutral:MBF:Beep boop.
+Neutral:Mace:I'm surprised he sang with you, though. He's only ever done that with me and Maku.
+Confused:MBF:Beep?
+Confused:Mace:Yeah, I'm not sure what that means either.
+Happy:Mace:Maybe he respects you, in his own weird way?
+Neutral:MBF:Boop bop
+Relieved:Mace:Phew, I need to cool off, looks like you do too. Wanna do one final song together?
+Happy:MBF:Bop!

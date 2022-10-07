@@ -1,0 +1,5 @@
+Neutral:bf:Boop?
+Embarassed:dad:Yeah, it's a bit different from my usual stuff. I hope you liked it.
+Happy:bf:Beep!
+Happy:dad:This one's gonna be a bit faster, I hope you're ready!
+Happy:bf:Boopa!

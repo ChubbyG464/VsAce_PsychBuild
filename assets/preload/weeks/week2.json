@@ -1,22 +1,59 @@
 {
-	"songs": [
-		["Spookeez", "spooky", [34, 51, 68]],
-		["South", "spooky", [34, 51, 68]],
-		["Monster", "monster", [34, 51, 68]]
+	"storyName": "Mace",
+	"difficulties": "Easy,Normal,Hard,Swapped",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
 	],
-
-	"weekCharacters": [
-		"spooky",
-		"bf",
-		"gf"
-	],
-	"weekBackground": "halloween",
-
-	"storyName": "Spooky Month",
-	"weekBefore": "week1",
-	"weekName": "Week 2",
 	"startUnlocked": true,
-
 	"hideStoryMode": false,
-	"hideFreeplay": false
+	"songs": [
+		[
+			"running-laps",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"icing-tensions",
+			"retro",
+			[
+				23,
+				216,
+				228
+			]
+		],
+		[
+			"chill-out",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"no-homo",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		]
+	],
+	"weekCharacters": [
+		"mace",
+		"bf-minus",
+		""
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "week-ace3"
 }

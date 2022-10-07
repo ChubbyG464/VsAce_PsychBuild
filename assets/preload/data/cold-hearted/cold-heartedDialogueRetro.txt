@@ -1,0 +1,4 @@
+Happy:saku:Hey, sweetie!
+Neutral:dad:Oh hey, Saku. Surprised to see you here.
+Happy:saku:I wanted to visit you! Are you up for a little quickie?
+Confused:dad:Huh? Oh, sure!

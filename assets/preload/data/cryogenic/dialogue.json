@@ -1,0 +1,52 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixelText",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Crap, I did it again. At least you guys were dressed for the occasion."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Bop!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "(Well, except for GF. How is she not freezing right now?)"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "gfportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": ":O"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "I think I've got time for one more, you up for it?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Boop beep!"
+		}
+	]
+}

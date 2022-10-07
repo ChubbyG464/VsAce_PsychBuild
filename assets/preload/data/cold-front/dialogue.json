@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixelText",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Boop?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Yeah, it's a bit different from my usual stuff. I hope you liked it."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Beep!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "This one's gonna be a bit faster, I hope you're ready!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Boopa!"
+		}
+	]
+}

@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.035,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Whoa, that was great! You harmonized so well with me towards the end there!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Beep!"
+		},
+		{
+			"sound": "",
+			"speed": 0.045,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "You up for another?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Boopa!"
+		}
+	]
+}

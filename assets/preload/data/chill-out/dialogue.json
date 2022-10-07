@@ -1,0 +1,164 @@
+{
+	"dialogue": [
+		{
+			"sound": "PixelText",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Worried",
+			"text": "Please stop..."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "Sheesh, it got cold out here. Even the sunrise is over."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep bap?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "Woah, Mace, you okay?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Upset",
+			"text": "No. You need to stop getting so angry all the time."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Sorry, I thought he was--"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Upset",
+			"text": "Bothering me? Just like everyone else I meet?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "Look, I--"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "*sigh* Sorry, man. I'll give you some space."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "(Don't think this is over between us, you little runt. Now you've REALLY pissed me off.)"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Relieved",
+			"text": "Sorry about that... I had no idea you guys had beef. I almost thought there'd be another fight..."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "That man is way too overprotective of the people he cares about."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep boop."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "I'm surprised he sang with you, though. He's only ever done that with me and Maku."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Beep?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Yeah, I'm not sure what that means either."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Maybe he respects you, in his own weird way?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Boop bop"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Relieved",
+			"text": "Phew, I need to cool off, looks like you do too. Wanna do one final song together?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "mbfportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Bop!"
+		}
+	]
+}

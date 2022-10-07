@@ -1,0 +1,76 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "[The Next Day...]"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "Hey, dude, sorry about yesterday."
+		},
+		{
+			"sound": "PixelText",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "It's fine. Just please let me fend for myself unless I ask for help."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Yeah, I gotcha. Won't happen again, I promise."
+		},
+		{
+			"sound": "",
+			"speed": 0,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "..."
+		},
+		{
+			"sound": "",
+			"speed": 0,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "..."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Man, it's really peaceful out today. I kinda wanna sing with you."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "R-right here? Right now? What if someone sees us?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "metroportraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "Free show for them, I guess."
+		}
+	]
+}
