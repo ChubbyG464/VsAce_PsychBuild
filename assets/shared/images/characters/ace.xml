@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="booby.png">
+<TextureAtlas imagePath="ace.png">
 	<!-- Created with Adobe Animate version 20.0.0.17400 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Ace Down Note0000" x="10" y="10" width="599" height="720" frameX="-7" frameY="-8" frameWidth="610" frameHeight="728"/>
