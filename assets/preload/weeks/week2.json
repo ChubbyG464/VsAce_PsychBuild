@@ -3,7 +3,7 @@
 	"difficulties": "Easy,Normal,Hard,Swapped",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "tutorial",
+	"weekBefore": "week1",
 	"freeplayColor": [
 		146,
 		113,
