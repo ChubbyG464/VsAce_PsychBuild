@@ -46,6 +46,20 @@ class Song
 	public var player2:String = 'dad';
 	public var gfVersion:String = 'gf';
 
+	public static function unformatSongName(name:String) {
+		name = name.replace("-", " ");
+		var split = name.split(" ");
+
+		for (i in 0...split.length) {
+			split[i] = split[i].charAt(0).toUpperCase() + split[i].substr(1).toLowerCase();
+		}
+
+		name = split.join(" ");
+
+		return name;
+	}
+
+
 	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
 	{
 		if(songJson.gfVersion == null)
