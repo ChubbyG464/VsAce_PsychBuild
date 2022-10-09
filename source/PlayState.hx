@@ -1709,7 +1709,14 @@ class PlayState extends MusicBeatState
 	}
 
 	function eventNoteEarlyTrigger(event:EventNote):Float {
+		var returnedValue:Float = callOnLuas('eventEarlyTrigger', [event.event]);
+		if(returnedValue != 0) {
+			return returnedValue;
+		}
+		switch(event.event) {
 
+		}
+		return 0;
 	}
 
 	function sortByShit(Obj1:Note, Obj2:Note):Int
