@@ -1,5 +1,9 @@
 package;
 
+import flixel.math.FlxRect;
+import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
+import flixel.FlxCamera;
+import ColorSwap.CSData;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -8,7 +12,8 @@ using StringTools;
 
 class StrumNote extends FlxSprite
 {
-	private var colorSwap:ColorSwap;
+	public var colorSwap:CSData;
+	public static var staticColorSwap:ColorSwap;
 	public var resetAnim:Float = 0;
 	private var noteData:Int = 0;
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
@@ -27,8 +32,11 @@ class StrumNote extends FlxSprite
 	}
 
 	public function new(x:Float, y:Float, leData:Int, player:Int) {
-		colorSwap = new ColorSwap();
-		shader = colorSwap.shader;
+		colorSwap = new CSData();
+		if(staticColorSwap == null) {
+			staticColorSwap = new ColorSwap();
+		}
+		shader = staticColorSwap.shader;
 		noteData = leData;
 		this.player = player;
 		this.noteData = leData;
@@ -161,5 +169,32 @@ class StrumNote extends FlxSprite
 				centerOrigin();
 			}
 		}
+	}
+
+	@:noCompletion
+	override function drawComplex(camera:FlxCamera):Void
+	{
+		_frame.prepareMatrix(_matrix, FlxFrameAngle.ANGLE_0, checkFlipX(), checkFlipY());
+		_matrix.translate(-origin.x, -origin.y);
+		_matrix.scale(scale.x, scale.y);
+
+		if (bakedRotationAngle <= 0)
+		{
+			updateTrig();
+
+			if (angle != 0)
+				_matrix.rotateWithTrig(_cosAngle, _sinAngle);
+		}
+
+		_point.add(origin.x, origin.y);
+		_matrix.translate(_point.x, _point.y);
+
+		if (isPixelPerfectRender(camera))
+		{
+			_matrix.tx = Math.floor(_matrix.tx);
+			_matrix.ty = Math.floor(_matrix.ty);
+		}
+
+		camera.drawPixels(_frame, framePixels, _matrix, colorTransform, blend, antialiasing, shader, colorSwap);
 	}
 }

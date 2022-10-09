@@ -1,6 +1,8 @@
 package flixel.graphics.tile;
 
 #if FLX_DRAW_QUADS
+import ColorSwap.ColorSwapShader;
+import ColorSwap.CSData;
 import flixel.FlxCamera;
 import flixel.graphics.frames.FlxFrame;
 import flixel.graphics.tile.FlxDrawBaseItem.FlxDrawItemType;
@@ -14,6 +16,8 @@ class FlxDrawQuadsItem extends FlxDrawBaseItem<FlxDrawQuadsItem> {
 	static inline var VERTICES_PER_QUAD = #if (openfl >= "8.5.0") 4 #else 6 #end;
 
 	public var shader:FlxShader;
+
+	public var cs:CSData;
 
 	var rects:Vector<Float>;
 	var transforms:Vector<Float>;
@@ -34,6 +38,7 @@ class FlxDrawQuadsItem extends FlxDrawBaseItem<FlxDrawQuadsItem> {
 		rects.length = 0;
 		transforms.length = 0;
 		alphas.splice(0, alphas.length);
+		cs = null;
 		if (colorMultipliers != null)
 			colorMultipliers.splice(0, colorMultipliers.length);
 		if (colorOffsets != null)
@@ -47,6 +52,7 @@ class FlxDrawQuadsItem extends FlxDrawBaseItem<FlxDrawQuadsItem> {
 		alphas = null;
 		colorMultipliers = null;
 		colorOffsets = null;
+		cs = null;
 	}
 
 	override public function addQuad(frame:FlxFrame, matrix:FlxMatrix, ?transform:ColorTransform):Void {
@@ -120,9 +126,6 @@ class FlxDrawQuadsItem extends FlxDrawBaseItem<FlxDrawQuadsItem> {
 			#end
 			return;
 		}
-		//if(camera.canvas == null) {
-		//	return;
-		//}
 		var bitmap = graphics.bitmap;
 		shader.bitmap.input = bitmap;
 		shader.bitmap.filter = (camera.antialiasing || antialiasing) ? LINEAR : NEAREST;
@@ -131,6 +134,12 @@ class FlxDrawQuadsItem extends FlxDrawBaseItem<FlxDrawQuadsItem> {
 		if (colored || hasColorOffsets) {
 			shader.colorMultiplier.value = colorMultipliers;
 			shader.colorOffset.value = colorOffsets;
+		}
+
+		if((shader is ColorSwapShader) && cs != null) {
+			var shader:ColorSwapShader = cast shader;
+
+			shader.uHsv.value = cs.uHsv;
 		}
 
 		setParameterValue(shader.hasTransform, true);
