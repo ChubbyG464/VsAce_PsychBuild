@@ -7715,9 +7715,9 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "Booby",
+		"player2": "ace",
 		"song": "Frostbite-Swapped",
-		"stage": "background3",
+		"stage": "background4",
 		"needsVoices": true,
 		"validScore": true,
 		"bpm": 200,

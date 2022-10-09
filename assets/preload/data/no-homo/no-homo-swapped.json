@@ -4011,7 +4011,7 @@
 		"song": "no-homo-swapped",
 		"needsVoices": true,
 		"validScore": true,
-		"stage": "minus",
+		"stage": "minusbg",
 		"bpm": 190,
 		"speed": 2.6
 	}

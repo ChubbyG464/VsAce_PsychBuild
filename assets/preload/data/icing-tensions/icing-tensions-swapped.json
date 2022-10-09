@@ -4323,7 +4323,7 @@
 		"song": "icing-tensions-swapped",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "minus",
+		"stage": "minusbg",
 		"speed": 2.9,
 		"bpm": 172
 	}

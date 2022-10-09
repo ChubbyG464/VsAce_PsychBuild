@@ -3434,8 +3434,8 @@
 				"mustHitSection": true
 			}
 		],
-		"player3": "gf",
-		"stage": "bridgecrime",
+		"player3": "gf_blank",
+		"stage": "crime",
 		"song": "North",
 		"needsVoices": true,
 		"validScore": true,

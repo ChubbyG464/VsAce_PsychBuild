@@ -4731,8 +4731,8 @@
 				"mustHitSection": true
 			}
 		],
-		"player3": "gf",
-		"stage": "bridgecold",
+		"player3": "null",
+		"stage": "snowbridge1",
 		"song": "Cryogenic-Swapped",
 		"needsVoices": true,
 		"validScore": true,

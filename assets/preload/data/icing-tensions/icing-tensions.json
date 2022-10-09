@@ -3893,7 +3893,7 @@
 		"song": "icing-tensions",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "minus",
+		"stage": "minusbg",
 		"speed": 2.5,
 		"bpm": 172
 	}

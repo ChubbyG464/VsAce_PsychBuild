@@ -3796,10 +3796,10 @@
 			}
 		],
 		"player2": "mace",
-		"gfVersion": "gf-minus",
+		"gfVersion": "gf_blank",
 		"initialSpeed": 1.125,
 		"sliderVelocities": null,
-		"song": "chill-out",
+		"song": "Chill-Out",
 		"needsVoices": true,
 		"sections": 0,
 		"validScore": true,

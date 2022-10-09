@@ -6062,7 +6062,7 @@
 		],
 		"player2": "mace",
 		"initialSpeed": 1.35,
-		"gfVersion": "gf-minus",
+		"gfVersion": "gf_blank",
 		"sliderVelocities": null,
 		"song": "Chill-Out-Swapped",
 		"needsVoices": true,

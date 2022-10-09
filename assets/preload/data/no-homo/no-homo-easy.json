@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "bf-maceplay",
 		"events": [],
-		"gfVersion": "gf",
+		"gfVersion": "gf-minus",
 		"notes": [
 			{
 				"sectionNotes": [
@@ -3014,7 +3014,7 @@
 		"song": "no-homo",
 		"needsVoices": true,
 		"validScore": true,
-		"stage": "minus",
+		"stage": "minusbg",
 		"bpm": 190,
 		"speed": 2.4
 	}

@@ -4462,7 +4462,7 @@
 		"initialSpeed": 1.26,
 		"sliderVelocities": null,
 		"song": "running-laps",
-		"stage": "minus",
+		"stage": "minusbg",
 		"validScore": true,
 		"sections": 0,
 		"needsVoices": true,

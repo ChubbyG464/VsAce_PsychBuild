@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "bf-macegay",
 		"events": [],
-		"gfVersion": "gf",
+		"gfVersion": "gf_blank",
 		"player2": "metrogay",
 		"notes": [
 			{
@@ -6858,7 +6858,7 @@
 		],
 		"player3": null,
 		"song": "preseason-remix",
-		"stage": "gay",
+		"stage": "stand",
 		"needsVoices": true,
 		"validScore": true,
 		"speed": 2.3,

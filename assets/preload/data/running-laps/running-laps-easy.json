@@ -3232,7 +3232,7 @@
 		"needsVoices": true,
 		"sections": 0,
 		"validScore": true,
-		"stage": "minus",
+		"stage": "minusbg",
 		"bpm": 178,
 		"speed": 2.8
 	}
