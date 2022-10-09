@@ -3280,7 +3280,7 @@
 		"song": "Icing Tensions",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "minus",
+		"stage": "minusbg",
 		"speed": 2.3,
 		"bpm": 172
 	}

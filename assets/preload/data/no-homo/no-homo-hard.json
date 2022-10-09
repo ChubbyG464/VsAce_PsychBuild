@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "bf-mace-play",
 		"events": [],
-		"gfVersion": "gf-minus",
+		"gfVersion": "gf",
 		"notes": [
 			{
 				"sectionNotes": [

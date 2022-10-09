@@ -10926,7 +10926,7 @@
 		"needsVoices": true,
 		"sections": 0,
 		"validScore": true,
-		"stage": "minus",
+		"stage": "minusbg",
 		"bpm": 128,
 		"speed": 2.4
 	}
