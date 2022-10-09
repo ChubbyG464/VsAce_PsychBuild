@@ -42,7 +42,7 @@ class WeekEditorState extends MusicBeatState
 	var lock:FlxSprite;
 	var txtTracklist:FlxText;
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
-	var weekThing:MenuItem;
+	var weekThing:StoryMenuItem;
 	var missingFileText:FlxText;
 
 	var weekFile:WeekFile = null;
@@ -64,7 +64,7 @@ class WeekEditorState extends MusicBeatState
 		bgSprite = new FlxSprite(0, 56);
 		bgSprite.antialiasing = ClientPrefs.globalAntialiasing;
 
-		weekThing = new MenuItem(0, bgSprite.y + 396, weekFileName);
+		weekThing = new StoryMenuItem(0, bgSprite.y + 396, weekFileName);
 		weekThing.y += weekThing.height + 20;
 		weekThing.antialiasing = ClientPrefs.globalAntialiasing;
 		add(weekThing);

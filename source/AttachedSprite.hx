@@ -15,6 +15,8 @@ class AttachedSprite extends FlxSprite
 	public var copyAngle:Bool = true;
 	public var copyAlpha:Bool = true;
 	public var copyVisible:Bool = false;
+	public var useFrameWidthDiff:Bool = false;
+	public var useFrameHeightDiff:Bool = false;
 
 	public function new(?file:String = null, ?anim:String = null, ?library:String = null, ?loop:Bool = false)
 	{
@@ -36,6 +38,12 @@ class AttachedSprite extends FlxSprite
 
 		if (sprTracker != null) {
 			setPosition(sprTracker.x + xAdd, sprTracker.y + yAdd);
+			if(useFrameWidthDiff) {
+				x += sprTracker.frameWidth - sprTracker.width;
+			}
+			if(useFrameHeightDiff) {
+				y += sprTracker.frameHeight - sprTracker.height;
+			}
 			scrollFactor.set(sprTracker.scrollFactor.x, sprTracker.scrollFactor.y);
 
 			if(copyAngle)
