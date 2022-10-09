@@ -29,7 +29,7 @@ import flixel.util.FlxTimer;
  * 
  * Modified by PlankDev to support cut/copy/paste
  */
-class FlxInputText extends FlxText
+class FlxInputText extends FlxFixedText
 {
 	public static inline var NO_FILTER:Int = 0;
 	public static inline var ONLY_ALPHA:Int = 1;
