@@ -86,6 +86,13 @@ class ChartingState extends MusicBeatState
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"],
 
+		['Weak Snow', "Value 1: The final alpha\nValue 2: The time to fade (0 is instant)"],
+        ['Mid Snow', "Value 1: The final alpha\nValue 2: The time to fade (0 is instant)"],
+        ['Strong Snow', "Value 1: The final alpha\nValue 2: The time to fade (0 is instant)"],
+        ['Snowstorm', "Value 1: The final alpha\nValue 2: The time to fade (0 is instant)"],
+        ['Strongest Snow', "Value 1: The final alpha\nValue 2: The time to fade (0 is instant)"],
+        ['Snowy Stage', "Empty"],
+
 		['Flash', "Value 1: Camera (game, hud, other)\nValue 2: Duration (default 1 second)"],
 		['Set Default Zoom', "Value 1: The new defaultCamZoom"],
 	];
