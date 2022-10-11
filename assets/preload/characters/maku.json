@@ -8,95 +8,95 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "m-saku-idle",
+			"name": "m-saku-idle0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				30,
-				27
+				40,
+				37
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "m-saku-left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				90,
-				239
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "m-saku-up",
+			"name": "m-saku-left0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
 				-50,
-				36
+				46
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "m-saku-right",
+			"name": "m-saku-right0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				100,
-				-170
+				140,
+				-210
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "m-saku-down",
+			"name": "m-saku-down0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				10,
-				180
+				0,
+				210
 			],
 			"anim": "singUP-alt",
 			"fps": 24,
-			"name": "m-saku-up-alt",
+			"name": "m-saku-up-alt0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
 				110,
-				60
+				80
 			],
 			"anim": "singLEFT-alt",
 			"fps": 24,
-			"name": "m-saku-left-alt",
+			"name": "m-saku-left-alt0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-40,
-				140
+				-50,
+				170
 			],
 			"anim": "singRIGHT-alt",
 			"fps": 24,
-			"name": "m-saku-right-alt",
+			"name": "m-saku-right-alt0",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				50,
-				-190
+				60,
+				-230
 			],
 			"anim": "singDOWN-alt",
 			"fps": 24,
-			"name": "m-saku-down-alt",
+			"name": "m-saku-down-alt0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				209
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "m-saku-up-alt0",
 			"indices": []
 		}
 	],
@@ -109,14 +109,14 @@
 	"healthicon": "maku",
 	"flip_x": false,
 	"healthbar_colors": [
-		23,
-		216,
-		228
+		248,
+		54,
+		107
 	],
 	"camera_position": [
 		-200,
 		200
 	],
 	"sing_duration": 4,
-	"scale": 1
+	"scale": 1.4
 }

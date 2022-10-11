@@ -1,0 +1,166 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "Ace Idle0"
+		},
+		{
+			"offsets": [
+				-100,
+				13
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Ace Left Note0"
+		},
+		{
+			"offsets": [
+				57,
+				41
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "Ace Up Note0"
+		},
+		{
+			"offsets": [
+				110,
+				-100
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Ace Down Note0"
+		},
+		{
+			"offsets": [
+				191,
+				20
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Ace Right Note0"
+		},
+		{
+			"offsets": [
+				-1,
+				2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hey!",
+			"indices": [],
+			"name": "Ace Intro0"
+		},
+		{
+			"offsets": [
+				-110,
+				13
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHTmiss",
+			"loop": false,
+			"name": "Ace Left Note MISS0"
+		},
+		{
+			"offsets": [
+				57,
+				41
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUPmiss",
+			"loop": false,
+			"name": "Ace Up Note MISS0"
+		},
+		{
+			"offsets": [
+				110,
+				-100
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWNmiss",
+			"loop": false,
+			"name": "Ace Down Note MISS0"
+		},
+		{
+			"offsets": [
+				191,
+				20
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFTmiss",
+			"loop": false,
+			"name": "Ace Right Note MISS0"
+		},
+		{
+			"offsets": [
+				37,
+				25
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "firstDeath",
+			"loop": false,
+			"name": "Ace dies0"
+		},
+		{
+			"offsets": [
+				37,
+				18
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathLoop",
+			"loop": true,
+			"name": "Ace Dead Loop0"
+		},
+		{
+			"offsets": [
+				37,
+				18
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "deathConfirm",
+			"loop": false,
+			"name": "Ace Dead confirm"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/bf-playerace",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "ace",
+	"flip_x": false,
+	"healthbar_colors": [
+		186,
+		226,
+		255
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"scale": 1.2
+}
