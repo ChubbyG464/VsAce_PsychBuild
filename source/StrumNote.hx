@@ -8,9 +8,10 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
+
 using StringTools;
 
-class StrumNote extends FlxSprite
+class StrumNote extends FlxShakableSprite
 {
 	public var colorSwap:CSData;
 	public static var staticColorSwap:ColorSwap;
@@ -20,6 +21,11 @@ class StrumNote extends FlxSprite
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
 	public var sustainReduce:Bool = true;
 	
+
+	public var isConfirm = false;
+
+	public var frozen = false;
+
 	private var player:Int;
 	
 	public var texture(default, set):String = null;
@@ -81,7 +87,7 @@ class StrumNote extends FlxSprite
 				case 2:
 					animation.add('static', [2]);
 					animation.add('pressed', [6, 10], 12, false);
-					animation.add('confirm', [14, 18], 12, false);
+					animation.add('confirm', [14, 18], 24, false);
 				case 3:
 					animation.add('static', [3]);
 					animation.add('pressed', [7, 11], 12, false);
@@ -90,33 +96,24 @@ class StrumNote extends FlxSprite
 		}
 		else
 		{
+			var dataDir = ["left", "down", "up", "right"];
 			frames = Paths.getSparrowAtlas(texture);
-			animation.addByPrefix('green', 'arrowUP');
-			animation.addByPrefix('blue', 'arrowDOWN');
-			animation.addByPrefix('purple', 'arrowLEFT');
-			animation.addByPrefix('red', 'arrowRIGHT');
+
+				
+			if(PlayState.instance != null && PlayState.instance.hasIceNotes) {
+				addFrames(Paths.getSparrowAtlas("images/FrozenStrums"));
+			}
 
 			antialiasing = ClientPrefs.globalAntialiasing;
 			setGraphicSize(Std.int(width * 0.7));
 
-			switch (Math.abs(noteData))
-			{
-				case 0:
-					animation.addByPrefix('static', 'arrowLEFT');
-					animation.addByPrefix('pressed', 'left press', 24, false);
-					animation.addByPrefix('confirm', 'left confirm', 24, false);
-				case 1:
-					animation.addByPrefix('static', 'arrowDOWN');
-					animation.addByPrefix('pressed', 'down press', 24, false);
-					animation.addByPrefix('confirm', 'down confirm', 24, false);
-				case 2:
-					animation.addByPrefix('static', 'arrowUP');
-					animation.addByPrefix('pressed', 'up press', 24, false);
-					animation.addByPrefix('confirm', 'up confirm', 24, false);
-				case 3:
-					animation.addByPrefix('static', 'arrowRIGHT');
-					animation.addByPrefix('pressed', 'right press', 24, false);
-					animation.addByPrefix('confirm', 'right confirm', 24, false);
+			var dir = dataDir[noteData].toLowerCase();
+			animation.addByPrefix('static', 'arrow' + dir.toUpperCase());
+			animation.addByPrefix('pressed', dir + ' press', 24, false);
+			animation.addByPrefix('confirm', dir + ' confirm', 24, false);
+			if(PlayState.instance != null && PlayState.instance.hasIceNotes) {
+				animation.addByPrefix('frozen', 'arrowFrozen' + dir.toUpperCase(), 24, true);
+				//trace("Added Frozen");
 			}
 		}
 		updateHitbox();
@@ -144,7 +141,7 @@ class StrumNote extends FlxSprite
 			}
 		}
 		//if(animation.curAnim != null){ //my bad i was upset
-		if(animation.curAnim.name == 'confirm' && !PlayState.isPixelStage) {
+		if(isConfirm && !PlayState.isPixelStage) {
 			centerOrigin();
 		//}
 		}
@@ -152,7 +149,7 @@ class StrumNote extends FlxSprite
 		super.update(elapsed);
 	}
 
-	public function playAnim(anim:String, ?force:Bool = false) {
+	public function playAnim(anim:String, ?force:Bool = false, ?note:Note = null) {
 		animation.play(anim, force);
 		centerOffsets();
 		centerOrigin();
@@ -165,9 +162,19 @@ class StrumNote extends FlxSprite
 			colorSwap.saturation = ClientPrefs.arrowHSV[noteData % 4][1] / 100;
 			colorSwap.brightness = ClientPrefs.arrowHSV[noteData % 4][2] / 100;
 
-			if(animation.curAnim.name == 'confirm' && !PlayState.isPixelStage) {
+			if(isConfirm && !PlayState.isPixelStage) {
 				centerOrigin();
 			}
+		}
+	}
+	
+	public function addFrames(otherFrames:FlxAtlasFrames, reload:Bool = true) {
+		if(otherFrames == null) return;
+		for(frame in otherFrames.frames) {
+			this.frames.pushFrame(frame);
+		}
+		if(reload) {
+			this.frames = this.frames;
 		}
 	}
 
@@ -189,6 +196,10 @@ class StrumNote extends FlxSprite
 		_point.add(origin.x, origin.y);
 		_matrix.translate(_point.x, _point.y);
 
+		if(shakeDistance != 0) {
+			_matrix.translate(FlxG.random.float(-shakeDistance, shakeDistance), FlxG.random.float(-shakeDistance, shakeDistance));
+		}
+		
 		if (isPixelPerfectRender(camera))
 		{
 			_matrix.tx = Math.floor(_matrix.tx);

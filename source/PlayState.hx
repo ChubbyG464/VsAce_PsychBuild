@@ -140,6 +140,7 @@ class PlayState extends MusicBeatState
 	public var boyfriend:Boyfriend = null;
 
 	public var notes:FlxTypedGroup<Note>;
+	public var allNotes:Array<Note> = [];
 	public var unspawnNotes:Array<Note> = [];
 	public var eventNotes:Array<EventNote> = [];
 
@@ -159,6 +160,7 @@ class PlayState extends MusicBeatState
 	public var camZooming:Bool = false;
 	public var camZoomingMult:Float = 1;
 	public var camZoomingDecay:Float = 1;
+	public var formattedSong:String = "";
 	private var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
@@ -258,6 +260,22 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Dynamic>;
 
+	// Ace Frozen Notes Mechanic
+	private var breakAnims:FlxTypedGroup<FlxSprite>;
+
+	public var frozen:Array<Bool> = [false, false, false, false];
+	public var strumsBlocked:Array<Bool> = [false, false, false, false];
+
+	private var frozenTime:Float = 0; // Track time when frozen to prevent pause cheat
+	public var hasIceNotes:Bool = false;
+
+	
+
+	var spritesToDestroy:Array<FlxBasic> = [];
+	var notesToDestroy:Array<Note> = [];
+	public static var announceStart:Bool = false;
+
+
 	private var __hscriptBackdrop:FlxBackdrop;
 
 	var precacheList:Map<String, String> = new Map<String, String>();
@@ -342,6 +360,9 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
+		formattedSong = Paths.formatToSongPath(SONG.song);
+
+
 		#if desktop
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
 
@@ -362,7 +383,7 @@ class PlayState extends MusicBeatState
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
 
-		curStage = SONG.stage;
+
 		curStage = SONG.stage;
 		//trace('stage is: ' + curStage);
 		if(SONG.stage == null || SONG.stage.length < 1) {
@@ -1521,6 +1542,81 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		if (formattedSong == 'frostbite')
+		{
+			var iceAmount:Int = switch(CoolUtil.difficultyString().toLowerCase()) {
+				case "normal": 40; // original chart: 39
+				case "hard": 50; // original chart: 41
+				case "hell": 75;
+	
+				default: 0;
+			}
+			var validNotes:Array<Note> = [];
+			var playerNotes:Array<Note> = [];
+			for (i in 0...unspawnNotes.length)
+			{
+				if (unspawnNotes[i].mustPress && !unspawnNotes[i].isSustainNote && unspawnNotes[i].sustainLength == 0)
+					validNotes.push(unspawnNotes[i]);
+				if (unspawnNotes[i].mustPress)
+					playerNotes.push(unspawnNotes[i]);
+			}
+			for (i in 0...iceAmount)
+			{
+				// No more ice notes can be added
+				if (validNotes.length == 0)
+					break;
+
+				var targetNote = validNotes[FlxG.random.int(0, validNotes.length - 1)];
+				var validArray:Array<Int> = [0, 1, 2, 3];
+	
+				// Check which notes we can use
+				for (j in 0...playerNotes.length)
+				{
+					if (Math.abs(playerNotes[j].strumTime - targetNote.strumTime) < 0.25)
+						validArray.remove(playerNotes[j].noteData);
+				}
+	
+				// All four notes are being used. Skip this instance
+				if (validArray.length == 0)
+					continue;
+	
+				var noteData = validArray[FlxG.random.int(0, validArray.length - 1)];
+				var isValid = true;
+	
+				// Check if there are notes nearby
+				for (j in 0...playerNotes.length)
+				{
+					var timeDiff = playerNotes[j].strumTime - targetNote.strumTime;
+					if (playerNotes[j].noteData == noteData && Math.abs(timeDiff) < 50) {
+						isValid = false;
+						break;
+					}
+					if (playerNotes[j].noteData == noteData && timeDiff >= 0 && timeDiff < 100) {
+						isValid = false;
+						break;
+					}
+				}
+				
+				if(!isValid)
+					continue;
+
+				// Add in the ice note
+				var newNote:Note = new Note(targetNote.strumTime, noteData, true, null);
+				newNote.mustPress = true;
+				newNote.sustainLength = 0;
+				newNote.gfNote = false;
+				newNote.noteType = "iceNote";
+
+				newNote.scrollFactor.set();
+				noteTypeMap.set(newNote.noteType, true);
+
+				unspawnNotes.push(newNote);
+				allNotes.push(newNote);
+				playerNotes.push(newNote);
+				validNotes.remove(targetNote);
+			}
+		}
+
 		for (section in noteData)
 		{
 			for (songNotes in section.sectionNotes)
@@ -2177,8 +2273,27 @@ class PlayState extends MusicBeatState
 		setOnLuas('cameraY', camFollowPos.y);
 		setOnLuas('botPlay', cpuControlled);
 		callOnLuas('onUpdatePost', [elapsed]);
+
+		if (frozen.contains(true))
+		{
+			frozenTime += elapsed;
+			if (frozenTime > (Conductor.stepCrochet / 1000) * 12)
+			{
+				for (i in 0...4)
+				{
+					frozen[i] = false;
+					strumsBlocked[i] = false;
+					playerStrums.members[i].frozen = false;
+					playerStrums.members[i].playAnim('static');
+					playerStrums.members[i].resetAnim = 0;
+				}
+	
+				frozenTime = 0;
+			}
+		}	
 	}
 
+	
 	function openPauseMenu()
 	{
 		persistentUpdate = false;
@@ -2859,6 +2974,8 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		
+
 		var pixelShitPart1:String = "";
 		var pixelShitPart2:String = '';
 
@@ -3096,8 +3213,10 @@ class PlayState extends MusicBeatState
 			var spr:StrumNote = playerStrums.members[key];
 			if(spr != null)
 			{
+				if(!spr.frozen) {
 				spr.playAnim('static');
 				spr.resetAnim = 0;
+				}
 			}
 			callOnLuas('onKeyRelease', [key]);
 		}
@@ -3353,8 +3472,19 @@ class PlayState extends MusicBeatState
 								boyfriend.playAnim('hurt', true);
 								boyfriend.specialAnim = true;
 							}
+						case 'iceNote':
+							iceNoteHit(note);
+							for (i in 0...4)
+							{
+								frozen[i] = true;
+								strumsBlocked[i] = true;
+								playerStrums.members[i].frozen = true;
+								playerStrums.members[i].playAnim('frozen');
+							}
+							FlxG.sound.play(Paths.sound('icey'));
+						}
 					}
-				}
+			
 
 				note.wasGoodHit = true;
 				if (!note.isSustainNote)
@@ -3436,6 +3566,41 @@ class PlayState extends MusicBeatState
 				note.destroy();
 			}
 		}
+	}
+
+	inline function destroySprite(sprite:FlxBasic) {
+		sprite.active = false;
+		remove(sprite, true);
+		sprite.destroy();
+	}
+
+	function iceNoteHit(note:Note) {
+		var breakAnim:FlxSprite = new FlxSprite();
+		breakAnim.cameras = [camHUD];
+		breakAnim.frames = Paths.getSparrowAtlas("images/IceBreakAnim", 'preload');
+		var anims:Array<String> = ['left', 'down', 'up', 'right'];
+		breakAnim.animation.addByPrefix('break', anims[note.noteData], 24, false);
+		breakAnim.animation.play('break');
+		breakAnim.antialiasing = ClientPrefs.globalAntialiasing;
+
+		var strum:StrumNote = playerStrums.members[note.noteData];
+		if(strum != null) {
+			breakAnim.setGraphicSize(Std.int(strum.frameWidth * 1.15), Std.int(strum.frameHeight * 1.15));
+		} else {
+			breakAnim.setGraphicSize(Std.int(breakAnim.width * 0.7));
+		}
+		breakAnim.updateHitbox();
+
+		add(breakAnim);
+
+		breakAnim.x = note.x;// - 35;
+		breakAnim.y = note.y;// - 35; //- (note.height / 2) - 20;
+		breakAnim.angle = 0;
+
+		breakAnim.animation.finishCallback = function(str:String)
+		{
+			breakAnim.destroy();
+		};
 	}
 
 	function spawnNoteSplashOnNote(note:Note) {
