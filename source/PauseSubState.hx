@@ -14,6 +14,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.FlxCamera;
 import flixel.util.FlxStringUtil;
+import flixel.addons.display.FlxBackdrop;
 
 class PauseSubState extends MusicBeatSubstate
 {
@@ -30,6 +31,9 @@ class PauseSubState extends MusicBeatSubstate
 	var skipTimeTracker:Alphabet;
 	var curTime:Float = Math.max(0, Conductor.songPosition);
 	//var botplayText:FlxText;
+
+	var stripes:FlxBackdrop;
+	var fgstuff:FlxBackdrop;
 
 	public static var songName:String = '';
 
@@ -76,6 +80,25 @@ class PauseSubState extends MusicBeatSubstate
 		bg.alpha = 0;
 		bg.scrollFactor.set();
 		add(bg);
+
+		stripes = new FlxBackdrop(Paths.image('test'), 0.2, 0, true, false);
+		stripes.velocity.set(-50, 0);
+		stripes.setGraphicSize(Std.int((stripes.width * 1.2)));
+		//stripes.updateHitbox();
+		stripes.screenCenter(XY);
+		stripes.alpha = 0;
+		stripes.blend = SCREEN;
+		stripes.antialiasing = FlxG.save.data.antialiasing;
+		add(stripes);
+		
+		fgstuff = new FlxBackdrop(Paths.image('test2'), 0.2, 0, true, true);
+		fgstuff.velocity.set(200, 150);
+		//fgstuff.setGraphicSize(Std.int((fgstuff.width * 1.2) / defaultCamZoom));
+		//fgstuff.updateHitbox();
+		fgstuff.screenCenter(XY);
+		fgstuff.alpha = 0;
+		fgstuff.antialiasing = FlxG.save.data.antialiasing;
+		add(fgstuff);
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
 		levelInfo.text += PlayState.SONG.song;
@@ -124,6 +147,8 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
 
 		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
+		FlxTween.tween(stripes, {alpha: 0.1}, 0.4, {ease: FlxEase.quartInOut});
+		FlxTween.tween(fgstuff, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
 		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
 		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
 		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
