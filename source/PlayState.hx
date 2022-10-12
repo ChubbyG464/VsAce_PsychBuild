@@ -514,6 +514,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
+		hasIceNotes = noteTypeMap.exists('iceNote');
 
 		// STAGE SCRIPTS
 		#if (MODS_ALLOWED && LUA_ALLOWED)
@@ -1542,7 +1543,7 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-		if (formattedSong == 'frostbite')
+		if (formattedSong == 'frostbite')  //Frostbite test to see if this worked. It didn't
 		{
 			var iceAmount:Int = switch(CoolUtil.difficultyString().toLowerCase()) {
 				case "normal": 40; // original chart: 39
@@ -3577,7 +3578,7 @@ class PlayState extends MusicBeatState
 	function iceNoteHit(note:Note) {
 		var breakAnim:FlxSprite = new FlxSprite();
 		breakAnim.cameras = [camHUD];
-		breakAnim.frames = Paths.getSparrowAtlas("images/IceBreakAnim", 'preload');
+		breakAnim.frames = Paths.getSparrowAtlas("images/IceBreakAnim");
 		var anims:Array<String> = ['left', 'down', 'up', 'right'];
 		breakAnim.animation.addByPrefix('break', anims[note.noteData], 24, false);
 		breakAnim.animation.play('break');
@@ -3735,9 +3736,6 @@ class PlayState extends MusicBeatState
 		callOnLuas('onStepHit', []);
 	}
 
-	var lightningStrikeBeat:Int = 0;
-	var lightningOffset:Int = 8;
-
 	var lastBeatHit:Int = -1;
 
 	override function beatHit()
@@ -3777,6 +3775,11 @@ class PlayState extends MusicBeatState
 		{
 		
 		}
+
+		lastBeatHit = curBeat;
+
+		setOnLuas('curBeat', curBeat); //DAWGG?????
+		callOnLuas('onBeatHit', []);
 
 	}
 
@@ -3997,4 +4000,5 @@ class PlayState extends MusicBeatState
 
 	var curLight:Int = -1;
 	var curLightEvent:Int = -1;
+
 }
