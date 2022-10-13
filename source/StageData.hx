@@ -22,6 +22,9 @@ typedef StageFile = {
 	var opponent:Array<Dynamic>;
 	var hide_girlfriend:Bool;
 
+	var ?opponent2:Array<Float>;
+	var ?hide_opponent2:Bool;
+
 	var camera_boyfriend:Array<Float>;
 	var camera_opponent:Array<Float>;
 	var camera_girlfriend:Array<Float>;
@@ -35,24 +38,8 @@ class StageData {
 		if(SONG.stage != null) {
 			stage = SONG.stage;
 		} else if(SONG.song != null) {
-			switch (SONG.song.toLowerCase().replace(' ', '-'))
+			switch (Paths.formatToSongPath(SONG.song))
 			{
-				case 'spookeez' | 'south' | 'monster':
-					stage = 'spooky';
-				case 'pico' | 'blammed' | 'philly' | 'philly-nice':
-					stage = 'philly';
-				case 'milf' | 'satin-panties' | 'high':
-					stage = 'limo';
-				case 'cocoa' | 'eggnog':
-					stage = 'mall';
-				case 'winter-horrorland':
-					stage = 'mallEvil';
-				case 'senpai' | 'roses':
-					stage = 'school';
-				case 'thorns':
-					stage = 'schoolEvil';
-				case 'ugh' | 'guns' | 'stress':
-					stage = 'tank';
 				default:
 					stage = 'stage';
 			}
@@ -88,6 +75,16 @@ class StageData {
 		{
 			return null;
 		}
-		return cast Json.parse(rawJson);
+		var stageFile:StageFile = cast Json.parse(rawJson);
+
+		if(stageFile.hide_opponent2 == null) {
+			stageFile.hide_opponent2 = true;
+		}
+
+		if(stageFile.opponent2 == null) {
+			stageFile.opponent2 = [0, 0];
+		}
+
+		return stageFile;
 	}
 }

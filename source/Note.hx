@@ -36,6 +36,7 @@ class Note extends FlxSprite
 	public var noteWasHit:Bool = false;
 	public var prevNote:Note;
 	public var nextNote:Note;
+	public var secondDad = false;
 
 	public var spawned:Bool = false;
 
@@ -44,7 +45,11 @@ class Note extends FlxSprite
 
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
+	public var isHoldEnd:Bool = false;
+	public var isMechanicNote:Bool = false;
+	public var doesNothingIfMissed:Bool = false;
 	public var noteType(default, set):String = null;
+	public var canMiss:Bool = false;
 
 	public var eventName:String = '';
 	public var eventLength:Int = 0;
@@ -61,11 +66,23 @@ class Note extends FlxSprite
 	public var lateHitMult:Float = 1;
 	public var lowPriority:Bool = false;
 
+	// Note Constants
 	public static var swagWidth:Float = 160 * 0.7;
 	public static var PURP_NOTE:Int = 0;
 	public static var GREEN_NOTE:Int = 2;
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
+
+	static var notedir:Array<String> = ['Left', 'Down', 'Up', 'Right'];
+	public static var dataColor:Array<String> = ['purple', 'blue', 'green', 'red'];
+
+	// Note Quantization
+	private static var quantDivisions:Array<Int> = [0, 1, 2, 3, 4, 5, 6, 7];
+	public static var arrowAngles:Array<Int> = [180, 90, 270, 0];
+
+	public var originColor:Int; // Mainly used for sustain notes
+	public var quantColor:Int;
+	public var forceDisableQuant:Bool = false;
 
 	// Lua shit
 	public var noteSplashDisabled:Bool = false;
@@ -73,6 +90,10 @@ class Note extends FlxSprite
 	public var noteSplashHue:Float = 0;
 	public var noteSplashSat:Float = 0;
 	public var noteSplashBrt:Float = 0;
+
+	public var holdOffsetX:Float = 0;
+	public var specialOffsetX:Int = 0;
+	public var noteOffsetX:Int = 0;
 
 	public var offsetX:Float = 0;
 	public var offsetY:Float = 0;
@@ -147,10 +168,25 @@ class Note extends FlxSprite
 						missHealth = 0.3;
 					}
 					hitCausesMiss = true;
+				case 'iceNote':
+					//ignoreNote = mustPress;
+					isMechanicNote = true;
+					//hittime = 1.25;//larger hit area
+					hitHealth = 0;
+					missHealth = 0;
+					noAnimation = true;
+					hitCausesMiss = true;
+					ignoreNote = true;
+					//doesNothingIfMissed = true;
+					hitByOpponent = true;
+					noteSplashDisabled = true;
+					hitsoundDisabled = true;
+					addCustomNote(value);
 				case 'Alt Animation':
 					animSuffix = '-alt';
 				case 'No Animation':
 					noAnimation = true;
+
 					noMissAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
@@ -161,6 +197,39 @@ class Note extends FlxSprite
 		noteSplashSat = colorSwap.saturation;
 		noteSplashBrt = colorSwap.brightness;
 		return value;
+	}
+
+	var hasSetup:Bool = false;
+
+	public function playNoteAnim()
+	{
+		hasSetup = true;
+		offsetX = noteOffsetX;
+		// Determine the animation name depending on the color integer
+		var animName:String = dataColor[originColor % 4];
+		if (isSustainNote && prevNote != null)
+		{
+			if(isHoldEnd) {
+				animName += 'holdend';
+			} else {
+				animName += 'hold';
+			}
+		}
+		else
+		{
+			animName += 'Scroll';
+		}
+	
+		animation.play(animName);
+	
+		if (isSustainNote)
+		{
+			updateHitbox();
+	
+			offsetX = holdOffsetX;
+	
+			x += offsetX;
+		}
 	}
 
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false)
@@ -394,6 +463,19 @@ class Note extends FlxSprite
 			animation.add('blueScroll', [BLUE_NOTE + 4]);
 			animation.add('purpleScroll', [PURP_NOTE + 4]);
 		}
+	}
+	function addCustomNote(type:String) {// pain
+		switch(type)
+		{
+			case 'iceNote':
+				frames = Paths.getSparrowAtlas('images/IceArrow_Assets');
+				for (i in 0...4)
+					animation.addByPrefix(dataColor[i] + 'Scroll', 'Ice Arrow ' + notedir[i].toUpperCase());
+				setGraphicSize(Std.int(width * 0.66));
+				playNoteAnim();
+		}
+		updateHitbox();
+		antialiasing = ClientPrefs.globalAntialiasing;
 	}
 
 	override function update(elapsed:Float)

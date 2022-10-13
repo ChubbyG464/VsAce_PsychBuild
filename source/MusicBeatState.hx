@@ -1,5 +1,9 @@
 package;
 
+import flixel.FlxCamera;
+import flixel.FlxSubState;
+import flixel.text.FlxText.FlxTextBorderStyle;
+import flixel.text.FlxText;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.addons.ui.FlxUIState;
@@ -114,19 +118,55 @@ class MusicBeatState extends FlxUIState
 		curStep = lastChange.stepTime + Math.floor(shit);
 	}
 
+	
+	public static var songLoadingScreen:String = "";
+	public static var nextGhostAllowed:Bool = false;
+
+	static function loadingScreen(leState:MusicBeatState, camera:FlxCamera, ?trans:CustomFadeTransition) {
+		if(!nextGhostAllowed) {
+			NoGhost.disable();
+		}
+		nextGhostAllowed = false;
+
+		var loading = new FlxSprite().loadGraphic(Paths.image("loading/" + songLoadingScreen));
+		loading.setGraphicSize(FlxG.width, FlxG.height);
+		loading.updateHitbox();
+		loading.screenCenter();
+		loading.scrollFactor.set(0, 0);
+		leState.add(loading);
+		if(trans != null) {
+			trans.add(loading);
+			loading.cameras = trans.cameras;
+		}
+		if(camera != null) {
+			loading.cameras = [camera];
+		}
+		loading.antialiasing = ClientPrefs.globalAntialiasing;
+		loading.draw();
+		songLoadingScreen = "";
+	}
+
 	public static function switchState(nextState:FlxState) {
 		// Custom made Trans in
 		var curState:Dynamic = FlxG.state;
 		var leState:MusicBeatState = curState;
 		if(!FlxTransitionableState.skipNextTransIn) {
+			var camera = CustomFadeTransition.nextCamera;
+			var trans = new CustomFadeTransition(0.6, false);
 			leState.openSubState(new CustomFadeTransition(0.6, false));
 			if(nextState == FlxG.state) {
 				CustomFadeTransition.finishCallback = function() {
+					if(songLoadingScreen != "") {
+						loadingScreen(leState, camera, trans);
+					}
 					FlxG.resetState();
 				};
 				//trace('resetted');
 			} else {
 				CustomFadeTransition.finishCallback = function() {
+					if(songLoadingScreen != "") {
+						loadingScreen(leState, camera, trans);
+					}
 					FlxG.switchState(nextState);
 				};
 				//trace('changed state');
@@ -134,6 +174,10 @@ class MusicBeatState extends FlxUIState
 			return;
 		}
 		FlxTransitionableState.skipNextTransIn = false;
+		if(songLoadingScreen != "") {
+			loadingScreen(leState, FlxG.cameras.list[FlxG.cameras.list.length - 1]);
+		}
+
 		FlxG.switchState(nextState);
 	}
 
