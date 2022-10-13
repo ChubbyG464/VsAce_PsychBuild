@@ -88,7 +88,7 @@ class PauseSubState extends MusicBeatSubstate
 		stripes.screenCenter(XY);
 		stripes.alpha = 0;
 		stripes.blend = SCREEN;
-		stripes.antialiasing = FlxG.save.data.antialiasing;
+		stripes.antialiasing =ClientPrefs.globalAntialiasing;
 		add(stripes);
 		
 		fgstuff = new FlxBackdrop(Paths.image('test2'), 0.2, 0, true, true);
@@ -97,7 +97,7 @@ class PauseSubState extends MusicBeatSubstate
 		//fgstuff.updateHitbox();
 		fgstuff.screenCenter(XY);
 		fgstuff.alpha = 0;
-		fgstuff.antialiasing = FlxG.save.data.antialiasing;
+		fgstuff.antialiasing =ClientPrefs.globalAntialiasing;
 		add(fgstuff);
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);

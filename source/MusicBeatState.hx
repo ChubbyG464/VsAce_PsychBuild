@@ -153,7 +153,7 @@ class MusicBeatState extends FlxUIState
 		if(!FlxTransitionableState.skipNextTransIn) {
 			var camera = CustomFadeTransition.nextCamera;
 			var trans = new CustomFadeTransition(0.6, false);
-			leState.openSubState(new CustomFadeTransition(0.6, false));
+			leState.openSubState(trans);
 			if(nextState == FlxG.state) {
 				CustomFadeTransition.finishCallback = function() {
 					if(songLoadingScreen != "") {
