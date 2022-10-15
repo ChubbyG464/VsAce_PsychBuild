@@ -302,3 +302,17 @@ class ClientPrefs {
 		return copiedArray;
 	}
 }
+
+@:keep class UnlockStruct
+{
+    public var name:String;
+    public var index:Int;
+    public var unlocked:Bool;
+
+    public function new(name:String, index:Int, unlocked:Bool)
+    {
+        this.name = name;
+        this.index = index;
+        this.unlocked = unlocked;
+    }
+}

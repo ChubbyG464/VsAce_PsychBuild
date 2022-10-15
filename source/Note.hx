@@ -468,7 +468,7 @@ class Note extends FlxSprite
 		switch(type)
 		{
 			case 'iceNote':
-				frames = Paths.getSparrowAtlas('images/IceArrow_Assets');
+				frames = Paths.getSparrowAtlas('IceArrow_Assets');
 				for (i in 0...4)
 					animation.addByPrefix(dataColor[i] + 'Scroll', 'Ice Arrow ' + notedir[i].toUpperCase());
 				setGraphicSize(Std.int(width * 0.66));

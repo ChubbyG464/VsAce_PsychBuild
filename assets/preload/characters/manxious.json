@@ -3,79 +3,76 @@
 		{
 			"offsets": [
 				0,
-				320
+				0
 			],
-			"loop": false,
+			"indices": [],
 			"fps": 24,
 			"anim": "idle",
-			"scale": 1,
-			"indices": [],
+			"loop": false,
 			"name": "Minace_Idle"
 		},
 		{
 			"offsets": [
-				120,
-				169
+				80,
+				-150
 			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
 			"loop": false,
+			"name": "Minace_Left"
+		},
+		{
+			"offsets": [
+				130,
+				-140
+			],
+			"indices": [],
 			"fps": 24,
 			"anim": "singDOWN",
-			"scale": 1,
-			"indices": [],
+			"loop": false,
 			"name": "Minace_Down"
 		},
 		{
 			"offsets": [
-				198,
-				486
+				196,
+				163
 			],
-			"loop": false,
+			"indices": [],
 			"fps": 24,
 			"anim": "singUP",
-			"scale": 1,
-			"indices": [],
+			"loop": false,
 			"name": "Minace_Up"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				265,
-				184
+				200,
+				-130
 			],
-			"anim": "singLEFT",
+			"indices": [],
 			"fps": 24,
-			"name": "Minace_Right",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				52,
-				183
-			],
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "Minace_Left",
-			"indices": []
+			"loop": false,
+			"name": "Minace_Right"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/mace",
+	"image": "characters/manxious",
 	"position": [
-		-130,
-		350
+		0,
+		0
 	],
 	"healthicon": "ace",
 	"flip_x": true,
 	"healthbar_colors": [
-		196,
-		229,
-		248
+		186,
+		226,
+		255
 	],
 	"camera_position": [
-		70,
-		-100
+		0,
+		0
 	],
-	"sing_duration": 4,
+	"sing_duration": 6.1,
 	"scale": 1
 }

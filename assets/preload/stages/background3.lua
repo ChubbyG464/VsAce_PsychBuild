@@ -265,6 +265,15 @@ function onEvent(ev, v1, v2)
 		else
 			doTweenAlpha('strong3', 'snowfgstrongest', alpha, time)
 		end
+	elseif ev == "Slow Zoom" then
+		local zoom = tonumber(v1)
+		local time = tonumber(v2)
+		if time <= 0 then
+			cancelTween("zoomx")
+			setProperty("zoom.x", zoom)
+		else
+			doTweenX('zoomx', 'zoom', zoom, time)
+		end
 	end
 end
 

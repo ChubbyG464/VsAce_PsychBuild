@@ -93,6 +93,8 @@ class ChartingState extends MusicBeatState
         ['Strongest Snow', "Value 1: The final alpha\nValue 2: The time to fade (0 is instant)"],
         ['Snowy Stage', "Empty"],
 
+		['Slow Zoom', "Zoom value\ndThe duration of the zoom"],
+
 		['Flash', "Value 1: Camera (game, hud, other)\nValue 2: Duration (default 1 second)"],
 		['Set Default Zoom', "Value 1: The new defaultCamZoom"],
 	];

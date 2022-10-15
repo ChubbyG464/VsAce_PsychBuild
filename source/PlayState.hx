@@ -945,8 +945,8 @@ class PlayState extends MusicBeatState
 		Conductor.safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000;
 	
 		if(noteTypeMap.exists('iceNote')) {
-			CoolUtil.precacheSound('icey');
-			FlxG.bitmap.add(Paths.image('images/IceBreakAnim'));
+			CoolUtil.precacheSound('icey','shared');
+			FlxG.bitmap.add(Paths.image('IceBreakAnim'));
 		}
 
 		callOnLuas('onCreatePost', []);
@@ -1219,56 +1219,7 @@ class PlayState extends MusicBeatState
 
 	function tankIntro()
 	{
-		var cutsceneHandler:CutsceneHandler = new CutsceneHandler();
 
-		var songName:String = Paths.formatToSongPath(SONG.song);
-		dadGroup.alpha = 0.00001;
-		camHUD.visible = false;
-		//inCutscene = true; //this would stop the camera movement, oops
-
-		var tankman:FlxSprite = new FlxSprite(-20, 320);
-		tankman.frames = Paths.getSparrowAtlas('cutscenes/' + songName);
-		tankman.antialiasing = ClientPrefs.globalAntialiasing;
-		addBehindDad(tankman);
-		cutsceneHandler.push(tankman);
-
-		var tankman2:FlxSprite = new FlxSprite(16, 312);
-		tankman2.antialiasing = ClientPrefs.globalAntialiasing;
-		tankman2.alpha = 0.000001;
-		cutsceneHandler.push(tankman2);
-		var gfDance:FlxSprite = new FlxSprite(gf.x - 107, gf.y + 140);
-		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
-		cutsceneHandler.push(gfDance);
-		var gfCutscene:FlxSprite = new FlxSprite(gf.x - 104, gf.y + 122);
-		gfCutscene.antialiasing = ClientPrefs.globalAntialiasing;
-		cutsceneHandler.push(gfCutscene);
-		var picoCutscene:FlxSprite = new FlxSprite(gf.x - 849, gf.y - 264);
-		picoCutscene.antialiasing = ClientPrefs.globalAntialiasing;
-		cutsceneHandler.push(picoCutscene);
-		var boyfriendCutscene:FlxSprite = new FlxSprite(boyfriend.x + 5, boyfriend.y + 20);
-		boyfriendCutscene.antialiasing = ClientPrefs.globalAntialiasing;
-		cutsceneHandler.push(boyfriendCutscene);
-
-		cutsceneHandler.finishCallback = function()
-		{
-			var timeForStuff:Float = Conductor.crochet / 1000 * 4.5;
-			FlxG.sound.music.fadeOut(timeForStuff);
-			FlxTween.tween(FlxG.camera, {zoom: defaultCamZoom}, timeForStuff, {ease: FlxEase.quadInOut});
-			moveCamera(true);
-			startCountdown();
-
-			dadGroup.alpha = 1;
-			camHUD.visible = true;
-			boyfriend.animation.finishCallback = null;
-			gf.animation.finishCallback = null;
-			gf.dance();
-		};
-
-		camFollow.set(dad.x + 280, dad.y + 170);
-		switch(songName)
-		{
-
-		}
 	}
 
 	var startTimer:FlxTimer;
@@ -1682,9 +1633,10 @@ class PlayState extends MusicBeatState
 		if (formattedSong == 'frostbite')  //Frostbite test to see if this worked. It didn't
 		{
 			var iceAmount:Int = switch(CoolUtil.difficultyString().toLowerCase()) {
+				case "easy": 25;
 				case "normal": 40; // original chart: 39
 				case "hard": 50; // original chart: 41
-				case "hell": 75;
+				case "swapped": 75;
 	
 				default: 0;
 			}
@@ -3569,6 +3521,9 @@ class PlayState extends MusicBeatState
 
 			var char:Character = dad;
 			var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))] + altAnim;
+			if(note.secondDad) {
+				char = dad2;
+			}
 			if(note.gfNote) {
 				char = gf;
 			}
@@ -3730,7 +3685,7 @@ class PlayState extends MusicBeatState
 	function iceNoteHit(note:Note) {
 		var breakAnim:FlxSprite = new FlxSprite();
 		breakAnim.cameras = [camHUD];
-		breakAnim.frames = Paths.getSparrowAtlas("images/IceBreakAnim");
+		breakAnim.frames = Paths.getSparrowAtlas("IceBreakAnim");
 		var anims:Array<String> = ['left', 'down', 'up', 'right'];
 		breakAnim.animation.addByPrefix('break', anims[note.noteData], 24, false);
 		breakAnim.animation.play('break');
@@ -3921,6 +3876,10 @@ class PlayState extends MusicBeatState
 		if (curBeat % dad.danceEveryNumBeats == 0 && dad.animation.curAnim != null && !dad.animation.curAnim.name.startsWith('sing') && !dad.stunned)
 		{
 			dad.dance();
+		}
+		if (dad2 != null && !dad2.stunned && curBeat % dad2.danceEveryNumBeats == 0 && dad2.animation.curAnim != null && !dad2.animation.curAnim.name.startsWith('sing'))
+		{
+			dad2.dance();
 		}
 
 		switch (curStage)

@@ -101,7 +101,7 @@ class StrumNote extends FlxShakableSprite
 
 				
 			if(PlayState.instance != null && PlayState.instance.hasIceNotes) {
-				addFrames(Paths.getSparrowAtlas("images/FrozenStrums"));
+				addFrames(Paths.getSparrowAtlas("FrozenStrums"));
 			}
 
 			antialiasing = ClientPrefs.globalAntialiasing;
