@@ -76,14 +76,6 @@ class Note extends FlxSprite
 	static var notedir:Array<String> = ['Left', 'Down', 'Up', 'Right'];
 	public static var dataColor:Array<String> = ['purple', 'blue', 'green', 'red'];
 
-	// Note Quantization
-	private static var quantDivisions:Array<Int> = [0, 1, 2, 3, 4, 5, 6, 7];
-	public static var arrowAngles:Array<Int> = [180, 90, 270, 0];
-
-	public var originColor:Int; // Mainly used for sustain notes
-	public var quantColor:Int;
-	public var forceDisableQuant:Bool = false;
-
 	// Lua shit
 	public var noteSplashDisabled:Bool = false;
 	public var noteSplashTexture:String = null;
@@ -182,6 +174,14 @@ class Note extends FlxSprite
 					noteSplashDisabled = true;
 					hitsoundDisabled = true;
 					addCustomNote(value);
+
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
+
+					noteOffsetX -= 35;
+					offsetX -= 35;
+					offsetY -= 13;
 				case 'Alt Animation':
 					animSuffix = '-alt';
 				case 'No Animation':
@@ -206,7 +206,7 @@ class Note extends FlxSprite
 		hasSetup = true;
 		offsetX = noteOffsetX;
 		// Determine the animation name depending on the color integer
-		var animName:String = dataColor[originColor % 4];
+		var animName:String = dataColor[noteData % 4];
 		if (isSustainNote && prevNote != null)
 		{
 			if(isHoldEnd) {
@@ -219,15 +219,15 @@ class Note extends FlxSprite
 		{
 			animName += 'Scroll';
 		}
-	
+
 		animation.play(animName);
-	
+
 		if (isSustainNote)
 		{
 			updateHitbox();
-	
+
 			offsetX = holdOffsetX;
-	
+
 			x += offsetX;
 		}
 	}
@@ -292,38 +292,22 @@ class Note extends FlxSprite
 			offsetX += width / 2;
 			copyAngle = false;
 
-			switch (noteData)
-			{
-				case 0:
-					animation.play('purpleholdend');
-				case 1:
-					animation.play('blueholdend');
-				case 2:
-					animation.play('greenholdend');
-				case 3:
-					animation.play('redholdend');
-			}
+			animation.play(dataColor[noteData % 4] + 'holdend');
 
 			updateHitbox();
 
 			offsetX -= width / 2;
+
+			isHoldEnd = true;
 
 			if (PlayState.isPixelStage)
 				offsetX += 30;
 
 			if (prevNote.isSustainNote)
 			{
-				switch (prevNote.noteData)
-				{
-					case 0:
-						prevNote.animation.play('purplehold');
-					case 1:
-						prevNote.animation.play('bluehold');
-					case 2:
-						prevNote.animation.play('greenhold');
-					case 3:
-						prevNote.animation.play('redhold');
-				}
+				prevNote.animation.play(dataColor[prevNote.noteData % 4] + 'hold');
+
+				prevNote.isHoldEnd = false;
 
 				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.05;
 				if(PlayState.instance != null)
@@ -521,7 +505,7 @@ class Note extends FlxSprite
 
 		return rect;
 	}
-	
+
 	@:noCompletion
 	override function drawComplex(camera:FlxCamera):Void
 	{

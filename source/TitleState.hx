@@ -261,7 +261,7 @@ class TitleState extends MusicBeatState
 		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
+		logoBl.animation.addByPrefix('bump', 'logoBumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.scale.set(0.9, 0.9);
 		logoBl.updateHitbox();

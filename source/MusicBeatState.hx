@@ -95,7 +95,7 @@ class MusicBeatState extends FlxUIState
 			{
 				stepsToDo += Math.round(getBeatsOnSection() * 4);
 				if(stepsToDo > curStep) break;
-				
+
 				curSection++;
 			}
 		}
@@ -118,7 +118,6 @@ class MusicBeatState extends FlxUIState
 		curStep = lastChange.stepTime + Math.floor(shit);
 	}
 
-	
 	public static var songLoadingScreen:String = "";
 	public static var nextGhostAllowed:Bool = false;
 

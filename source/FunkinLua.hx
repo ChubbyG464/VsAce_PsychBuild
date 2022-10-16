@@ -57,14 +57,13 @@ class FunkinLua {
 	#if LUA_ALLOWED
 	public var lua:State = null;
 	#end
-	public var camTarget:FlxCamera;
 	public var scriptName:String = '';
 	public var closed:Bool = false;
 
 	#if hscript
 	public static var haxeInterp:Interp = null;
 	#end
-	
+
 	public function new(script:String) {
 		#if LUA_ALLOWED
 		lua = LuaL.newstate();
@@ -1833,7 +1832,7 @@ class FunkinLua {
 			if(!PlayState.instance.modchartBackdrops.exists(tag)) {
 				return;
 			}
-			
+
 			var pee:ModchartBackdrop = PlayState.instance.modchartBackdrops.get(tag);
 			if(destroy) {
 				pee.kill();
@@ -1863,7 +1862,7 @@ class FunkinLua {
 				PlayState.instance.modchartTexts.get(obj).cameras = [cameraFromString(camera)];
 				return true;
 			}
-		
+
 			var object:FlxBasic = Reflect.getProperty(getInstance(), obj);
 			if(object != null) {
 				object.cameras = [cameraFromString(camera)];
@@ -2135,7 +2134,7 @@ class FunkinLua {
 			if (text5 == null) text5 = '';
 			luaTrace('' + text1 + text2 + text3 + text4 + text5, true, false);
 		});
-		
+
 		Lua_helper.add_callback(lua, "close", function() {
 			closed = true;
 			return closed;
@@ -2857,7 +2856,7 @@ class FunkinLua {
 			if(lua == null) return Function_Continue;
 
 			Lua.getglobal(lua, func);
-			
+
 			for(arg in args) {
 				Convert.toLua(lua, arg);
 			}

@@ -45,7 +45,7 @@ class PauseSubState extends MusicBeatSubstate
 		if(PlayState.chartingMode)
 		{
 			menuItemsOG.insert(2, 'Leave Charting Mode');
-			
+
 			var num:Int = 0;
 			if(!PlayState.instance.startingSong)
 			{
@@ -76,7 +76,7 @@ class PauseSubState extends MusicBeatSubstate
 
 		FlxG.sound.list.add(pauseMusic);
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var bg:FlxSprite = new FlxSpriteExtra().makeSolid(FlxG.width, FlxG.height, FlxColor.BLACK);
 		bg.alpha = 0;
 		bg.scrollFactor.set();
 		add(bg);
@@ -90,7 +90,7 @@ class PauseSubState extends MusicBeatSubstate
 		stripes.blend = SCREEN;
 		stripes.antialiasing =ClientPrefs.globalAntialiasing;
 		add(stripes);
-		
+
 		fgstuff = new FlxBackdrop(Paths.image('test2'), 0.2, 0, true, true);
 		fgstuff.velocity.set(200, 150);
 		//fgstuff.setGraphicSize(Std.int((fgstuff.width * 1.2) / defaultCamZoom));
@@ -395,7 +395,7 @@ class PauseSubState extends MusicBeatSubstate
 		curSelected = 0;
 		changeSelection();
 	}
-	
+
 	function updateSkipTextStuff()
 	{
 		if(skipTimeText == null || skipTimeTracker == null) return;
