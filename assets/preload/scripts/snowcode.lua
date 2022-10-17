@@ -47,33 +47,6 @@ function makeSnow(tag, image, velx, vely)
 	set(tag..".camZoom", get("defaultCamZoom"))
 end
 
-function addBF_X(val)
-	addRel("BF_X", val)
-	set("boyfriendGroup.x", get("BF_X"))
-end
-function addBF_Y(val)
-	addRel("BF_Y", val)
-	set("boyfriendGroup.y", get("BF_Y"))
-end
-
-function addGF_X(val)
-	addRel("GF_X", val)
-	set("gfGroup.x", get("GF_X"))
-end
-function addGF_Y(val)
-	addRel("GF_Y", val)
-	set("gfGroup.y", get("GF_Y"))
-end
-
-function addDAD_X(val)
-	addRel("DAD_X", val)
-	set("dadGroup.x", get("DAD_X"))
-end
-function addDAD_Y(val)
-	addRel("DAD_Y", val)
-	set("dadGroup.y", get("DAD_Y"))
-end
-
 function onCreate()
 	debugPrint("AAB", get("defaultCamZoom"))
 end
@@ -84,7 +57,7 @@ function onCreatePost()
 
 	debugPrint("AAA", get("defaultCamZoom"))
 
-	local hasSnowEvents = true
+	local hasSnowEvents = false
 	local hasWeak = false
 	local hasMid = false
 	local hasStrong = false
@@ -178,6 +151,8 @@ function onCreatePost()
 		addBackdrop('snowstorm3', true)
 
 		addBackdrop('snowfgstrongest', true)
+	else
+		close(true)
 	end
 end
 

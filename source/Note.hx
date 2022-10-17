@@ -173,6 +173,9 @@ class Note extends FlxSprite
 					hitByOpponent = true;
 					noteSplashDisabled = true;
 					hitsoundDisabled = true;
+
+					lowPriority = true;
+
 					addCustomNote(value);
 
 					colorSwap.hue = 0;
