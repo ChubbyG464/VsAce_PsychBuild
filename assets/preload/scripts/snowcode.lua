@@ -47,16 +47,7 @@ function makeSnow(tag, image, velx, vely)
 	set(tag..".camZoom", get("defaultCamZoom"))
 end
 
-function onCreate()
-	debugPrint("AAB", get("defaultCamZoom"))
-end
-
 function onCreatePost()
-	luaDebugMode = true
-
-
-	debugPrint("AAA", get("defaultCamZoom"))
-
 	local hasSnowEvents = false
 	local hasWeak = false
 	local hasMid = false
@@ -93,7 +84,7 @@ function onCreatePost()
 		if hasWeak then
 			makeSnow('snowfgweak', 'weak', 100, 110)
 			makeSnow('snowfgweak2', 'weak2', -100, 110)
-			debugPrint("Loaded Weak Snow")
+			--debugPrint("Loaded Weak Snow")
 
 			set("snowfgweak.alpha", HIDDEN)
 			set("snowfgweak2.alpha", HIDDEN)
@@ -101,7 +92,7 @@ function onCreatePost()
 		if hasMid then
 			makeSnow('snowfgmid', 'mid', 400, 210)
 			makeSnow('snowfgmid2', 'mid2', -400, 210)
-			debugPrint("Loaded Mid Snow")
+			--debugPrint("Loaded Mid Snow")
 
 			set("snowfgmid.alpha", HIDDEN)
 			set("snowfgmid2.alpha", HIDDEN)
@@ -109,7 +100,7 @@ function onCreatePost()
 		if hasStrong then
 			makeSnow('snowfgstrong', 'strong', 900, 410)
 			makeSnow('snowfgstrong2', 'strong2', -900, 410)
-			debugPrint("Loaded Strong Snow")
+			--debugPrint("Loaded Strong Snow")
 
 			set("snowfgstrong.alpha", HIDDEN)
 			set("snowfgstrong2.alpha", HIDDEN)
@@ -118,7 +109,7 @@ function onCreatePost()
 			makeSnow('snowstorm', 'storm', -5000, 0)
 			makeSnow('snowstorm2', 'storm2', -3700, 0)
 			makeSnow('snowstorm3', 'storm', -2800, 0)
-			debugPrint("Loaded Storm Snow")
+			--debugPrint("Loaded Storm Snow")
 
 			set('snowstorm.repeatX', true)
 			set('snowstorm.repeatY', false)
@@ -132,7 +123,7 @@ function onCreatePost()
 		end
 		if hasStrongest then
 			makeSnow('snowfgstrongest', 'strongest', -1100, 500)
-			debugPrint("Loaded Strongest Snow")
+			--debugPrint("Loaded Strongest Snow")
 
 			set("snowfgstrongest.alpha", HIDDEN)
 		end
