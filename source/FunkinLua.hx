@@ -1732,17 +1732,21 @@ class FunkinLua {
 				if(updateHitbox) shit.updateHitbox();
 				return;
 			}
-			if(PlayState.instance.modchartBackdrops.exists(obj)) {
-				var shit:ModchartBackdrop = PlayState.instance.modchartBackdrops.get(obj);
-				shit.scale.set(x, y);
-				shit.updateHitbox();
-				return;
+			var killMe:Array<String> = obj.split('.');
+			var poop:FlxSprite = getObjectDirectly(killMe[0]);
+			if(killMe.length > 1) {
+				poop = getVarInArray(getPropertyLoopThingWhatever(killMe), killMe[killMe.length-1]);
+			 //if(PlayState.instance.modchartBackdrops.exists(obj)) {
+			 //	var shit:ModchartBackdrop = PlayState.instance.modchartBackdrops.get(obj);
+			 //	shit.scale.set(x, y);
+			 //	shit.updateHitbox();
+			 //	return;
 			}
 
-			var poop:FlxSprite = Reflect.getProperty(getInstance(), obj);
+			//var poop:FlxSprite = Reflect.getProperty(getInstance(), obj);
 			if(poop != null) {
 				poop.scale.set(x, y);
-				poop.updateHitbox();
+				//poop.updateHitbox();
 				return;
 			}
 			luaTrace('Couldnt find object: ' + obj, false, false, FlxColor.RED);
