@@ -1,37 +1,37 @@
 {
-	"dialogue_pos": "center",
 	"position": [
 		0,
 		50
 	],
+	"dialogue_pos": "center",
 	"scale": 1.25,
+	"image": "GFPortraits",
 	"animations": [
 		{
-			"loop_name": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Neutral",
 			"idle_offsets": [
 				-20,
 				40
 			],
-			"idle_name": "Neutral",
-			"anim": "Neutral",
+			"loop_name": "Neutral",
+			"idle_name": "Neutral"
+		},
+		{
 			"loop_offsets": [
 				0,
 				0
-			]
-		},
-		{
-			"loop_name": "Confused",
+			],
+			"anim": "Confused",
 			"idle_offsets": [
 				11,
 				40
 			],
-			"idle_name": "Confused",
-			"anim": "Confused",
-			"loop_offsets": [
-				0,
-				0
-			]
+			"loop_name": "Confused",
+			"idle_name": "Confused"
 		}
-	],
-	"image": "gfPortraits"
+	]
 }

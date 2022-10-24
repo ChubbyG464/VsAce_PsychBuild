@@ -1,153 +1,153 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Ace Idle0"
+			"fps": 24,
+			"name": "Ace Idle0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-100,
 				13
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Ace Left Note0"
+			"fps": 24,
+			"name": "Ace Left Note0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				57,
 				41
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Ace Up Note0"
+			"fps": 24,
+			"name": "Ace Up Note0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				110,
 				-100
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Ace Down Note0"
+			"fps": 24,
+			"name": "Ace Down Note0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				191,
 				20
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Ace Right Note0"
+			"fps": 24,
+			"name": "Ace Right Note0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-1,
 				2
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "hey!",
-			"indices": [],
-			"name": "Ace Intro0"
+			"fps": 24,
+			"name": "Ace Intro0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-110,
 				13
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHTmiss",
-			"loop": false,
-			"name": "Ace Left Note MISS0"
+			"fps": 24,
+			"name": "Ace Left Note MISS0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				57,
 				41
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUPmiss",
-			"loop": false,
-			"name": "Ace Up Note MISS0"
+			"fps": 24,
+			"name": "Ace Up Note MISS0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				110,
 				-100
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWNmiss",
-			"loop": false,
-			"name": "Ace Down Note MISS0"
+			"fps": 24,
+			"name": "Ace Down Note MISS0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				191,
 				20
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"loop": false,
-			"name": "Ace Right Note MISS0"
+			"fps": 24,
+			"name": "Ace Right Note MISS0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				37,
 				25
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "firstDeath",
-			"loop": false,
-			"name": "Ace dies0"
+			"fps": 24,
+			"name": "Ace dies0",
+			"indices": []
 		},
 		{
-			"offsets": [
-				37,
-				18
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "deathLoop",
 			"loop": true,
-			"name": "Ace Dead Loop0"
-		},
-		{
 			"offsets": [
 				37,
 				18
 			],
-			"indices": [],
+			"anim": "deathLoop",
 			"fps": 24,
-			"anim": "deathConfirm",
+			"name": "Ace Dead Loop0",
+			"indices": []
+		},
+		{
 			"loop": false,
-			"name": "Ace Dead confirm"
+			"offsets": [
+				37,
+				18
+			],
+			"anim": "deathConfirm",
+			"fps": 24,
+			"name": "Ace Dead confirm",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/bf-playerace",
 	"position": [
-		0,
+		200,
 		0
 	],
 	"healthicon": "ace",
@@ -158,8 +158,8 @@
 		255
 	],
 	"camera_position": [
-		0,
-		0
+		150,
+		-150
 	],
 	"sing_duration": 6.1,
 	"scale": 1.2
