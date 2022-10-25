@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="Retry.png">
+<TextureAtlas imagePath="bf-retry.png">
 	<!-- Created with Adobe Animate version 22.0.2.168 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="retry appear0000" x="25" y="25" width="153" height="80"/>
