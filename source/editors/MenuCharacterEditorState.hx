@@ -37,15 +37,15 @@ class MenuCharacterEditorState extends MusicBeatState
 	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 	var characterFile:MenuCharacterFile = null;
 	var txtOffsets:FlxText;
-	var defaultCharacters:Array<String> = ['dad', 'bf', 'gf'];
+	var defaultCharacters:Array<String> = ['ace', 'bf-cold', 'gf'];
 
 	override function create() {
 		characterFile = {
-			image: 'Menu_Dad',
+			image: 'campaign_menu_UI_characters',
 			scale: 1,
 			position: [0, 0],
-			idle_anim: 'M Dad Idle',
-			confirm_anim: 'M Dad Idle',
+			idle_anim: 'Ace_Idle',
+			confirm_anim: 'Ace_Idle',
 			flipX: false
 		};
 		#if desktop

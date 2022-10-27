@@ -1,4 +1,6 @@
 function onCreatePost()
-	addHaxeLibrary("GameOverSubstate", "")
-	runHaxeCode([[GameOverSubstate.characterName = "bf-playerace";]])
+	setPropertyFromClass("GameOverSubstate", "characterName", "bf-playerace");
+	setPropertyFromClass("GameOverSubstate", "deathSoundName", "ace_death");
+	setPropertyFromClass("GameOverSubstate", "loopSoundName", "gameOver");
+	setPropertyFromClass("GameOverSubstate", "endSoundName", "gameOverEnd");
 end

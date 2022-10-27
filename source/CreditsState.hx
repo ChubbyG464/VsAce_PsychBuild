@@ -128,7 +128,8 @@ class CreditsState extends MusicBeatState
 			['RetroSpecter', '@RetroSpecter_', 'retro', FlxColor.fromRGB(23, 216, 228), 'https://twitter.com/Retrospecter_', []],
 			['Kade', '@KadeDev', 'kade', FlxColor.fromRGB(25, 77, 0), 'https://twitter.com/kade0912', []],
 			['TKTems', '@TKtems', 'tk', FlxColor.fromRGB(0, 230, 191), 'https://twitter.com/TKTems', []],
-			['TiredPinkPanda', '@TiredPinkPanda', 'panda', FlxColor.fromRGB(158, 22, 22), 'https://twitter.com/TiredPinkPanda', []]
+			['TiredPinkPanda', '@TiredPinkPanda', 'panda', FlxColor.fromRGB(158, 22, 22), 'https://twitter.com/TiredPinkPanda', []],
+			['Trackye', '@Trackye', 'track', FlxColor.fromRGB(43, 59, 255), 'https://www.youtube.com/channel/UC4IrLVtl26x-2hb9yYqCyVw', []]
 		]
 	];
 
