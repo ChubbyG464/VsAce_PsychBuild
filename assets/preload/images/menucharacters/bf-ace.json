@@ -1,0 +1,11 @@
+{
+	"confirm_anim": "ace BF HEY!!",
+	"idle_anim": "ace BF idle dance white",
+	"position": [
+		75,
+		28
+	],
+	"scale": 0.9,
+	"image": "campaign_menu_UI_characters",
+	"flipX": false
+}

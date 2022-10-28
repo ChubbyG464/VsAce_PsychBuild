@@ -120,6 +120,7 @@ class PlayState extends MusicBeatState
 	public var songSpeedType:String = "multiplicative";
 	public var noteKillOffset:Float = 350;
 
+	public var bfVersion:String = "";
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
 	public var gfGroup:FlxSpriteGroup;
@@ -129,6 +130,7 @@ class PlayState extends MusicBeatState
 	public static var SONG2:SwagSong = null;
 	public static var isStoryMode:Bool = false;
 	public static var storyWeek:Int = 0;
+	public static var storyChar:Int = 0;
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
 
@@ -475,7 +477,11 @@ class PlayState extends MusicBeatState
 					add(stageCurtains);
 				}
 		}
-
+		
+		var stageCheck:String = 'city';
+		if (SONG.stage != null){
+			stageCheck = SONG.stage;
+		}
 
 		if(isPixelStage) {
 			introSoundsSuffix = '-pixel';
@@ -547,6 +553,16 @@ class PlayState extends MusicBeatState
 
 		WindowTitle.progress(10);
 
+		bfVersion = SONG.player1;
+		if(bfVersion  == "playable-character") {
+			bfVersion  = switch(storyChar) {
+        		case 0: "bf";
+        		case 1: "bf-ace";
+        		case 2: "bf-retro";
+        		default: "bf";
+    		};
+		}
+
 		var gfVersion:String = SONG.gfVersion;
 		if(gfVersion == null || gfVersion.length < 1)
 		{
@@ -601,7 +617,7 @@ class PlayState extends MusicBeatState
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
 
-		boyfriend = new Boyfriend(0, 0, SONG.player1);
+		boyfriend = new Boyfriend(0, 0, bfVersion);
 		startCharacterPos(boyfriend);
 		boyfriendGroup.add(boyfriend);
 		startCharacterLua(boyfriend.curCharacter);
@@ -622,6 +638,48 @@ class PlayState extends MusicBeatState
 		switch(curStage)
 		{
 
+		}
+
+		if (storyChar == 1)
+			SONG.player1 = 'bf-ace';
+		else if (storyChar == 2)
+			SONG.player1 = 'bf-retro';
+
+		// forces cold hearted to only be playable ace
+		if (formattedSong == 'cold-hearted')
+		{
+			trace('bf force');
+			if (storyChar == 1)
+				SONG.player1 = 'bf-playerace';
+			else if (storyChar == 2)
+				SONG.player1 = 'bf-playerace';
+		}
+
+		if (formattedSong == 'running-laps' || formattedSong == 'icing-tensions' || formattedSong == 'chill-out')
+		{
+			trace('bf force');
+			if (storyChar == 1)
+				SONG.player1 = 'bf-minus';
+			else if (storyChar == 2)
+				SONG.player1 = 'bf-minus';
+		}
+
+		if (formattedSong == 'no-homo' || formattedSong == 'sweater-weather')
+		{
+			trace('bf force');
+			if (storyChar == 1)
+				SONG.player1 = 'bf-maceplay';
+			else if (storyChar == 2)
+				SONG.player1 = 'bf-maceplay';
+		}
+
+		if (formattedSong == 'frostbite-two')
+		{
+			trace('bf force');
+			if (storyChar == 1)
+				SONG.player1 = 'bf-maceplay';
+			else if (storyChar == 2)
+				SONG.player1 = 'bf-maceplay';
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
