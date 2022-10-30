@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Well this was fun Acey-Wacey"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "Please don't call me that."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "Anyways, I'm beat. And now it's too cold."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Back to Hell I go! Love you."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Love you too."
+		}
+	]
+}

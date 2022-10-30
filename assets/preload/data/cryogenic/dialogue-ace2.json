@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Hey cool song."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Thanks, I wasn't sure how I felt about it at first."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "It was fine, but man that was a fast song. I think I need to sit down."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Tired",
+			"text": "Same."
+		}
+	]
+}

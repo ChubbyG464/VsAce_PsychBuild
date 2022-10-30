@@ -1,0 +1,68 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Flushed",
+			"text": "Whoa."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Hm?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "I REALLY liked that one"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "Oh, uh... thanks!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "I get excited sometimes"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "Yeah I know. You cause flurries in our apartment anytime a new package arrives"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I do???"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Whoops. Sorry. Next song!"
+		}
+	]
+}

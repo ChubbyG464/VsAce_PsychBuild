@@ -1,76 +1,89 @@
 {
+	"dialogue_pos": "right",
 	"position": [
 		0,
 		50
 	],
-	"dialogue_pos": "right",
 	"scale": 1.25,
-	"image": "RetroBFPortraits",
 	"animations": [
 		{
-			"loop_offsets": [
-				0,
-				0
+			"idle_offsets": [
+				30,
+				60
 			],
 			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				1
+			],
+			"idle_name": "Neutral",
+			"loop_name": "Neutral"
+		},
+		{
 			"idle_offsets": [
 				30,
 				60
-			],
-			"loop_name": "Neutral",
-			"idle_name": "Neutral"
-		},
-		{
-			"loop_offsets": [
-				0,
-				0
 			],
 			"anim": "Happy",
-			"idle_offsets": [
-				30,
-				60
-			],
-			"loop_name": "Happy",
-			"idle_name": "Happy"
-		},
-		{
-			"loop_name": "Sad",
-			"idle_offsets": [
-				30,
-				60
-			],
-			"idle_name": "Sad",
-			"anim": "Sad",
 			"loop_offsets": [
 				0,
 				0
-			]
+			],
+			"idle_name": "Happy",
+			"loop_name": "Happy"
 		},
 		{
-			"loop_name": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Sad",
+			"idle_offsets": [
+				30,
+				60
+			],
+			"loop_name": "Sad",
+			"idle_name": "Sad"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Confused",
 			"idle_offsets": [
 				43,
 				60
 			],
-			"idle_name": "Confused",
-			"anim": "Confused",
+			"loop_name": "Confused",
+			"idle_name": "Confused"
+		},
+		{
 			"loop_offsets": [
 				0,
 				0
-			]
-		},
-		{
-			"loop_name": "Flushed",
+			],
+			"anim": "Flushed",
 			"idle_offsets": [
 				30,
 				60
 			],
-			"idle_name": "Flushed",
-			"anim": "Flushed",
+			"loop_name": "Flushed",
+			"idle_name": "Flushed"
+		},
+		{
+			"loop_name": "Smug",
+			"idle_offsets": [
+				30,
+				60
+			],
+			"idle_name": "Smug",
+			"anim": "Smug",
 			"loop_offsets": [
 				0,
 				0
 			]
 		}
-	]
+	],
+	"image": "RetroBFPortraits"
 }

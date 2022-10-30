@@ -1,0 +1,52 @@
+{
+	"dialogue": [
+		{
+			"expression": "Confused",
+			"text": "Why are we singing under this shady-ass bridge?",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits"
+		},
+		{
+			"expression": "Eyeroll",
+			"text": "Because you complain about the heat. A LOT.",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits"
+		},
+		{
+			"expression": "Happy",
+			"text": "You're right. You have no idea how hot it gets down there in Hell!",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits"
+		},
+		{
+			"expression": "Annoyed",
+			"text": "Yes I do. I've visited you there a few times. You complain about it everytime.",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits"
+		},
+		{
+			"expression": "Smug",
+			"text": "Hey man. That's edgier tall me, I'm just tryna vibe.",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Oh, you want good vibes? Check out this song I made!"
+		}
+	]
+}

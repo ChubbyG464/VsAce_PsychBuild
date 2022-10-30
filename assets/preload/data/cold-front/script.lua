@@ -2,7 +2,14 @@ local allowCountdown = false
 function onStartCountdown()
     if not allowCountdown and isStoryMode and not seenCutscene then
         setProperty('inCutscene', true)
-        startDialogue('dialogue', 'dialogueAmbience1')
+        
+if getProperty("bfVersion") == "bf-retro" then
+        startDialogue('dialogue-retro', 'dialogueAmbience1')
+elseif getProperty("bfVersion") == "bf-ace" then
+startDialogue('dialogue-ace', 'dialogueAmbience1')
+else
+startDialogue('dialogue', 'dialogueAmbience1')
+end
         allowCountdown = true
         return Function_Stop
     end
@@ -21,18 +28,4 @@ end
 
 function onSkipDialogue(count)
 
-end
-
-local icyStage = false
-function update()
-    if curBeat >= 128 and not icyStage then
-        cameraFlash("hud", "0xFFffffff", 0.3)
-        setProperty("snowbridge1.alpha", 1)
-        setProperty(".alpha", 0)
-        icyStage = true
-    end
-end
-
-function onBeatHit()
-    debugPrint(curBeat)
 end

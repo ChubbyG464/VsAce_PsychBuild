@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Wtf?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "What, you can't bring blizzards with your singing?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "No? Is it just some FnF-only canon thing?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "I guess so."
+		}
+	]
+}

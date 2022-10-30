@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Wow nice 'Wonderwall' sounding-ass music."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "Just becuase I used acoustic guitars does not make it 'Wonderwall'"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "Idk, sounded pretty similar to me. "
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Smug",
+			"text": "Alright fine, then how about this song"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Flushed",
+			"text": "Why's it getting colder?"
+		}
+	]
+}

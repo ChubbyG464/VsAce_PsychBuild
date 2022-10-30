@@ -1,0 +1,60 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Hey Mini?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "What?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "shocked",
+			"text": "Why do you still have bf's voice?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Kam is too lazy to change the voices for the skins."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Oh."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Did you just call me Mini?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Next song."
+		}
+	]
+}

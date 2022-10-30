@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Again?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Oh lol how do  you keep ending up here?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": " Idrk. Got any new songs in the meantime?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Yeah!"
+		}
+	]
+}
