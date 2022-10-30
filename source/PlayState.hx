@@ -556,7 +556,7 @@ class PlayState extends MusicBeatState
 		bfVersion = SONG.player1;
 		if(bfVersion  == "playable-character") {
 			bfVersion  = switch(storyChar) {
-        		case 0: "bf";
+        		case 0: "bf-cold";
         		case 1: "bf-ace";
         		case 2: "bf-retro";
         		default: "bf";

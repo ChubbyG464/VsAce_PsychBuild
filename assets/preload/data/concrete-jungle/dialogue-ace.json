@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Uh"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "shocked",
+			"text": "Wtf"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Wrong mod I guess"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Yeah I figured"
+		}
+	]
+}

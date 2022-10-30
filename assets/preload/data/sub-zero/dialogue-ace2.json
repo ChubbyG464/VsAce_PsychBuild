@@ -1,0 +1,52 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "You're gay lol"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "You're half right"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "Wanna make out?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "You're literally the size of a 5th grader"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "BFPortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Beep"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Annoyed",
+			"text": "Stay out of this, manlet"
+		}
+	]
+}

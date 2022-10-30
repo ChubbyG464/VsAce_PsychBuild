@@ -23,16 +23,16 @@ class MenuCharacter extends FlxSprite
 {
 	public var character:String;
 	public var hasConfirmAnimation:Bool = false;
-	private static var DEFAULT_CHARACTER:String = 'bf';
+	private static var DEFAULT_CHARACTER:String = 'bf-cold';
 
-	public function new(x:Float, character:String = 'bf')
+	public function new(x:Float, character:String = 'bf-cold')
 	{
 		super(x);
 
 		changeCharacter(character);
 	}
 
-	public function changeCharacter(?character:String = 'bf') {
+	public function changeCharacter(?character:String = 'bf-cold') {
 		if(character == null) character = '';
 		if(character == this.character) return;
 

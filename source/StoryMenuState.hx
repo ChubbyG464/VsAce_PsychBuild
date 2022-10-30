@@ -318,12 +318,12 @@ class StoryMenuState extends MusicBeatState
 
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
-			if (isChangingDifficulty && curWeek != 2)
-				changeSelection();
-			else
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			movedBack = true;
-			MusicBeatState.switchState(new MainMenuState());
+            if (isChangingDifficulty && curWeek != 2)
+                changeSelection();
+            else{
+            FlxG.sound.play(Paths.sound('cancelMenu'));
+            movedBack = true;
+            MusicBeatState.switchState(new MainMenuState());}
 		}
 
 		super.update(elapsed);
@@ -406,11 +406,11 @@ class StoryMenuState extends MusicBeatState
 			switch (curChar)
 			{
 				case 0:
-					grpWeekCharacters.members[1].changeCharacter('bf');
+					grpWeekCharacters.members[1].changeCharacter('bf-cold');
 				case 1:
-					grpWeekCharacters.members[1].changeCharacter('ace-bf');
+					grpWeekCharacters.members[1].changeCharacter('bf-ace');
 				case 2:
-					grpWeekCharacters.members[1].changeCharacter('retro-bf');
+					grpWeekCharacters.members[1].changeCharacter('bf-retro');
 			}
 
 			FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -589,7 +589,7 @@ class StoryMenuState extends MusicBeatState
 		}
 
 		if(curWeek != 2) {
-			grpWeekCharacters.members[1].changeCharacter(["bf", "ace-bf", "retro-bf"][curChar]);
+			grpWeekCharacters.members[1].changeCharacter(["bf-cold", "bf-ace", "bf-retro"][curChar]);
 		}
 
 		var leWeek:WeekData = loadedWeeks[curWeek];

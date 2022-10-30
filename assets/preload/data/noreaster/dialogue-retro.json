@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Nice first song"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Thanks! I really liked that o-"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "The second song is better"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Wait how do you know"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "I playtested this shit like 30 times"
+		}
+	]
+}

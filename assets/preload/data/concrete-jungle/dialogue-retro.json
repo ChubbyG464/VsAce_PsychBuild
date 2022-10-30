@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"expression": "talk",
+			"text": "Can you grab me some McDemon's?",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits"
+		},
+		{
+			"expression": "Annoyed",
+			"text": "Get it yourself lazy ass",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits"
+		},
+		{
+			"expression": "Happy",
+			"text": "Nevermind I'll just order it using DemonDash",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits"
+		},
+		{
+			"expression": "talk",
+			"text": "Yo get me 2 McDevil's and Acid Shake",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "BGRetroPortrait"
+		},
+		{
+			"expression": "Tired",
+			"text": "You guys are too much sometimes",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits"
+		}
+	]
+}

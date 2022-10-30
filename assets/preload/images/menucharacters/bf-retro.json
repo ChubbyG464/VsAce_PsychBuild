@@ -1,11 +1,11 @@
 {
-	"confirm_anim": "retro BF HEY!!",
 	"idle_anim": "retro BF idle dance white",
+	"confirm_anim": "retro BF HEY!!",
 	"position": [
-		75,
-		28
+		50,
+		30
 	],
 	"scale": 0.9,
-	"image": "campaign_menu_UI_characters",
-	"flipX": false
+	"flipX": false,
+	"image": "campaign_menu_UI_characters"
 }

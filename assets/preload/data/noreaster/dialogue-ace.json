@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "So I'm basically fighting myself?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "There's a joke about self doubt issues in here somewhere"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Okay that's a bit too real"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "AceBFPortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Sorry lol"
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "I really don't know what else to say"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Cry about it"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "ok ;_;"
+		}
+	]
+}

@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Ok the food is here thanks for passing the time <3"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "Did you even get my anything?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "You didn't say you wanted anything"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "RetroBFPortraits",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Me and BG Retro are gonna go eat"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "I ship it"
+		}
+	]
+}
