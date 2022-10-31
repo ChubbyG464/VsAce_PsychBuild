@@ -4,11 +4,11 @@ function onStartCountdown()
         setProperty('inCutscene', true)
         
 if getProperty("bfVersion") == "bf-retro" then
-        startDialogue('dialogue-retro', 'dialogueAmbience1')
+        startDialogue('dialogue-retro', 'dialogueAmbience2')
 elseif getProperty("bfVersion") == "bf-ace" then
-startDialogue('dialogue-ace', 'dialogueAmbience1')
+startDialogue('dialogue-ace', 'dialogueAmbience2')
 else
-startDialogue('dialogue', 'dialogueAmbience1')
+startDialogue('dialogue', 'dialogueAmbience2')
 end
         allowCountdown = true
         return Function_Stop

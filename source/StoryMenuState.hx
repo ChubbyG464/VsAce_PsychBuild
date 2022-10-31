@@ -143,6 +143,7 @@ class StoryMenuState extends MusicBeatState
 
 		difficultySelectors = new FlxGroup();
 		add(difficultySelectors);
+		difficultySelectors.visible = false;
 
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;

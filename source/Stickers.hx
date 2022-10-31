@@ -53,13 +53,7 @@ class Stickers {
 	}
 
 	public static var newSongs:Array<String> = [
-		"sweater-weather",
-		"frostbite-two",
-		"preseason-remix",
-		"running-laps",
-		"icing-tensions",
-		"chill-out",
-		"no-homo"
+		"snowy-day"
 	];
 	public static var newMenuItem:Array<String> = [];
 

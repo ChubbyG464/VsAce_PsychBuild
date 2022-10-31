@@ -43,7 +43,7 @@ startDialogue('dialogue-ace2', 'dialogueAmbience1')
 else
 startDialogue('dialogue2', 'dialogueAmbience1')
 end
-        allowCountdown = true
+        allowEndShit = true
         return Function_Stop
     end
     return Function_Continue

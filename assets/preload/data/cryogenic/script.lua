@@ -4,11 +4,11 @@ function onStartCountdown()
         setProperty('inCutscene', true)
 
 if getProperty("bfVersion") == "bf-retro" then
-        startDialogue('dialogue-retro', 'dialogueAmbience1')
+        startDialogue('dialogue-retro', 'dialogueAmbience2')
 elseif getProperty("bfVersion") == "bf-ace" then
-startDialogue('dialogue-ace', 'dialogueAmbience1')
+startDialogue('dialogue-ace', 'dialogueAmbience2')
 else
-startDialogue('dialogue', 'dialogueAmbience1')
+startDialogue('dialogue', 'dialogueAmbience2')
 end
         allowCountdown = true
         return Function_Stop
@@ -37,13 +37,13 @@ function onEndSong()
  		setProperty('inCutscene', true);
 
 if getProperty("bfVersion") == "bf-retro" then
-        startDialogue('dialogue-retro2', 'dialogueAmbience1')
+        startDialogue('dialogue-retro2', 'dialogueAmbience2')
 elseif getProperty("bfVersion") == "bf-ace" then
-startDialogue('dialogue-ace2', 'dialogueAmbience1')
+startDialogue('dialogue-ace2', 'dialogueAmbience2')
 else
-startDialogue('dialogue2', 'dialogueAmbience1')
+startDialogue('dialogue2', 'dialogueAmbience2')
 end
-        allowCountdown = true
+        allowEndShit = true
         return Function_Stop
     end
     return Function_Continue
