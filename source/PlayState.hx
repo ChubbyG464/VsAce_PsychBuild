@@ -120,6 +120,7 @@ class PlayState extends MusicBeatState
 	public var songSpeedType:String = "multiplicative";
 	public var noteKillOffset:Float = 350;
 
+	public static var foeVersion:String;
 	public var bfVersion:String = "";
 	public var boyfriendGroup:FlxSpriteGroup;
 	public var dadGroup:FlxSpriteGroup;
@@ -584,7 +585,7 @@ class PlayState extends MusicBeatState
 		#end
 
 		if (!stageData.hide_opponent2)
-			SONG2 = Song.loadFromJson(formattedSong + '-2', formattedSong);
+			SONG2 = Song.loadFromJson('-2', formattedSong);
 		else
 			SONG2 = null;
 
@@ -621,7 +622,10 @@ class PlayState extends MusicBeatState
 			WindowTitle.progress(15);
 		}
 
-		dad = new Character(0, 0, SONG.player2);
+		foeVersion = SONG.player2;
+
+		dad = new Character(0, 0, foeVersion);
+		dadMap.set(dad.curCharacter, dad);
 
 		if (SONG2 != null)
 		{
@@ -1603,6 +1607,111 @@ class PlayState extends MusicBeatState
 			vocals.pause();
 		}
 
+		if (formattedSong == 'icing-tensions')
+		{
+			//Getting a part of this code from FPS plus!!!!!! Props to them!!!!!!!!! But I'm also doin some stuff on my own too lol
+			var thingsize:Int = 26;
+			var boxsize:Float = 0;
+			var songname = new FlxFixedText(0, 0, 0, "", thingsize);
+			songname.setFormat(Paths.font("vcr.ttf"), thingsize, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+
+			songname.text = " Now Playing: Icing Tensions \n By Retrospecter";
+
+			boxsize = songname.fieldWidth;
+
+			var bg = new FlxSpriteExtra(thingsize/-2 + 2, thingsize/-2 + 3).makeSolid(Math.floor(boxsize + thingsize), Math.floor(songname.height + thingsize), FlxColor.BLACK);
+			bg.alpha = 0.67;
+
+			songname.text += "\n";
+
+			add(bg);
+			add(songname);
+
+			bg.visible = true;
+			songname.visible = true;
+
+			bg.cameras = [camHUD];
+			songname.cameras = [camHUD];
+
+			bg.y += 60;
+			songname.y += 60;
+			bg.x -= 460;
+			songname.x -= 460;
+
+			new FlxTimer().start(3, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(bg, {x: 5}, 0.5, {ease: FlxEase.quintOut});
+				FlxTween.tween(songname, {x: 5}, 0.5, {ease: FlxEase.quintOut});
+			});
+
+			new FlxTimer().start(8, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(bg, {alpha: 0}, 1);
+				FlxTween.tween(songname, {alpha: 0}, 1);
+			});
+
+			new FlxTimer().start(10, function(tmr:FlxTimer)
+			{
+				remove(bg, true);
+				remove(songname, true);
+
+				bg.destroy();
+				songname.destroy();
+			});
+		}
+
+		if (formattedSong == 'snowy-day')
+		{
+			//Getting a part of this code from FPS plus!!!!!! Props to them!!!!!!!!! But I'm also doin some stuff on my own too lol
+			var thingsize:Int = 26;
+			var boxsize:Float = 0;
+			var songname = new FlxFixedText(0, 0, 0, "", thingsize);
+			songname.setFormat(Paths.font("vcr.ttf"), thingsize, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+
+			songname.text = " Now Playing: Snowy-Day \n By Trackye";
+
+			boxsize = songname.fieldWidth;
+
+			var bg = new FlxSpriteExtra(thingsize/-2 + 2, thingsize/-2 + 3).makeSolid(Math.floor(boxsize + thingsize), Math.floor(songname.height + thingsize), FlxColor.BLACK);
+			bg.alpha = 0.67;
+
+			songname.text += "\n";
+
+			add(bg);
+			add(songname);
+
+			bg.visible = true;
+			songname.visible = true;
+
+			bg.cameras = [camHUD];
+			songname.cameras = [camHUD];
+
+			bg.y += 60;
+			songname.y += 60;
+			bg.x -= 460;
+			songname.x -= 460;
+
+			new FlxTimer().start(1, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(bg, {x: 5}, 0.5, {ease: FlxEase.quintOut});
+				FlxTween.tween(songname, {x: 5}, 0.5, {ease: FlxEase.quintOut});
+			});
+
+			new FlxTimer().start(6, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(bg, {alpha: 0}, 1);
+				FlxTween.tween(songname, {alpha: 0}, 1);
+			});
+
+			new FlxTimer().start(8, function(tmr:FlxTimer)
+			{
+				remove(bg, true);
+				remove(songname, true);
+
+				bg.destroy();
+				songname.destroy();
+			});
+		}
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
@@ -2260,7 +2369,7 @@ class PlayState extends MusicBeatState
 			persistentUpdate = false;
 			paused = true;
 			cancelMusicFadeTween();
-			MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
+			MusicBeatState.switchState(new CharacterEditorState(foeVersion));
 		}
 
 		if (startingSong)
