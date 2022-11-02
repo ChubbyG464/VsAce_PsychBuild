@@ -24,6 +24,7 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -32,6 +33,8 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	private var curOption:Option = null;
 	private var curSelected:Int = 0;
 	private var optionsArray:Array<Option>;
+
+	var stripes:FlxBackdrop;
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private var checkboxGroup:FlxTypedGroup<CheckboxThingie>;
@@ -56,11 +59,33 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		#end
 		
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
+		bg.color = 0xff00eaff;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
+		stripes = new FlxBackdrop(Paths.image('test'), 0.2, 0, true, false);
+		stripes.velocity.set(-50, 0);
+		stripes.setGraphicSize(Std.int((stripes.width * 1.2)));
+		//stripes.updateHitbox();
+		stripes.screenCenter(XY);
+		stripes.alpha = 0;
+		stripes.blend = SCREEN;
+		stripes.antialiasing =ClientPrefs.globalAntialiasing;
+		add(stripes);
+
+		FlxTween.tween(stripes, {alpha: 0.1}, 0.4, {ease: FlxEase.quartInOut});
+
+		var black:FlxSprite = new FlxSprite(-300).loadGraphic(Paths.image('blackFade'));
+		black.scrollFactor.x = 0;
+		black.scrollFactor.y = 0;
+		black.setGraphicSize(Std.int(black.width * 1.1));
+		black.updateHitbox();
+		//black.screenCenter();
+		black.antialiasing = ClientPrefs.globalAntialiasing;
+		black.x = -100;
+		add(black);
+		
 		// avoids lagspikes while scrolling through menus!
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -337,7 +362,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			boyfriend.destroy();
 		}
 
-		boyfriend = new Character(840, 170, 'bf', true);
+		boyfriend = new Character(840, 170, 'bf-cold', true);
 		boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
 		boyfriend.updateHitbox();
 		boyfriend.dance();

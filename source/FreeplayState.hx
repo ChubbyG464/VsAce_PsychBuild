@@ -379,6 +379,10 @@ class FreeplayState extends MusicBeatState
 			persistentUpdate = false;
 			openSubState(new GameplayChangersSubstate());
 		}
+		if (alt) 
+		{
+			changeChar();
+		}
 		else if(space)
 		{
 			if(instPlaying != curSelected)
@@ -403,10 +407,6 @@ class FreeplayState extends MusicBeatState
 				instPlaying = curSelected;
 				#end
 			}
-		}
-		if (alt) 
-		{
-			changeChar();
 		}
 		else if (accepted)
 		{

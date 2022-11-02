@@ -24,6 +24,7 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -33,6 +34,8 @@ class OptionsState extends MusicBeatState
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
+
+	var stripes:FlxBackdrop;
 
 	function openSelectedSubstate(label:String) {
 		switch(label) {
@@ -57,15 +60,27 @@ class OptionsState extends MusicBeatState
 	override function create() {
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
-		#end
+		#end	
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
+		bg.color = 0xff36cddb;
 		bg.updateHitbox();
 
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		stripes = new FlxBackdrop(Paths.image('test'), 0.2, 0, true, false);
+		stripes.velocity.set(-50, 0);
+		stripes.setGraphicSize(Std.int((stripes.width * 1.2)));
+		//stripes.updateHitbox();
+		stripes.screenCenter(XY);
+		stripes.alpha = 0;
+		stripes.blend = SCREEN;
+		stripes.antialiasing =ClientPrefs.globalAntialiasing;
+		add(stripes);
+
+		FlxTween.tween(stripes, {alpha: 0.1}, 0.4, {ease: FlxEase.quartInOut});
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);

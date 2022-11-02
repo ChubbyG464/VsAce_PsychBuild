@@ -24,6 +24,7 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
+import flixel.addons.display.FlxBackdrop;
 
 using StringTools;
 
@@ -68,14 +69,28 @@ class ControlsSubState extends MusicBeatSubstate {
 	var rebindingKey:Bool = false;
 	var nextAccept:Int = 5;
 
+	var stripes:FlxBackdrop;
+
 	public function new() {
 		super();
 
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
+		bg.color = 0xff00eaff;
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		stripes = new FlxBackdrop(Paths.image('test'), 0.2, 0, true, false);
+		stripes.velocity.set(-50, 0);
+		stripes.setGraphicSize(Std.int((stripes.width * 1.2)));
+		//stripes.updateHitbox();
+		stripes.screenCenter(XY);
+		stripes.alpha = 0;
+		stripes.blend = SCREEN;
+		stripes.antialiasing =ClientPrefs.globalAntialiasing;
+		add(stripes);
+
+		FlxTween.tween(stripes, {alpha: 0.1}, 0.4, {ease: FlxEase.quartInOut});
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);

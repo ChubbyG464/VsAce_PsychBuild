@@ -41,6 +41,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Bizzard Effect',
+			"If unchecked, this will remove the snowstorm events in some songs",
+			'blizzardEffect',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
 			'hideHud',
@@ -75,6 +82,17 @@ class VisualsUISubState extends BaseOptionsMenu
 			'scoreZoom',
 			'bool',
 			true);
+		addOption(option);
+
+		var option:Option = new Option('Lane Underlay Transparency',
+			'How transparent the Lane Underlay should be.\nAdds a black background behind the notes for visablility',
+			'laneUnderlay',
+			'percent',
+			0);
+		option.minValue = 0.0;
+		option.maxValue = 1;
+		option.changeValue = 0.1;
+		option.decimals = 1;
 		addOption(option);
 
 		var option:Option = new Option('Health Bar Transparency',

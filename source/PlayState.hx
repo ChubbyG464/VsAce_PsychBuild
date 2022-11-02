@@ -190,6 +190,10 @@ class PlayState extends MusicBeatState
 	private var updateTime:Bool = true;
 	public static var changedDifficulty:Bool = false;
 	public static var chartingMode:Bool = false;
+	
+	// Special song effects
+	private var bgDarken:FlxSprite;
+	private var snowDarken:FlxSprite;
 
 	//Gameplay settings
 	public var healthGain:Float = 1;
@@ -491,7 +495,40 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
+		/*if (formattedSong == 'sub-zero' || formattedSong == 'frostbite' || formattedSong == 'cold-front' || formattedSong == 'cryogenic')
+		{
+			bgDarken = new FlxSpriteExtra(-1000, -400).makeSolid(3500, 2550, FlxColor.BLACK);
+			bgDarken.scale.scale(1.60);
+			if (formattedSong == 'sub-zero')
+				bgDarken.alpha = 0.0001;
+			else if (formattedSong == 'cryogenic')
+				bgDarken.alpha = 0.0001;
+			else if (formattedSong == 'cold-front')
+				bgDarken.alpha = 0.0001;
+			else
+				bgDarken.alpha = 0.5;
+			bgDarken.active = false;
+			add(bgDarken);
+		}
 
+		if (curStage == 'background3' || curStage == 'background4')
+		{
+			if (formattedSong == 'sub-zero' || formattedSong == 'frostbite')
+			{
+				snowDarken = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ace/P3Snow3Darken', 'shared'));
+				if (formattedSong == 'sub-zero')
+					snowDarken.alpha = 0.0001;
+				else
+					snowDarken.alpha = 0.5;
+				snowDarken.antialiasing = ClientPrefs.globalAntialiasing;
+				snowDarken.scrollFactor.set(1, 1);
+				snowDarken.active = false;
+				snowDarken.screenCenter();
+				snowDarken.y += 97;
+				add(snowDarken);
+			}
+		}*/
+		
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
 		luaDebugGroup.cameras = [camOther];
@@ -1752,7 +1789,7 @@ class PlayState extends MusicBeatState
 
 		trace(formattedSong, iceAmount, CoolUtil.difficultyString().toLowerCase());
 
-		if (iceAmount > 0)  //Frostbite test to see if this worked. It didn't
+		if (iceAmount > 0 && ClientPrefs.iceNotes)  //Frostbite test to see if this worked. It didn't
 		{
 			var validNotes:Array<Note> = [];
 			var playerNotes:Array<Note> = [];
@@ -3771,6 +3808,35 @@ class PlayState extends MusicBeatState
 		sprite.destroy();
 	}
 
+	/*function addStepEvents() {
+		if (formattedSong == 'cryogenic')
+		{
+			pushBeatEvent(144, () -> {
+				fixTween(bgDarken, {alpha: 0.5}, 1.5);
+			});
+			pushBeatEvent(151, () -> {
+				fixTween(bgDarken, {alpha: 0}, 1);
+			});
+			pushBeatEvent(208, () -> {
+				fixTween(bgDarken, {alpha: 0.25}, 1);
+			});
+			pushBeatEvent(272, () -> {
+				fixTween(bgDarken, {alpha: 0}, 1);
+			});
+		}
+
+		if (formattedSong == 'cold-front')
+		{
+			pushBeatEvent(192, () -> {
+				fixTween(bgDarken, {alpha: 0.5}, 2);
+			});
+
+			pushBeatEvent(256, () -> {
+				fixTween(bgDarken, {alpha: 0}, 1);
+			});
+		}
+	}*/
+
 	function iceNoteHit(note:Note) {
 		var breakAnim:FlxSprite = new FlxSprite();
 		breakAnim.cameras = [camHUD];
@@ -3916,6 +3982,53 @@ class PlayState extends MusicBeatState
 			dad2.dance();
 		}
 
+		/*if (formattedSong == 'frostbite')
+		{
+			// Background effects
+			if (FlxG.save.data.flashing && curBeat >= 64 && curBeat < 448)
+			{
+				if (bgDarken.alpha == 0.75)
+					FlxTween.tween(bgDarken, {alpha: 0.5}, 0.1);
+				else if (bgDarken.alpha == 0.5)
+					FlxTween.tween(bgDarken, {alpha: 0.75}, 0.1);
+
+				if (snowDarken.alpha == 0.75)
+					FlxTween.tween(snowDarken, {alpha: 0.5}, 0.1);
+				else if (snowDarken.alpha == 0.5)
+					FlxTween.tween(snowDarken, {alpha: 0.75}, 0.1);
+			}
+			else if (curBeat >= 448 && curBeat < 512 && bgDarken.alpha != 0.9)
+			{
+				if (FlxG.save.data.flashing)
+					FlxG.camera.flash(FlxColor.WHITE, 0.5);
+				FlxTween.tween(bgDarken, {alpha: 0.9}, 0.01);
+				FlxTween.tween(snowDarken, {alpha: 0.9}, 0.01);
+			}
+			else if (FlxG.save.data.flashing && curBeat >= 512 && curBeat < 576)
+			{
+				if (bgDarken.alpha == 0.9)
+					FlxTween.tween(bgDarken, {alpha: 0.5}, 0.01);
+				else if (bgDarken.alpha == 0.25)
+					FlxTween.tween(bgDarken, {alpha: 0.5}, 0.1);
+				else if (bgDarken.alpha == 0.5)
+					FlxTween.tween(bgDarken, {alpha: 0.25}, 0.1);
+
+				if (snowDarken.alpha == 0.9)
+					FlxTween.tween(snowDarken, {alpha: 0.5}, 0.01);
+				else if (snowDarken.alpha == 0.25)
+					FlxTween.tween(snowDarken, {alpha: 0.5}, 0.1);
+				else if (snowDarken.alpha == 0.5)
+					FlxTween.tween(snowDarken, {alpha: 0.25}, 0.1);
+			}
+			else if (curBeat >= 576)
+			{
+				if (bgDarken.alpha != 0)
+					FlxTween.tween(bgDarken, {alpha: 0}, 0.1);
+
+				if (snowDarken.alpha != 0)
+					FlxTween.tween(snowDarken, {alpha: 0}, 0.1);
+			}
+		}*/
 		switch (curStage)
 		{
 
