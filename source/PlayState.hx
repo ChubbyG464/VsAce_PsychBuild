@@ -157,6 +157,9 @@ class PlayState extends MusicBeatState
 	private static var prevCamFollow:FlxPoint;
 	private static var prevCamFollowPos:FlxObject;
 
+	public var laneunderlay:FlxSprite;
+	public var laneunderlayOpponent:FlxSprite;
+
 	public var strumLineNotes:FlxTypedGroup<StrumNote>;
 	public var opponentStrums:FlxTypedGroup<StrumNote>;
 	public var playerStrums:FlxTypedGroup<StrumNote>;
@@ -529,6 +532,36 @@ class PlayState extends MusicBeatState
 				add(snowDarken);
 			}
 		}*/
+
+		var underlayAlpha = 0.4 - FlxG.save.data.laneTransparency;
+		var hasUnderlay = false;
+
+		if(FlxG.save.data.laneUnderlay && underlayAlpha > 0) {
+			laneunderlayOpponent = new FlxSpriteExtra(0, 0).makeSolid(500, FlxG.height * 2);
+			laneunderlayOpponent.x += 85;
+			laneunderlayOpponent.x += ((FlxG.width / 2) * 0);
+			laneunderlayOpponent.alpha = underlayAlpha;
+			laneunderlayOpponent.color = FlxColor.BLACK;
+			laneunderlayOpponent.scrollFactor.set();
+			laneunderlayOpponent.screenCenter(Y);
+			laneunderlayOpponent.cameras = [camHUD];
+			laneunderlayOpponent.active = false;
+	
+			laneunderlay = new FlxSpriteExtra(0, 0).makeSolid(500, FlxG.height * 2);
+			laneunderlay.x += 85;
+			laneunderlay.x += ((FlxG.width / 2) * 1);
+			laneunderlay.alpha = underlayAlpha;
+			laneunderlay.color = FlxColor.BLACK;
+			laneunderlay.scrollFactor.set();
+			laneunderlay.screenCenter(Y);
+			laneunderlay.cameras = [camHUD];
+			laneunderlay.active = false;
+
+			add(laneunderlayOpponent);
+			add(laneunderlay);
+
+			hasUnderlay = true;
+		}
 		
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();

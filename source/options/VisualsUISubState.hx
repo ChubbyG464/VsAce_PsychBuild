@@ -41,13 +41,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Bizzard Effect',
-			"If unchecked, this will remove the snowstorm events in some songs",
-			'blizzardEffect',
-			'bool',
-			true);
-		addOption(option);
-
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
 			'hideHud',
@@ -70,6 +63,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Bizzard Effect',
+			"If unchecked, this will remove the snowstorm events in some songs",
+			'blizzardEffect',
+			'bool',
+			true);
+		addOption(option);
+
 		var option:Option = new Option('Camera Zooms',
 			"If unchecked, the camera won't zoom in on a beat hit.",
 			'camZooms',
@@ -85,7 +85,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Lane Underlay Transparency',
-			'How transparent the Lane Underlay should be.\nAdds a black background behind the notes for visablility',
+			'How transparent the Lane Underlay should be.\nAdds a black background behind the notes for visability',
 			'laneUnderlay',
 			'percent',
 			0);
