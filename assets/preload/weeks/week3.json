@@ -1,0 +1,32 @@
+{
+	"storyName": "Ace (again again again)",
+	"difficulties": "Easy,Normal,Hard,Swapped",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "week2",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"ace",
+		"bf-cold",
+		"gf"
+	],
+	"songs": [
+		[
+			"shame",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "week-ace3",
+	"hiddenUntilUnlocked": false
+}
