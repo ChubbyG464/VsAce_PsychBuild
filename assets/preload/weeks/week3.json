@@ -3,22 +3,18 @@
 	"difficulties": "Easy,Normal,Hard,Swapped",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
+	"weekBefore": "week2",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
-	"weekBefore": "week2",
 	"startUnlocked": true,
-	"weekCharacters": [
-		"ace",
-		"bf-cold",
-		"gf"
-	],
+	"hideStoryMode": false,
 	"songs": [
 		[
 			"shame",
-			"ace",
+			"iceolation",
 			[
 				186,
 				226,
@@ -26,7 +22,11 @@
 			]
 		]
 	],
-	"hideStoryMode": false,
-	"weekName": "week-ace3",
-	"hiddenUntilUnlocked": false
+	"weekCharacters": [
+		"ace",
+		"bf-cold",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "week-ace3"
 }

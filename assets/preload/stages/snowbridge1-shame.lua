@@ -1,3 +1,15 @@
+
+-- UTILS
+function set(key, val)
+    setProperty(key, val)
+end
+function get(key)
+    return getProperty(key)
+end
+function addRel(key, val)
+    setProperty(key, getProperty(key) + val)
+end
+
 function onCreate()
 	-- background shit
 	makeLuaSprite('snowbridge1', 'stages/bridge/cold/snowbridge1', -1400, -1400);
