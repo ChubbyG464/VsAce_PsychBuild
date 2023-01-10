@@ -120,8 +120,7 @@ class CreditsState extends MusicBeatState
 			// Charting
 			['ChubbyGamer464', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(201, 162, 92), 'https://twitter.com/ChubbyAlt', []],
 			['Clipee', '@LilyClipster', 'clip', FlxColor.fromRGB(230, 230, 0), 'https://twitter.com/LilyClipster', []],
-			['DJ', '@AlchoholicDj', 'dj', FlxColor.fromRGB(0, 0, 230), 'https://twitter.com/AlchoholicDj', []],
-			['Fogu', '@FoguDragon', 'ayma', FlxColor.fromRGB(168, 50, 58), 'https://twitter.com/FoguDragon', []]
+			['DJ', '@AlchoholicDj', 'dj', FlxColor.fromRGB(0, 0, 230), 'https://twitter.com/AlchoholicDj', []]
 		],
 		[
 			// Special Thanks
@@ -326,7 +325,6 @@ class CreditsState extends MusicBeatState
 		creditSections.members[1].members[3].nodes[2] = creditSections.members[1].members[0]; // Up | Wildface -> Aurum (idk if this actually worked or not but the code is functional so -vsn)
 
 		// Programming/Charters
-		creditSections.members[2].members[0].nodes[2] = credit2Sections.members[2].members[3];	// Up	| Arcy -> Ayma
 		credit2Sections.members[2].members[0].nodes[2] = creditSections.members[2].members[3];	// Up	| Chubby -> Mk
 		creditSections.members[2].members[1].nodes[2] = credit2Sections.members[2].members[1];	// Up	| TSG -> Clipee
 		credit2Sections.members[2].members[1].nodes[2] = creditSections.members[2].members[4];	// Up	| Clipee -> tech
@@ -334,7 +332,6 @@ class CreditsState extends MusicBeatState
 		credit2Sections.members[2].members[2].nodes[2] = creditSections.members[2].members[5];	// Up	| DJ -> tech
 
 		creditSections.members[2].members[3].nodes[1] = credit2Sections.members[2].members[0];	// Down	| Mk -> Chubby
-		credit2Sections.members[2].members[3].nodes[1] = creditSections.members[2].members[0];	// Down	| Ayma -> Arcy
 		creditSections.members[2].members[4].nodes[1] = credit2Sections.members[2].members[1];	// Down	| tech -> Clipee
 		credit2Sections.members[2].members[1].nodes[1] = creditSections.members[2].members[1];	// Down	| Clipee -> TSG
 		creditSections.members[2].members[5].nodes[1] = credit2Sections.members[2].members[2];	// Down	| neeo -> dj
