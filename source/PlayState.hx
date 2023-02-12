@@ -585,19 +585,19 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
-		if (formattedSong == 'sub-zero' || formattedSong == 'frostbite' || formattedSong == 'cold-front' || formattedSong == 'Cryogenic')
+		if (formattedSong == 'sub-zero' || formattedSong == 'frostbite' || formattedSong == 'cold-front' || formattedSong == 'cryogenic')
 		{
 			bgDarken = new FlxSpriteExtra(-1000, -400).makeSolid(3500, 2550, FlxColor.BLACK);
 			bgDarken.scale.scale(1.60);
 			if (formattedSong == 'sub-zero')
 				bgDarken.alpha = 0.0001;
-			else if (formattedSong == 'Cryogenic')
+			else if (formattedSong == 'cryogenic')
 				bgDarken.alpha = 0.0001;
 			else if (formattedSong == 'cold-front')
 				bgDarken.alpha = 0.0001;
 			else
 				bgDarken.alpha = 0.5;
-			bgDarken.active = true;
+			bgDarken.active = false;
 			add(bgDarken);
 		}
 
@@ -618,7 +618,7 @@ class PlayState extends MusicBeatState
 						snowDarken.alpha = 0.5;
 					snowDarken.antialiasing = ClientPrefs.globalAntialiasing;
 					snowDarken.scrollFactor.set(1, 1);
-					snowDarken.active = true;
+					snowDarken.active = false;
 					snowDarken.screenCenter();
 					snowDarken.y += 97;
 					add(snowDarken);
@@ -753,12 +753,6 @@ class PlayState extends MusicBeatState
 
 		dad = new Character(0, 0, foeVersion);
 		dadMap.set(dad.curCharacter, dad);
-
-		switch (SONG.player2)
-		{
-			case 'maku':
-				dad.scale.set(1.40, 1.40);
-		} 
 
 		if (SONG2 != null)
 		{
