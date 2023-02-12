@@ -86,11 +86,11 @@ class VisualsUISubState extends BaseOptionsMenu
 
 		var option:Option = new Option('Lane Underlay Transparency',
 			'How transparent the Lane Underlay should be.\nAdds a black background behind the notes for visability',
-			'laneUnderlay',
+			'laneTransparency',
 			'percent',
 			0);
 		option.minValue = 0.0;
-		option.maxValue = 1;
+		option.maxValue = 1.0;
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);

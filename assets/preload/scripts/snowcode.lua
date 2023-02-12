@@ -79,6 +79,11 @@ function onCreatePost()
 		end
 	end
 
+
+	if blizzardEffect == false then
+		hasSnowEvents = false
+	end 
+	
 	if hasSnowEvents and backgroundLevel > 1 then
 		-- Backdrops
 		if hasWeak then

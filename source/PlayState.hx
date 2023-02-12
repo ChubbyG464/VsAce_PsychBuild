@@ -292,6 +292,96 @@ class PlayState extends MusicBeatState
 
 	var precacheList:Map<String, String> = new Map<String, String>();
 
+	// walking ppl variables (thanks again to MisterParakeet for the help makin the original code for this)
+	var toDestroy:Array<FlxBasic> = [];
+	var crowd:FlxSprite;
+	var newYorker:Bool = false;
+	var walkinRight:Bool = false;
+	var walkinLeft:Bool = false;
+
+	public function eyyImWalkenHere(crowdType:String) //crowds of new yorkers be like
+		{
+			remove(crowd);
+			toDestroy.push(crowd);
+	
+			switch(crowdType) 
+			{
+				case "C1":
+					crowd = new FlxSprite(2350, -340);
+					crowd.frames = Paths.getSparrowAtlas('crowd1', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C2":
+					crowd = new FlxSprite(2350, -390);
+					crowd.frames = Paths.getSparrowAtlas('crowd2', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C3":
+					crowd = new FlxSprite(-2300, -470);
+					crowd.frames = Paths.getSparrowAtlas('crowd3', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C4":
+					crowd = new FlxSprite(2350, -480);
+					crowd.frames = Paths.getSparrowAtlas('crowd4', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C5":
+					crowd = new FlxSprite(-2300, -480);
+					crowd.frames = Paths.getSparrowAtlas('crowd5', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C6":
+					crowd = new FlxSprite(-2300, -410);
+					crowd.frames = Paths.getSparrowAtlas('crowd6', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C7":
+					crowd = new FlxSprite(2350, -315);
+					crowd.frames = Paths.getSparrowAtlas('crowd7', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C8":
+					crowd = new FlxSprite(2350, -510);
+					crowd.frames = Paths.getSparrowAtlas('crowd8', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+	
+				case "C9":
+					crowd = new FlxSprite(-2300, -410);
+					crowd.frames = Paths.getSparrowAtlas('crowd9', 'shared/crowd');
+					crowd.animation.addByPrefix('walk', "walkin", 24, true);
+					crowd.animation.play('walk');
+					crowd.scrollFactor.set(1.1, 1.1);
+					crowd.scale.set(0.35, 0.35);
+			}
+	
+			//insert(members.indexOf(bridge), crowd);
+		}
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -495,48 +585,51 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
-		add(gfGroup); //Needed for blammed lights
-		add(dadGroup);
-		add(boyfriendGroup);
-
-		/*if (formattedSong == 'sub-zero' || formattedSong == 'frostbite' || formattedSong == 'cold-front' || formattedSong == 'cryogenic')
+		if (formattedSong == 'sub-zero' || formattedSong == 'frostbite' || formattedSong == 'cold-front' || formattedSong == 'Cryogenic')
 		{
 			bgDarken = new FlxSpriteExtra(-1000, -400).makeSolid(3500, 2550, FlxColor.BLACK);
 			bgDarken.scale.scale(1.60);
 			if (formattedSong == 'sub-zero')
 				bgDarken.alpha = 0.0001;
-			else if (formattedSong == 'cryogenic')
+			else if (formattedSong == 'Cryogenic')
 				bgDarken.alpha = 0.0001;
 			else if (formattedSong == 'cold-front')
 				bgDarken.alpha = 0.0001;
 			else
 				bgDarken.alpha = 0.5;
-			bgDarken.active = false;
+			bgDarken.active = true;
 			add(bgDarken);
 		}
 
-		if (curStage == 'background3' || curStage == 'background4')
-		{
-			if (formattedSong == 'sub-zero' || formattedSong == 'frostbite')
-			{
-				snowDarken = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ace/P3Snow3Darken', 'shared'));
-				if (formattedSong == 'sub-zero')
-					snowDarken.alpha = 0.0001;
-				else
-					snowDarken.alpha = 0.5;
-				snowDarken.antialiasing = ClientPrefs.globalAntialiasing;
-				snowDarken.scrollFactor.set(1, 1);
-				snowDarken.active = false;
-				snowDarken.screenCenter();
-				snowDarken.y += 97;
-				add(snowDarken);
-			}
-		}*/
 
-		var underlayAlpha = 0.4 - FlxG.save.data.laneTransparency;
+
+		add(gfGroup); //Needed for blammed lights
+		add(dadGroup);
+		add(boyfriendGroup);
+
+		/*if (curStage == 'background3' || curStage == 'background4')
+			{*/
+				if (formattedSong == 'sub-zero' || formattedSong == 'frostbite')
+				{
+					snowDarken = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ace/P3Snow3Darken', 'shared'));
+					if (formattedSong == 'sub-zero')
+						snowDarken.alpha = 0.0001;
+					else
+						snowDarken.alpha = 0.5;
+					snowDarken.antialiasing = ClientPrefs.globalAntialiasing;
+					snowDarken.scrollFactor.set(1, 1);
+					snowDarken.active = true;
+					snowDarken.screenCenter();
+					snowDarken.y += 97;
+					add(snowDarken);
+				}
+			//}
+
+		var underlayAlpha = ClientPrefs.laneTransparency;
 		var hasUnderlay = false;
+		trace(underlayAlpha);
 
-		if(FlxG.save.data.laneUnderlay && underlayAlpha > 0) {
+		if (underlayAlpha > 0) {
 			laneunderlayOpponent = new FlxSpriteExtra(0, 0).makeSolid(500, FlxG.height * 2);
 			laneunderlayOpponent.x += 85;
 			laneunderlayOpponent.x += ((FlxG.width / 2) * 0);
@@ -657,8 +750,15 @@ class PlayState extends MusicBeatState
 
 		foeVersion = SONG.player2;
 
+
 		dad = new Character(0, 0, foeVersion);
 		dadMap.set(dad.curCharacter, dad);
+
+		switch (SONG.player2)
+		{
+			case 'maku':
+				dad.scale.set(1.40, 1.40);
+		} 
 
 		if (SONG2 != null)
 		{
@@ -915,6 +1015,9 @@ class PlayState extends MusicBeatState
 		// FlxG.camera.setScrollBounds(0, FlxG.width, 0, FlxG.height);
 		FlxG.camera.zoom = defaultCamZoom;
 		FlxG.camera.focusOn(camFollow);
+
+		addStepEvents();
+		addBeatEvents();
 
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 
@@ -2313,6 +2416,22 @@ class PlayState extends MusicBeatState
 		}
 		vocals.play();
 	}
+
+	var stepEvents:Array<StepEvent> = [];
+	function sortByStep(Obj1:StepEvent, Obj2:StepEvent):Int
+		{
+			return FlxSort.byValues(FlxSort.ASCENDING, Obj1.step, Obj2.step);
+		}
+	function pushStepEvent(step:Int, callback:Void->Void)
+		{
+			stepEvents.push(new StepEvent(step, callback));
+			stepEvents.sort(sortByStep);
+		}
+	function pushBeatEvent(beat:Int, callback:Void->Void)
+		{
+			stepEvents.push(new StepEvent(beat*4, callback));
+			stepEvents.sort(sortByStep);
+		}
 
 	public var paused:Bool = false;
 	public var canReset:Bool = true;
@@ -3950,7 +4069,11 @@ class PlayState extends MusicBeatState
 		sprite.destroy();
 	}
 
-	/*function addStepEvents() {
+	function fixTween(Object:Dynamic, Values:Dynamic, Duration:Float = 1, ?Options:TweenOptions) {
+		FlxTween.cancelTweensOf(Object);
+		FlxTween.tween(Object, Values, Duration, Options);
+	}
+	function addStepEvents() {
 		if (formattedSong == 'cryogenic')
 		{
 			pushBeatEvent(144, () -> {
@@ -3977,7 +4100,8 @@ class PlayState extends MusicBeatState
 				fixTween(bgDarken, {alpha: 0}, 1);
 			});
 		}
-	}*/
+	}
+	function addBeatEvents() {}
 
 	function iceNoteHit(note:Note) {
 		var breakAnim:FlxSprite = new FlxSprite();
@@ -4124,10 +4248,10 @@ class PlayState extends MusicBeatState
 			dad2.dance();
 		}
 
-		/*if (formattedSong == 'frostbite')
+		if (formattedSong == 'frostbite')
 		{
 			// Background effects
-			if (FlxG.save.data.flashing && curBeat >= 64 && curBeat < 448)
+			if (ClientPrefs.flashing && curBeat >= 64 && curBeat < 448)
 			{
 				if (bgDarken.alpha == 0.75)
 					FlxTween.tween(bgDarken, {alpha: 0.5}, 0.1);
@@ -4141,12 +4265,12 @@ class PlayState extends MusicBeatState
 			}
 			else if (curBeat >= 448 && curBeat < 512 && bgDarken.alpha != 0.9)
 			{
-				if (FlxG.save.data.flashing)
+				if (ClientPrefs.flashing)
 					FlxG.camera.flash(FlxColor.WHITE, 0.5);
 				FlxTween.tween(bgDarken, {alpha: 0.9}, 0.01);
 				FlxTween.tween(snowDarken, {alpha: 0.9}, 0.01);
 			}
-			else if (FlxG.save.data.flashing && curBeat >= 512 && curBeat < 576)
+			else if (ClientPrefs.flashing && curBeat >= 512 && curBeat < 576)
 			{
 				if (bgDarken.alpha == 0.9)
 					FlxTween.tween(bgDarken, {alpha: 0.5}, 0.01);
@@ -4170,7 +4294,8 @@ class PlayState extends MusicBeatState
 				if (snowDarken.alpha != 0)
 					FlxTween.tween(snowDarken, {alpha: 0}, 0.1);
 			}
-		}*/
+		}
+
 		switch (curStage)
 		{
 
@@ -4401,4 +4526,15 @@ class PlayState extends MusicBeatState
 	var curLight:Int = -1;
 	var curLightEvent:Int = -1;
 
+}
+	class StepEvent
+{
+	public var step:Int = 0;
+	public var callback:Void->Void;
+
+	public function new(daStep:Int = 0, daCallback:Void->Void = null)
+	{
+		step = daStep;
+		callback = daCallback;
+	}
 }
