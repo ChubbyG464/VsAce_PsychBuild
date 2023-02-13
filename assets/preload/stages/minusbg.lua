@@ -15,6 +15,9 @@ end
 
 function onCreatePost()
     scaleObject("dad", 1.1, 1.1, false)
+	if dadName == "maku" then
+	      scaleObject("dad", 1.25, 1.25, false)
+	end
 
 	setProperty("gf.scrollFactor.x", 0.92)
 	setProperty("gf.scrollFactor.y", 0.92)

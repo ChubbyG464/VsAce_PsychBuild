@@ -1,110 +1,110 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-idle0",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "m-saku-idle0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				40,
 				37
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-left0",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "m-saku-left0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-50,
 				46
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-right0",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "m-saku-right0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				140,
 				-210
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-down0",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "m-saku-down0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				210
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-up-alt0",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "m-saku-up-alt0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				110,
 				80
 			],
-			"anim": "singLEFT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-left-alt0",
-			"indices": []
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "m-saku-left-alt0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-50,
 				170
 			],
-			"anim": "singRIGHT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-right-alt0",
-			"indices": []
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "m-saku-right-alt0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				60,
 				-230
 			],
-			"anim": "singDOWN-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-down-alt0",
-			"indices": []
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "m-saku-down-alt0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				209
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "m-saku-up-alt0",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "m-saku-up-alt0"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/maku",
 	"position": [
 		-200,
-		150
+		100
 	],
 	"healthicon": "maku",
 	"flip_x": false,

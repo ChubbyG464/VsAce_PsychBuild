@@ -144,7 +144,7 @@
 			"indices": []
 		}
 	],
-	"no_antialiasing": true,
+	"no_antialiasing": false,
 	"image": "characters/bf-playerace",
 	"position": [
 		150,

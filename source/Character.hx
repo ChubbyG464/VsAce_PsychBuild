@@ -44,7 +44,7 @@ typedef AnimArray = {
 	var offsets:Array<Int>;
 }
 
-class Character extends FlxSprite
+class Character extends FlxScaleFixedSprite
 {
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var debugMode:Bool = false;
