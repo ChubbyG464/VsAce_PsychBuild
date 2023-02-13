@@ -71,7 +71,7 @@
 	"image": "characters/sakuroma",
 	"position": [
 		-350,
-		-130
+		-40
 	],
 	"healthicon": "sakuroma",
 	"flip_x": false,

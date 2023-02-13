@@ -299,7 +299,7 @@ class PlayState extends MusicBeatState
 	var walkinRight:Bool = false;
 	var walkinLeft:Bool = false;
 
-	public function eyyImWalkenHere(crowdType:String) //crowds of new yorkers be like
+	/*public function eyyImWalkenHere(crowdType:String) //crowds of new yorkers be like
 		{
 			remove(crowd);
 			toDestroy.push(crowd);
@@ -380,7 +380,7 @@ class PlayState extends MusicBeatState
 			}
 	
 			//insert(members.indexOf(bridge), crowd);
-		}
+		}*/
 
 	override public function create()
 	{
@@ -585,21 +585,7 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
-		if (formattedSong == 'sub-zero' || formattedSong == 'frostbite' || formattedSong == 'cold-front' || formattedSong == 'cryogenic')
-		{
-			bgDarken = new FlxSpriteExtra(-1000, -400).makeSolid(3500, 2550, FlxColor.BLACK);
-			bgDarken.scale.scale(1.60);
-			if (formattedSong == 'sub-zero')
-				bgDarken.alpha = 0.0001;
-			else if (formattedSong == 'cryogenic')
-				bgDarken.alpha = 0.0001;
-			else if (formattedSong == 'cold-front')
-				bgDarken.alpha = 0.0001;
-			else
-				bgDarken.alpha = 0.5;
-			bgDarken.active = false;
-			add(bgDarken);
-		}
+
 
 
 
@@ -607,23 +593,8 @@ class PlayState extends MusicBeatState
 		add(dadGroup);
 		add(boyfriendGroup);
 
-		/*if (curStage == 'background3' || curStage == 'background4')
-			{*/
-				if (formattedSong == 'sub-zero' || formattedSong == 'frostbite')
-				{
-					snowDarken = new FlxSprite(0, 0).loadGraphic(Paths.image('stages/ace/P3Snow3Darken', 'shared'));
-					if (formattedSong == 'sub-zero')
-						snowDarken.alpha = 0.0001;
-					else
-						snowDarken.alpha = 0.5;
-					snowDarken.antialiasing = ClientPrefs.globalAntialiasing;
-					snowDarken.scrollFactor.set(1, 1);
-					snowDarken.active = false;
-					snowDarken.screenCenter();
-					snowDarken.y += 97;
-					add(snowDarken);
-				}
-			//}
+
+
 
 		var underlayAlpha = ClientPrefs.laneTransparency;
 		var hasUnderlay = false;
@@ -1191,6 +1162,47 @@ class PlayState extends MusicBeatState
 		eventPushedMap = null;
 
 		WindowTitle.defaultTitle();
+		
+		if (formattedSong == 'sub-zero' || formattedSong == 'frostbite' || formattedSong == 'cold-front' || formattedSong == 'cryogenic')
+			{
+				bgDarken = new FlxSpriteExtra(-1000, -400).makeSolid(3500, 2550, FlxColor.BLACK);
+				bgDarken.screenCenter(XY);
+				bgDarken.scale.scale(1.60);
+				if (formattedSong == 'sub-zero')
+					bgDarken.alpha = 0.0001;
+				else if (formattedSong == 'cryogenic')
+					bgDarken.alpha = 0.0001;
+				else if (formattedSong == 'cold-front')
+					bgDarken.alpha = 0.0001;
+				else
+					bgDarken.alpha = 0.5;
+				bgDarken.active = false;
+
+				var position:Int = members.indexOf(gfGroup);
+	
+				if(members.indexOf(boyfriendGroup) < position)
+					position = members.indexOf(boyfriendGroup);
+	
+				else if(members.indexOf(dadGroup) < position)
+					position = members.indexOf(dadGroup);
+	
+				insert(position, bgDarken);
+			}
+
+				if (formattedSong == 'sub-zero' || formattedSong == 'frostbite')
+				{
+					snowDarken = new FlxSprite(-1400, -1320).loadGraphic(Paths.image('stages/ace/P3Snow3Darken', 'shared'));
+					if (formattedSong == 'sub-zero')
+						snowDarken.alpha = 0.0001;
+					else
+						snowDarken.alpha = 0.5;
+					snowDarken.antialiasing = ClientPrefs.globalAntialiasing;
+					snowDarken.scrollFactor.set(1.1, 1.1);
+					snowDarken.active = false;
+					//snowDarken.screenCenter(XY);
+					//snowDarken.y += 97;
+					add(snowDarken);
+				}
 	}
 
 	function hideHUD()
@@ -2460,6 +2472,11 @@ class PlayState extends MusicBeatState
 		}
 
 		super.update(elapsed);
+
+		while(stepEvents.length > 0 && curStep >= stepEvents[0].step) {
+			var event = stepEvents.shift();
+			event.callback();
+		}
 
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
@@ -4095,7 +4112,8 @@ class PlayState extends MusicBeatState
 			});
 		}
 	}
-	function addBeatEvents() {}
+	function addBeatEvents() {
+		}
 
 	function iceNoteHit(note:Note) {
 		var breakAnim:FlxSprite = new FlxSprite();
