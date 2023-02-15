@@ -1585,10 +1585,10 @@ class FunkinLua {
 						var obj:Dynamic = luaObj;
 						var luaObj:ModchartSprite = obj;
 
-						var daOffset = luaObj.animOffsets.get(name);
-						trace(daOffset);
 						if (luaObj.animOffsets.exists(name))
 						{
+							var daOffset = luaObj.animOffsets.get(name);
+							trace(daOffset);
 							luaObj.offset.set(daOffset[0], daOffset[1]);
 						}
 						else

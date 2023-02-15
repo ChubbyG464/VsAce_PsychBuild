@@ -63,7 +63,7 @@ class FlxBar extends FlxSprite
 	public var value(get, set):Float;
 
 	public var displayValue:Float = 0;
-	public var shouldLerp:Bool = true;
+	public var shouldLerp:Bool = false;
 
 	private var currentValue(get, never):Float;
 	inline function get_currentValue() {
