@@ -37,7 +37,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	public static var songName:String = '';
 
-	public function new(x:Float, y:Float)
+	public function new()
 	{
 		super();
 		if(CoolUtil.difficulties.length < 2) menuItemsOG.remove('Change Difficulty'); //No need to change difficulty if there is only one!
@@ -129,14 +129,15 @@ class PauseSubState extends MusicBeatSubstate
 		practiceText.visible = PlayState.instance.practiceMode;
 		add(practiceText);
 
-		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "CHARTING MODE", 32);
-		chartingText.scrollFactor.set();
-		chartingText.setFormat(Paths.font('vcr.ttf'), 32);
-		chartingText.x = FlxG.width - (chartingText.width + 20);
-		chartingText.y = FlxG.height - (chartingText.height + 20);
-		chartingText.updateHitbox();
-		chartingText.visible = PlayState.chartingMode;
-		add(chartingText);
+		if(PlayState.chartingMode) {
+			var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "CHARTING MODE", 32);
+			chartingText.scrollFactor.set();
+			chartingText.setFormat(Paths.font('vcr.ttf'), 32);
+			chartingText.x = FlxG.width - (chartingText.width + 20);
+			chartingText.y = FlxG.height - (chartingText.height + 20);
+			chartingText.updateHitbox();
+			add(chartingText);
+		}
 
 		blueballedTxt.alpha = 0;
 		levelDifficulty.alpha = 0;

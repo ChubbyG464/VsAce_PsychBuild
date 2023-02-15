@@ -11,7 +11,6 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.FlxSubState;
 import haxe.Json;
-import haxe.format.JsonParser;
 #if sys
 import sys.FileSystem;
 import sys.io.File;

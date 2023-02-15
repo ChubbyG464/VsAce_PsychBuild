@@ -1,5 +1,7 @@
 package;
 
+import flixel.util.FlxGradient;
+import flixel.util.FlxColor;
 import flixel.FlxG;
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
@@ -120,6 +122,37 @@ class CoolUtil
 			dumbArray.push(i);
 		}
 		return dumbArray;
+	}
+
+	/**
+	 * Modulo that works for negative numbers
+	 */
+	public inline static function mod(n:Int, m:Int) {
+		return ((n % m) + m) % m;
+	}
+
+	public static function makeGradient(width:Int, height:Int, colors:Array<FlxColor>, chunkSize:UInt = 1, rotation:Int = 90, interpolate:Bool = true) {
+		var gradWidth = width;
+		var gradHeight = height;
+		var gradXScale = 1;
+		var gradYScale = 1;
+
+		var modRotation = mod(rotation, 360);
+
+		if(modRotation == 90 || modRotation == 270) {
+			gradXScale = width;
+			gradWidth = 1;
+		}
+
+		if(modRotation == 0 || modRotation == 180) {
+			gradYScale = height;
+			gradHeight = 1;
+		}
+
+		var gradient = FlxGradient.createGradientFlxSprite(gradWidth, gradHeight, colors, chunkSize, rotation, interpolate);
+		gradient.scale.set(gradXScale, gradYScale);
+		gradient.updateHitbox();
+		return gradient;
 	}
 
 	//uhhhh does this even work at all? i'm starting to doubt
