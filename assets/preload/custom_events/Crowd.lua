@@ -36,47 +36,47 @@ local RIGHT = 1
 local info = { -- Key is lowercased and needs to match image name, no uppercase image name
 	crowd1 = {
 		x = 2350,
-		y = -340,
+		y = -150,
 		direction = LEFT
 	},
 	crowd2 = {
 		x = 2350,
-		y = -390,
+		y = -200,
 		direction = LEFT
 	},
 	crowd3 = {
 		x = -2300,
-		y = -470,
+		y = -250,
 		direction = RIGHT
 	},
 	crowd4 = {
 		x = 2350,
-		y = -480,
+		y = -340,
 		direction = LEFT
 	},
 	crowd5 = {
 		x = -2300,
-		y = -480,
+		y = -355,
 		direction = RIGHT
 	},
 	crowd6 = {
 		x = -2300,
-		y = -410,
+		y = -330,
 		direction = RIGHT
 	},
 	crowd7 = {
 		x = 2350,
-		y = -315,
+		y = -195,
 		direction = LEFT
 	},
 	crowd8 = {
 		x = 2350,
-		y = -510,
+		y = -330,
 		direction = LEFT
 	},
 	crowd9 = {
 		x = -2300,
-		y = -410,
+		y = -250,
 		direction = RIGHT
 	}
 }
@@ -113,6 +113,7 @@ function makeCrowd(id)
 	scaleObject("crowd", 0.35, 0.35, false)
 
 	addLuaSprite("crowd")
+	setObjectOrder("crowd", getObjectOrder("bridge"))
 
 	-- crowd.frames = Paths.getSparrowAtlas('crowd9', 'shared');
 	-- crowd.animation.addByPrefix('walk', "walkin", 24, true);
@@ -128,10 +129,6 @@ function onUpdate(elapsed)
 		addRel("crowd.x", 4 * curDirection * 60 * elapsed)
 	end
 
-	if not newYorker then -- and curStage:lower() ~= 'city' and curStage:lower() ~= 'bridgecrime' then
-		makeCrowd("crowd1")
-		newYorker = true
-	end
 end
 
 function onEvent(ev, v1, v2)

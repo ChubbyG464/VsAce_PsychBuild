@@ -47,9 +47,9 @@ function onCreate()
 
 	addLuaSprite('background', false);
 	addLuaSprite('snow', false);
+	addLuaSprite('bridge', false);
 	addLuaSprite('bgsnow', false);
 	addLuaSprite("crowd", false)
-	addLuaSprite('bridge', false);
 	addLuaSprite('BackC', false);
 	addLuaSprite('icefg', true);
 	addLuaSprite('foreground', true);

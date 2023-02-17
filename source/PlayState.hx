@@ -2437,6 +2437,14 @@ class PlayState extends MusicBeatState
 		{
 			iconP1.swapOldIcon();
 		}*/
+
+		#if debug
+		if (FlxG.keys.justPressed.NINE)
+		{
+			endSong();
+		}
+		#end
+		
 		callOnLuas('onUpdate', [elapsed]);
 
 		switch (curStage)
