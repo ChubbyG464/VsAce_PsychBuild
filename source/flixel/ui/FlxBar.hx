@@ -1,5 +1,6 @@
 package flixel.ui;
 
+import flixel.math.FlxMath;
 import flixel.graphics.frames.FlxFramesCollection;
 import flash.display.BitmapData;
 import flash.geom.Point;
@@ -60,6 +61,14 @@ class FlxBar extends FlxSprite
 	 */
 	@:isVar
 	public var value(get, set):Float;
+
+	public var displayValue:Float = 0;
+	public var shouldLerp:Bool = false;
+
+	private var currentValue(get, never):Float;
+	inline function get_currentValue() {
+		return shouldLerp ? displayValue : value;
+	}
 
 	/**
 	 * The minimum value the bar can be (can never be >= max)
@@ -747,19 +756,29 @@ class FlxBar extends FlxSprite
 		}
 	}
 
+	private var _oldValue:Float = -1;
+
 	/**
 	 * Stamps health bar foreground on its pixels
 	 */
 	public function updateFilledBar():Void
 	{
+		// Prevent useless updating
+		var roundedValue = FlxMath.roundDecimal(currentValue, 3);
+		if(_oldValue == roundedValue) {
+			return;
+		}
+		_oldValue = roundedValue;
+
+		// update bar
 		_filledBarRect.width = barWidth;
 		_filledBarRect.height = barHeight;
 
-		var fraction:Float = (value - min) / range;
+		var fraction:Float = (currentValue - min) / range;
 		var percent:Float = fraction * _maxPercent;
 		var maxScale:Float = (_fillHorizontal) ? barWidth : barHeight;
-		var scaleInterval:Float = maxScale / numDivisions;
-		var interval:Float = Math.round(Std.int(fraction * maxScale / scaleInterval) * scaleInterval);
+		//var scaleInterval:Float = maxScale / numDivisions;
+		var interval:Float = fraction * maxScale;//Math.round(Std.int(fraction * maxScale / scaleInterval) * scaleInterval);
 
 		if (_fillHorizontal)
 		{
@@ -810,7 +829,7 @@ class FlxBar extends FlxSprite
 			{
 				if (frontFrames != null)
 				{
-					_filledFlxRect.copyFromFlash(_filledBarRect).round();
+					_filledFlxRect.copyFromFlash(_filledBarRect);//.round();
 					//if (percent > 0)
 					//{
 					_frontFrame = frontFrames.frame.clipTo(_filledFlxRect, _frontFrame);
@@ -843,17 +862,21 @@ class FlxBar extends FlxSprite
 			}
 		}
 
+		displayValue = FlxMath.lerp(displayValue, value, CoolUtil.boundTo(0.2 * 60 * elapsed, 0, 1));
+
 		super.update(elapsed);
 	}
 
 	override public function draw():Void
 	{
+		if (alpha == 0)
+			return;
+
+		updateBar();
+
 		super.draw();
 
 		if (!FlxG.renderTile)
-			return;
-
-		if (alpha == 0)
 			return;
 
 		if (percent > 0 && _frontFrame.type != FlxFrameType.EMPTY)
@@ -915,12 +938,12 @@ class FlxBar extends FlxSprite
 
 	function get_percent():Float
 	{
-		if (value > max)
+		if (currentValue > max)
 		{
 			return _maxPercent;
 		}
 
-		return ((value - min) / range) * _maxPercent;
+		return ((currentValue - min) / range) * _maxPercent;
 	}
 
 	function set_percent(newPct:Float):Float
@@ -951,7 +974,7 @@ class FlxBar extends FlxSprite
 			kill();
 		}
 
-		updateBar();
+		//updateBar();
 		return newValue;
 	}
 
@@ -970,7 +993,7 @@ class FlxBar extends FlxSprite
 	function set_numDivisions(newValue:Int):Int
 	{
 		numDivisions = (newValue > 0) ? newValue : 100;
-		updateFilledBar();
+		//updateFilledBar();
 		return newValue;
 	}
 

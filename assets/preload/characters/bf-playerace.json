@@ -147,8 +147,8 @@
 	"no_antialiasing": false,
 	"image": "characters/bf-playerace",
 	"position": [
-		200,
-		0
+		150,
+		-20
 	],
 	"healthicon": "ace",
 	"flip_x": false,
@@ -158,7 +158,7 @@
 		255
 	],
 	"camera_position": [
-		150,
+		200,
 		-150
 	],
 	"sing_duration": 6.1,

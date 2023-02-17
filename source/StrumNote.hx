@@ -20,14 +20,14 @@ class StrumNote extends FlxShakableSprite
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
 	public var sustainReduce:Bool = true;
-	
+
 
 	public var isConfirm = false;
 
 	public var frozen = false;
 
 	private var player:Int;
-	
+
 	public var texture(default, set):String = null;
 	private function set_texture(value:String):String {
 		if(texture != value) {
@@ -99,7 +99,7 @@ class StrumNote extends FlxShakableSprite
 			var dataDir = ["left", "down", "up", "right"];
 			frames = Paths.getSparrowAtlas(texture);
 
-				
+
 			if(PlayState.instance != null && PlayState.instance.hasIceNotes) {
 				addFrames(Paths.getSparrowAtlas("FrozenStrums"));
 			}
@@ -167,7 +167,7 @@ class StrumNote extends FlxShakableSprite
 			}
 		}
 	}
-	
+
 	public function addFrames(otherFrames:FlxAtlasFrames, reload:Bool = true) {
 		if(otherFrames == null) return;
 		for(frame in otherFrames.frames) {
@@ -199,7 +199,7 @@ class StrumNote extends FlxShakableSprite
 		if(shakeDistance != 0) {
 			_matrix.translate(FlxG.random.float(-shakeDistance, shakeDistance), FlxG.random.float(-shakeDistance, shakeDistance));
 		}
-		
+
 		if (isPixelPerfectRender(camera))
 		{
 			_matrix.tx = Math.floor(_matrix.tx);

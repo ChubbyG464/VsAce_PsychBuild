@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="crowd8.png">
+	<!-- Created with Adobe Animate version 21.0.7.42652 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="walkin0000" x="10" y="10" width="1307" height="1078" frameX="0" frameY="0" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0001" x="10" y="10" width="1307" height="1078" frameX="0" frameY="0" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0002" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-10" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0003" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-10" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0004" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-19" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0005" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-19" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0006" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-21" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0007" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-21" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0008" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-14" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0009" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-14" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0010" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-6" frameWidth="1307" frameHeight="1099"/>
+	<SubTexture name="walkin0011" x="10" y="10" width="1307" height="1078" frameX="0" frameY="-6" frameWidth="1307" frameHeight="1099"/>
+</TextureAtlas>

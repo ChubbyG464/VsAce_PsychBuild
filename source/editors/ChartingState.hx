@@ -33,7 +33,6 @@ import flixel.ui.FlxButton;
 import flixel.ui.FlxSpriteButton;
 import flixel.util.FlxColor;
 import haxe.Json;
-import haxe.format.JsonParser;
 import lime.utils.Assets;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
@@ -467,21 +466,21 @@ class ChartingState extends MusicBeatState
 		});
 
 		var clear_events:FlxButton = new FlxButton(320, 310, 'Clear events', function()
-			{
-				openSubState(new Prompt('This action will clear current progress.\n\nProceed?', 0, clearEvents, null,ignoreWarnings));
-			});
+		{
+			openSubState(new Prompt('This action will clear current progress.\n\nProceed?', 0, clearEvents, null,ignoreWarnings));
+		});
 		clear_events.color = FlxColor.RED;
 		clear_events.label.color = FlxColor.WHITE;
 
 		var clear_notes:FlxButton = new FlxButton(320, clear_events.y + 30, 'Clear notes', function()
-			{
-				openSubState(new Prompt('This action will clear current progress.\n\nProceed?', 0, function(){for (sec in 0..._song.notes.length) {
-					_song.notes[sec].sectionNotes = [];
-				}
-				updateGrid();
-			}, null,ignoreWarnings));
+		{
+			openSubState(new Prompt('This action will clear current progress.\n\nProceed?', 0, function(){for (sec in 0..._song.notes.length) {
+				_song.notes[sec].sectionNotes = [];
+			}
+			updateGrid();
+		}, null,ignoreWarnings));
 
-			});
+		});
 		clear_notes.color = FlxColor.RED;
 		clear_notes.label.color = FlxColor.WHITE;
 
@@ -1009,6 +1008,7 @@ class ChartingState extends MusicBeatState
 		var directories:Array<String> = [];
 
 		#if MODS_ALLOWED
+		directories.push(Paths.getPreloadPath('custom_events/'));
 		directories.push(Paths.mods('custom_events/'));
 		directories.push(Paths.mods(Paths.currentModDirectory + '/custom_events/'));
 		for(mod in Paths.getGlobalMods())

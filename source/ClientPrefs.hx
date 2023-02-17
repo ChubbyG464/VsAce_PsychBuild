@@ -25,7 +25,7 @@ class ClientPrefs {
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
-	public static var laneTransparency:Float = 1;
+	public static var laneTransparency:Float = 0.0;
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
 	public static var scoreZoom:Bool = true;
@@ -122,7 +122,7 @@ class ClientPrefs {
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
-		FlxG.save.data.laneUnderlay = laneUnderlay;
+		FlxG.save.data.laneTransparency = laneTransparency;
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
@@ -200,8 +200,8 @@ class ClientPrefs {
 		if(FlxG.save.data.camZooms != null) {
 			camZooms = FlxG.save.data.camZooms;
 		}
-		if(FlxG.save.data.laneUnderlay != null) {
-			laneUnderlay = FlxG.save.data.laneUnderlay;
+		if(FlxG.save.data.laneTransparency != null) {
+			laneTransparency = FlxG.save.data.laneTransparency;
 		}
 		if(FlxG.save.data.hideHud != null) {
 			hideHud = FlxG.save.data.hideHud;

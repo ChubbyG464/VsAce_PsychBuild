@@ -16,7 +16,6 @@ import sys.FileSystem;
 import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import haxe.Json;
-import haxe.format.JsonParser;
 
 using StringTools;
 
@@ -44,7 +43,7 @@ typedef AnimArray = {
 	var offsets:Array<Int>;
 }
 
-class Character extends FlxSprite
+class Character extends FlxScaleFixedSprite
 {
 	public var animOffsets:Map<String, Array<Dynamic>>;
 	public var debugMode:Bool = false;
@@ -319,9 +318,9 @@ class Character extends FlxSprite
 		specialAnim = false;
 		animation.play(AnimName, Force, Reversed, Frame);
 
-		var daOffset = animOffsets.get(AnimName);
 		if (animOffsets.exists(AnimName))
 		{
+			var daOffset = animOffsets.get(AnimName);
 			offset.set(daOffset[0], daOffset[1]);
 		}
 		else

@@ -188,6 +188,7 @@ class FunkinLua {
 		set('healthBarAlpha', ClientPrefs.healthBarAlpha);
 		set('noResetButton', ClientPrefs.noReset);
 		set('lowQuality', ClientPrefs.lowQuality);
+		set('blizzardEffect', ClientPrefs.blizzardEffect);
 		set('scriptName', scriptName);
 
 		#if windows
@@ -1584,10 +1585,10 @@ class FunkinLua {
 						var obj:Dynamic = luaObj;
 						var luaObj:ModchartSprite = obj;
 
-						var daOffset = luaObj.animOffsets.get(name);
-						trace(daOffset);
 						if (luaObj.animOffsets.exists(name))
 						{
+							var daOffset = luaObj.animOffsets.get(name);
+							trace(daOffset);
 							luaObj.offset.set(daOffset[0], daOffset[1]);
 						}
 						else

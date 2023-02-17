@@ -18,6 +18,9 @@ function onCreate()
 	setScrollFactor('background', 1.1, 1.1);
 	scaleObject('bridge', 1, 1);
 
+	makeLuaSprite("crowd")
+	setProperty("crowd.visible", false)
+
 	makeLuaSprite('bridge', 'stages/bridge/normal/W2bridge', -1400, -1400);
 	setLuaSpriteScrollFactor('bridge', 1.1, 1.1);
 	scaleObject('bridge', 1, 1);
@@ -33,7 +36,7 @@ function onCreate()
 
 	makeLuaSprite('bgsnow', 'stages/bridge/cold/snowbridge1', -1400, -1400);
 	setScrollFactor('bgsnow', 1.1, 1.1);
-	
+
 	makeLuaSprite('snow', 'stages/bridge/cold/snowbackground1', -1400, -1400);
 	setScrollFactor('snow', 1.1, 1.1);
 	scaleObject('snow', 1, 1);
@@ -45,7 +48,8 @@ function onCreate()
 	addLuaSprite('background', false);
 	addLuaSprite('snow', false);
 	addLuaSprite('bgsnow', false);
-	addLuaSprite('bridge', false);	
+	addLuaSprite("crowd", false)
+	addLuaSprite('bridge', false);
 	addLuaSprite('BackC', false);
 	addLuaSprite('icefg', true);
 	addLuaSprite('foreground', true);
@@ -54,7 +58,6 @@ function onCreate()
 	set("bgsnow.alpha", HIDDEN);
 	set("snow.alpha", HIDDEN);
 	set("icefg.alpha", HIDDEN);
-		
 end
 
 function onBeatHit()
@@ -70,8 +73,7 @@ function onCreatePost()
 	setProperty("boyfriend.scrollFactor.y", 1.1)
 	setProperty("dad.scrollFactor.x", 1.1)
 	setProperty("dad.scrollFactor.y", 1.1)
-      
-end	
+end
 
 function onEvent(ev, v1, v2)
 	if ev == "Snowy Stage" then

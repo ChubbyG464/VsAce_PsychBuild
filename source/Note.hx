@@ -254,6 +254,8 @@ class Note extends FlxSprite
 
 		this.noteData = noteData;
 
+		this.moves = false;
+
 		if(noteData > -1) {
 			texture = '';
 			colorSwap = new CSData();

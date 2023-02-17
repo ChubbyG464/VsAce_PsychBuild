@@ -7,7 +7,6 @@ import sys.FileSystem;
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
 import haxe.Json;
-import haxe.format.JsonParser;
 
 using StringTools;
 
@@ -32,7 +31,7 @@ class WeekData {
 	public static var weeksLoaded:Map<String, WeekData> = new Map<String, WeekData>();
 	public static var weeksList:Array<String> = [];
 	public var folder:String = '';
-	
+
 	// JSON variables
 	public var songs:Array<Dynamic>;
 	public var weekCharacters:Array<String>;
@@ -51,7 +50,7 @@ class WeekData {
 
 	public static function createWeekFile():WeekFile {
 		var weekFile:WeekFile = {
-			songs: [["Groundhog-Day", "ace", [186, 226, 255]], ["Cold-Front", "ace", [186, 226, 255]], ["Cryogenic", "ace", [186, 226, 255]]],
+			songs: [["Groundhog Day", "ace", [186, 226, 255]], ["Cold Front", "ace", [186, 226, 255]], ["Cryogenic", "ace", [186, 226, 255]]],
 			weekCharacters: ['ace', 'bf-cold', 'gf'],
 			weekBackground: 'stage',
 			weekBefore: 'tutorial',
