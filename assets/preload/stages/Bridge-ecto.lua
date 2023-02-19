@@ -13,16 +13,16 @@ function onCreate()
 	scaleObject('W2foreground', 1, 1);
 
 
-	
+
 	addLuaSprite('background', false);
-	addLuaSprite('bridge', false);	
+	addLuaSprite('bridge', false);
 	addLuaSprite('foreground', true);
-		
+
 end
 
 
 function onCreatePost()
-    scaleObject("dad", 1.2, 1.2, false)
+	scaleObject("dad", 1.2, 1.2, false)
 
 	setProperty("gf.scrollFactor.x", 1.1)
 	setProperty("gf.scrollFactor.y", 1.1)
@@ -30,6 +30,6 @@ function onCreatePost()
 	setProperty("boyfriend.scrollFactor.y", 1.1)
 	setProperty("dad.scrollFactor.x", 1.1)
 	setProperty("dad.scrollFactor.y", 1.1)
-      
-end	
+	close(true)
+end
 

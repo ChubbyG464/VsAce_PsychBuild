@@ -3,15 +3,9 @@ local bgY = -1350
 local scr = 0.92
 
 function onCreate()
-
-
 	makeLuaSprite('bg', 'stages/minus/minussweater', bgX, bgY)
 	setScrollFactor('bg', scr, scr)
 	addLuaSprite('bg')
-	
-
-
-
 end
 
 function onCreatePost()
@@ -23,5 +17,5 @@ function onCreatePost()
 	setProperty("boyfriend.scrollFactor.y", 0.92)
 	setProperty("dad.scrollFactor.x", 0.92)
 	setProperty("dad.scrollFactor.y", 0.92)
-      
-end	
+	close(true)
+end

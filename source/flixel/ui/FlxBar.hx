@@ -406,6 +406,8 @@ class FlxBar extends FlxSprite
 			updateEmptyBar();
 		}
 
+		forceUpdate = true;
+
 		return this;
 	}
 
@@ -458,6 +460,9 @@ class FlxBar extends FlxSprite
 			_filledBarRect.setTo(0, 0, barWidth, barHeight);
 			updateFilledBar();
 		}
+
+		forceUpdate = true;
+
 		return this;
 	}
 
@@ -543,6 +548,8 @@ class FlxBar extends FlxSprite
 			updateEmptyBar();
 		}
 
+		forceUpdate = true;
+
 		return this;
 	}
 
@@ -608,6 +615,8 @@ class FlxBar extends FlxSprite
 			updateFilledBar();
 		}
 
+		forceUpdate = true;
+
 		return this;
 	}
 
@@ -670,6 +679,8 @@ class FlxBar extends FlxSprite
 			createColoredEmptyBar(emptyBackground);
 		}
 
+		forceUpdate = true;
+
 		return this;
 	}
 
@@ -710,6 +721,8 @@ class FlxBar extends FlxSprite
 			createColoredFilledBar(fillBackground);
 		}
 
+		forceUpdate = true;
+
 		return this;
 	}
 
@@ -725,6 +738,8 @@ class FlxBar extends FlxSprite
 			case TOP_TO_BOTTOM, BOTTOM_TO_TOP, VERTICAL_INSIDE_OUT, VERTICAL_OUTSIDE_IN:
 				_fillHorizontal = false;
 		}
+
+		forceUpdate = true;
 
 		return fillDirection;
 	}
@@ -757,6 +772,9 @@ class FlxBar extends FlxSprite
 	}
 
 	private var _oldValue:Float = -1;
+	private var visibleFront:Bool = true;
+	private var forceUpdate:Bool = true;
+	private static inline final ROUND_DECIMAL:Int = 3;
 
 	/**
 	 * Stamps health bar foreground on its pixels
@@ -764,17 +782,18 @@ class FlxBar extends FlxSprite
 	public function updateFilledBar():Void
 	{
 		// Prevent useless updating
-		var roundedValue = FlxMath.roundDecimal(currentValue, 3);
-		if(_oldValue == roundedValue) {
+		var roundedValue = FlxMath.roundDecimal(currentValue, ROUND_DECIMAL);
+		if(_oldValue == roundedValue && !forceUpdate) {
 			return;
 		}
 		_oldValue = roundedValue;
+		forceUpdate = false;
 
 		// update bar
 		_filledBarRect.width = barWidth;
 		_filledBarRect.height = barHeight;
 
-		var fraction:Float = (currentValue - min) / range;
+		var fraction:Float = (roundedValue - min) / range;
 		var percent:Float = fraction * _maxPercent;
 		var maxScale:Float = (_fillHorizontal) ? barWidth : barHeight;
 		//var scaleInterval:Float = maxScale / numDivisions;
@@ -789,7 +808,7 @@ class FlxBar extends FlxSprite
 			_filledBarRect.height = Std.int(interval);
 		}
 
-		if (percent > 0)
+		if (visibleFront = (percent > 0))
 		{
 			switch (fillDirection)
 			{
@@ -830,6 +849,7 @@ class FlxBar extends FlxSprite
 				if (frontFrames != null)
 				{
 					_filledFlxRect.copyFromFlash(_filledBarRect);//.round();
+					//visibleFront = percent > 0;
 					//if (percent > 0)
 					//{
 					_frontFrame = frontFrames.frame.clipTo(_filledFlxRect, _frontFrame);
@@ -879,7 +899,7 @@ class FlxBar extends FlxSprite
 		if (!FlxG.renderTile)
 			return;
 
-		if (percent > 0 && _frontFrame.type != FlxFrameType.EMPTY)
+		if (visibleFront && _frontFrame.type != FlxFrameType.EMPTY)
 		{
 			for (camera in cameras)
 			{
@@ -951,6 +971,7 @@ class FlxBar extends FlxSprite
 		if (newPct >= 0 && newPct <= _maxPercent)
 		{
 			value = pct * newPct;
+			forceUpdate = true;
 		}
 		return newPct;
 	}
@@ -994,6 +1015,7 @@ class FlxBar extends FlxSprite
 	{
 		numDivisions = (newValue > 0) ? newValue : 100;
 		//updateFilledBar();
+		forceUpdate = true;
 		return newValue;
 	}
 
@@ -1034,6 +1056,7 @@ class FlxBar extends FlxSprite
 		{
 			createImageFilledBar(value.frame.paint());
 		}
+		forceUpdate = true;
 		return value;
 	}
 
@@ -1056,6 +1079,7 @@ class FlxBar extends FlxSprite
 		{
 			createImageEmptyBar(value.frame.paint());
 		}
+		forceUpdate = true;
 		return value;
 	}
 }

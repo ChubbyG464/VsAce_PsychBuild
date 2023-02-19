@@ -218,9 +218,9 @@ class Paths
 		return file;
 	}
 
-	inline static public function voices(song:String):Any
+	inline static public function voices(song:String, postfix:String = "", songNamePostfix:String = ""):Any
 	{
-		var songKey:String = '${formatToSongPath(song)}/Voices';
+		var songKey:String = '${formatToSongPath(song)}/Voices' + postfix;
 		var voices = returnSound('songs', songKey);
 		return voices;
 	}

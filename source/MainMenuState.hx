@@ -34,7 +34,7 @@ class MainMenuState extends MusicBeatState
 	var visualMenuItems:FlxTypedGroup<MenuItem>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
-	
+
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
@@ -50,7 +50,7 @@ class MainMenuState extends MusicBeatState
 	var debugKeys:Array<FlxKey>;
 	public static var finishedFunnyMove:Bool = false;
 
-	var currentPlushieCampaign:String = "https://www.makeship.com/products/mace-plush";
+	var currentPlushieCampaign:String = "";
 
 	override function create()
 	{
@@ -123,7 +123,7 @@ class MainMenuState extends MusicBeatState
 		if(currentPlushieCampaign == "" || currentPlushieCampaign.length < 2) {
 			optionShit.remove("plushies");
 		}
-		
+
 		// magenta.scrollFactor.set();
 
 		var black:FlxSprite = new FlxSprite(-300).loadGraphic(Paths.image('blackFade'));
@@ -139,7 +139,7 @@ class MainMenuState extends MusicBeatState
 		} else {
 			black.x = -100;
 		};
-	
+
 		menuItems = new FlxTypedGroup<MenuItem>();
 		visualMenuItems = new FlxTypedGroup<MenuItem>();
 		add(visualMenuItems);
@@ -161,12 +161,12 @@ class MainMenuState extends MusicBeatState
 		icon.updateHitbox();
 		add(icon);
 		if (firstStart) {
-			FlxTween.tween(icon,{x: (FlxG.width * 0.88)}, 1.4, {ease: FlxEase.expoInOut});	
+			FlxTween.tween(icon,{x: (FlxG.width * 0.88)}, 1.4, {ease: FlxEase.expoInOut});
 		} else {
 			icon.x = FlxG.width * 0.88;
 		};
 
-var offset:Float = 70;
+		var offset:Float = 70;
 		var spacing:Float = 160;
 		if(optionShit.length > 4) {
 			offset = 40;
@@ -194,13 +194,13 @@ var offset:Float = 70;
 			menuItem.scrollFactor.set(0, 0);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
 			menuItem.updateHitbox();
-			
+
 			var xVal = 30 + (i * 45);
-			
+
 			if (firstStart) {
 				FlxTween.tween(menuItem, {x: xVal}, 1.4, {ease: FlxEase.expoInOut, onComplete: function(flxTween:FlxTween)
 				{
-					finishedFunnyMove = true; 
+					finishedFunnyMove = true;
 					changeItem();
 				}});
 			} else {
@@ -226,14 +226,14 @@ var offset:Float = 70;
 				menuItem.sticker = newSticker;
 			}
 		}
-		
+
 		icon.angle = -4;
 
 		new FlxTimer().start(0.01, function(tmr:FlxTimer)
 		{
-			if(icon.angle == -4) 
+			if(icon.angle == -4)
 				FlxTween.angle(icon, icon.angle, 4, 4, {ease: FlxEase.quartInOut});
-			if (icon.angle == 4) 
+			if (icon.angle == 4)
 				FlxTween.angle(icon, icon.angle, -4, 4, {ease: FlxEase.quartInOut});
 		}, 0);
 
@@ -403,7 +403,7 @@ var offset:Float = 70;
 				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y - add);
 			}
 
-				 spr.offset.y = (spr.frameHeight - spr.height) * 0.5;
+			spr.offset.y = (spr.frameHeight - spr.height) * 0.5;
 		});
 	}
 }

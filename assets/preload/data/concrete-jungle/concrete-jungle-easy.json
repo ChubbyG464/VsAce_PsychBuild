@@ -22693,7 +22693,7 @@
 		"player2": "ace",
 		"isHey": false,
 		"cutsceneType": "none",
-		"song": "Concrete-Jungle",
+		"song": "Concrete Jungle",
 		"stage": "background1",
 		"isSpooky": false,
 		"validScore": true,
@@ -22701,6 +22701,18 @@
 		"isMoody": false,
 		"sectionLengths": [],
 		"chartVersion": "2",
+		"events": [
+			[
+				12000,
+				[
+					[
+						"Flash",
+						"game",
+						"1"
+					]
+				]
+			]
+		],
 		"eventObjects": [
 			{
 				"type": "BPM Change",

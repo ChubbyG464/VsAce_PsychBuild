@@ -50,8 +50,8 @@ function onCreate()
 		makeLuaSprite('bg', 'stages/minus/minusice', bgX, bgY)
 		setScrollFactor('bg', scr, scr)
 		addLuaSprite('bg')
-		
-			
+
+
 	end
 end
 

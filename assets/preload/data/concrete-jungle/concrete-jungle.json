@@ -23219,7 +23219,7 @@
 		],
 		"isHey": false,
 		"cutsceneType": "none",
-		"song": "Concrete-Jungle",
+		"song": "Concrete Jungle",
 		"stage": "background1",
 		"isSpooky": false,
 		"validScore": true,
@@ -23234,6 +23234,18 @@
 				"position": 0,
 				"name": "Init BPM"
 			}
+		],
+		"events": [
+			[
+				12000,
+				[
+					[
+						"Flash",
+						"game",
+						"1"
+					]
+				]
+			]
 		],
 		"sections": 0,
 		"needsVoices": true,

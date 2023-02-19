@@ -4731,9 +4731,9 @@
 				"mustHitSection": true
 			}
 		],
-		"player3": "null",
+		"gfVersion": "gf",
 		"stage": "snowbridge1",
-		"song": "Cryogenic-Swapped",
+		"song": "Cryogenic",
 		"needsVoices": true,
 		"validScore": true,
 		"speed": 2.7,

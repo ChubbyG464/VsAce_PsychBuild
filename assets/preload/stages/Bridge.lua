@@ -3,13 +3,13 @@ local HIDDEN = 0.0000000001
 
 -- UTILS
 function set(key, val)
-    setProperty(key, val)
+	setProperty(key, val)
 end
 function get(key)
-    return getProperty(key)
+	return getProperty(key)
 end
 function addRel(key, val)
-    setProperty(key, getProperty(key) + val)
+	setProperty(key, getProperty(key) + val)
 end
 
 function onCreate()
@@ -65,7 +65,7 @@ function onBeatHit()
 end
 
 function onCreatePost()
-    scaleObject("dad", 1.2, 1.2, false)
+	scaleObject("dad", 1.2, 1.2, false)
 
 	setProperty("gf.scrollFactor.x", 1.1)
 	setProperty("gf.scrollFactor.y", 1.1)

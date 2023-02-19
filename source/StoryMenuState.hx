@@ -28,7 +28,7 @@ class StoryMenuState extends MusicBeatState
 	var scoreText:FlxText;
 
 	private static var lastDifficultyName:String = '';
-	var curDifficulty:Int = 1;
+	static var curDifficulty:Int = 1;
 
 	var curChar:Int = 0;
 
