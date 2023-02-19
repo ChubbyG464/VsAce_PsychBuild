@@ -1,18 +1,7 @@
 {
 	"song": {
 		"player1": "bf-minus",
-		"events": [
-			[
-				22674.4186046512,
-				[
-					[
-						"Play Animation",
-						"hey!",
-						"metro"
-					]
-				]
-			]
-		],
+		"events": [],
 		"gfVersion": "gf_blank",
 		"notes": [
 			{

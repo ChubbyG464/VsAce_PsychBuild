@@ -53,6 +53,10 @@ class FreeplayState extends MusicBeatState
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
+	#if debug
+	public static var isShowAll = false;
+	#end
+
 	override function create()
 	{
 		if(Stickers.newMenuItem.contains("freeplay")) {
@@ -61,7 +65,7 @@ class FreeplayState extends MusicBeatState
 		}
 		//Paths.clearStoredMemory();
 		//Paths.clearUnusedMemory();
-		
+
 		persistentUpdate = true;
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
@@ -244,6 +248,9 @@ class FreeplayState extends MusicBeatState
 	}
 
 	function weekIsLocked(name:String):Bool {
+		#if debug
+		if(isShowAll) return false;
+		#end
 		var leWeek:WeekData = WeekData.weeksLoaded.get(name);
 		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!StoryMenuState.weekCompleted.exists(leWeek.weekBefore) || !StoryMenuState.weekCompleted.get(leWeek.weekBefore)));
 	}
@@ -519,7 +526,7 @@ class FreeplayState extends MusicBeatState
 				// item.setGraphicSize(Std.int(item.width));
 			}
 		}
-		
+
 		Paths.currentModDirectory = songs[curSelected].folder;
 		PlayState.storyWeek = songs[curSelected].week;
 
@@ -546,7 +553,7 @@ class FreeplayState extends MusicBeatState
 				CoolUtil.difficulties = diffs;
 			}
 		}
-		
+
 		if(CoolUtil.difficulties.contains(CoolUtil.defaultDifficulty))
 		{
 			curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(CoolUtil.defaultDifficulty)));

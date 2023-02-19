@@ -51,10 +51,9 @@ class NoteOffsetState extends MusicBeatState
 		camOther.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camHUD);
-		FlxG.cameras.add(camOther);
+		FlxG.cameras.add(camHUD, false);
+		FlxG.cameras.add(camOther, false);
 
-		FlxCamera.defaultCameras = [camGame];
 		CustomFadeTransition.nextCamera = camOther;
 		FlxG.camera.scroll.set(120, 130);
 

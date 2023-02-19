@@ -81,6 +81,7 @@ class StoryMenuState extends MusicBeatState
 		add(grpWeekText);
 
 		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
+		blackBarThingie.active = false;
 		add(blackBarThingie);
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
@@ -191,7 +192,7 @@ class StoryMenuState extends MusicBeatState
 		tracksSprite.antialiasing = ClientPrefs.globalAntialiasing;
 		add(tracksSprite);
 
-		txtTracklist = new FlxText(FlxG.width * 0.05, tracksSprite.y + 60, 0, "", 32);
+		txtTracklist = new FlxFixedText(FlxG.width * 0.05, tracksSprite.y + 60, 0, "", 32);
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = "VCR OSD Mono";
 		txtTracklist.color = 0xFFe55777;
@@ -202,6 +203,9 @@ class StoryMenuState extends MusicBeatState
 
 		changeWeek();
 		changeDifficulty();
+
+		changeSelection(true);
+		changeSelection(true);
 
 		super.create();
 	}
@@ -216,8 +220,10 @@ class StoryMenuState extends MusicBeatState
 	}
 
 	override function closeSubState() {
-		persistentUpdate = true;
-		changeWeek();
+		if((subState is ResetScoreSubState) || (subState is GameplayChangersSubstate)) {
+			persistentUpdate = true;
+			changeWeek();
+		}
 		super.closeSubState();
 	}
 
@@ -291,12 +297,12 @@ class StoryMenuState extends MusicBeatState
 			else if (upP || downP)
 				changeDifficulty();
 
-			if(FlxG.keys.justPressed.CONTROL)
+			if(isChangingDifficulty && FlxG.keys.justPressed.CONTROL)
 			{
 				persistentUpdate = false;
 				openSubState(new GameplayChangersSubstate());
 			}
-			else if(controls.RESET)
+			else if(isChangingDifficulty && controls.RESET)
 			{
 				persistentUpdate = false;
 				openSubState(new ResetScoreSubState('', curDifficulty, '', curWeek));
@@ -313,12 +319,13 @@ class StoryMenuState extends MusicBeatState
 
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
-            if (isChangingDifficulty && curWeek != 2)
-                changeSelection();
-            else{
-            FlxG.sound.play(Paths.sound('cancelMenu'));
-            movedBack = true;
-            MusicBeatState.switchState(new MainMenuState());}
+			if (isChangingDifficulty && curWeek != 2)
+				changeSelection();
+			else{
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+				movedBack = true;
+				MusicBeatState.switchState(new MainMenuState());
+			}
 		}
 
 		super.update(elapsed);
@@ -348,7 +355,7 @@ class StoryMenuState extends MusicBeatState
 				if(bf.character != '' && bf.hasConfirmAnimation) grpWeekCharacters.members[1].animation.play('confirm');
 				stopspamming = true;
 			}
-			
+
 			if(curWeek != 2) {
 				PlayState.storyChar = curChar;
 			} else {
@@ -392,7 +399,7 @@ class StoryMenuState extends MusicBeatState
 		if (curWeek != 2)
 		{
 			curChar += change;
-	
+
 			if (curChar < 0)
 				curChar = 2;
 			if (curChar > 2)
@@ -454,27 +461,27 @@ class StoryMenuState extends MusicBeatState
 	{
 		//if (!characterUnlocked[curChar])
 			//return;
-	
+
 		if (!isChangingChar)
 		{
 			difficultySelectors.visible = false;
 			characterSelectors.visible = true;
-	
+
 			isChangingChar = true;
-	
+
 			if(!silent) FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 		else
 		{
 			difficultySelectors.visible = true;
 			characterSelectors.visible = false;
-	
+
 			isChangingChar = false;
-	
+
 			if(!silent) FlxG.sound.play(Paths.sound('confirmMenu'));
 		}
 	}
-	
+
 
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
@@ -506,14 +513,6 @@ class StoryMenuState extends MusicBeatState
 			else
 				item.alpha = 0.6;
 			bullShit++;
-		}
-
-		if(curWeek == 2) {
-			difficultySelectors.visible = true;
-			characterSelectors.visible = false;
-		} else {
-			changeSelection(true);
-			changeSelection(true);
 		}
 
 		bgSprite.visible = true;
@@ -549,7 +548,7 @@ class StoryMenuState extends MusicBeatState
 				CoolUtil.difficulties = diffs;
 			}
 		}
-		
+
 		if(CoolUtil.difficulties.contains(CoolUtil.defaultDifficulty))
 		{
 			curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(CoolUtil.defaultDifficulty)));
@@ -566,6 +565,14 @@ class StoryMenuState extends MusicBeatState
 			curDifficulty = newPos;
 		}
 
+		if(curWeek == 2) {
+			difficultySelectors.visible = true;
+			characterSelectors.visible = false;
+		} else {
+			changeSelection(true);
+			changeSelection(true);
+		}
+
 		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'));
 
 		updateText();
@@ -580,11 +587,11 @@ class StoryMenuState extends MusicBeatState
 	{
 		var weekArray:Array<String> = loadedWeeks[curWeek].weekCharacters;
 		for (i in 0...grpWeekCharacters.length) {
-			grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
-		}
-
-		if(curWeek != 2) {
-			grpWeekCharacters.members[1].changeCharacter(["bf-cold", "bf-ace", "bf-retro"][curChar]);
+			if(i == 1 && curWeek != 2) {
+				grpWeekCharacters.members[1].changeCharacter(["bf-cold", "bf-ace", "bf-retro"][curChar]);
+			} else {
+				grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
+			}
 		}
 
 		var leWeek:WeekData = loadedWeeks[curWeek];

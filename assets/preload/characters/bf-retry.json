@@ -1,37 +1,37 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "firstDeath",
-			"fps": 24,
-			"name": "retry appear",
-			"indices": []
-		},
-		{
 			"loop": false,
-			"offsets": [
-				88,
-				99
-			],
-			"anim": "deathConfirm",
 			"fps": 24,
-			"name": "retry confirm",
-			"indices": []
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "retry appear"
 		},
 		{
-			"loop": true,
 			"offsets": [
-				10,
-				7
+				131,
+				145
 			],
-			"anim": "deathLoop",
+			"loop": false,
 			"fps": 24,
-			"name": "retry loop",
-			"indices": []
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "retry confirm"
+		},
+		{
+			"offsets": [
+				15,
+				9
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "retry loop"
 		}
 	],
 	"no_antialiasing": false,

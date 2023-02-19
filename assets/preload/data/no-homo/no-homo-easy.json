@@ -1,6 +1,6 @@
 {
 	"song": {
-		"player1": "bf-maceplay",
+		"player1": "bf-mace-play",
 		"events": [],
 		"gfVersion": "gf-minus",
 		"notes": [
@@ -742,7 +742,7 @@
 				"mustHitSection": true
 			},
 			{
-				"altAnim": true,
+				"altAnim": false,
 				"sectionNotes": [
 					[
 						36631.5789473684,

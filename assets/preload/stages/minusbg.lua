@@ -2,12 +2,18 @@ local bgX = -1100
 local bgY = -1350
 local scr = 0.92
 
-function onCreate()
+local lSongName = ""
 
+function onCreate()
+	lSongName = string.lower(songName):gsub(" ", "-")
 
 	makeLuaSprite('bg', 'stages/minus/minusbg', bgX, bgY)
 	setScrollFactor('bg', scr, scr)
 	addLuaSprite('bg')
+
+	if lSongName == "icing-tensions" then
+		setProperty("hideOpponent2", false)
+	end
 
 
 

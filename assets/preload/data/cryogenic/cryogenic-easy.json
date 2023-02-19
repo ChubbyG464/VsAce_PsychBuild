@@ -518,7 +518,7 @@
 				"mustHitSection": true
 			},
 			{
-				"altAnim": true,
+				"altAnim": false,
 				"sectionNotes": [
 					[
 						22641.5094339623,

@@ -113,6 +113,8 @@ class PlayState extends MusicBeatState
 	public var GF_X:Float = 400;
 	public var GF_Y:Float = 130;
 
+	public var hideOpponent2:Bool = true;
+
 	public static var firstTry:Bool = true; // Used to skip cutscenes/dialogue when retrying in story mode
 
 	public var songSpeedTween:FlxTween;
@@ -303,8 +305,8 @@ class PlayState extends MusicBeatState
 		{
 			remove(crowd);
 			toDestroy.push(crowd);
-	
-			switch(crowdType) 
+
+			switch(crowdType)
 			{
 				case "C1":
 					crowd = new FlxSprite(2350, -340);
@@ -313,7 +315,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C2":
 					crowd = new FlxSprite(2350, -390);
 					crowd.frames = Paths.getSparrowAtlas('crowd2', 'shared/crowd');
@@ -321,7 +323,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C3":
 					crowd = new FlxSprite(-2300, -470);
 					crowd.frames = Paths.getSparrowAtlas('crowd3', 'shared/crowd');
@@ -329,7 +331,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C4":
 					crowd = new FlxSprite(2350, -480);
 					crowd.frames = Paths.getSparrowAtlas('crowd4', 'shared/crowd');
@@ -337,7 +339,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C5":
 					crowd = new FlxSprite(-2300, -480);
 					crowd.frames = Paths.getSparrowAtlas('crowd5', 'shared/crowd');
@@ -345,7 +347,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C6":
 					crowd = new FlxSprite(-2300, -410);
 					crowd.frames = Paths.getSparrowAtlas('crowd6', 'shared/crowd');
@@ -353,7 +355,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C7":
 					crowd = new FlxSprite(2350, -315);
 					crowd.frames = Paths.getSparrowAtlas('crowd7', 'shared/crowd');
@@ -361,7 +363,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C8":
 					crowd = new FlxSprite(2350, -510);
 					crowd.frames = Paths.getSparrowAtlas('crowd8', 'shared/crowd');
@@ -369,7 +371,7 @@ class PlayState extends MusicBeatState
 					crowd.animation.play('walk');
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
-	
+
 				case "C9":
 					crowd = new FlxSprite(-2300, -410);
 					crowd.frames = Paths.getSparrowAtlas('crowd9', 'shared/crowd');
@@ -378,7 +380,7 @@ class PlayState extends MusicBeatState
 					crowd.scrollFactor.set(1.1, 1.1);
 					crowd.scale.set(0.35, 0.35);
 			}
-	
+
 			//insert(members.indexOf(bridge), crowd);
 		}*/
 
@@ -544,6 +546,8 @@ class PlayState extends MusicBeatState
 		if(girlfriendCameraOffset == null)
 			girlfriendCameraOffset = [0, 0];
 
+		hideOpponent2 = stageData.hide_opponent2;
+
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
@@ -575,7 +579,7 @@ class PlayState extends MusicBeatState
 					add(stageCurtains);
 				}
 		}
-		
+
 		var stageCheck:String = 'city';
 		if (SONG.stage != null){
 			stageCheck = SONG.stage;
@@ -586,19 +590,13 @@ class PlayState extends MusicBeatState
 		}
 
 
-
-
-
 		add(gfGroup); //Needed for blammed lights
 		add(dadGroup);
 		add(boyfriendGroup);
 
-
-
-
 		var underlayAlpha = ClientPrefs.laneTransparency;
 		var hasUnderlay = false;
-		trace(underlayAlpha);
+		//trace(underlayAlpha);
 
 		if (underlayAlpha > 0) {
 			laneunderlayOpponent = new FlxSpriteExtra(0, 0).makeSolid(500, FlxG.height * 2);
@@ -610,7 +608,7 @@ class PlayState extends MusicBeatState
 			laneunderlayOpponent.screenCenter(Y);
 			laneunderlayOpponent.cameras = [camHUD];
 			laneunderlayOpponent.active = false;
-	
+
 			laneunderlay = new FlxSpriteExtra(0, 0).makeSolid(500, FlxG.height * 2);
 			laneunderlay.x += 85;
 			laneunderlay.x += ((FlxG.width / 2) * 1);
@@ -626,7 +624,7 @@ class PlayState extends MusicBeatState
 
 			hasUnderlay = true;
 		}
-		
+
 		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
 		luaDebugGroup.cameras = [camOther];
@@ -681,15 +679,15 @@ class PlayState extends MusicBeatState
 			luaArray.push(new FunkinLua(luaFile));
 		#end
 
-		if (!stageData.hide_opponent2)
-			SONG2 = Song.loadFromJson('-2', formattedSong);
+		if (!hideOpponent2)
+			SONG2 = Song.loadFromJson(formattedSong + CoolUtil.getDifficultyFilePath(storyDifficulty) + '-2', formattedSong);
 		else
 			SONG2 = null;
 
 		WindowTitle.progress(10);
 
 		bfVersion = SONG.player1;
-		if(bfVersion  == "playable-character") {
+		if(bfVersion == "playable-character") {
 			bfVersion  = switch(storyChar) {
         		case 0: "bf-cold";
         		case 1: "bf-ace";
@@ -750,8 +748,6 @@ class PlayState extends MusicBeatState
 
 			WindowTitle.progress(55);
 		}
-		else
-			dad2 = null;
 		startCharacterPos(dad, true);
 		dadGroup.add(dad);
 		startCharacterLua(dad.curCharacter);
@@ -2445,13 +2441,6 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 
-		#if debug
-		if (FlxG.keys.justPressed.NINE)
-		{
-			endSong();
-		}
-		#end
-		
 		callOnLuas('onUpdate', [elapsed]);
 
 		switch (curStage)
