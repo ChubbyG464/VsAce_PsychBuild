@@ -1349,7 +1349,12 @@ class ChartingState extends MusicBeatState
 			// vocals.stop();
 		}
 
-		var file:Dynamic = Paths.voices(currentSongName);
+		var vocalsPostFix = "";
+        if(CoolUtil.difficultyString() == "SWAPPED") {
+            vocalsPostFix = "_Swapped";
+        }
+
+		var file:Dynamic = Paths.voices(currentSongName, vocalsPostFix);
 		vocals = new FlxSound();
 		if (Std.isOfType(file, Sound) || OpenFlAssets.exists(file)) {
 			vocals.loadEmbedded(file);

@@ -27,12 +27,9 @@ end
 function onCreatePost()
 	scaleObject("dad", 1.2, 1.2, false)
 
-	setProperty("gf.scrollFactor.x", 1.1)
-	setProperty("gf.scrollFactor.y", 1.1)
-	setProperty("boyfriend.scrollFactor.x", 1.1)
-	setProperty("boyfriend.scrollFactor.y", 1.1)
-	setProperty("dad.scrollFactor.x", 1.1)
-	setProperty("dad.scrollFactor.y", 1.1)
+	setScrollFactor("dad", 1.1, 1.1)
+	setScrollFactor("boyfriend", 1.1, 1.1)
+	setScrollFactor("gf", 1.1, 1.1)
 
 end
 

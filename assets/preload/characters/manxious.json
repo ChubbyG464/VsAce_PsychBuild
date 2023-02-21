@@ -1,66 +1,66 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "idle",
-			"loop": false,
-			"name": "Minace_Idle"
-		},
-		{
-			"offsets": [
-				80,
-				-150
-			],
-			"indices": [],
 			"fps": 24,
-			"anim": "singLEFT",
-			"loop": false,
-			"name": "Minace_Left"
+			"name": "Minace_Idle",
+			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				150,
+				-120
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Minace_Left",
+			"indices": []
+		},
+		{
+			"loop": false,
 			"offsets": [
 				130,
 				-140
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
-			"name": "Minace_Down"
+			"fps": 24,
+			"name": "Minace_Down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				196,
 				163
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
-			"name": "Minace_Up"
+			"fps": 24,
+			"name": "Minace_Up",
+			"indices": []
 		},
 		{
-			"offsets": [
-				200,
-				-130
-			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singRIGHT",
 			"loop": false,
-			"name": "Minace_Right"
+			"offsets": [
+				130,
+				-140
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Minace_Right",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/manxious",
 	"position": [
-		0,
-		0
+		700,
+		200
 	],
 	"healthicon": "ace",
 	"flip_x": true,
