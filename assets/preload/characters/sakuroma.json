@@ -1,70 +1,70 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "idle",
-			"indices": [],
-			"name": "saku idle"
+			"fps": 24,
+			"name": "saku idle",
+			"indices": []
 		},
 		{
-			"loop": true,
 			"offsets": [
 				31,
 				-7
 			],
-			"fps": 24,
+			"loop": true,
 			"anim": "laugh",
-			"indices": [],
-			"name": "saku giggle"
+			"fps": 24,
+			"name": "saku giggle",
+			"indices": []
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-70,
 				-270
 			],
-			"fps": 24,
+			"loop": true,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "saku down"
-		},
-		{
-			"loop": true,
-			"offsets": [
-				160,
-				0
-			],
 			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [],
-			"name": "saku left"
+			"name": "saku down",
+			"indices": []
 		},
 		{
+			"offsets": [
+				250,
+				-10
+			],
 			"loop": true,
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "saku left",
+			"indices": []
+		},
+		{
 			"offsets": [
 				-52,
 				117
 			],
-			"fps": 24,
+			"loop": true,
 			"anim": "singUP",
-			"indices": [],
-			"name": "saku up"
+			"fps": 24,
+			"name": "saku up",
+			"indices": []
 		},
 		{
-			"loop": true,
 			"offsets": [
-				150,
+				110,
 				-38
 			],
-			"fps": 24,
+			"loop": true,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "saku right"
+			"fps": 24,
+			"name": "saku right",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,

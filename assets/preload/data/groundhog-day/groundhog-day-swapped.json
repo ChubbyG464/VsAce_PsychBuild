@@ -137,7 +137,7 @@
 				[
 					[
 						"Slow Zoom",
-						"0.4",
+						"0.44",
 						"2.73"
 					]
 				]
@@ -2057,11 +2057,6 @@
 						0
 					],
 					[
-						63920,
-						2,
-						0
-					],
-					[
 						63068,
 						5,
 						0
@@ -2075,6 +2070,11 @@
 						63238,
 						1,
 						255
+					],
+					[
+						63920.4545454545,
+						1,
+						0
 					]
 				],
 				"lengthInSteps": 16,
@@ -2084,12 +2084,7 @@
 				"sectionNotes": [
 					[
 						64090.909090909,
-						2,
-						0
-					],
-					[
-						64261.3636363636,
-						1,
+						6,
 						0
 					],
 					[
@@ -2098,8 +2093,18 @@
 						0
 					],
 					[
+						64261.3636363636,
+						1,
+						0
+					],
+					[
 						64090.909090909,
-						6,
+						2,
+						0
+					],
+					[
+						64431.8181818181,
+						3,
 						0
 					],
 					[
@@ -2108,48 +2113,43 @@
 						0
 					],
 					[
-						64431.8181818181,
-						3,
-						0
-					],
-					[
-						64602.2727272727,
-						1,
-						0
-					],
-					[
 						64602.2727272727,
 						5,
 						0
 					],
 					[
-						64772.7272727272,
-						6,
-						596.590909090909
+						64602.2727272727,
+						1,
+						0
 					],
 					[
 						64772.7272727272,
 						2,
+						596.590909090909
+					],
+					[
+						64772.7272727272,
+						6,
 						0
 					],
 					[
 						64943.1818181818,
-						1,
+						5,
 						0
 					],
 					[
 						65113.6363636363,
-						3,
+						7,
 						0
 					],
 					[
 						65284.0909090908,
-						1,
+						5,
 						0
 					]
 				],
 				"lengthInSteps": 16,
-				"mustHitSection": false
+				"mustHitSection": true
 			},
 			{
 				"sectionNotes": [
@@ -3689,6 +3689,46 @@
 				"bpm": 176
 			},
 			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 176,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"altAnim": false,
+				"gfSection": false,
+				"bpm": 176,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 176
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 176,
+				"sectionBeats": 4,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
 				"gfSection": false,
 				"altAnim": false,
 				"typeOfSection": 0,
@@ -3711,9 +3751,9 @@
 		],
 		"player2": "ace",
 		"song": "Groundhog Day",
-		"stage": "bridge",
 		"needsVoices": true,
 		"validScore": true,
+		"stage": "bridge",
 		"noteStyle": "normal",
 		"bpm": 176,
 		"speed": 2.5
