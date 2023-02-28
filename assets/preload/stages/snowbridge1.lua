@@ -2,6 +2,10 @@ function onCreate()
 	-- background shit
 	makeLuaSprite('bridge', 'stages/bridge/cold/snowbridge1', -1400, -1400);
 	setScrollFactor('bridge', 1.1, 1.1);
+
+	makeLuaSprite('snowbridgetrees', 'stages/bridge/cold/snowbridgetrees', -1400, -1400);
+	setScrollFactor('snowbridgetrees', 1.1, 1.1);
+	scaleObject('snowbridgetrees', 1, 1);
 	
 	makeLuaSprite('snowbackground1', 'stages/bridge/cold/snowbackground1', -1400, -1400);
 	setScrollFactor('snowbackground1', 1.1, 1.1);
@@ -18,6 +22,7 @@ function onCreate()
 
 		
 	addLuaSprite('snowbackground1', false);
+	addLuaSprite('snowbridgetrees', false);
 	addLuaSprite('bridge', false);
 	addLuaSprite('BackC', false);
 	addLuaSprite('snowforeground1', true);

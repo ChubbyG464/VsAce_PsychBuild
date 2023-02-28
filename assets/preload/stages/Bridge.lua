@@ -36,6 +36,11 @@ function onCreate()
 
 	makeLuaSprite('bgsnow', 'stages/bridge/cold/snowbridge1', -1400, -1400);
 	setScrollFactor('bgsnow', 1.1, 1.1);
+	scaleObject('bgsnow', 1, 1);
+
+	makeLuaSprite('snowbridgetrees', 'stages/bridge/cold/snowbridgetrees', -1400, -1400);
+	setScrollFactor('snowbridgetrees', 1.1, 1.1);
+	scaleObject('snowbridgetrees', 1, 1);
 
 	makeLuaSprite('snow', 'stages/bridge/cold/snowbackground1', -1400, -1400);
 	setScrollFactor('snow', 1.1, 1.1);
@@ -47,15 +52,17 @@ function onCreate()
 
 	addLuaSprite('background', false);
 	addLuaSprite('snow', false);
+	addLuaSprite('snowbridgetrees', false);
 	addLuaSprite('bridge', false);
 	addLuaSprite('bgsnow', false);
-	addLuaSprite("crowd", false)
+	addLuaSprite("crowd", false);
 	addLuaSprite('BackC', false);
 	addLuaSprite('icefg', true);
 	addLuaSprite('foreground', true);
 
 
 	set("bgsnow.alpha", HIDDEN);
+	set("snowbridgetrees.alpha", HIDDEN);
 	set("snow.alpha", HIDDEN);
 	set("icefg.alpha", HIDDEN);
 end
@@ -81,6 +88,7 @@ function onEvent(ev, v1, v2)
 		set("bridge.alpha", HIDDEN)
 		set("foreground.alpha", HIDDEN)
 		set("bgsnow.alpha", 1)
+		set("snowbridgetrees.alpha", 1)
 		set("snow.alpha", 1)
 		set("icefg.alpha", 1)
 	end

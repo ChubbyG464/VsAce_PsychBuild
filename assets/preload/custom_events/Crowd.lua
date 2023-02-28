@@ -56,7 +56,7 @@ local info = { -- Key is lowercased and needs to match image name, no uppercase 
 	},
 	crowd5 = {
 		x = -2300,
-		y = -355,
+		y = -320,
 		direction = RIGHT
 	},
 	crowd6 = {
