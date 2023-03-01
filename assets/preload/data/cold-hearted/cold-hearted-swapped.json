@@ -7021,9 +7021,9 @@
 				"mustHitSection": true
 			}
 		],
-		"gfVersion": "gf",
+		"gfVersion": null,
 		"events": [],
-		"player3": null,
+		"player3": "gf_blank",
 		"song": "Cold Hearted",
 		"validScore": true,
 		"needsVoices": true,
