@@ -4263,6 +4263,7 @@ class PlayState extends MusicBeatState
 			if(exclusions.contains(script.scriptName))
 				continue;
 
+			FunkinLua.currentScript = script;
 			var ret:Dynamic = script.call(event, args);
 			if(ret == FunkinLua.Function_StopLua && !ignoreStops)
 				break;
@@ -4277,8 +4278,9 @@ class PlayState extends MusicBeatState
 
 	public function setOnLuas(variable:String, arg:Dynamic) {
 		#if LUA_ALLOWED
-		for (i in 0...luaArray.length) {
-			luaArray[i].set(variable, arg);
+		for(script in luaArray) {
+			FunkinLua.currentScript = script;
+			script.set(variable, arg);
 		}
 		#end
 	}

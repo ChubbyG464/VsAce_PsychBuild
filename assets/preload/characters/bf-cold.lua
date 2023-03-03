@@ -1,4 +1,5 @@
 function onCreatePost()
-setPropertyFromClass("GameOverSubState", "cameraOffset.x", -155)
-setPropertyFromClass("GameOverSubState", "cameraOffset.y", -100)
+	setPropertyFromClass("GameOverSubstate", "cameraOffset.x", 270)
+	setPropertyFromClass("GameOverSubstate", "cameraOffset.y", 0)
+	close(true)
 end

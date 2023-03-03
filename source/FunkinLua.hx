@@ -60,6 +60,8 @@ class FunkinLua {
 	public var scriptName:String = '';
 	public var closed:Bool = false;
 
+	public static var currentScript:FunkinLua; // I fucking hate lua rn. this is to fix it running close on the last script
+
 	#if hscript
 	public static var haxeInterp:Interp = null;
 	#end
@@ -93,6 +95,8 @@ class FunkinLua {
 		}
 		scriptName = script;
 		trace('lua file loaded succesfully:' + script);
+
+		currentScript = this;
 
 		// Lua shit
 		set('Function_StopLua', Function_StopLua);
@@ -210,7 +214,6 @@ class FunkinLua {
 			for (idx in 0...PlayState.instance.luaArray.length)
 				runningScripts.push(PlayState.instance.luaArray[idx].scriptName);
 
-
 			return runningScripts;
 		});
 
@@ -225,23 +228,26 @@ class FunkinLua {
 
 			if(exclusions==null)exclusions=[];
 
-			Lua.getglobal(lua, 'scriptName');
-			var daScriptName = Lua.tostring(lua, -1);
-			Lua.pop(lua, 1);
-			if(ignoreSelf && !exclusions.contains(daScriptName))exclusions.push(daScriptName);
+			Lua.getglobal(currentScript.lua, 'scriptName');
+			var daScriptName = Lua.tostring(currentScript.lua, -1);
+			Lua.pop(currentScript.lua, 1);
+			if(ignoreSelf && !exclusions.contains(daScriptName))
+				exclusions.push(daScriptName);
+			var old = currentScript;
 			PlayState.instance.callOnLuas(funcName, args, ignoreStops, exclusions);
+			currentScript = old;
 		});
 
 		Lua_helper.add_callback(lua, "callScript", function(?luaFile:String, ?funcName:String, ?args:Array<Dynamic>){
 			if(luaFile==null){
 				#if (linc_luajit >= "0.0.6")
-				LuaL.error(lua, "bad argument #1 to 'callScript' (string expected, got nil)");
+				LuaL.error(currentScript.lua, "bad argument #1 to 'callScript' (string expected, got nil)");
 				#end
 				return;
 			}
 			if(funcName==null){
 				#if (linc_luajit >= "0.0.6")
-				LuaL.error(lua, "bad argument #2 to 'callScript' (string expected, got nil)");
+				LuaL.error(currentScript.lua, "bad argument #2 to 'callScript' (string expected, got nil)");
 				#end
 				return;
 			}
@@ -249,7 +255,8 @@ class FunkinLua {
 				args = [];
 			}
 			var cervix = luaFile + ".lua";
-			if(luaFile.endsWith(".lua"))cervix=luaFile;
+			if(luaFile.endsWith(".lua"))
+				cervix = luaFile;
 			var doPush = false;
 			#if MODS_ALLOWED
 			if(FileSystem.exists(Paths.modFolders(cervix)))
@@ -286,20 +293,20 @@ class FunkinLua {
 
 				}
 			}
-			Lua.pushnil(lua);
+			Lua.pushnil(currentScript.lua);
 
 		});
 
 		Lua_helper.add_callback(lua, "getGlobalFromScript", function(?luaFile:String, ?global:String){ // returns the global from a script
 			if(luaFile==null){
 				#if (linc_luajit >= "0.0.6")
-				LuaL.error(lua, "bad argument #1 to 'getGlobalFromScript' (string expected, got nil)");
+				LuaL.error(currentScript.lua, "bad argument #1 to 'getGlobalFromScript' (string expected, got nil)");
 				#end
 				return;
 			}
 			if(global==null){
 				#if (linc_luajit >= "0.0.6")
-				LuaL.error(lua, "bad argument #2 to 'getGlobalFromScript' (string expected, got nil)");
+				LuaL.error(currentScript.lua, "bad argument #2 to 'getGlobalFromScript' (string expected, got nil)");
 				#end
 				return;
 			}
@@ -336,13 +343,13 @@ class FunkinLua {
 					{
 						Lua.getglobal(luaInstance.lua, global);
 						if(Lua.isnumber(luaInstance.lua,-1)){
-							Lua.pushnumber(lua, Lua.tonumber(luaInstance.lua, -1));
+							Lua.pushnumber(currentScript.lua, Lua.tonumber(luaInstance.lua, -1));
 						}else if(Lua.isstring(luaInstance.lua,-1)){
-							Lua.pushstring(lua, Lua.tostring(luaInstance.lua, -1));
+							Lua.pushstring(currentScript.lua, Lua.tostring(luaInstance.lua, -1));
 						}else if(Lua.isboolean(luaInstance.lua,-1)){
-							Lua.pushboolean(lua, Lua.toboolean(luaInstance.lua, -1));
+							Lua.pushboolean(currentScript.lua, Lua.toboolean(luaInstance.lua, -1));
 						}else{
-							Lua.pushnil(lua);
+							Lua.pushnil(currentScript.lua);
 						}
 						// TODO: table
 
@@ -353,7 +360,7 @@ class FunkinLua {
 
 				}
 			}
-			Lua.pushnil(lua);
+			Lua.pushnil(currentScript.lua);
 		});
 		Lua_helper.add_callback(lua, "setGlobalFromScript", function(luaFile:String, global:String, val:Dynamic){ // returns the global from a script
 			var cervix = luaFile + ".lua";
@@ -392,7 +399,7 @@ class FunkinLua {
 
 				}
 			}
-			Lua.pushnil(lua);
+			Lua.pushnil(currentScript.lua);
 		});
 		/*Lua_helper.add_callback(lua, "getGlobals", function(luaFile:String){ // returns a copy of the specified file's globals
 			var cervix = luaFile + ".lua";
@@ -624,7 +631,7 @@ class FunkinLua {
 					case 'Null Function Pointer', 'SReturn':
 						//nothing
 					default:
-						luaTrace(scriptName + ":" + lastCalledFunction + " - " + e, false, false, FlxColor.RED);
+						luaTrace(currentScript.scriptName + ":" + currentScript.lastCalledFunction + " - " + e, false, false, FlxColor.RED);
 				}
 			}
 			#end
@@ -642,7 +649,7 @@ class FunkinLua {
 				haxeInterp.variables.set(libName, Type.resolveClass(str + libName));
 			}
 			catch (e:Dynamic) {
-				luaTrace(scriptName + ":" + lastCalledFunction + " - " + e, false, false, FlxColor.RED);
+				luaTrace(currentScript.scriptName + ":" + currentScript.lastCalledFunction + " - " + e, false, false, FlxColor.RED);
 			}
 			#end
 		});
@@ -932,8 +939,8 @@ class FunkinLua {
 				curColor.alphaFloat = penisExam.alpha;
 				PlayState.instance.modchartTweens.set(tag, FlxTween.color(penisExam, duration, curColor, color, {ease: getFlxEaseByString(ease),
 					onComplete: function(twn:FlxTween) {
-						PlayState.instance.modchartTweens.remove(tag);
 						PlayState.instance.callOnLuas('onTweenCompleted', [tag]);
+						PlayState.instance.modchartTweens.remove(tag);
 					}
 				}));
 			} else {
@@ -1029,20 +1036,6 @@ class FunkinLua {
 					boobs = FlxG.mouse.justReleasedRight;
 			}
 			return boobs;
-		});
-		Lua_helper.add_callback(lua, "noteTweenAngle", function(tag:String, note:Int, value:Dynamic, duration:Float, ease:String) {
-			cancelTween(tag);
-			if(note < 0) note = 0;
-			var testicle:StrumNote = PlayState.instance.strumLineNotes.members[note % PlayState.instance.strumLineNotes.length];
-
-			if(testicle != null) {
-				PlayState.instance.modchartTweens.set(tag, FlxTween.tween(testicle, {angle: value}, duration, {ease: getFlxEaseByString(ease),
-					onComplete: function(twn:FlxTween) {
-						PlayState.instance.callOnLuas('onTweenCompleted', [tag]);
-						PlayState.instance.modchartTweens.remove(tag);
-					}
-				}));
-			}
 		});
 		Lua_helper.add_callback(lua, "noteTweenAlpha", function(tag:String, note:Int, value:Dynamic, duration:Float, ease:String) {
 			cancelTween(tag);
@@ -2043,8 +2036,8 @@ class FunkinLua {
 					PlayState.instance.modchartSounds.get(tag).stop();
 				}
 				PlayState.instance.modchartSounds.set(tag, FlxG.sound.play(Paths.sound(sound), volume, false, function() {
-					PlayState.instance.modchartSounds.remove(tag);
 					PlayState.instance.callOnLuas('onSoundFinished', [tag]);
+					PlayState.instance.modchartSounds.remove(tag);
 				}));
 				return;
 			}
@@ -2140,9 +2133,14 @@ class FunkinLua {
 			luaTrace('' + text1 + text2 + text3 + text4 + text5, true, false);
 		});
 
-		Lua_helper.add_callback(lua, "close", function() {
-			closed = true;
-			return closed;
+		Lua_helper.add_callback(lua, "close", function(printMessage:Bool) {
+			if(!currentScript.closed) {
+				if(printMessage) {
+					luaTrace('Stopping lua script: ' + currentScript.scriptName);
+				}
+				currentScript.closed = true;
+			}
+			return true;
 		});
 
 		Lua_helper.add_callback(lua, "changePresence", function(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float) {
@@ -2548,7 +2546,7 @@ class FunkinLua {
 	}
 
 	#if hscript
-	public function initHaxeInterp()
+	public static function initHaxeInterp()
 	{
 		if(haxeInterp == null)
 		{
@@ -2625,7 +2623,7 @@ class FunkinLua {
 		return PlayState.instance.modchartTexts.exists(name) ? PlayState.instance.modchartTexts.get(name) : Reflect.getProperty(PlayState.instance, name);
 	}
 
-	function getGroupStuff(leArray:Dynamic, variable:String) {
+	static function getGroupStuff(leArray:Dynamic, variable:String) {
 		var killMe:Array<String> = variable.split('.');
 		if(killMe.length > 1) {
 			var coverMeInPiss:Dynamic = Reflect.getProperty(leArray, killMe[0]);
@@ -2647,7 +2645,7 @@ class FunkinLua {
 		};
 	}
 
-	function loadFrames(spr:FlxSprite, image:String, spriteType:String)
+	static function loadFrames(spr:FlxSprite, image:String, spriteType:String)
 	{
 		switch(spriteType.toLowerCase().trim())
 		{
@@ -2665,7 +2663,7 @@ class FunkinLua {
 		}
 	}
 
-	function setGroupStuff(leArray:Dynamic, variable:String, value:Dynamic) {
+	static function setGroupStuff(leArray:Dynamic, variable:String, value:Dynamic) {
 		var killMe:Array<String> = variable.split('.');
 		if(killMe.length > 1) {
 			var coverMeInPiss:Dynamic = Reflect.getProperty(leArray, killMe[0]);
@@ -2678,7 +2676,7 @@ class FunkinLua {
 		Reflect.setProperty(leArray, variable, value);
 	}
 
-	function resetTextTag(tag:String) {
+	static function resetTextTag(tag:String) {
 		if(!PlayState.instance.modchartTexts.exists(tag)) {
 			return;
 		}
@@ -2692,7 +2690,7 @@ class FunkinLua {
 		PlayState.instance.modchartTexts.remove(tag);
 	}
 
-	function resetSpriteTag(tag:String) {
+	static function resetSpriteTag(tag:String) {
 		if(!PlayState.instance.modchartSprites.exists(tag)) {
 			return;
 		}
@@ -2706,7 +2704,7 @@ class FunkinLua {
 		PlayState.instance.modchartSprites.remove(tag);
 	}
 
-	function resetBackdropTag(tag:String) {
+	static function resetBackdropTag(tag:String) {
 		if(!PlayState.instance.modchartBackdrops.exists(tag)) {
 			return;
 		}
@@ -2720,7 +2718,7 @@ class FunkinLua {
 		PlayState.instance.modchartBackdrops.remove(tag);
 	}
 
-	function cancelTween(tag:String) {
+	static function cancelTween(tag:String) {
 		if(PlayState.instance.modchartTweens.exists(tag)) {
 			PlayState.instance.modchartTweens.get(tag).cancel();
 			PlayState.instance.modchartTweens.get(tag).destroy();
@@ -2728,7 +2726,7 @@ class FunkinLua {
 		}
 	}
 
-	function tweenShit(tag:String, vars:String) {
+	static function tweenShit(tag:String, vars:String) {
 		cancelTween(tag);
 		var variables:Array<String> = vars.replace(' ', '').split('.');
 		var sexyProp:Dynamic;
@@ -2751,7 +2749,7 @@ class FunkinLua {
 		return sexyProp;
 	}
 
-	function cancelTimer(tag:String) {
+	static function cancelTimer(tag:String) {
 		if(PlayState.instance.modchartTimers.exists(tag)) {
 			var theTimer:FlxTimer = PlayState.instance.modchartTimers.get(tag);
 			theTimer.cancel();
@@ -2761,7 +2759,7 @@ class FunkinLua {
 	}
 
 	//Better optimized than using some getProperty shit or idk
-	function getFlxEaseByString(?ease:String = '') {
+	static function getFlxEaseByString(?ease:String = '') {
 		switch(ease.toLowerCase().trim()) {
 			case 'backin': return FlxEase.backIn;
 			case 'backinout': return FlxEase.backInOut;
@@ -2803,7 +2801,7 @@ class FunkinLua {
 		return FlxEase.linear;
 	}
 
-	function blendModeFromString(blend:String):BlendMode {
+	static function blendModeFromString(blend:String):BlendMode {
 		switch(blend.toLowerCase().trim()) {
 			case 'add': return ADD;
 			case 'alpha': return ALPHA;
@@ -2823,7 +2821,7 @@ class FunkinLua {
 		return NORMAL;
 	}
 
-	function cameraFromString(cam:String):FlxCamera {
+	static function cameraFromString(cam:String):FlxCamera {
 		switch(cam.toLowerCase()) {
 			case 'camhud' | 'hud': return PlayState.instance.camHUD;
 			case 'camother' | 'other': return PlayState.instance.camOther;
@@ -2934,21 +2932,21 @@ class FunkinLua {
 
 	public function set(variable:String, data:Dynamic) {
 		#if LUA_ALLOWED
-		if(lua == null) {
+		if(currentScript.lua == null) {
 			return;
 		}
 
-		Convert.toLua(lua, data);
-		Lua.setglobal(lua, variable);
+		Convert.toLua(currentScript.lua, data);
+		Lua.setglobal(currentScript.lua, variable);
 		#end
 	}
 
 	#if LUA_ALLOWED
 	public function getBool(variable:String) {
 		var result:String = null;
-		Lua.getglobal(lua, variable);
-		result = Convert.fromLua(lua, -1);
-		Lua.pop(lua, 1);
+		Lua.getglobal(currentScript.lua, variable);
+		result = Convert.fromLua(currentScript.lua, -1);
+		Lua.pop(currentScript.lua, 1);
 
 		if(result == null) {
 			return false;
@@ -2965,6 +2963,7 @@ class FunkinLua {
 
 		Lua.close(lua);
 		lua = null;
+		closed = true;
 		#end
 	}
 
