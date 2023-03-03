@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixelText",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Maaaaaaaace!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Huh? Who are you? You're like Saku, but... Different?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "You look like Mace! And you have his clothes?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Who?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "And why do you have legs?!"
+		}
+	]
+}

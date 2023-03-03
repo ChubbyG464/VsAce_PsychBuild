@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Free texture packer v0.6.7 http://free-tex-packer.com
+-->
+<TextureAtlas imagePath="lamp-master.png" width="1034" height="3054">
+  <SubTexture name="glowleft" x="5" y="5"  width="789" height="1517" frameX="-186" frameY="-190" frameWidth="3133" frameHeight="1918"/>
+  <SubTexture name="glowright" x="5" y="1532"  width="789" height="1517" frameX="-2174" frameY="-179" frameWidth="3133" frameHeight="1918"/>
+  <SubTexture name="lampleft" x="804" y="5"  width="225" height="1416" frameX="-101" frameY="-117" frameWidth="3133" frameHeight="1918"/>
+  <SubTexture name="lampright" x="804" y="1431"  width="225" height="1416" frameX="-2816" frameY="-108" frameWidth="3133" frameHeight="1918"/>
+</TextureAtlas>

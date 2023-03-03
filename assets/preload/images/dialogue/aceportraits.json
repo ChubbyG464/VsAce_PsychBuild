@@ -11,7 +11,7 @@
 				-4,
 				0
 			],
-			"anim": "shocked",
+			"anim": "Shocked",
 			"idle_offsets": [
 				0,
 				-10
@@ -24,7 +24,7 @@
 				0,
 				-13
 			],
-			"anim": "confused",
+			"anim": "Confused",
 			"loop_offsets": [
 				-3,
 				0

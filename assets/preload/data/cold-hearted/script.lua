@@ -1,4 +1,3 @@
-
 local allowCountdown = false
 function onStartCountdown()
 	if not allowCountdown and not isStoryMode and not seenCutscene then
@@ -26,14 +25,3 @@ end
 function onSkipDialogue(count)
 
 end
-function onCreate()
-
-    setPropertyFromClass('GameOverSubstate', 'characterName', 'bf-playerace');
-    setPropertyFromClass('GameOverSubstate', 'deathSoundName', 'fnf_loss_sfx');
-    setPropertyFromClass('GameOverSubstate', 'loopSoundName', 'gameOver');
-    setPropertyFromClass('GameOverSubstate', 'endSoundName', 'gameOverEnd');
-
-    setProperty("boyfriendCameraOffset", {-285, 30})
-    setProperty("opponentCameraOffset", {350, 0})
-end
-

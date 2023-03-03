@@ -1,0 +1,52 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixelText",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Maaaaaaaace!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Hey Maku!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Hiya, sweetie! What are you doing out here all alone?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Just felt like relaxing, it's so peaceful right now."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Flustered",
+			"text": "Would you like to sing together?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "I'd love to!"
+		}
+	]
+}

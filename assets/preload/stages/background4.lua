@@ -37,6 +37,14 @@ end
 
 local lSongName = ""
 
+function lamp(path, x, y)
+	makeAnimatedLuaSprite(path, 'stages/ace/lamp-master', x, y)
+	addAnimationByPrefix(path, path, path, 0)
+	setScrollFactor(path, 1.1, 1.1)
+	scaleObject(path, 1, 1)
+	updateHitbox(path)
+end
+
 function onCreate()
 	lSongName = string.lower(songName):gsub(" ", "-")
 
@@ -64,9 +72,9 @@ function onCreate()
 		setLuaSpriteScrollFactor('Overlay', 1.1, 1.1);
 		scaleObject('Overlay', 1, 1);
 
-		makeLuaSprite('Lamps', 'stages/ace/Lamps', -1400, -1400);
-		setLuaSpriteScrollFactor('Lamps', 1.1, 1.1);
-		scaleObject('Lamps', 1, 1);
+		--makeLuaSprite('Lamps', 'stages/ace/Lamps', -1400, -1400);
+		--setLuaSpriteScrollFactor('Lamps', 1.1, 1.1);
+		--scaleObject('Lamps', 1, 1);
 
 		makeAnimatedLuaSprite('BackC','stages/ace/Back_Characters', -820,-795)
 		addAnimationByPrefix('BackC','dance','bop',24,true)
@@ -78,6 +86,15 @@ function onCreate()
 		objectPlayAnimation('FrontC','dance',false)
 		setScrollFactor('FrontC', 1.1, 1.1);
 
+
+		local lx = -1400
+		local ly = -1400
+		lamp("lampleft", lx, ly)
+		lamp("lampright", lx, ly)
+		lamp("glowleft", lx, ly)
+		lamp("glowright", lx, ly)
+
+
 		addLuaSprite('background1', false);
 		addLuaSprite('BackC', false);
 		addLuaSprite('Fences', false);
@@ -85,7 +102,10 @@ function onCreate()
 		addLuaSprite('FrontC', false);
 		addLuaSprite('P3Snow2', false);
 		addLuaSprite('P3Snow3', true);
-		addLuaSprite('Lamps', true);
+		addLuaSprite("lampleft", false);
+		addLuaSprite("lampright", false);
+		addLuaSprite("glowleft", true);
+		addLuaSprite("glowright", true);
 		addLuaSprite('Overlay', true);
 	end
 end

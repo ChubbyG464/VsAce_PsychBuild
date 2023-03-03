@@ -1188,21 +1188,17 @@ class PlayState extends MusicBeatState
 
 		if (formattedSong == 'sub-zero' || formattedSong == 'frostbite')
 		{
-			snowDarken = new FlxSprite(-1400, -1320).loadGraphic(Paths.image('stages/ace/P3Snow3Darken', 'shared'));
-			if (formattedSong == 'sub-zero')
+			/*if (formattedSong == 'sub-zero')
 				snowDarken.alpha = 0.0001;
 			else
 				snowDarken.alpha = 0.5;
 			snowDarken.antialiasing = ClientPrefs.globalAntialiasing;
 			snowDarken.scrollFactor.set(1.1, 1.1);
-			snowDarken.active = false;
-			//snowDarken.screenCenter(XY);
-			//snowDarken.y += 97;
-			//add(snowDarken);
-			if (modchartSprites['Overlay'] != null)
-				insert(members.indexOf(modchartSprites['Overlay']), snowDarken);
+			snowDarken.active = false;*/
+			/*if (modchartSprites['Overlay'] != null)
+				//insert(members.indexOf(modchartSprites['Overlay']), snowDarken);
 			else
-				add(snowDarken);
+				//add(snowDarken);*/
 		}
 	}
 
@@ -2767,6 +2763,13 @@ class PlayState extends MusicBeatState
 				frozenTime = 0;
 			}
 		}
+
+
+		if(modchartSprites.exists("P3Snow3") && bgDarken != null) {
+			var c = Std.int((1 - bgDarken.alpha) * 255);
+			modchartSprites.get("P3Snow3").color = FlxColor.fromRGB(c,c,c) | 0xFF000000;
+		}
+
 	}
 
 
@@ -4176,17 +4179,17 @@ class PlayState extends MusicBeatState
 				else if (bgDarken.alpha == 0.5)
 					FlxTween.tween(bgDarken, {alpha: 0.75}, 0.1);
 
-				if (snowDarken.alpha == 0.75)
+				/*if (snowDarken.alpha == 0.75)
 					FlxTween.tween(snowDarken, {alpha: 0.5}, 0.1);
 				else if (snowDarken.alpha == 0.5)
-					FlxTween.tween(snowDarken, {alpha: 0.75}, 0.1);
+					FlxTween.tween(snowDarken, {alpha: 0.75}, 0.1);*/
 			}
 			else if (curBeat >= 448 && curBeat < 512 && bgDarken.alpha != 0.9)
 			{
 				if (ClientPrefs.flashing)
 					FlxG.camera.flash(FlxColor.WHITE, 0.5);
 				FlxTween.tween(bgDarken, {alpha: 0.9}, 0.01);
-				FlxTween.tween(snowDarken, {alpha: 0.9}, 0.01);
+				//FlxTween.tween(snowDarken, {alpha: 0.9}, 0.01);
 			}
 			else if (ClientPrefs.flashing && curBeat >= 512 && curBeat < 576)
 			{
@@ -4197,20 +4200,20 @@ class PlayState extends MusicBeatState
 				else if (bgDarken.alpha == 0.5)
 					FlxTween.tween(bgDarken, {alpha: 0.25}, 0.1);
 
-				if (snowDarken.alpha == 0.9)
+				/*if (snowDarken.alpha == 0.9)
 					FlxTween.tween(snowDarken, {alpha: 0.5}, 0.01);
 				else if (snowDarken.alpha == 0.25)
 					FlxTween.tween(snowDarken, {alpha: 0.5}, 0.1);
 				else if (snowDarken.alpha == 0.5)
-					FlxTween.tween(snowDarken, {alpha: 0.25}, 0.1);
+					FlxTween.tween(snowDarken, {alpha: 0.25}, 0.1);*/
 			}
 			else if (curBeat >= 576)
 			{
 				if (bgDarken.alpha != 0)
 					FlxTween.tween(bgDarken, {alpha: 0}, 0.1);
 
-				if (snowDarken.alpha != 0)
-					FlxTween.tween(snowDarken, {alpha: 0}, 0.1);
+				//if (snowDarken.alpha != 0)
+					//FlxTween.tween(snowDarken, {alpha: 0}, 0.1);
 			}
 		}
 
