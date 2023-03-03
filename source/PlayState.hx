@@ -1198,7 +1198,11 @@ class PlayState extends MusicBeatState
 			snowDarken.active = false;
 			//snowDarken.screenCenter(XY);
 			//snowDarken.y += 97;
-			add(snowDarken);
+			//add(snowDarken);
+			if (modchartSprites['Overlay'] != null)
+				insert(members.indexOf(modchartSprites['Overlay']), snowDarken);
+			else
+				add(snowDarken);
 		}
 	}
 
