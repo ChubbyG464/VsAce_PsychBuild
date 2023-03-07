@@ -1,6 +1,6 @@
 name: TO-DO
 description: Describe a task to be done in the code.
-labels: []
+labels: [to-do]
 body:
   - type: textarea
     attributes:
