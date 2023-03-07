@@ -1,26 +1,31 @@
 package;
 
+
 #if desktop
 import Discord.DiscordClient;
+
 import sys.thread.Thread;
 #end
+
+import haxe.Json;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.transition.TransitionData;
-import haxe.Json;
+import flixel.input.keyboard.FlxKey;
+
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
+
 #if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
 #end
-import options.GraphicsSettingsSubState;
-//import flixel.graphics.FlxGraphic;
+
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFrame;
 import flixel.group.FlxGroup;
@@ -35,13 +40,18 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+
 import lime.app.Application;
+
 import openfl.Assets;
 
+import options.GraphicsSettingsSubState;
+
 using StringTools;
+
+
 typedef TitleData =
 {
-
 	titlex:Float,
 	titley:Float,
 	startx:Float,
@@ -51,6 +61,8 @@ typedef TitleData =
 	backgroundSprite:String,
 	bpm:Int
 }
+
+
 class TitleState extends MusicBeatState
 {
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
@@ -77,6 +89,7 @@ class TitleState extends MusicBeatState
 	var titleJSON:TitleData;
 
 	public static var updateVersion:String = '';
+
 
 	override public function create():Void
 	{
@@ -211,7 +224,10 @@ class TitleState extends MusicBeatState
 	var titleText:FlxSprite;
 	var swagShader:ColorSwap = null;
 
-	function startIntro()
+	/**
+	 * Starts playing the game's intro
+	 */
+	function startIntro():Void
 	{
 		if (!initialized)
 		{
@@ -355,6 +371,10 @@ class TitleState extends MusicBeatState
 		// credGroup.add(credTextShit);
 	}
 
+	/**
+	 * Fetches intro text from the introText.txt file
+	 * @return Array<Array<String>> intro text in 2-D array form
+	 */
 	function getIntroTextShit():Array<Array<String>>
 	{
 		var fullText:String = Assets.getText(Paths.txt('introText'));
@@ -470,6 +490,11 @@ class TitleState extends MusicBeatState
 		super.update(elapsed);
 	}
 
+	/**
+	 * Displays intro credit's text
+	 * @param textArray text to be displayed
+	 * @param offset vertical offset
+	 */
 	function createCoolText(textArray:Array<String>, ?offset:Float = 0)
 	{
 		for (i in 0...textArray.length)
@@ -506,6 +531,8 @@ class TitleState extends MusicBeatState
 
 	private var sickBeats:Int = 0; //Basically curBeat but won't be skipped if you hold the tab or resize the screen
 	public static var closedState:Bool = false;
+
+
 	override function beatHit()
 	{
 		super.beatHit();
@@ -565,7 +592,10 @@ class TitleState extends MusicBeatState
 	}
 
 	var skippedIntro:Bool = false;
-	var increaseVolume:Bool = false;
+
+	/**
+	 * Skips the intro text cutscene
+	 */
 	function skipIntro():Void
 	{
 		if (!skippedIntro)
