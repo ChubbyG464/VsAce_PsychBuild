@@ -1,9 +1,9 @@
 name: TO-DO
-description: Describe a task to be done in the code.
+description: Describe a task to be done in the project
 labels: [to-do]
 body:
   - type: textarea
     attributes:
-      label: Describe the task.
+      label: Task description:
     validations:
       required: true
