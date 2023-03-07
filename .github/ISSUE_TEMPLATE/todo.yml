@@ -4,6 +4,6 @@ labels: [to-do]
 body:
   - type: textarea
     attributes:
-      label: Task description:
+      label: "Task description:"
     validations:
       required: true
