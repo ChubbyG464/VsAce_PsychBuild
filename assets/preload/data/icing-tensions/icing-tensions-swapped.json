@@ -4299,8 +4299,37 @@
 				"bpm": 172
 			},
 			{
+				"sectionNotes": [],
+				"sectionBeats": 4,
 				"gfSection": false,
 				"altAnim": false,
+				"bpm": 172,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"sectionBeats": 4,
+				"gfSection": false,
+				"altAnim": false,
+				"bpm": 172,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionBeats": 4,
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"gfSection": false,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 172
+			},
+			{
+				"gfSection": false,
+				"altAnim": false,
+				"typeOfSection": 0,
 				"sectionNotes": [],
 				"bpm": 172,
 				"sectionBeats": 4,
@@ -4310,6 +4339,7 @@
 			{
 				"gfSection": false,
 				"altAnim": false,
+				"typeOfSection": 0,
 				"sectionNotes": [],
 				"bpm": 172,
 				"sectionBeats": 4,
@@ -4318,7 +4348,18 @@
 			}
 		],
 		"gfVersion": "",
-		"events": [],
+		"events": [
+			[
+				22674.4186046512,
+				[
+					[
+						"Play Animation",
+						"hey",
+						"bf"
+					]
+				]
+			]
+		],
 		"player3": null,
 		"song": "Icing Tensions",
 		"validScore": true,
