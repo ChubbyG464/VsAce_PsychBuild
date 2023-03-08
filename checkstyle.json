@@ -11,7 +11,7 @@
         {
             "type": "ConditionalCompilation",
             "props": {
-                "severity": "INFO",
+                "severity": "WARNING",
                 "policy": "startOfLine",
                 "allowSingleline": false
             }
@@ -107,7 +107,13 @@
                     "ENUM_DEF",
                     "INTERFACE_DEF",
 
-                    "TYPEDEF_DEF"
+                    "TYPEDEF_DEF",
+
+                    "IF",
+                    "SWITCH",
+
+                    "FOR",
+                    "WHILE"
                 ]
             }
         },
@@ -131,6 +137,29 @@
             "props": {
                 "severity": "INFO",
                 "max": 4
+            }
+        },
+
+        {
+            "type": "EmptyPackage",
+            "props": {
+                "enforceEmptyPackage": false,
+                "severity": "WARNING"
+            }
+        },
+
+        {
+            "type": "ModifierOrder",
+            "props": {
+                "severity": "INFO",
+                "modifiers": [
+                    "MACRO",
+                    "OVERRIDE",
+                    "PUBLIC_PRIVATE",
+                    "STATIC",
+                    "INLINE",
+                    "DYNAMIC"
+                ]
             }
         },
 
@@ -250,7 +279,6 @@
                     "afterAbstractVars",
 
                     "afterClassStaticVars",
-                    "afterClassVars",
 
                     "betweenClassMethods",
                     "betweenAbstractMethods"
@@ -268,7 +296,9 @@
                     "afterPackage",
                     "afterImports",
 
-                    "betweenTypes"
+                    "betweenTypes",
+
+                    "afterClassVars"
                 ]
             }
         },
