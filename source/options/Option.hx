@@ -26,7 +26,10 @@ using StringTools;
 class Option
 {
 	private var child:Alphabet;
+	private var staticText:Alphabet;
+
 	public var text(get, set):String;
+
 	public var onChange:Void->Void = null; //Pressed enter (on Bool type options) or pressed/held left/right (on other types)
 
 	public var type(get, default):String = 'bool'; //bool, int (or integer), float (or fl), percent, string (or str)
@@ -49,6 +52,8 @@ class Option
 	public var displayFormat:String = '%v'; //How String/Float/Percent/Int values are shown, %v = Current value, %d = Default value
 	public var description:String = '';
 	public var name:String = 'Unknown';
+
+	public var fontColor(default, set):FlxColor = 0x000000;
 
 	public function new(name:String, description:String = '', variable:String, type:String = 'bool', defaultValue:Dynamic = 'null variable value', ?options:Array<String> = null)
 	{
@@ -88,7 +93,7 @@ class Option
 				if(num > -1) {
 					curOption = num;
 				}
-	
+
 			case 'percent':
 				displayFormat = '%v%';
 				changeValue = 0.01;
@@ -121,6 +126,11 @@ class Option
 		this.child = child;
 	}
 
+	public function setStatic(staticText:Alphabet)
+	{
+		this.staticText = staticText;
+	}
+
 	private function get_text()
 	{
 		if(child != null) {
@@ -134,6 +144,16 @@ class Option
 			child.changeText(newValue);
 		}
 		return null;
+	}
+
+	function set_fontColor(newColor:FlxColor) {
+		if(staticText != null) {
+			staticText.fontColor = newColor;
+		}
+		if(child != null) {
+			child.fontColor = newColor;
+		}
+		return fontColor = newColor;
 	}
 
 	private function get_type()

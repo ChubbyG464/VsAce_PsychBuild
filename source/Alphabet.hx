@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -38,6 +39,8 @@ class Alphabet extends FlxSpriteGroup
 	var lastSprite:AlphaCharacter;
 	var xPosResetted:Bool = false;
 
+	public var fontColor(default, set):FlxColor = 0x000000;
+
 	var splitWords:Array<String> = [];
 
 	public var isBold:Bool = false;
@@ -71,6 +74,19 @@ class Alphabet extends FlxSpriteGroup
 		} else {
 			finishedText = true;
 		}
+	}
+
+	function setFontColor(letter:AlphaCharacter, color:FlxColor) {
+		if(!letter.isBold) {
+			letter.colorTransform.color = color;
+		}
+	}
+
+	function set_fontColor(newColor:FlxColor) {
+		for(letter in lettersArray) {
+			setFontColor(letter, newColor);
+		}
+		return fontColor = newColor;
 	}
 
 	public function changeText(newText:String, newTypingSpeed:Float = -1)
@@ -179,6 +195,7 @@ class Alphabet extends FlxSpriteGroup
 					}
 				}
 
+				setFontColor(letter, fontColor);
 				add(letter);
 				lettersArray.push(letter);
 
@@ -221,7 +238,7 @@ class Alphabet extends FlxSpriteGroup
 		}
 
 		if(speed <= 0) {
-			while(!finishedText) { 
+			while(!finishedText) {
 				timerCheck();
 			}
 			if(dialogueSound != null) dialogueSound.stop();
@@ -326,6 +343,7 @@ class Alphabet extends FlxSpriteGroup
 					dialogueSound = FlxG.sound.play(soundDialog);
 				}
 
+				setFontColor(letter, fontColor);
 				add(letter);
 
 				lastSprite = letter;
@@ -381,6 +399,7 @@ class AlphaCharacter extends FlxSprite
 	public var row:Int = 0;
 
 	private var textSize:Float = 1;
+	public var isBold:Bool = false;
 
 	public function new(x:Float, y:Float, textSize:Float)
 	{
@@ -399,6 +418,8 @@ class AlphaCharacter extends FlxSprite
 		animation.addByPrefix(letter, letter.toUpperCase() + " bold", 24);
 		animation.play(letter);
 		updateHitbox();
+
+		isBold = true;
 	}
 
 	public function createBoldNumber(letter:String):Void
@@ -406,6 +427,8 @@ class AlphaCharacter extends FlxSprite
 		animation.addByPrefix(letter, "bold" + letter, 24);
 		animation.play(letter);
 		updateHitbox();
+
+		isBold = true;
 	}
 
 	public function createBoldSymbol(letter:String)
@@ -449,6 +472,8 @@ class AlphaCharacter extends FlxSprite
 				x += 5 * textSize;
 				offset.x += 3 * textSize;
 		}
+
+		isBold = true;
 	}
 
 	public function createLetter(letter:String):Void
@@ -465,6 +490,8 @@ class AlphaCharacter extends FlxSprite
 
 		y = (110 - height);
 		y += row * 60;
+
+		isBold = false;
 	}
 
 	public function createNumber(letter:String):Void
@@ -476,6 +503,8 @@ class AlphaCharacter extends FlxSprite
 
 		y = (110 - height);
 		y += row * 60;
+
+		isBold = false;
 	}
 
 	public function createSymbol(letter:String)
@@ -512,5 +541,7 @@ class AlphaCharacter extends FlxSprite
 				//x -= 35 - (90 * (1.0 - textSize));
 				y -= 16;
 		}
+
+		isBold = false;
 	}
 }

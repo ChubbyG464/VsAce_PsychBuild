@@ -121,6 +121,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			optionText.yMult = 90;*/
 			optionText.xAdd = 200;
 			optionText.targetY = i;
+			optionsArray[i].setStatic(optionText);
 			grpOptions.add(optionText);
 
 			if(optionsArray[i].type == 'bool') {
@@ -138,6 +139,8 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				grpTexts.add(valueText);
 				optionsArray[i].setChild(valueText);
 			}
+
+			optionsArray[i].fontColor = 0xFFFFFF;
 
 			if(optionsArray[i].showBoyfriend && boyfriend == null)
 			{
