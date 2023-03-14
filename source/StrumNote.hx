@@ -99,8 +99,16 @@ class StrumNote extends FlxShakableSprite
 			var dataDir = ["left", "down", "up", "right"];
 			frames = Paths.getSparrowAtlas(texture);
 
+			var alreadyHasFrozen = false;
+			for(frame in frames.frames) {
+				if(frame.name.startsWith("arrowFrozen")) {
+					alreadyHasFrozen = true;
+					break;
+				}
+			}
 
-			if(PlayState.instance != null && PlayState.instance.hasIceNotes) {
+			if(!alreadyHasFrozen && PlayState.instance != null && PlayState.instance.hasIceNotes) {
+				trace("Added Frozen to strums since missing");
 				addFrames(Paths.getSparrowAtlas("FrozenStrums"));
 			}
 
@@ -111,7 +119,7 @@ class StrumNote extends FlxShakableSprite
 			animation.addByPrefix('static', 'arrow' + dir.toUpperCase());
 			animation.addByPrefix('pressed', dir + ' press', 24, false);
 			animation.addByPrefix('confirm', dir + ' confirm', 24, false);
-			if(PlayState.instance != null && PlayState.instance.hasIceNotes) {
+			if(alreadyHasFrozen || PlayState.instance != null && PlayState.instance.hasIceNotes) {
 				animation.addByPrefix('frozen', 'arrowFrozen' + dir.toUpperCase(), 24, true);
 				//trace("Added Frozen");
 			}
