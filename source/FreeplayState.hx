@@ -76,7 +76,7 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		for (i in 0...WeekData.weeksList.length) {
-			if(weekIsLocked(WeekData.weeksList[i])) continue;
+			var isLocked = weekIsLocked(WeekData.weeksList[i]);
 
 			var leWeek:WeekData = WeekData.weeksLoaded.get(WeekData.weeksList[i]);
 			var leSongs:Array<String> = [];
@@ -96,7 +96,7 @@ class FreeplayState extends MusicBeatState
 				{
 					colors = [146, 113, 253];
 				}
-				addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]));
+				var data = addSong(song[0], i, song[1], FlxColor.fromRGB(colors[0], colors[1], colors[2]), isLocked);
 			}
 		}
 		WeekData.loadTheFirstEnabledMod();
@@ -122,7 +122,9 @@ class FreeplayState extends MusicBeatState
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
+			var songName = songs[i].songName;
+			if(songs[i].locked) songName = "???";
+			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songName, true, false);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
@@ -242,9 +244,18 @@ class FreeplayState extends MusicBeatState
 		super.closeSubState();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int)
+	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, locked:Bool = false)
 	{
-		songs.push(new SongMetadata(songName, weekNum, songCharacter, color));
+		var meta = new SongMetadata(songName, weekNum, songCharacter, color);
+
+		if(locked) {
+			meta.color = 0xFF888888;
+			meta.songCharacter = "lock";
+			meta.locked = true;
+		}
+
+		songs.push(meta);
+		return meta;
 	}
 
 	function weekIsLocked(name:String):Bool {
@@ -358,6 +369,12 @@ class FreeplayState extends MusicBeatState
 		{
 			if(instPlaying != curSelected)
 			{
+				if(songs[curSelected].locked) {
+					FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
+					super.update(elapsed);
+					return;
+				}
+
 				#if PRELOAD_ALL
 				destroyFreeplayVocals();
 				FlxG.sound.music.volume = 0;
@@ -381,9 +398,13 @@ class FreeplayState extends MusicBeatState
 		}
 		else if (accepted)
 		{
-			persistentUpdate = false;
 			var songLowercase:String = Paths.formatToSongPath(songs[curSelected].songName);
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
+			if(songs[curSelected].locked) {
+				FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
+				super.update(elapsed);
+				return;
+			}
 			/*#if MODS_ALLOWED
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
 			#else
@@ -394,6 +415,7 @@ class FreeplayState extends MusicBeatState
 				trace('Couldnt find file');
 			}*/
 			trace(poop);
+			persistentUpdate = false;
 
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
 			PlayState.isStoryMode = false;
@@ -591,6 +613,7 @@ class SongMetadata
 	public var color:Int = -7179779;
 	public var folder:String = "";
 	public var newSticker:Bool = false;
+	public var locked:Bool = false;
 
 	public function new(song:String, week:Int, songCharacter:String, color:Int)
 	{

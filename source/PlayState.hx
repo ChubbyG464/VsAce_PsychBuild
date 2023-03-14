@@ -218,7 +218,6 @@ class PlayState extends MusicBeatState
 	public var camOther:FlxCamera;
 	public var cameraSpeed:Float = 1;
 
-	var dialogue:Array<String> = ['blah blah blah', 'coolswag'];
 	var dialogueJson:DialogueFile = null;
 
 	var foregroundSprites:FlxTypedGroup<BGSprite>;
@@ -599,7 +598,11 @@ class PlayState extends MusicBeatState
 		//trace(underlayAlpha);
 
 		if (underlayAlpha > 0) {
-			laneunderlayOpponent = new FlxSpriteExtra(0, 0).makeSolid(500, FlxG.height * 2);
+			// (state.playerStrums.members[3].x + state.playerStrums.members[3].width + 7) - (state.playerStrums.members[0].x - 7)
+
+			var width = 458;
+
+			laneunderlayOpponent = new FlxSpriteExtra(0, 0).makeSolid(458, FlxG.height * 2);
 			laneunderlayOpponent.x += 85;
 			laneunderlayOpponent.x += ((FlxG.width / 2) * 0);
 			laneunderlayOpponent.alpha = underlayAlpha;
@@ -609,7 +612,7 @@ class PlayState extends MusicBeatState
 			laneunderlayOpponent.cameras = [camHUD];
 			laneunderlayOpponent.active = false;
 
-			laneunderlay = new FlxSpriteExtra(0, 0).makeSolid(500, FlxG.height * 2);
+			laneunderlay = new FlxSpriteExtra(0, 0).makeSolid(458, FlxG.height * 2);
 			laneunderlay.x += 85;
 			laneunderlay.x += ((FlxG.width / 2) * 1);
 			laneunderlay.alpha = underlayAlpha;
@@ -821,18 +824,6 @@ class PlayState extends MusicBeatState
 		if (OpenFlAssets.exists(file)) {
 			dialogueJson = DialogueBoxPsych.parseDialogue(file);
 		}
-
-		var file:String = Paths.txt(songName + '/' + songName + 'Dialogue'); //Checks for vanilla/Senpai dialogue
-		if (OpenFlAssets.exists(file)) {
-			dialogue = CoolUtil.coolTextFile(file);
-		}
-		var doof:DialogueBox = new DialogueBox(false, dialogue);
-		// doof.x += 70;
-		// doof.y = FlxG.height * 0.5;
-		doof.scrollFactor.set();
-		doof.finishThing = startCountdown;
-		doof.nextDialogueThing = startNextDialogue;
-		doof.skipDialogueThing = skipDialogue;
 
 		WindowTitle.progress(70);
 
@@ -1047,7 +1038,6 @@ class PlayState extends MusicBeatState
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
-		doof.cameras = [camHUD];
 
 		startingSong = true;
 
