@@ -1846,7 +1846,8 @@ class PlayState extends MusicBeatState
 		callOnLuas('onSongStart', []);
 	}
 
-	var debugNum:Int = 0;
+	var vocalsFinished:Bool = false;
+
 	private var noteTypeMap:Map<String, Bool> = new Map<String, Bool>();
 	private var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
 	private function generateSong(dataPath:String):Void
@@ -1877,6 +1878,11 @@ class PlayState extends MusicBeatState
 			vocals = new FlxSound().loadEmbedded(vocalsFile);
 		else
 			vocals = new FlxSound();
+
+		vocals.onComplete = function()
+		{
+			vocalsFinished = true;
+		}
 
 		FlxG.sound.list.add(vocals);
 		FlxG.sound.list.add(new FlxSound().loadEmbedded(Paths.inst(PlayState.SONG.song)));
@@ -2393,13 +2399,14 @@ class PlayState extends MusicBeatState
 		if(finishTimer != null) return;
 
 		vocals.pause();
-
 		FlxG.sound.music.play();
+
 		Conductor.songPosition = FlxG.sound.music.time;
-		if (Conductor.songPosition <= vocals.length)
-		{
-			vocals.time = Conductor.songPosition;
-		}
+
+		if (vocalsFinished)
+			return;
+
+		vocals.time = Conductor.songPosition;
 		vocals.play();
 	}
 
@@ -4107,7 +4114,7 @@ class PlayState extends MusicBeatState
 	{
 		super.stepHit();
 		if (Math.abs(FlxG.sound.music.time - (Conductor.songPosition - Conductor.offset)) > 20
-			|| (SONG.needsVoices && Math.abs(vocals.time - (Conductor.songPosition - Conductor.offset)) > 20))
+			|| (!vocalsFinished && SONG.needsVoices && Math.abs(vocals.time - (Conductor.songPosition - Conductor.offset)) > 20))
 		{
 			resyncVocals();
 		}

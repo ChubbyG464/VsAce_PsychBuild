@@ -3,34 +3,10 @@
 		{
 			"sound": "pixelText",
 			"speed": 0.04,
-			"portrait": "zerktroportraits",
+			"portrait": "aceportraits",
 			"boxState": "normal",
 			"expression": "Neutral",
-			"text": "I know you're nervous, but you got this!"
-		},
-		{
-			"sound": "",
-			"speed": 0.04,
-			"portrait": "aceportraits",
-			"boxState": "normal",
-			"expression": "Embarassed",
-			"text": "I don't really sing as fast as you do though. My stuff is usually more chill."
-		},
-		{
-			"sound": "",
-			"speed": 0.04,
-			"portrait": "zerktroportraits",
-			"boxState": "normal",
-			"expression": "Happy",
-			"text": "You'll do fine, my little blue snowball."
-		},
-		{
-			"sound": "",
-			"speed": 0.04,
-			"portrait": "aceportraits",
-			"boxState": "normal",
-			"expression": "Confused",
-			"text": "What did you just call me?"
+			"text": "How was that?"
 		},
 		{
 			"sound": "",
@@ -38,15 +14,31 @@
 			"portrait": "zerktroportraits",
 			"boxState": "normal",
 			"expression": "Blush",
-			"text": "N-nothing."
+			"text": "..."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Retro?"
 		},
 		{
 			"sound": "",
 			"speed": 0.04,
 			"portrait": "zerktroportraits",
 			"boxState": "normal",
-			"expression": "Laugh",
-			"text": "Look, just sing the song already!"
+			"expression": "Happy",
+			"text": "I love you."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "I love you too..."
 		}
 	]
 }

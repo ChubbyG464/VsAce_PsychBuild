@@ -3,7 +3,8 @@ local endScreen = false
 local notSeen = true
 
 local simpleStory = {
-	["ectospasm"] = { loop='endLoop', img='EctospasmEnd', music='endzer', dialogue="dialogueEnd" }
+	["ectospasm"] = { loop='endLoop', img='EctospasmEnd', music='endzer', dialogue="dialogueEnd" },
+	["cold-hearted"] = { loop='endLoop', img='SakuGetsCockblocked', music='endsak', dialogue="dialogueEnd" },
 }
 
 function onCreatePost()
@@ -24,22 +25,25 @@ function onCreatePost()
 	]])
 end
 
+totalPages = -1
+
 function simpleEndScreen(story)
 	runHaxeCode([[
-		var fade = new FlxSprite(0, 0).makeGraphic(1, 1, 0xFF000000);
+		fade = new FlxSprite(0, 0).makeGraphic(1, 1, 0xFF000000);
 		fade.setGraphicSize(1280*3, 720*3);
 		fade.updateHitbox();
 		fade.alpha = 0.0001;
 		fade.cameras = [game.camOther];
 		fade.screenCenter();
-		endImage = new FlxSprite(0, 0).loadGraphic(Paths.image("]]..story.img..[["));
+		endImage = new FlxSprite(0, 0).loadGraphic(Paths.image("dialogue/]]..story.img..[["));
 		endImage.alpha = 0.0001;
 		endImage.cameras = [game.camOther];
 		endImage.screenCenter();
+		endImage.antialiasing = true;
 
-		trace(game.psychDialogue);
+		game.dialogueCount = 0;
 
-		game.psychDialogue.finishThing = function() {
+		game.psychDialogue.finishThing = () -> {
 			game.psychDialogue = null;
 			game.add(fade);
 			FlxTween.tween(fade, {alpha: 1}, 1, {
@@ -47,6 +51,7 @@ function simpleEndScreen(story)
 					game.add(endImage);
 					endMusic = new FlxSound().loadEmbedded(Paths.music("]]..story.music..[["), false, true);
 					endMusic.play(true);
+					FlxG.sound.list.add(endMusic);
 					endMusic.onComplete = function() {
 						endMusic.onComplete = null;
 						endLoop.play(true);
@@ -60,9 +65,30 @@ function simpleEndScreen(story)
 					});
 				}
 			});
-		}
+		};
+		trace("After");
 	]])
+
+	--totalPages = getProperty("psychDialogue.dialogueList.dialogue.length") - 1
 end
+
+--function onNextDialogue(count)
+--	debugPrint(count, " ", totalPages)
+--	if count == totalPages then -- Wtf i cant assign finishThing without it running early
+--		runHaxeCode([[
+--			trace(game.psychDialogue);
+--
+--			/*function onFinishDialogue() {
+--				
+--			}*/
+--
+--			//game.psychDialogue.finishThing = onFinishDialogue;
+--			//game.psychDialogue.finishThing = () -> {
+--			//	trace("finishThing");
+--			//};
+--		]])
+--	end
+--end
 
 function onUpdatePost(elapsed)
 	if getProperty("endScreen.active") then
@@ -70,8 +96,8 @@ function onUpdatePost(elapsed)
 		if ((controls.PAUSE || controls.ACCEPT) && game.endingSong)
 		{
 			trace('im sad this is sad');
-			game.transIn = FlxTransitionablegame.defaultTransIn;
-			game.transOut = FlxTransitionablegame.defaultTransOut;
+			game.transIn = FlxTransitionableState.defaultTransIn;
+			game.transOut = FlxTransitionableState.defaultTransOut;
 
 			game.paused = true;
 			game.camHUD.visible = true;
@@ -83,6 +109,7 @@ function onUpdatePost(elapsed)
 				endMusic.fadeOut(1, 0, function(flx:FlxTween)
 				{
 					endMusic.stop();
+					game.endSong();
 				});
 				endMusic.onComplete = null;
 			}
@@ -90,10 +117,9 @@ function onUpdatePost(elapsed)
 				endLoop.fadeOut(1, 0, function(flx:FlxTween)
 				{
 					endLoop.stop();
+					game.endSong();
 				});
 			}
-
-			game.endSong();
 		}
 	]])
 	end
@@ -107,9 +133,14 @@ function onEndSong()
 
 		story = simpleStory[lSongName]
 
+		story.dialogue = story.dialogue:gsub("bfVersion", getProperty("bfVersion"))
+		story.dialogue = story.dialogue:gsub("dadVersion", getProperty("SONG.player2"))
+		story.dialogue = story.dialogue:gsub("gfVersion", getProperty("SONG.gfVersion"))
+
 		doTweenAlpha("camHUD", "camHUD", 0, 0.3)
 
 		addHaxeLibrary("FlxSound", "flixel.system")
+		addHaxeLibrary("FlxTransitionableState", "flixel.addons.transition")
 
 		runHaxeCode([[
 			endLoop = new FlxSound().loadEmbedded(Paths.music(']]..story.loop..[['), true, true);
@@ -118,14 +149,12 @@ function onEndSong()
 
 			game.canPause = false;
 		]])
-		print(runHaxeCode)
 		startDialogue(story.dialogue)
+		simpleEndScreen(story)
 		setObjectCamera("psychDialogue", "other")
 		--runHaxeCode([[
 		--	game.psychDialogue.cameras = [game.camOther];
 		--]])
-
-		simpleEndScreen(story)
 		return Function_Stop;
 	end
 

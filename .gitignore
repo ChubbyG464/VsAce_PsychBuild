@@ -1,5 +1,5 @@
 # Ignore all
-*
+# *
 
 # Unignore all directories
 !*/
@@ -8,6 +8,9 @@
 !*.hx
 !*.txt
 !*.lua
+!*.png
+!*.jpg
+!*.jpeg
 
 # Unignore configuration files
 !*.json
