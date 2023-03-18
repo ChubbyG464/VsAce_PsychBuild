@@ -1446,6 +1446,7 @@ class PlayState extends MusicBeatState
 
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', [], false);
+		//trace(ret);
 		if(ret != FunkinLua.Function_Stop) {
 			if (skipCountdown || startOnTime > 0) skipArrowStartTween = true;
 
@@ -4264,6 +4265,9 @@ class PlayState extends MusicBeatState
 			var ret:Dynamic = script.call(event, args);
 			if(ret == FunkinLua.Function_StopLua && !ignoreStops)
 				break;
+
+			//if(event == "onStartCountdown")
+			//	trace(event, script.scriptName, ret);
 
 			if(ret != FunkinLua.Function_Continue)
 				returnVal = ret;

@@ -4,7 +4,7 @@ function onStartCountdown()
 	if not allowCountdown and not isStoryMode and not seenCutscene then
 		setProperty('inCutscene', true)
 
-			startDialogue('dialogue', 'dialogueAmbience1')
+		startDialogue('dialogue', 'dialogueAmbience1')
 
 		allowCountdown = true
 		return Function_Stop
