@@ -13,7 +13,7 @@
 	"hideStoryMode": false,
 	"songs": [
 		[
-			"Shame",
+			"seclusion",
 			"iceolation",
 			[
 				186,
@@ -22,7 +22,16 @@
 			]
 		],
 		[
-			"Iceo-2",
+			"shame",
+			"iceolation",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"smooth",
 			"iceolation",
 			[
 				186,
