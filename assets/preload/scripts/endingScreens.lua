@@ -5,6 +5,8 @@ local notSeen = true
 local simpleStory = {
 	["ectospasm"] = { loop='endLoop', img='EctospasmEnd', music='endzer', dialogue="dialogueEnd" },
 	["cold-hearted"] = { loop='endLoop', img='SakuGetsCockblocked', music='endsak', dialogue="dialogueEnd" },
+	["sweater-weather"] = { loop='', img='', music='', dialogue="dialogueEnd" },
+	["frostbite-two"] = { loop='', img='', music='', dialogue="dialogueEnd" },
 }
 
 function onCreatePost()
@@ -15,7 +17,7 @@ function onCreatePost()
 		return
 	end
 
-	luaDebugMode = true
+	--luaDebugMode = true
 
 	makeLuaSprite("endScreen")
 	setProperty("endScreen.active", false)
@@ -45,6 +47,7 @@ function simpleEndScreen(story)
 
 		game.psychDialogue.finishThing = () -> {
 			game.psychDialogue = null;
+
 			game.add(fade);
 			FlxTween.tween(fade, {alpha: 1}, 1, {
 				onComplete: function(flx:FlxTween) {
@@ -127,7 +130,6 @@ end
 
 function onEndSong()
 	if notSeen then
-		debugPrint("playing cutscene")
 		notSeen = false;
 		--runTimer('ending', 0.8);
 
@@ -143,14 +145,18 @@ function onEndSong()
 		addHaxeLibrary("FlxTransitionableState", "flixel.addons.transition")
 
 		runHaxeCode([[
-			endLoop = new FlxSound().loadEmbedded(Paths.music(']]..story.loop..[['), true, true);
+			if(']]..story.loop..[[' != "") {
+				endLoop = new FlxSound().loadEmbedded(Paths.music(']]..story.loop..[['), true, true);
 
-			FlxG.sound.list.add(endLoop);
+				FlxG.sound.list.add(endLoop);
+			}
 
 			game.canPause = false;
 		]])
 		startDialogue(story.dialogue)
-		simpleEndScreen(story)
+		if story.music ~= "" or story.img ~= "" then
+			simpleEndScreen(story)
+		end
 		setObjectCamera("psychDialogue", "other")
 		--runHaxeCode([[
 		--	game.psychDialogue.cameras = [game.camOther];

@@ -96,7 +96,7 @@ class FunkinLua {
 			return;
 		}
 		scriptName = script;
-		trace('lua file loaded succesfully:' + script);
+		trace('lua file loaded succesfully: ' + script);
 
 		currentScript = this;
 

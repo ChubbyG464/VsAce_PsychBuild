@@ -36,4 +36,3 @@ function onCreate()
     setProperty("boyfriendCameraOffset", {-285, 30})
     setProperty("opponentCameraOffset", {350, 0})
 end
-

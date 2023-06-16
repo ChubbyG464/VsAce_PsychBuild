@@ -58,7 +58,7 @@ class EditorLua {
 			lua = null;
 			return;
 		}
-		trace('Lua file loaded succesfully:' + script);
+		trace('Lua file loaded succesfully: ' + script);
 
 		// Lua variables
 		set('Function_Stop', Function_Stop);

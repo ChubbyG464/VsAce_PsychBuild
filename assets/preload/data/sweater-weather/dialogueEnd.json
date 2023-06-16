@@ -1,0 +1,84 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "That was sooo nice!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Thank you! I wrote the song myself."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Surprised",
+			"text": "Oh! I just remembered why I wanted to talk to you! "
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "I wanted to know if you're able to make it to the big game in a couple of weeks?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Of course! You said you wanted me to record it too, right?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Yeah! I figured since you're, like, an A/V nerd and all, I think you'd do a great job!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Maku... I'm just hitting the record button on my phone."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Giggling",
+			"text": "I don't know, it always looks better when you handle the camera, okay? Anyway, I gotta go for practice!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "maceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Gotcha, see ya later!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Bye, hon!"
+		}
+	]
+}

@@ -1,9 +1,14 @@
+function onCreatePost()
+	setProperty("camFollowPos.x", getProperty("camFollow.x") - 5)
+	setProperty("camFollowPos.y", getProperty("camFollow.y") - 50)
+end
+
 local allowCountdown = false
 function onStartCountdown()
 	if not allowCountdown and not isStoryMode and not seenCutscene then
 		setProperty('inCutscene', true)
 
-			startDialogue('dialogue', 'dialogueAmbience1')
+		startDialogue('dialogue', 'dialogueAmbience1')
 
 		allowCountdown = true
 		return Function_Stop

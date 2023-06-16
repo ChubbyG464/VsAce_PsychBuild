@@ -1791,7 +1791,7 @@ class PlayState extends MusicBeatState
 			var songname = new FlxFixedText(0, 0, 0, "", thingsize);
 			songname.setFormat(Paths.font("vcr.ttf"), thingsize, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 
-			songname.text = " Now Playing: Snowy-Day \n By Trackye";
+			songname.text = " Now Playing: Snowy-Day\n By Trackye";
 
 			boxsize = songname.fieldWidth;
 
