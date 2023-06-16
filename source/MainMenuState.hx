@@ -109,6 +109,7 @@ class MainMenuState extends MusicBeatState
 			if(currentPlushieCampaign != "") {
 				if(FlxG.save.data.lastPlushiesLink != currentPlushieCampaign) {
 					Stickers.newMenuItem.push("plushies");
+					Stickers.save();
 					FlxG.save.data.lastPlushiesLink = currentPlushieCampaign;
 				}
 			}
@@ -220,7 +221,7 @@ class MainMenuState extends MusicBeatState
 				newSticker.yAdd = -newSticker.height/2;
 				newSticker.copyVisible = true;
 				newSticker.useFrameWidthDiff = true;
-				newSticker.antialiasing = FlxG.save.data.antialiasing;
+				newSticker.antialiasing = ClientPrefs.globalAntialiasing;
 				stickerItems.add(newSticker);
 
 				menuItem.sticker = newSticker;

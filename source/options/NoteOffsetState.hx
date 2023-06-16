@@ -102,12 +102,12 @@ class NoteOffsetState extends MusicBeatState
 		coolText.screenCenter();
 		coolText.x = FlxG.width * 0.35;
 
-		rating = new FlxSprite().loadGraphic(Paths.image('sick'));
+		rating = new ComboSprite().loadSprite('sick');
 		rating.cameras = [camHUD];
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
 		rating.updateHitbox();
 		rating.antialiasing = ClientPrefs.globalAntialiasing;
-		
+
 		add(rating);
 
 		comboNums = new FlxSpriteGroup();
@@ -123,7 +123,7 @@ class NoteOffsetState extends MusicBeatState
 		var daLoop:Int = 0;
 		for (i in seperatedScore)
 		{
-			var numScore:FlxSprite = new FlxSprite(43 * daLoop).loadGraphic(Paths.image('num' + i));
+			var numScore:ComboSprite = new ComboSprite(43 * daLoop).loadSprite('num' + i);
 			numScore.cameras = [camHUD];
 			numScore.setGraphicSize(Std.int(numScore.width * 0.5));
 			numScore.updateHitbox();
@@ -140,15 +140,15 @@ class NoteOffsetState extends MusicBeatState
 		repositionCombo();
 
 		// Note delay stuff
-		
+
 		beatText = new Alphabet(0, 0, 'Beat Hit!', true, false, 0.05, 0.6);
 		beatText.x += 260;
 		beatText.alpha = 0;
 		beatText.acceleration.y = 250;
 		beatText.visible = false;
 		add(beatText);
-		
-		timeTxt = new FlxText(0, 600, FlxG.width, "", 32);
+
+		timeTxt = new FlxFixedText(0, 600, FlxG.width, "", 32);
 		timeTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.borderSize = 2;
@@ -157,7 +157,7 @@ class NoteOffsetState extends MusicBeatState
 
 		barPercent = ClientPrefs.noteOffset;
 		updateNoteDelay();
-		
+
 		timeBarBG = new FlxSprite(0, timeTxt.y + 8).loadGraphic(Paths.image('timeBar'));
 		timeBarBG.setGraphicSize(Std.int(timeBarBG.width * 1.2));
 		timeBarBG.updateHitbox();
@@ -169,7 +169,7 @@ class NoteOffsetState extends MusicBeatState
 		timeBar.scrollFactor.set();
 		timeBar.screenCenter(X);
 		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
-		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
+		timeBar.numDivisions = 80000; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.visible = false;
 		timeBar.cameras = [camHUD];
 
@@ -179,7 +179,7 @@ class NoteOffsetState extends MusicBeatState
 
 		///////////////////////
 
-		var blackBox:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 40, FlxColor.BLACK);
+		var blackBox:FlxSprite = new FlxSpriteExtra().makeSolid(FlxG.width, 40, FlxColor.BLACK);
 		blackBox.scrollFactor.set();
 		blackBox.alpha = 0.6;
 		blackBox.cameras = [camHUD];
@@ -217,7 +217,7 @@ class NoteOffsetState extends MusicBeatState
 				FlxG.keys.justPressed.RIGHT,
 				FlxG.keys.justPressed.UP,
 				FlxG.keys.justPressed.DOWN,
-			
+
 				FlxG.keys.justPressed.A,
 				FlxG.keys.justPressed.D,
 				FlxG.keys.justPressed.W,
@@ -377,7 +377,7 @@ class NoteOffsetState extends MusicBeatState
 			boyfriend.dance();
 			gf.dance();
 		}
-		
+
 		if(curBeat % 4 == 2)
 		{
 			FlxG.camera.zoom = 1.15;
@@ -458,7 +458,7 @@ class NoteOffsetState extends MusicBeatState
 		rating.visible = onComboMenu;
 		comboNums.visible = onComboMenu;
 		dumbTexts.visible = onComboMenu;
-		
+
 		timeBarBG.visible = !onComboMenu;
 		timeBar.visible = !onComboMenu;
 		timeTxt.visible = !onComboMenu;

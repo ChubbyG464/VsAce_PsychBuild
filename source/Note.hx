@@ -21,7 +21,7 @@ typedef EventNote = {
 	value2:String
 }
 
-class Note extends FlxSprite
+class Note extends FlxColorSwapSprite
 {
 	public var extraData:Map<String,Dynamic> = [];
 
@@ -56,8 +56,6 @@ class Note extends FlxSprite
 	public var eventVal1:String = '';
 	public var eventVal2:String = '';
 
-	public var colorSwap:CSData;
-	public static var staticColorSwap:ColorSwap;
 	public var inEditor:Bool = false;
 
 	public var animSuffix:String = '';
@@ -122,7 +120,7 @@ class Note extends FlxSprite
 
 	public function resizeByRatio(ratio:Float) //haha funny twitter shit
 	{
-		if(isSustainNote && !animation.curAnim.name.endsWith('end'))
+		if(isSustainNote && !isHoldEnd)
 		{
 			scale.y *= ratio;
 			updateHitbox();
@@ -258,11 +256,7 @@ class Note extends FlxSprite
 
 		if(noteData > -1) {
 			texture = '';
-			colorSwap = new CSData();
-			if(staticColorSwap == null) {
-				staticColorSwap = new ColorSwap();
-			}
-			shader = staticColorSwap.shader;
+			shader = getColorSwap();
 
 			x += swagWidth * (noteData % 4);
 			if(!isSustainNote) { //Doing this 'if' check to fix the warnings on Senpai songs
@@ -509,32 +503,5 @@ class Note extends FlxSprite
 			frame = frames.frames[animation.frameIndex];
 
 		return rect;
-	}
-
-	@:noCompletion
-	override function drawComplex(camera:FlxCamera):Void
-	{
-		_frame.prepareMatrix(_matrix, FlxFrameAngle.ANGLE_0, checkFlipX(), checkFlipY());
-		_matrix.translate(-origin.x, -origin.y);
-		_matrix.scale(scale.x, scale.y);
-
-		if (bakedRotationAngle <= 0)
-		{
-			updateTrig();
-
-			if (angle != 0)
-				_matrix.rotateWithTrig(_cosAngle, _sinAngle);
-		}
-
-		_point.add(origin.x, origin.y);
-		_matrix.translate(_point.x, _point.y);
-
-		if (isPixelPerfectRender(camera))
-		{
-			_matrix.tx = Math.floor(_matrix.tx);
-			_matrix.ty = Math.floor(_matrix.ty);
-		}
-
-		camera.drawPixels(_frame, framePixels, _matrix, colorTransform, blend, antialiasing, shader, colorSwap);
 	}
 }

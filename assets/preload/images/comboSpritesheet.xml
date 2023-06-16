@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.0.4 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="comboSpritesheet.png" width="546" height="630">
+	<SubTexture name="sick" x="3" y="3" width="346" height="139" frameX="-11" frameY="-7" frameWidth="403" frameHeight="152"/>
+	<SubTexture name="combo" x="3" y="148" width="316" height="117" frameX="-12" frameY="-16" frameWidth="343" frameHeight="138"/>
+	<SubTexture name="shit" x="3" y="271" width="240" height="142" frameX="-13" frameY="-10" frameWidth="285" frameHeight="163"/>
+	<SubTexture name="good" x="325" y="148" width="108" height="260" rotated="true" frameX="-25" frameY="-8" frameWidth="317" frameHeight="126"/>
+	<SubTexture name="bad" x="249" y="414" width="187" height="123" frameX="-24" frameY="-5" frameWidth="261" frameHeight="131"/>
+	<SubTexture name="num0" x="355" y="3" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num1" x="3" y="419" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num2" x="100" y="419" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num3" x="439" y="120" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num4" x="452" y="3" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num5" x="439" y="237" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num6" x="442" y="354" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num7" x="442" y="471" width="91" height="111" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num9" x="3" y="536" width="111" height="91" rotated="true" frameX="-2" frameY="-2" frameWidth="95" frameHeight="115"/>
+	<SubTexture name="num8" x="120" y="536" width="111" height="90" rotated="true" frameX="-3" frameY="-2" frameWidth="95" frameHeight="115"/>
+</TextureAtlas>

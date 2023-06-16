@@ -159,7 +159,7 @@ class FreeplayState extends MusicBeatState
 				newSticker.frames = Paths.getSparrowAtlas('new_text');
 				newSticker.animation.addByPrefix('Animate', 'NEW', 24);
 				newSticker.animation.play('Animate');
-				newSticker.antialiasing = FlxG.save.data.antialiasing;
+				newSticker.antialiasing = ClientPrefs.globalAntialiasing;
 				newSticker.sprTracker = songText;
 				//newSticker.sprTrackerOffset = new FlxPoint(-150, -100);
 				newSticker.xAdd = -150;

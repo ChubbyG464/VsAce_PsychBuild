@@ -7,10 +7,8 @@ import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
 import flixel.FlxCamera;
 import ColorSwap.CSData;
 
-class NoteSplash extends FlxSprite
+class NoteSplash extends FlxColorSwapSprite
 {
-	public var colorSwap:CSData;
-	public static var staticColorSwap:ColorSwap;
 	private var idleAnim:String;
 	private var textureLoaded:String = null;
 
@@ -22,11 +20,7 @@ class NoteSplash extends FlxSprite
 
 		loadAnims(skin);
 
-		colorSwap = new CSData();
-		if(staticColorSwap == null) {
-			staticColorSwap = new ColorSwap();
-		}
-		shader = staticColorSwap.shader;
+		shader = getColorSwap();
 
 		setupNoteSplash(x, y, note);
 		antialiasing = ClientPrefs.globalAntialiasing;
@@ -69,32 +63,5 @@ class NoteSplash extends FlxSprite
 		if(animation.curAnim != null)if(animation.curAnim.finished) kill();
 
 		super.update(elapsed);
-	}
-
-	@:noCompletion
-	override function drawComplex(camera:FlxCamera):Void
-	{
-		_frame.prepareMatrix(_matrix, FlxFrameAngle.ANGLE_0, checkFlipX(), checkFlipY());
-		_matrix.translate(-origin.x, -origin.y);
-		_matrix.scale(scale.x, scale.y);
-
-		if (bakedRotationAngle <= 0)
-		{
-			updateTrig();
-
-			if (angle != 0)
-				_matrix.rotateWithTrig(_cosAngle, _sinAngle);
-		}
-
-		_point.add(origin.x, origin.y);
-		_matrix.translate(_point.x, _point.y);
-
-		if (isPixelPerfectRender(camera))
-		{
-			_matrix.tx = Math.floor(_matrix.tx);
-			_matrix.ty = Math.floor(_matrix.ty);
-		}
-
-		camera.drawPixels(_frame, framePixels, _matrix, colorTransform, blend, antialiasing, shader, colorSwap);
 	}
 }

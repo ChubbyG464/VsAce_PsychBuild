@@ -164,7 +164,7 @@ class CreditsState extends MusicBeatState
 		bg.setGraphicSize(Std.int(bg.width * 1.1));
 		bg.updateHitbox();
 		bg.screenCenter();
-		bg.antialiasing = FlxG.save.data.antialiasing;
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		bg.alpha = 0.75;
 		add(bg);
 
@@ -221,7 +221,7 @@ class CreditsState extends MusicBeatState
 			{
 				var icon:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('crediticons/' + sectionArrays[i][j][2], 'preload'));
 				icon.setGraphicSize(50, 50);
-				icon.antialiasing = FlxG.save.data.antialiasing;
+				icon.antialiasing = ClientPrefs.globalAntialiasing;
 				icon.updateHitbox();
 				var name:FlxTypeText = new FlxTypeText(0, 0, 0, sectionArrays[i][j][0]);
 				name.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);

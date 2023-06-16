@@ -11,10 +11,8 @@ import flixel.graphics.frames.FlxAtlasFrames;
 
 using StringTools;
 
-class StrumNote extends FlxShakableSprite
+class StrumNote extends FlxColorSwapSprite
 {
-	public var colorSwap:CSData;
-	public static var staticColorSwap:ColorSwap;
 	public var resetAnim:Float = 0;
 	private var noteData:Int = 0;
 	public var direction:Float = 90;//plan on doing scroll directions soon -bb
@@ -38,11 +36,7 @@ class StrumNote extends FlxShakableSprite
 	}
 
 	public function new(x:Float, y:Float, leData:Int, player:Int) {
-		colorSwap = new CSData();
-		if(staticColorSwap == null) {
-			staticColorSwap = new ColorSwap();
-		}
-		shader = staticColorSwap.shader;
+		shader = getColorSwap();
 		noteData = leData;
 		this.player = player;
 		this.noteData = leData;
@@ -184,36 +178,5 @@ class StrumNote extends FlxShakableSprite
 		if(reload) {
 			this.frames = this.frames;
 		}
-	}
-
-	@:noCompletion
-	override function drawComplex(camera:FlxCamera):Void
-	{
-		_frame.prepareMatrix(_matrix, FlxFrameAngle.ANGLE_0, checkFlipX(), checkFlipY());
-		_matrix.translate(-origin.x, -origin.y);
-		_matrix.scale(scale.x, scale.y);
-
-		if (bakedRotationAngle <= 0)
-		{
-			updateTrig();
-
-			if (angle != 0)
-				_matrix.rotateWithTrig(_cosAngle, _sinAngle);
-		}
-
-		_point.add(origin.x, origin.y);
-		_matrix.translate(_point.x, _point.y);
-
-		if(shakeDistance != 0) {
-			_matrix.translate(FlxG.random.float(-shakeDistance, shakeDistance), FlxG.random.float(-shakeDistance, shakeDistance));
-		}
-
-		if (isPixelPerfectRender(camera))
-		{
-			_matrix.tx = Math.floor(_matrix.tx);
-			_matrix.ty = Math.floor(_matrix.ty);
-		}
-
-		camera.drawPixels(_frame, framePixels, _matrix, colorTransform, blend, antialiasing, shader, colorSwap);
 	}
 }
