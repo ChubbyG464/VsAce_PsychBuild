@@ -46,7 +46,6 @@ class Paths
 		'weeks',
 		'fonts',
 		'scripts',
-		'achievements'
 	];
 	#end
 
@@ -433,9 +432,7 @@ class Paths
 	{
 		return modFolders('shaders/'+key+'.vert');
 	}
-	inline static public function modsAchievements(key:String) {
-		return modFolders('achievements/' + key + '.json');
-	}*/
+	*/
 
 	static public function modFolders(key:String) {
 		if(currentModDirectory != null && currentModDirectory.length > 0) {
