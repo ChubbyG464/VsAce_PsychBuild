@@ -3,11 +3,16 @@ local endScreen = false
 local notSeen = true
 
 local simpleStory = {
+	["sub-zero"] = { loop='endLoop', img='End', music='end', dialogue={"dialogue2", 'dialogue-retro2', 'dialogue-ace2'}, dialogueMusic="dialogueAmbience1", story=true},
+	["cryogenic"] = { loop='endLoop', img='End2', music='end2', dialogue={"dialogue2", 'dialogue-retro2', 'dialogue-ace2'}, dialogueMusic="dialogueAmbience2", story=true},
+
 	["ectospasm"] = { loop='endLoop', img='EctospasmEnd', music='endzer', dialogue="dialogueEnd" },
 	["cold-hearted"] = { loop='endLoop', img='SakuGetsCockblocked', music='endsak', dialogue="dialogueEnd" },
-	["sweater-weather"] = { loop='', img='', music='', dialogue="dialogueEnd" },
-	["frostbite-two"] = { loop='', img='', music='', dialogue="dialogueEnd" },
+	["sweater-weather"] = { dialogue="dialogueEnd" },
+	["frostbite-two"] = { dialogue="dialogueEnd" },
 }
+
+local function istable(t) return type(t) == 'table' end
 
 function onCreatePost()
 	lSongName = string.lower(songName):gsub(" ", "-")
@@ -17,7 +22,12 @@ function onCreatePost()
 		return
 	end
 
-	--luaDebugMode = true
+	if simpleStory[lSongName].story and not isStoryMode then
+		close(true)
+		return
+	end
+
+	luaDebugMode = true
 
 	makeLuaSprite("endScreen")
 	setProperty("endScreen.active", false)
@@ -82,7 +92,7 @@ end
 --			trace(game.psychDialogue);
 --
 --			/*function onFinishDialogue() {
---				
+--
 --			}*/
 --
 --			//game.psychDialogue.finishThing = onFinishDialogue;
@@ -135,26 +145,39 @@ function onEndSong()
 
 		story = simpleStory[lSongName]
 
-		story.dialogue = story.dialogue:gsub("bfVersion", getProperty("bfVersion"))
-		story.dialogue = story.dialogue:gsub("dadVersion", getProperty("SONG.player2"))
-		story.dialogue = story.dialogue:gsub("gfVersion", getProperty("SONG.gfVersion"))
+		if not istable(story.dialogue) then
+			story.dialogue = story.dialogue:gsub("bfVersion", getProperty("bfVersion"))
+			story.dialogue = story.dialogue:gsub("dadVersion", getProperty("SONG.player2"))
+			story.dialogue = story.dialogue:gsub("gfVersion", getProperty("SONG.gfVersion"))
+		end
 
 		doTweenAlpha("camHUD", "camHUD", 0, 0.3)
 
 		addHaxeLibrary("FlxSound", "flixel.system")
 		addHaxeLibrary("FlxTransitionableState", "flixel.addons.transition")
 
-		runHaxeCode([[
-			if(']]..story.loop..[[' != "") {
+		if story.loop then
+			runHaxeCode([[
 				endLoop = new FlxSound().loadEmbedded(Paths.music(']]..story.loop..[['), true, true);
 
 				FlxG.sound.list.add(endLoop);
-			}
+			]])
+		end
 
-			game.canPause = false;
-		]])
-		startDialogue(story.dialogue)
-		if story.music ~= "" or story.img ~= "" then
+		setProperty("canPause", false)
+
+		if istable(story.dialogue) then
+			if getProperty("bfVersion") == "bf-retro" then
+				startDialogue(story.dialogue[2], story.dialogueMusic)
+			elseif getProperty("bfVersion") == "bf-ace" then
+				startDialogue(story.dialogue[3], story.dialogueMusic)
+			else
+				startDialogue(story.dialogue[1], story.dialogueMusic)
+			end
+		else
+			startDialogue(story.dialogue, story.dialogueMusic)
+		end
+		if story.music and story.img then
 			simpleEndScreen(story)
 		end
 		setObjectCamera("psychDialogue", "other")

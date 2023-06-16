@@ -991,6 +991,7 @@ class PlayState extends MusicBeatState
 		healthBar.visible = !ClientPrefs.hideHud;
 		healthBar.alpha = ClientPrefs.healthBarAlpha;
 		healthBar.shouldLerp = true;
+		healthBar.snap();
 		add(healthBar);
 		healthBarBG.sprTracker = healthBar;
 
@@ -3277,13 +3278,18 @@ class PlayState extends MusicBeatState
 					}
 					MusicBeatState.switchState(new StoryMenuState());
 
-					if (formattedSong == "sub-zero") {
+					/*if (formattedSong == "sub-zero") {
+						ZeroEndingState.endImage = "End";
+						ZeroEndingState.music = "";
 						openSubState(new ZeroEndingState());
 					}
-					else {
-						MusicBeatState.nextGhostAllowed = true;
+					else if (formattedSong == "sub-zero") {
+						ZeroEndingState.endImage = "End2";
+						ZeroEndingState.music = "";
+						openSubState(new ZeroEndingState());
+					}
+					else */{
 					//	MusicBeatState.songLoadingScreen = "loading";
-						MusicBeatState.switchState(new StoryMenuState());
 					}
 					// if ()
 					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {

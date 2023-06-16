@@ -17,8 +17,10 @@ class ZeroEndingState extends FlxSubState {
 	var background:FlxSpriteExtra;
 	var enterPressedOnce:Bool = false;
 
+	public static var endImage:String = "End";
+
 	override function create() {
-		zeroEndBG = new FlxSprite(0, 0).loadGraphic(Paths.image("images/stages/ace/End"));
+		zeroEndBG = new FlxSprite(0, 0).loadGraphic(Paths.image("dialogue/" + endImage));
 		zeroEndBG.scrollFactor.set();
 		zeroEndBG.antialiasing = ClientPrefs.globalAntialiasing;
 		zeroEndBG.screenCenter();
@@ -46,7 +48,6 @@ class ZeroEndingState extends FlxSubState {
 				if(FlxG.sound.music != null) {
 					FlxG.sound.music.persist = true;
 				}
-				MusicBeatState.nextGhostAllowed = true;
 			//	MusicBeatState.songLoadingScreen = "loading";
 				MusicBeatState.switchState(new StoryMenuState());
 			}

@@ -801,11 +801,11 @@ class FlxBar extends FlxSprite
 
 		if (_fillHorizontal)
 		{
-			_filledBarRect.width = Std.int(interval);
+			_filledBarRect.width = (interval);
 		}
 		else
 		{
-			_filledBarRect.height = Std.int(interval);
+			_filledBarRect.height = (interval);
 		}
 
 		if (visibleFront = (percent > 0))
@@ -862,6 +862,10 @@ class FlxBar extends FlxSprite
 		{
 			dirty = true;
 		}
+	}
+
+	public function snap() {
+		displayValue = value;
 	}
 
 	override public function update(elapsed:Float):Void
