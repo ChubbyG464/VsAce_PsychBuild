@@ -3514,6 +3514,7 @@
 		"player2": "ace",
 		"song": "Cryogenic",
 		"stage": "snowbridge1",
+		"gfVersion": "gf",
 		"needsVoices": true,
 		"validScore": true,
 		"bpm": 212,

@@ -4736,6 +4736,7 @@
 		"song": "Cryogenic",
 		"needsVoices": true,
 		"validScore": true,
+		"gfVersion": "gf",
 		"speed": 2.7,
 		"bpm": 212
 	}
