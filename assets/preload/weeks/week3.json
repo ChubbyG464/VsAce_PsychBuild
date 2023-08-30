@@ -3,14 +3,18 @@
 	"difficulties": "Easy,Normal,Hard,Swapped",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
-	"weekBefore": "week2",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "week2",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"ace",
+		"bf-cold",
+		"gf"
+	],
 	"songs": [
 		[
 			"seclusion",
@@ -31,7 +35,7 @@
 			]
 		],
 		[
-			"smooth",
+			"coffee-shop",
 			"iceolation",
 			[
 				186,
@@ -40,11 +44,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"ace",
-		"bf-cold",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "week-ace3"
+	"hideStoryMode": false,
+	"weekName": "week-ace3",
+	"hiddenUntilUnlocked": false
 }

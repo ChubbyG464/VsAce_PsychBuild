@@ -2022,8 +2022,35 @@ class PlayState extends MusicBeatState
 				case "swapped": 175;
 				default: 0;
 			}
-		}
-
+		}else if (formattedSong == 'seclusion') {
+            iceAmount = switch (CoolUtil.difficultyString().toLowerCase())
+            {
+                case "easy": 25;
+                case "normal": 75;
+                case "hard": 125;
+                case "swapped": 175;
+                default: 0;
+            }
+		}else if (formattedSong == 'shame') {
+            iceAmount = switch (CoolUtil.difficultyString().toLowerCase())
+            {
+                case "easy": 25;
+                case "normal": 75;
+                case "hard": 125;
+                case "swapped": 175;
+                default: 0;
+            }
+        }else if (formattedSong == 'coffee-shop') {
+            iceAmount = switch (CoolUtil.difficultyString().toLowerCase())
+            {
+                case "easy": 25;
+                case "normal": 75;
+                case "hard": 125;
+                case "swapped": 175;
+                default: 0;
+            }
+        }
+		
 		trace(formattedSong, iceAmount, CoolUtil.difficultyString().toLowerCase());
 
 		if (iceAmount > 0 && ClientPrefs.iceNotes)  //Frostbite test to see if this worked. It didn't

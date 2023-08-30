@@ -1,0 +1,24 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		-440,
+		-220
+	],
+	"scale": 0.449999999999999,
+	"animations": [
+		{
+			"loop_name": "Neutral",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Neutral",
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "sven"
+}

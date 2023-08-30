@@ -1,0 +1,63 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		-30,
+		-160
+	],
+	"scale": 0.75,
+	"animations": [
+		{
+			"loop_name": "Blushing",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Blushing",
+			"anim": "Blushing",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Happy",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Happy",
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Crying",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Crying",
+			"anim": "Crying",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Neutral",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Neutral",
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "Iceolation"
+}
