@@ -12,9 +12,9 @@ end
 
 function onCreate()
 	-- background shit
-	makeLuaSprite('iceolation', 'stages/iceo/iceolation2', -1250, -1100);
+	makeLuaSprite('iceolation', 'stages/iceo/iceolation2', -1400, -1300);
 	setScrollFactor('iceolation', 1.1, 1.1);
-	scaleObject('iceolation', 1.2, 1.2);
+	scaleObject('iceolation', 1.3, 1.3);
 
 	addLuaSprite('iceolation', false);
 
