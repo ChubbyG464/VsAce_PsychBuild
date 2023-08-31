@@ -279,7 +279,7 @@ class TitleState extends MusicBeatState
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
 		logoBl.animation.addByPrefix('bump', 'logoBumpin', 24, false);
 		logoBl.animation.play('bump');
-		logoBl.scale.set(0.9, 0.9);
+		logoBl.scale.set(0.8, 0.8);
 		logoBl.updateHitbox();
 		// logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
