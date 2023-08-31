@@ -1913,7 +1913,6 @@ class PlayState extends MusicBeatState
 						value2: newEventNote[3]
 					};
 					subEvent.strumTime -= eventNoteEarlyTrigger(subEvent);
-					eventNotes.push(subEvent);
 					eventPushed(subEvent);
 				}
 			}
@@ -1937,7 +1936,6 @@ class PlayState extends MusicBeatState
 					value2: newEventNote[3]
 				};
 				subEvent.strumTime -= eventNoteEarlyTrigger(subEvent);
-				eventNotes.push(subEvent);
 				eventPushed(subEvent);
 			}
 		}
@@ -2220,6 +2218,7 @@ class PlayState extends MusicBeatState
 
 
 	function eventPushed(event:EventNote) {
+		if(!ClientPrefs.exZoom && event.event == "Slow Zoom") return;
 		switch(event.event) {
 			case 'Change Character':
 				var charType:Int = 0;
@@ -2238,6 +2237,7 @@ class PlayState extends MusicBeatState
 		}
 
 		eventPushedMap.set(event.event, true);
+		eventNotes.push(event);
 	}
 
 	function eventNoteEarlyTrigger(event:EventNote):Float {
