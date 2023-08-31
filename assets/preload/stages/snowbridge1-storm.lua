@@ -12,14 +12,27 @@ end
 
 function onCreate()
 	-- background shit
-	makeLuaSprite('iceolation', 'stages/iceo/iceolation2', -1400, -1300);
+	makeLuaSprite('iceolation', 'stages/iceo/iceolation', -1400, -1400);
 	setScrollFactor('iceolation', 1.1, 1.1);
-	scaleObject('iceolation', 1.3, 1.3);
+	scaleObject('iceolation', 1, 1);
 
 	addLuaSprite('iceolation', false);
 
 
+	makeLuaSprite('purpleMultiply', '', -800, -800)
+	-- makeGraphic('purpleMultiply', 1, 1, '0xffa087ca');
+	runHaxeCode([[
+   	  game.modchartSprites.get("purpleMultiply").makeGraphic(1, 1, 0xFFbdb0d4);
+   	  game.modchartSprites.get("purpleMultiply").antialiasing = false;
+	]])
+	scaleObject('purpleMultiply', 4100, 2200);
+	setScrollFactor('purpleMultiply', 0, 0);
+	setBlendMode('purpleMultiply', 'multiply');
+
+	addLuaSprite('purpleMultiply', true);
+
 end
+
 
 function onCreatePost()
 	scaleObject("dad", 1.2, 1.2, false)
