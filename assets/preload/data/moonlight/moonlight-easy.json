@@ -1,8 +1,8 @@
 {
 	"song": {
-		"player1": "bf-minus",
-		"player2": "retro-minus",
-		"gfVersion": "gf-minus",
+		"player1": "nothing-mace",
+		"player2": "nothing-saku",
+		"gfVersion": "nothing_metro",
 		"notes": [
 			{
 				"lengthInSteps": 16,
@@ -7898,8 +7898,8 @@
 				"mustHitSection": true
 			}
 		],
-		"song": "Overtime",
-		"stage": "minus_overtime",
+		"song": "Moonlight",
+		"stage": "videos",
 		"needsVoices": true,
 		"validScore": true,
 		"speed": 1.7,
