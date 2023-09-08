@@ -24011,7 +24011,7 @@
 		],
 		"song": "Sub Zero",
 		"needsVoices": true,
-		"stage": "background3",
+		"stage": "bg3-snowier",
 		"validScore": true,
 		"speed": 2.2,
 		"bpm": 172

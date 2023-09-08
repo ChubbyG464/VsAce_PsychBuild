@@ -5253,7 +5253,7 @@
 		"song": "Spell",
 		"needsVoices": false,
 		"validScore": true,
-		"stage": "snowbridge1",
+		"stage": "snowbridge",
 		"bpm": 140,
 		"speed": 2.6
 	}

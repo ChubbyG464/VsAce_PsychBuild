@@ -17729,7 +17729,7 @@
 		"song": "Ectospasm",
 		"arrowSkin": "",
 		"needsVoices": true,
-		"stage": "Bridge-ecto",
+		"stage": "bridge-ecto",
 		"validScore": true,
 		"speed": 3,
 		"bpm": 212

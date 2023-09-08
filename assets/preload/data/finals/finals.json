@@ -3520,7 +3520,7 @@
 		"song": "Finals",
 		"needsVoices": true,
 		"validScore": true,
-		"stage": "snowbridge1",
+		"stage": "snowbridge",
 		"bpm": 104,
 		"speed": 2.6
 	}

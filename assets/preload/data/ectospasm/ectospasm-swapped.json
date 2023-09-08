@@ -17689,7 +17689,7 @@
 		"player3": "gf-retro",
 		"song": "Ectospasm",
 		"validScore": true,
-		"stage": "Bridge-ecto",
+		"stage": "bridge-ecto",
 		"needsVoices": true,
 		"speed": 3,
 		"bpm": 212

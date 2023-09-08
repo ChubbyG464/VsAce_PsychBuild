@@ -8068,7 +8068,7 @@
 		"song": "seclusion",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "snowbridge1-storm",
+		"stage": "snowbridge-storm",
 		"bpm": 190,
 		"speed": 2.7
 	}

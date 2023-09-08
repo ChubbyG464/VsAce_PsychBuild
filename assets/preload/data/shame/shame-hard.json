@@ -8599,7 +8599,7 @@
 		"song": "Shame",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "snowbridge1-storm",
+		"stage": "snowbridge-storm",
 		"bpm": 164,
 		"speed": 2.7
 	}
