@@ -55,7 +55,7 @@ function simpleEndScreen(story)
 
 		game.dialogueCount = 0;
 
-        game.psychDialogue.finishThing = function() {
+		game.psychDialogue.finishThing = function() {
 			game.psychDialogue = null;
 
 			game.add(fade);

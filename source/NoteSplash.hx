@@ -60,7 +60,7 @@ class NoteSplash extends FlxColorSwapSprite
 	}
 
 	override function update(elapsed:Float) {
-		if(animation.curAnim != null)if(animation.curAnim.finished) kill();
+		if(animation.curAnim != null && animation.curAnim.finished) kill();
 
 		super.update(elapsed);
 	}

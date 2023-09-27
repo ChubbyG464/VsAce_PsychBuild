@@ -5,8 +5,8 @@ import flixel.FlxG;
 
 class Stickers {
 	public static function save() {
-		FlxG.save.data.newSongs = newSongs;
-		FlxG.save.data.newMenuItem = newMenuItem;
+		FlxG.save.data.newSongs = newSongs.copy();
+		FlxG.save.data.newMenuItem = newMenuItem.copy();
 
 		FlxG.save.flush();
 	}
@@ -31,6 +31,7 @@ class Stickers {
 
 			if(FlxG.save.data.didFirstBoot == null) {
 				setNew(MENU_ITEM, "freeplay");
+				setNew(MENU_ITEM, "story-mode");
 				FlxG.save.data.didFirstBoot = true;
 				save();
 			}
@@ -53,9 +54,14 @@ class Stickers {
 	}
 
 	public static var newSongs:Array<String> = [
-		"snowy-day"
+		"snowy-day",
+		"finals",
+		"moonlight",
+		"spell"
 	];
-	public static var newMenuItem:Array<String> = [];
+	public static var newMenuItem:Array<String> = [
+		"story-mode"
+	];
 
 	public static function setNew(type:UnlockType, value:String) {
 		value = Paths.formatToSongPath(value);

@@ -21,7 +21,7 @@
 	<!-- ____________________________ Window Settings ___________________________ -->
 
 	<!--These window settings apply to all targets-->
-	<window width="1280" height="720" fps="" background="#000000" hardware="true" vsync="false" />
+	<window width="1280" height="720" fps="" background="#000000" hardware="true" vsync="false" allow-high-dpi="true" />
 
 	<!--HTML5-specific-->
 	<window if="html5" resizable="true" />
@@ -168,6 +168,7 @@
 	<icon path="art/iconOG.png" size='128' />
 	<icon path="art/iconOG.png" size='256' />
 	<icon path="art/iconOG.png" size='512' />
+	<icon path="art/iconOG.png" size='768' />
 	<icon path="art/iconOG.png" size='1024' />
 	<icon path="art/iconOG.png" />
 </project>

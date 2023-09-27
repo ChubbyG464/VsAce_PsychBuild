@@ -451,9 +451,9 @@ class PlayState extends MusicBeatState
 		if (SONG == null)
 			SONG = Song.loadFromJson('concrete-jungle');
 
-		if(!chartingMode) { // No cheating using chart editor
-			Stickers.playedSong(SONG.song);
-		}
+		//if(!chartingMode) { // No cheating using chart editor
+		Stickers.playedSong(SONG.song);
+		//}
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
@@ -596,7 +596,7 @@ class PlayState extends MusicBeatState
 
 			var width = 458;
 
-			laneunderlayOpponent = new FlxSpriteExtra(0, 0).makeSolid(458, FlxG.height * 2);
+			laneunderlayOpponent = new FlxSpriteExtra(0, 0).makeSolid(width, FlxG.height * 2);
 			laneunderlayOpponent.x += 85;
 			laneunderlayOpponent.x += ((FlxG.width / 2) * 0);
 			laneunderlayOpponent.alpha = underlayAlpha;
@@ -606,7 +606,7 @@ class PlayState extends MusicBeatState
 			laneunderlayOpponent.cameras = [camHUD];
 			laneunderlayOpponent.active = false;
 
-			laneunderlay = new FlxSpriteExtra(0, 0).makeSolid(458, FlxG.height * 2);
+			laneunderlay = new FlxSpriteExtra(0, 0).makeSolid(width, FlxG.height * 2);
 			laneunderlay.x += 85;
 			laneunderlay.x += ((FlxG.width / 2) * 1);
 			laneunderlay.alpha = underlayAlpha;

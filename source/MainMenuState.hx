@@ -169,6 +169,10 @@ class MainMenuState extends MusicBeatState
 			spacing = 130;
 		}
 
+		if(!Stickers.newMenuItem.contains("freeplay")) {
+			if(Stickers.newSongs.length > 0) Stickers.newMenuItem.push("freeplay");
+		}
+
 		for (i in 0...optionShit.length)
 		{
 			var menuItem:MenuItem = new MenuItem(-500 + (i * 45), offset + (i * spacing));

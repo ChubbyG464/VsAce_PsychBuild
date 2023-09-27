@@ -57,6 +57,11 @@ class StoryMenuState extends MusicBeatState
 
 	override function create()
 	{
+		if(Stickers.newMenuItem.contains("story-mode")) {
+			Stickers.newMenuItem.remove("story-mode");
+			Stickers.save();
+		}
+
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
