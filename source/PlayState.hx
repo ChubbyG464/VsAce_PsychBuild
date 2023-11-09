@@ -1827,6 +1827,59 @@ class PlayState extends MusicBeatState
 				songname.destroy();
 			});
 		}
+
+		if (formattedSong == 'noreaster-remix')
+		{
+			//Getting a part of this code from FPS plus!!!!!! Props to them!!!!!!!!! But I'm also doin some stuff on my own too lol
+			var thingsize:Int = 26;
+			var boxsize:Float = 0;
+			var songname = new FlxFixedText(0, 0, 0, "", thingsize);
+			songname.setFormat(Paths.font("vcr.ttf"), thingsize, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+	
+			songname.text = " Now Playing: Noreaster Remix\n By The Musical Ghost";
+	
+			boxsize = songname.fieldWidth;
+	
+			var bg = new FlxSpriteExtra(thingsize/-2 + 2, thingsize/-2 + 3).makeSolid(Math.floor(boxsize + thingsize), Math.floor(songname.height + thingsize), FlxColor.BLACK);
+			bg.alpha = 0.67;
+	
+			songname.text += "\n";
+	
+			add(bg);
+			add(songname);
+	
+			bg.visible = true;
+			songname.visible = true;
+	
+			bg.cameras = [camHUD];
+			songname.cameras = [camHUD];
+	
+			bg.y += 60;
+			songname.y += 60;
+			bg.x -= 460;
+			songname.x -= 460;
+	
+			new FlxTimer().start(1, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(bg, {x: 5}, 0.5, {ease: FlxEase.quintOut});
+				FlxTween.tween(songname, {x: 5}, 0.5, {ease: FlxEase.quintOut});
+			});
+	
+			new FlxTimer().start(6, function(tmr:FlxTimer)
+			{
+				FlxTween.tween(bg, {alpha: 0}, 1);
+				FlxTween.tween(songname, {alpha: 0}, 1);
+			});
+	
+			new FlxTimer().start(8, function(tmr:FlxTimer)
+			{
+				remove(bg, true);
+				remove(songname, true);
+	
+				bg.destroy();
+				songname.destroy();
+			});
+		}
 		// Song duration in a float, useful for the time left feature
 		songLength = FlxG.sound.music.length;
 		FlxTween.tween(timeBar, {alpha: 1}, 0.5, {ease: FlxEase.circOut});
