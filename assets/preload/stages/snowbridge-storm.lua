@@ -35,7 +35,6 @@ end
 
 
 function onCreatePost()
-	scaleObject("dad", 1.2, 1.2, false)
 
 	setProperty("gf.scrollFactor.x", 1.1)
 	setProperty("gf.scrollFactor.y", 1.1)
