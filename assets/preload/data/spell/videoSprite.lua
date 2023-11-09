@@ -26,7 +26,7 @@ function onCreate()
 	--run the main haxe code
 	runHaxeCode([[
 
-		var filepath = Paths.video('spell');
+		var filepath = Paths.video('[VIDEO NAME HERE]');
 		//get the video path
 		
 		var video = new MP4Handler();
