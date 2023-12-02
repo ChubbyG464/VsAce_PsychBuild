@@ -2091,6 +2091,15 @@ class PlayState extends MusicBeatState
                 case "swapped": 175;
                 default: 0;
             }
+		}else if (formattedSong == 'refusal') {
+            iceAmount = switch (CoolUtil.difficultyString().toLowerCase())
+            {
+                case "easy": 25;
+                case "normal": 75;
+                case "hard": 125;
+                case "swapped": 175;
+                default: 0;
+            }
         }else if (formattedSong == 'coffee-shop') {
             iceAmount = switch (CoolUtil.difficultyString().toLowerCase())
             {
