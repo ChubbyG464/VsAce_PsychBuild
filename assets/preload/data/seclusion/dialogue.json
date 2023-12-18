@@ -1,36 +1,28 @@
 {
 	"dialogue": [
 		{
-			"expression": "Happy",
-			"text": "Beep boop!",
-			"boxState": "normal",
-			"portrait": "BFPortraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": "bf"
+			"portrait": "iceolation",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "I just want to be left alone. At least until\\nI can get my thoughts straight."
 		},
 		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bfportraits",
+			"boxState": "normal",
 			"expression": "talk",
-			"text": "Please... leave me alone.",
-			"boxState": "normal",
-			"portrait": "ishadow",
-			"speed": 0.05,
-			"sound": "iceo"
+			"text": "Beep?"
 		},
 		{
-			"expression": "Neutral",
-			"text": "Beep?",
-			"boxState": "normal",
-			"portrait": "BFPortraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": "bf"
-		},
-		{
-			"expression": "Neutral",
-			"text": "I don't want you to see me like this.",
+			"portrait": "Iceolation",
 			"boxState": "normal",
-			"portrait": "ishadow",
-			"speed": 0.05,
-			"sound": "iceo"
+			"expression": "Crying",
+			"text": "Please, This is embarrassing."
 		}
 	]
 }

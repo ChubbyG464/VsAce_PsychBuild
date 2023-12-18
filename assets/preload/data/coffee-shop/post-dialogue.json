@@ -1,0 +1,92 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "AcePortraits",
+			"boxState": "normal",
+			"expression": "Tired",
+			"text": "Ugh, what happened?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Sven",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Hey man, glad to see you're back to normal."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Back to norm-"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Tired",
+			"text": "Aw crap it happened again, didn't it?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Sven",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Yup, and caused a record breaking\\nblizard along with it!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Elise",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Sven! Don't make him feel any worse\\nthan he already does, imbécile!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "sven",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Rustig maar, oude heks."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Tired",
+			"text": "Can we go now? I have a splitting headache."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Elise",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Yes, yes. Come on boys. Excuse us, you two!"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "bfportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "Bep-"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "gfportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "..."
+		}
+	]
+}

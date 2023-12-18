@@ -1,5 +1,6 @@
 local dialogues = {
     -- Background, file, music
+    {"bg1", "dialogue1", "news"},
     {"bg", "dialogue", "amb"},
 }
 local dialogueI = 0
@@ -29,13 +30,4 @@ function onTimerCompleted(tag, loops, loopsLeft)
     if tag == 'startDialogue' then -- Timer completed, play dialogue
         startDialogue(currentDialogue[2], currentDialogue[3]);
     end
-end
-function onEndSong()
-	if not allowEnd and isStoryMode then
-		setProperty('inCutscene', true);
-		startDialogue('post-dialogue', 'amb');
-		allowEnd = true;
-		return Function_Stop;
-	end
-	return Function_Continue;
 end

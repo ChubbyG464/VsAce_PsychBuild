@@ -1,6 +1,5 @@
 local dialogues = {
     -- Background, file, music
-    {"bg1", "dialogue1", "news"},
     {"bg", "dialogue", "amb"},
 }
 local dialogueI = 0
