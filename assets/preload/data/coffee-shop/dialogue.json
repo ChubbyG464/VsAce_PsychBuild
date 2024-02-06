@@ -1,84 +1,84 @@
 {
 	"dialogue": [
 		{
+			"expression": "talk",
+			"text": "Hey. We got here as quickly as we could.",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "sven",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "Hey. We got here as quickly as we could."
+			"portrait": "sven"
 		},
 		{
+			"expression": "talk",
+			"text": "Absurdite! Your carriage is slower than a mule!",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "Elise",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "Absurdite! Your carriage is slower than a mule!"
+			"portrait": "Elise"
 		},
 		{
+			"expression": "talk",
+			"text": "...What?",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "Sven",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "...What?"
+			"portrait": "Sven"
 		},
 		{
+			"expression": "talk",
+			"text": "Uh... Anyway, thanks for holding it down, little man. I guess we'll take it from here.",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "sven",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "Uh... Anyway, thanks for holding it down, little man. I guess we'll take it from here."
+			"portrait": "sven"
 		},
 		{
+			"expression": "talk",
+			"text": "Ace, dude I know you're going through a lot right now, but this isn't the way to go.",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "Sven",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "Ace, dude I know you're going through a lot right now, but this isn't the way to go."
+			"portrait": "Sven"
 		},
 		{
+			"expression": "talk",
+			"text": "BEEP?!",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "bfportraits",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "BEEP?!"
+			"portrait": "bfportraits"
 		},
 		{
-			"sound": "",
-			"speed": 0.05,
-			"portrait": "gfportraits",
-			"boxState": "normal",
 			"expression": "Confused",
-			"text": ":(?"
-		},
-		{
+			"text": ":(?",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "Iceolation",
-			"boxState": "normal",
+			"portrait": "gfportraits"
+		},
+		{
 			"expression": "Crying",
-			"text": "Go away, I nee to think. I can't concentrate with everyone talking to me at once."
-		},
-		{
+			"text": "Go away, I need to think. I can't concentrate with everyone talking to me at once.",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "sven",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "Elise, grab the midi keyboards and computer from the trunk. Let's play that one song."
+			"portrait": "Iceolation"
 		},
 		{
+			"expression": "talk",
+			"text": "Elise, grab the midi keyboards and computer from the trunk. Let's play that one song.",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "Elise",
-			"boxState": "normal",
+			"portrait": "sven"
+		},
+		{
 			"expression": "talk",
-			"text": "Tout de suite."
+			"text": "Tout de suite.",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Elise"
 		}
 	]
 }

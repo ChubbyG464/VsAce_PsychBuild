@@ -12,4 +12,7 @@
 	<SubTexture name="Shocked0000" x="1338" y="511" width="461" height="510"/>
 	<SubTexture name="Smug0000" x="0" y="1022" width="445" height="510"/>
 	<SubTexture name="Tired0000" x="446" y="1022" width="364" height="518"/>
+	<SubTexture name="Shirtlessconfused0000" x="924" y="1025" width="380" height="519"/>
+	<SubTexture name="Shirtlessblush0000" x="1326" y="1025" width="450" height="511"/>
+	<SubTexture name="ShirtlessGroggy0000" x="0" y="1540" width="502" height="523"/>
 </TextureAtlas>
