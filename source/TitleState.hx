@@ -280,24 +280,25 @@ class TitleState extends MusicBeatState
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
 		logoBl.animation.addByPrefix('bump', 'logoBumpin', 24, false);
 		logoBl.animation.play('bump');
-		logoBl.scale.set(0.8, 0.8);
+		logoBl.scale.set(0.9, 0.9);
 		logoBl.updateHitbox();
-		// logoBl.screenCenter();
+		 logoBl.screenCenter(X);
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
-		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
+		//gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 
 
-		gfDance = new AnimationSprite(FlxG.width * 0.4, FlxG.height * 0.07);
+		gfDance = new AnimationSprite(titleJSON.gfx, titleJSON.gfy);
 		gfDance.frames = Paths.getSparrowAtlas('characters/gf');
 		gfDance.animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 		gfDance.animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		gfDance.animation.addByPrefix('cheer', 'GF Cheer', 24, false);
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
+		gfDance.scale.set(0.9, 0.9);
 
-		add(gfDance);
-		gfDance.shader = swagShader.shader;
+		//add(gfDance);
+		//gfDance.shader = swagShader.shader;
 		add(logoBl);
 		logoBl.shader = swagShader.shader;
 
