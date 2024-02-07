@@ -4,89 +4,89 @@
 			"expression": "ShirtlessGroggy",
 			"text": "Ugh, what happened?",
 			"boxState": "normal",
-			"portrait": "AcePortraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "AcePortraits"
 		},
 		{
 			"expression": "talk",
 			"text": "Hey man, glad to see you're back to normal.",
 			"boxState": "normal",
-			"portrait": "Sven",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Sven"
 		},
 		{
-			"expression": "Shirtlessconfused",
+			"expression": "ShirtlessConfused",
 			"text": "Back to norm-",
 			"boxState": "normal",
-			"portrait": "aceportraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "aceportraits"
 		},
 		{
-			"expression": "Shirtlessblush",
+			"expression": "ShirtlessBlush",
 			"text": "Aw crap it happened again, didn't it?",
 			"boxState": "normal",
-			"portrait": "aceportraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "aceportraits"
 		},
 		{
 			"expression": "talk",
 			"text": "Yup, and caused a record breaking\\nblizzard along with it!",
 			"boxState": "normal",
-			"portrait": "Sven",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Sven"
 		},
 		{
 			"expression": "talk",
 			"text": "Sven! Don't make him feel any worse\\nthan he already does, imbecile!",
 			"boxState": "normal",
-			"portrait": "Elise",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Elise"
 		},
 		{
 			"expression": "talk",
 			"text": "Rustig maar, oude heks.",
 			"boxState": "normal",
-			"portrait": "sven",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "sven"
 		},
 		{
 			"expression": "ShirtlessGroggy",
 			"text": "Can we go now? I have a splitting headache.",
 			"boxState": "normal",
-			"portrait": "aceportraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "aceportraits"
 		},
 		{
 			"expression": "talk",
 			"text": "Yes, yes. Come on boys. Excuse us, you two!",
 			"boxState": "normal",
-			"portrait": "Elise",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Elise"
 		},
 		{
 			"expression": "Neutral",
 			"text": "Bep-",
 			"boxState": "normal",
-			"portrait": "bfportraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "bfportraits"
 		},
 		{
 			"expression": "Confused",
 			"text": "...",
 			"boxState": "normal",
-			"portrait": "gfportraits",
+			"sound": "",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "gfportraits"
 		}
 	]
 }

@@ -138,39 +138,52 @@
 			"idle_name": "Blush"
 		},
 		{
-			"loop_name": "Shirtlessconfused",
 			"idle_offsets": [
 				0,
 				0
 			],
-			"idle_name": "Shirtlessconfused",
-			"anim": "Shirtlessconfused",
+			"anim": "ShirtlessGroggy",
 			"loop_offsets": [
-				0,
-				0
-			]
-		},
-		{
-			"loop_name": "Shirtlessblush",
-			"idle_offsets": [
-				0,
-				0
-			],
-			"idle_name": "Shirtlessblush",
-			"anim": "Shirtlessblush",
-			"loop_offsets": [
-				0,
-				0
-			]
-		},
-		{
-			"loop_name": "ShirtlessGroggy",
-			"idle_offsets": [
 				0,
 				0
 			],
 			"idle_name": "ShirtlessGroggy",
-			"anim": "ShirtlessGroggy",
+			"loop_name": "ShirtlessGroggy"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "ShirtlessBlush",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "ShirtlessBlush",
+			"idle_name": "ShirtlessBlush"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "ShirtlessConfused",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "ShirtlessConfused",
+			"idle_name": "ShirtlessConfused"
+		},
+		{
+			"loop_name": "",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "",
+			"anim": "",
 			"loop_offsets": [
 				0,
 				0
