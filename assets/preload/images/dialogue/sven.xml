@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="sven.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Neutral" x="10" y="10" width="1440" height="1025"/>
+	<!-- Created by Kamex (I learned how to write XMLs LFG!!) -->
+	<SubTexture name="Smile0000" x="0" y="0" width="685" height="687"/>
+	<SubTexture name="Frown0000" x="0" y="688" width="685" height="701"/>
+	<SubTexture name="Confused0000" x="0" y="1389" width="685" height="629"/>
 </TextureAtlas>
