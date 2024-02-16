@@ -4,81 +4,81 @@
 			"expression": "talk",
 			"text": "Hey. We got here as quickly as we could.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "sven",
 			"speed": 0.05,
-			"portrait": "sven"
+			"sound": ""
 		},
 		{
 			"expression": "talk",
 			"text": "Absurdite! Your carriage is slower than a mule!",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Elise",
 			"speed": 0.05,
-			"portrait": "Elise"
+			"sound": ""
 		},
 		{
 			"expression": "Confused",
 			"text": "...What?",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Sven",
 			"speed": 0.05,
-			"portrait": "Sven"
+			"sound": ""
 		},
 		{
 			"expression": "talk",
 			"text": "Uh... Anyway, thanks for holding it down, little man. I guess we'll take it from here.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "sven",
 			"speed": 0.05,
-			"portrait": "sven"
+			"sound": ""
 		},
 		{
 			"expression": "Frown",
 			"text": "Ace, dude I know you're going through a lot right now, but this isn't the way to go.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Sven",
 			"speed": 0.05,
-			"portrait": "Sven"
+			"sound": ""
 		},
 		{
-			"expression": "talk",
+			"expression": "Surprised",
 			"text": "BEEP?!",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "bfportraits",
 			"speed": 0.05,
-			"portrait": "bfportraits"
+			"sound": ""
 		},
 		{
 			"expression": "Sad",
 			"text": ":(?",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "gfportraits",
 			"speed": 0.05,
-			"portrait": "gfportraits"
+			"sound": ""
 		},
 		{
 			"expression": "Crying",
 			"text": "Go away, I need to think. I can't concentrate with everyone talking to me at once.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Iceolation",
 			"speed": 0.05,
-			"portrait": "Iceolation"
+			"sound": ""
 		},
 		{
 			"expression": "talk",
 			"text": "Elise, grab the midi keyboards and computer from the trunk. Let's play that one song.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "sven",
 			"speed": 0.05,
-			"portrait": "sven"
+			"sound": ""
 		},
 		{
 			"expression": "talk",
 			"text": "Tout de suite.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Elise",
 			"speed": 0.05,
-			"portrait": "Elise"
+			"sound": ""
 		}
 	]
 }

@@ -2,4 +2,6 @@
 <TextureAtlas imagePath="BFPortraits.png">
 	<SubTexture name="Neutral0000" x="22" y="31" width="354" height="430"/>
     <SubTexture name="Happy0000" x="487" y="31" width="354" height="430"/>
+    <SubTexture name="Surprised0000" x="22" y="462" width="353" height="436"/>
+    <SubTexture name="Miss0000" x="518" y="462" width="324" height="436"/>
 </TextureAtlas>
