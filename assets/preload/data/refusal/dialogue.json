@@ -4,33 +4,33 @@
 			"expression": "Happy",
 			"text": "Beep boop!",
 			"boxState": "normal",
-			"portrait": "BFPortraits",
+			"sound": "bf",
 			"speed": 0.05,
-			"sound": "bf"
+			"portrait": "BFPortraits"
 		},
 		{
 			"expression": "talk",
 			"text": "Please... leave me alone.",
 			"boxState": "normal",
-			"portrait": "ishadow",
+			"sound": "iceo",
 			"speed": 0.05,
-			"sound": "iceo"
+			"portrait": "ishadow"
 		},
 		{
-			"expression": "Neutral",
+			"expression": "Surprised",
 			"text": "Beep?",
 			"boxState": "normal",
-			"portrait": "BFPortraits",
+			"sound": "bf",
 			"speed": 0.05,
-			"sound": "bf"
+			"portrait": "BFPortraits"
 		},
 		{
 			"expression": "Neutral",
 			"text": "I don't want you to see me like this.",
 			"boxState": "normal",
-			"portrait": "ishadow",
+			"sound": "iceo",
 			"speed": 0.05,
-			"sound": "iceo"
+			"portrait": "ishadow"
 		}
 	]
 }

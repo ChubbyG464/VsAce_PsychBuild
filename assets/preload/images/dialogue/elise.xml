@@ -2,5 +2,7 @@
 <TextureAtlas imagePath="elise.png">
 	<!-- Created with Adobe Animate version 20.0.0.17400 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Neutral" x="10" y="10" width="1024" height="823"/>
+	<SubTexture name="Neutral" x="0" y="0" width="411" height="637"/>
+	<SubTexture name="Smile" x="411" y="0" width="417" height="637"/>
+	<SubTexture name="Angry" x="821" y="0" width="428" height="636"/>
 </TextureAtlas>

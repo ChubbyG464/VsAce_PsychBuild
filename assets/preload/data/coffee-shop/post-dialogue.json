@@ -41,7 +41,7 @@
 			"sound": ""
 		},
 		{
-			"expression": "talk",
+			"expression": "Angry",
 			"text": "Sven! Don't make him feel any worse\\nthan he already does, imbecile!",
 			"boxState": "normal",
 			"portrait": "Elise",
@@ -65,7 +65,7 @@
 			"sound": ""
 		},
 		{
-			"expression": "talk",
+			"expression": "Smile",
 			"text": "Yes, yes. Come on boys. Excuse us, you two!",
 			"boxState": "normal",
 			"portrait": "Elise",
