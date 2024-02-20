@@ -1589,6 +1589,7 @@ class PlayState extends MusicBeatState
 						if(ClientPrefs.middleScroll && !note.mustPress) {
 							note.alpha *= 0.35;
 						}
+						
 					}
 				});
 				callOnLuas('onCountdownTick', [swagCounter]);

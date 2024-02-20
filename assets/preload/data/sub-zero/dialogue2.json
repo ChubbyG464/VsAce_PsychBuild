@@ -13,7 +13,7 @@
 			"speed": 0.05,
 			"portrait": "bfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Bap?"
 		},
 		{

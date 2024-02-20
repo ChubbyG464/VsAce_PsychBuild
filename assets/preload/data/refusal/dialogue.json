@@ -9,7 +9,7 @@
 			"portrait": "BFPortraits"
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Please... leave me alone.",
 			"boxState": "normal",
 			"sound": "iceo",

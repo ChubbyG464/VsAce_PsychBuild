@@ -1,7 +1,7 @@
 {
 	"dialogue": [
 		{
-			"expression": "talk",
+			"expression": "Neutral0000",
 			"text": "We interrupt this program for an emergency announcement.\r\n",
 			"boxState": "normal",
 			"sound": "",
@@ -9,7 +9,7 @@
 			"portrait": "news"
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral0000",
 			"text": "A massive blizzard has hit the streets of New York City.",
 			"boxState": "normal",
 			"sound": "",
@@ -17,7 +17,7 @@
 			"portrait": "news"
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral0000",
 			"text": "the worst of the storm seems to be coming from‎ Highland Park in Brooklyn.",
 			"boxState": "normal",
 			"sound": "",
@@ -25,7 +25,7 @@
 			"portrait": "news"
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral0000",
 			"text": "If you take the Jackie Robinson Parkway to work, it's probably best to call off until further notice. Stay Safe.",
 			"boxState": "normal",
 			"sound": "",

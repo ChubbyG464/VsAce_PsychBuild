@@ -21,7 +21,7 @@
 			"speed": 0.04,
 			"portrait": "RetroBFPortraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "The second song is better"
 		},
 		{
@@ -29,7 +29,7 @@
 			"speed": 0.04,
 			"portrait": "AcePortraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Confused",
 			"text": "Wait how do you know"
 		},
 		{

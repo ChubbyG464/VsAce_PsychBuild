@@ -9,7 +9,7 @@
 			"sound": ""
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Hey man, glad to see you're back to normal.",
 			"boxState": "normal",
 			"portrait": "Sven",
@@ -33,7 +33,7 @@
 			"sound": ""
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Yup, and caused a record breaking\\nblizzard along with it!",
 			"boxState": "normal",
 			"portrait": "Sven",

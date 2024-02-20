@@ -13,7 +13,7 @@
 			"speed": 0.04,
 			"portrait": "AcePortraits",
 			"boxState": "normal",
-			"expression": "shocked",
+			"expression": "Shocked",
 			"text": "Wtf"
 		},
 		{
@@ -21,7 +21,7 @@
 			"speed": 0.04,
 			"portrait": "AceBFPortraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Wrong mod I guess"
 		},
 		{

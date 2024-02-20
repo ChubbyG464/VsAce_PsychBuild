@@ -21,7 +21,7 @@
 			"speed": 0.04,
 			"portrait": "aceportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Confused",
 			"text": "(Well, except for GF. How is she not freezing right now?)"
 		},
 		{

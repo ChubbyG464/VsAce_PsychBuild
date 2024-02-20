@@ -5,7 +5,7 @@
 			"speed": 0.04,
 			"portrait": "RetroBFPortraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Confused",
 			"text": "I really don't know what else to say"
 		},
 		{

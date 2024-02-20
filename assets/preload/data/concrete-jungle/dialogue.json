@@ -33,7 +33,7 @@
 			"sound": "pixelText"
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Beep boop?",
 			"boxState": "normal",
 			"portrait": "bfportraits",
