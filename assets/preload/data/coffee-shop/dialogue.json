@@ -9,7 +9,7 @@
 			"sound": ""
 		},
 		{
-			"expression": "talk",
+			"expression": "Angry",
 			"text": "Absurdite! Your carriage is slower than a mule!",
 			"boxState": "normal",
 			"portrait": "Elise",
@@ -73,7 +73,7 @@
 			"sound": ""
 		},
 		{
-			"expression": "talk",
+			"expression": "Smile",
 			"text": "Tout de suite.",
 			"boxState": "normal",
 			"portrait": "Elise",

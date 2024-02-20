@@ -1,28 +1,28 @@
 {
 	"dialogue": [
 		{
-			"sound": "",
-			"speed": 0.05,
-			"portrait": "iceolation",
-			"boxState": "normal",
 			"expression": "Neutral",
-			"text": "I just want to be left alone. At least until\\nI can get my thoughts straight."
-		},
-		{
+			"text": "I just want to be left alone. At least until\\nI can get my thoughts straight.",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "bfportraits",
-			"boxState": "normal",
-			"expression": "talk",
-			"text": "Beep?"
+			"portrait": "iceolation"
 		},
 		{
+			"expression": "Surprised",
+			"text": "Beep?",
+			"boxState": "normal",
 			"sound": "",
 			"speed": 0.05,
-			"portrait": "Iceolation",
-			"boxState": "normal",
+			"portrait": "bfportraits"
+		},
+		{
 			"expression": "Crying",
-			"text": "Please, this is embarrassing."
+			"text": "Please, this is embarrassing.",
+			"boxState": "normal",
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Iceolation"
 		}
 	]
 }
