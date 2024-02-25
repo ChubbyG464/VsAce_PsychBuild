@@ -1,6 +1,6 @@
 {
-	"storyName": "Hidden2",
-	"difficulties": "Easy,Normal,Hard,Swapped",
+	"storyName": "Hidden2-ecto",
+	"difficulties": "Easy,Normal,Hard,Swapped,Inst",
 	"hideFreeplay": false,
 	"weekBackground": "stage",
 	"freeplayColor": [
@@ -8,7 +8,7 @@
 		113,
 		253
 	],
-	"weekBefore": "week1",
+	"weekBefore": "Extras2",
 	"startUnlocked": false,
 	"weekCharacters": [
 		"ace",
@@ -17,25 +17,16 @@
 	],
 	"songs": [
 		[
-			"North",
-			"ace",
+			"Ectospasm",
+			"retro",
 			[
-				186,
-				226,
-				255
-			]
-		],
-		[
-			"Cold Hearted",
-			"sakuroma",
-			[
-				248,
-				54,
-				107
+				23,
+				216,
+				228
 			]
 		]
 	],
 	"hideStoryMode": true,
-	"weekName": "Extras2",
+	"weekName": "Extras2-ecto",
 	"hiddenUntilUnlocked": false
 }
