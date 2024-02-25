@@ -1,0 +1,52 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Metroportraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "Hey?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Maceportraits",
+			"boxState": "normal",
+			"expression": "Relieved",
+			"text": "..."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Metroportraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "Mace? It's been a week since I heard from you. You alright, nerd?"
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Maceportraits",
+			"boxState": "normal",
+			"expression": "Relieved",
+			"text": "...if I can just figure out how to compress this damn video enough to submit it without compromising on image quality..."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Metroportraits",
+			"boxState": "normal",
+			"expression": "Sad",
+			"text": "Come on, man. I can hear you struggling to finish your project. I just want you to take a break."
+		},
+		{
+			"sound": "",
+			"speed": 0.05,
+			"portrait": "Maceportraits",
+			"boxState": "normal",
+			"expression": "Relieved",
+			"text": "Metro I'm kinda busy just..."
+		}
+	]
+}
