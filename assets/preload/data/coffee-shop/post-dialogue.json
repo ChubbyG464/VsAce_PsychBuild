@@ -42,7 +42,7 @@
 		},
 		{
 			"expression": "Angry",
-			"text": "Sven! Don't make him feel any worse\\nthan he already does, imbecile!",
+			"text": "Sven! Don't make him feel any worse\\nthan he already does, you fool!",
 			"boxState": "normal",
 			"portrait": "Elise",
 			"speed": 0.05,
@@ -50,7 +50,7 @@
 		},
 		{
 			"expression": "Confused",
-			"text": "Rustig maar, oude heks.",
+			"text": "Ontspan oude dame.",
 			"boxState": "normal",
 			"portrait": "sven",
 			"speed": 0.05,

@@ -10,7 +10,7 @@
 		},
 		{
 			"expression": "Angry",
-			"text": "Absurdite! Your carriage is slower than a mule!",
+			"text": "Nonsense! Your carriage is slower than a mule!",
 			"boxState": "normal",
 			"portrait": "Elise",
 			"speed": 0.05,
@@ -74,7 +74,7 @@
 		},
 		{
 			"expression": "Smile",
-			"text": "Tout de suite.",
+			"text": "Right away.",
 			"boxState": "normal",
 			"portrait": "Elise",
 			"speed": 0.05,
