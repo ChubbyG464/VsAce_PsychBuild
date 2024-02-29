@@ -2746,7 +2746,7 @@
 		"song": "Moonlight",
 		"arrowSkin": "",
 		"validScore": true,
-		"needsVoices": true,
+		"needsVoices": false,
 		"stage": "videos",
 		"vocalVol": 1,
 		"speed": 2.7,

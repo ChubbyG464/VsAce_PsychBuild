@@ -5624,7 +5624,7 @@
 		"song": "Moonlight",
 		"vocalVol": 1,
 		"stage": "videos",
-		"needsVoices": true,
+		"needsVoices": false,
 		"validScore": true,
 		"bpm": 170,
 		"speed": 2.7

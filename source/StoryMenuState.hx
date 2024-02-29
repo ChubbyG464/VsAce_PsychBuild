@@ -361,7 +361,7 @@ class StoryMenuState extends MusicBeatState
 				stopspamming = true;
 			}
 
-			if(curWeek != 2) {
+			if(curWeek != 2 && curWeek != 3) {
 				PlayState.storyChar = curChar;
 			} else {
 				PlayState.storyChar = 0;
@@ -401,7 +401,7 @@ class StoryMenuState extends MusicBeatState
 
 	function changeCharacter(change:Int = 0):Void
 	{
-		if (curWeek != 2)
+		if (curWeek != 2 && curWeek != 3)
 		{
 			curChar += change;
 
@@ -570,7 +570,7 @@ class StoryMenuState extends MusicBeatState
 			curDifficulty = newPos;
 		}
 
-		if(curWeek == 2) {
+		if(curWeek == 2 || curWeek == 3) {
 			difficultySelectors.visible = true;
 			characterSelectors.visible = false;
 		} else {

@@ -796,22 +796,31 @@ class PlayState extends MusicBeatState
 				SONG.player1 = 'bf-minus';
 		}
 
-		if (formattedSong == 'no-homo' || formattedSong == 'sweater-weather')
+		if (formattedSong == 'no-homo' || formattedSong == 'sweater-weather' || formattedSong == 'frostbite-2')
 		{
 			trace('bf force');
 			if (storyChar == 1)
-				SONG.player1 = 'bf-maceplay';
+				SONG.player1 = 'bf-mace-play';
 			else if (storyChar == 2)
-				SONG.player1 = 'bf-maceplay';
+				SONG.player1 = 'bf-mace-play';
 		}
 
-		if (formattedSong == 'frostbite-two')
+		if (formattedSong == 'Refusal' || formattedSong == 'Seclusion' || formattedSong == 'Shame')
 		{
 			trace('bf force');
 			if (storyChar == 1)
-				SONG.player1 = 'bf-maceplay';
+				SONG.player1 = 'bf-cold';
 			else if (storyChar == 2)
-				SONG.player1 = 'bf-maceplay';
+				SONG.player1 = 'bf-cold';
+		}
+
+		if (formattedSong == 'coffee-shop')
+		{
+			trace('bf force');
+			if (storyChar == 1)
+				SONG.player1 = 'no-bf';
+			else if (storyChar == 2)
+				SONG.player1 = 'no-bf';
 		}
 
 		var file:String = Paths.json(songName + '/dialogue'); //Checks for json/Psych Engine dialogue
