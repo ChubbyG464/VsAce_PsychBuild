@@ -362,19 +362,32 @@ class Paths
 	public static function returnSound(path:String, key:String, ?library:String) {
 		#if MODS_ALLOWED
 		var file:String = modsSounds(path, key);
-		if(FileSystem.exists(file)) {
-			if(!currentTrackedSounds.exists(file)) {
+
+		if (FileSystem.exists(file))
+		{
+			if (!currentTrackedSounds.exists(file))
+			{
 				currentTrackedSounds.set(file, Sound.fromFile(file));
 			}
+
 			localTrackedAssets.push(key);
+
 			return currentTrackedSounds.get(file);
 		}
 		#end
+
 		// I hate this so god damn much
+
 		var gottenPath:String = getPath('$path/$key.$SOUND_EXT', SOUND, library);
 		gottenPath = gottenPath.substring(gottenPath.indexOf(':') + 1, gottenPath.length);
 		// trace(gottenPath);
-		if(!currentTrackedSounds.exists(gottenPath))
+
+		if (!FileSystem.exists(gottenPath))
+		{
+			return null;
+		}
+
+		if (!currentTrackedSounds.exists(gottenPath))
 		#if MODS_ALLOWED
 			currentTrackedSounds.set(gottenPath, Sound.fromFile('./' + gottenPath));
 		#else
@@ -385,7 +398,9 @@ class Paths
 			currentTrackedSounds.set(gottenPath, OpenFlAssets.getSound(folder + getPath('$path/$key.$SOUND_EXT', SOUND, library)));
 		}
 		#end
+
 		localTrackedAssets.push(gottenPath);
+
 		return currentTrackedSounds.get(gottenPath);
 	}
 
