@@ -4,25 +4,25 @@
 			"expression": "Neutral",
 			"text": "I just want to be left alone. At least until\\nI can get my thoughts straight.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "iceolation",
 			"speed": 0.05,
-			"portrait": "iceolation"
+			"sound": "iceo"
 		},
 		{
 			"expression": "Surprised",
 			"text": "Beep?",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "bfportraits",
 			"speed": 0.05,
-			"portrait": "bfportraits"
+			"sound": "bf"
 		},
 		{
 			"expression": "Crying",
 			"text": "Please, this is embarrassing.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Iceolation",
 			"speed": 0.05,
-			"portrait": "Iceolation"
+			"sound": "iceo"
 		}
 	]
 }

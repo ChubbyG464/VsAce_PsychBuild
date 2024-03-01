@@ -4,33 +4,33 @@
 			"expression": "Crying",
 			"text": "Please, let me take care of it. I can do it myself.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Iceolation",
 			"speed": 0.05,
-			"portrait": "Iceolation"
+			"sound": "iceo"
 		},
 		{
 			"expression": "Miss",
 			"text": "Beep?",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "BFportraits",
 			"speed": 0.05,
-			"portrait": "BFportraits"
+			"sound": "bf"
 		},
 		{
 			"expression": "Confused",
 			"text": ":O?",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "GFPortraits",
 			"speed": 0.05,
-			"portrait": "GFPortraits"
+			"sound": "gf"
 		},
 		{
 			"expression": "Crying",
 			"text": "I'm trying my best, I promise.",
 			"boxState": "normal",
-			"sound": "",
+			"portrait": "Iceolation",
 			"speed": 0.05,
-			"portrait": "Iceolation"
+			"sound": "iceo"
 		}
 	]
 }

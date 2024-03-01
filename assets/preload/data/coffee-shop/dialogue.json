@@ -1,84 +1,84 @@
 {
 	"dialogue": [
 		{
-			"expression": "Neutral",
+			"expression": "Frown",
 			"text": "Hey. We got here as quickly as we could.",
 			"boxState": "normal",
-			"portrait": "sven",
+			"sound": "sven",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "sven"
 		},
 		{
 			"expression": "Angry",
 			"text": "Nonsense! Your carriage is slower than a mule!",
 			"boxState": "normal",
-			"portrait": "Elise",
+			"sound": "elise",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Elise"
 		},
 		{
 			"expression": "Confused",
 			"text": "...What?",
 			"boxState": "normal",
-			"portrait": "Sven",
+			"sound": "sven",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Sven"
 		},
 		{
-			"expression": "Neutral",
+			"expression": "Smile",
 			"text": "Uh... Anyway, thanks for holding it down, little man. I guess we'll take it from here.",
 			"boxState": "normal",
-			"portrait": "sven",
+			"sound": "sven",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "sven"
 		},
 		{
 			"expression": "Frown",
 			"text": "Ace, dude I know you're going through a lot right now, but this isn't the way to go.",
 			"boxState": "normal",
-			"portrait": "Sven",
+			"sound": "sven",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Sven"
 		},
 		{
 			"expression": "Surprised",
 			"text": "BEEP?!",
 			"boxState": "normal",
-			"portrait": "bfportraits",
+			"sound": "bf",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "bfportraits"
 		},
 		{
 			"expression": "Sad",
 			"text": ":(?",
 			"boxState": "normal",
-			"portrait": "gfportraits",
+			"sound": "gf",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "gfportraits"
 		},
 		{
 			"expression": "Crying",
 			"text": "Go away, I need to think. I can't concentrate with everyone talking to me at once.",
 			"boxState": "normal",
-			"portrait": "Iceolation",
+			"sound": "iceo",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Iceolation"
 		},
 		{
-			"expression": "Neutral",
+			"expression": "Smile",
 			"text": "Elise, grab the midi keyboards and computer from the trunk. Let's play that one song.",
 			"boxState": "normal",
-			"portrait": "sven",
+			"sound": "sven",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "sven"
 		},
 		{
 			"expression": "Smile",
 			"text": "Right away.",
 			"boxState": "normal",
-			"portrait": "Elise",
+			"sound": "elise",
 			"speed": 0.05,
-			"sound": ""
+			"portrait": "Elise"
 		}
 	]
 }
