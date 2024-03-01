@@ -18,6 +18,12 @@ function onCreate()
 
 	addLuaSprite('iceolation', false);
 
+	makeLuaSprite('blurlayer', 'stages/iceo/blurlayer', -1400, -1400);
+	setScrollFactor('blurlayer', 1.1, 1.1);
+	scaleObject('blurlayer', 1, 1);
+
+	addLuaSprite('blurlayer', true);
+
 
 	makeLuaSprite('purpleMultiply', '', -800, -800)
 	-- makeGraphic('purpleMultiply', 1, 1, '0xffa087ca');
