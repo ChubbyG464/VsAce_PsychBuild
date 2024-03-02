@@ -1,4 +1,5 @@
-package;
+package data;
+
 
 typedef SwagSection =
 {

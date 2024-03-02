@@ -22,6 +22,9 @@ import lime.app.Application;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 
+import data.Stickers;
+import data.WeekData;
+
 import sprites.AttachedSprite;
 import sprites.HealthIcon;
 

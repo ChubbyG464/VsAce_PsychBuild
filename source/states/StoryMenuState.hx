@@ -18,7 +18,11 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 import flixel.graphics.FlxGraphic;
-import WeekData;
+
+import data.Highscore;
+import data.Song;
+import data.Stickers;
+import data.WeekData;
 
 import sprites.MenuCharacter;
 import sprites.StoryMenuItem;
@@ -27,6 +31,7 @@ import states.substates.GameplayChangersSubstate;
 import states.substates.ResetScoreSubState;
 
 using StringTools;
+
 
 class StoryMenuState extends MusicBeatState
 {

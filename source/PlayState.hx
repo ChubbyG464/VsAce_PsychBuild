@@ -3,8 +3,7 @@ import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
 #end
-import Section.SwagSection;
-import Song.SwagSong;
+
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -52,7 +51,6 @@ import flixel.effects.particles.FlxEmitter;
 import flixel.effects.particles.FlxParticle;
 import flixel.util.FlxSave;
 import animateatlas.AtlasFrameMaker;
-import StageData;
 import FunkinLua;
 import Conductor.Rating;
 #if sys
@@ -62,6 +60,14 @@ import sys.FileSystem;
 #if VIDEOS_ALLOWED
 import vlc.MP4Handler;
 #end
+
+import data.Highscore;
+import data.Section.SwagSection;
+import data.Song;
+import data.Song.SwagSong;
+import data.StageData;
+import data.Stickers;
+import data.WeekData;
 
 import sprites.AttachedSprite;
 import sprites.BGSprite;
@@ -87,6 +93,7 @@ import states.substates.GameOverSubstate;
 import states.substates.PauseSubState;
 
 using StringTools;
+
 
 class PlayState extends MusicBeatState
 {

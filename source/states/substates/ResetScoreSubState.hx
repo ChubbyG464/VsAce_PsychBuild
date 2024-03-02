@@ -6,9 +6,13 @@ import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.util.FlxColor;
 
+import data.Highscore;
+import data.WeekData;
+
 import sprites.HealthIcon;
 
 using StringTools;
+
 
 class ResetScoreSubState extends MusicBeatSubstate
 {

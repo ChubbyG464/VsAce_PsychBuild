@@ -1,4 +1,5 @@
-package;
+package data;
+
 
 #if MODS_ALLOWED
 import sys.io.File;
@@ -7,9 +8,11 @@ import sys.FileSystem;
 import openfl.utils.Assets;
 #end
 import haxe.Json;
-import Song;
+
+import data.Song.SwagSong;
 
 using StringTools;
+
 
 typedef StageFile = {
 	var directory:String;

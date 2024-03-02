@@ -18,7 +18,10 @@ import sys.io.File;
 #end
 import openfl.utils.Assets;
 
+import data.PlayerSettings;
+
 using StringTools;
+
 
 typedef DialogueCharacterFile = {
 	var image:String;

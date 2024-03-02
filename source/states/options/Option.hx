@@ -20,9 +20,11 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
-import Controls;
+
+import data.Controls;
 
 using StringTools;
+
 
 class Option
 {

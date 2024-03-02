@@ -25,10 +25,12 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
-import Controls;
 import openfl.Lib;
 
+import data.Controls;
+
 using StringTools;
+
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {

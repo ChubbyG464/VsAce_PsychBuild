@@ -7,6 +7,10 @@ import flixel.FlxSubState;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
 
+import data.Controls;
+import data.PlayerSettings;
+
+
 class MusicBeatSubstate extends FlxSubState
 {
 	public function new()

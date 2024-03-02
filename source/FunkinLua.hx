@@ -35,7 +35,6 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 import Type.ValueType;
-import Controls;
 #if hscript
 import hscript.Parser;
 import hscript.Interp;
@@ -44,6 +43,11 @@ import hscript.Interp;
 #if desktop
 import Discord;
 #end
+
+import data.Controls;
+import data.Highscore;
+import data.Song;
+import data.WeekData;
 
 import sprites.Character;
 import sprites.DialogueBoxPsych;

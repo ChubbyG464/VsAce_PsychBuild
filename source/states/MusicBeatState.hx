@@ -19,7 +19,11 @@ import flixel.util.FlxGradient;
 import flixel.FlxState;
 import flixel.FlxBasic;
 
+import data.Controls;
+import data.PlayerSettings;
+
 import states.substates.CustomFadeTransition;
+
 
 class MusicBeatState extends FlxUIState
 {

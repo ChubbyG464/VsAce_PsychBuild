@@ -24,11 +24,12 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 import Type.ValueType;
-import Controls;
 
 #if desktop
 import Discord;
 #end
+
+import data.Controls;
 
 import sprites.DialogueBoxPsych;
 

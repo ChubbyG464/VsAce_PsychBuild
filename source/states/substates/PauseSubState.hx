@@ -1,7 +1,6 @@
 package states.substates;
 
 
-import Controls.Control;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
@@ -16,6 +15,11 @@ import flixel.util.FlxColor;
 import flixel.FlxCamera;
 import flixel.util.FlxStringUtil;
 import flixel.addons.display.FlxBackdrop;
+
+import data.Controls.Control;
+import data.Highscore;
+import data.Song;
+import data.WeekData;
 
 import sprites.FlxSpriteExtra;
 

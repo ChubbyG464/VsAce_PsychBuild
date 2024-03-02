@@ -45,6 +45,11 @@ import lime.app.Application;
 
 import openfl.Assets;
 
+import data.Highscore;
+import data.PlayerSettings;
+import data.Stickers;
+import data.WeekData;
+
 import sprites.AnimationSprite;
 
 using StringTools;

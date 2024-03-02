@@ -16,6 +16,8 @@ import flixel.system.FlxSound;
 import sys.FileSystem;
 #end
 
+import data.WeekData;
+
 import sprites.Character;
 
 import states.FreeplayState;

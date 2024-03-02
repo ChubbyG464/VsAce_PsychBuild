@@ -1,6 +1,6 @@
 package;
 
-import Song.SwagSong;
+import data.Song.SwagSong;
 
 /**
  * ...

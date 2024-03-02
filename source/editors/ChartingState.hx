@@ -4,8 +4,7 @@ package editors;
 import Discord.DiscordClient;
 #end
 import Conductor.BPMChangeEvent;
-import Section.SwagSection;
-import Song.SwagSong;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxObject;
@@ -49,6 +48,11 @@ import sys.io.File;
 import sys.FileSystem;
 import flash.media.Sound;
 #end
+
+import data.Section;
+import data.Song;
+import data.StageData;
+import data.WeekData;
 
 import sprites.AttachedSprite;
 import sprites.Character;

@@ -1,4 +1,5 @@
-package;
+package data;
+
 
 import flixel.util.FlxSave;
 import flixel.FlxG;
