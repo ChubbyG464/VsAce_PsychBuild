@@ -50,6 +50,13 @@ import sys.FileSystem;
 import flash.media.Sound;
 #end
 
+import sprites.AttachedSprite;
+import sprites.Character;
+import sprites.FlxUIDropDownMenuCustom;
+import sprites.HealthIcon;
+import sprites.Note;
+import sprites.StrumNote;
+
 import states.LoadingState;
 import states.MusicBeatState;
 import states.TitleState;
@@ -2503,7 +2510,7 @@ class ChartingState extends MusicBeatState
 		var rawJson = OpenFlAssets.getText(path);
 		#end
 
-		var json:Character.CharacterFile = cast Json.parse(rawJson);
+		var json:CharacterFile = cast Json.parse(rawJson);
 		return json.healthicon;
 	}
 

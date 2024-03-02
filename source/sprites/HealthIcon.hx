@@ -1,4 +1,5 @@
-package;
+package sprites;
+
 
 import flixel.FlxSprite;
 import openfl.utils.Assets as OpenFlAssets;

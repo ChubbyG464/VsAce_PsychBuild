@@ -26,6 +26,8 @@ import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
 
+import sprites.CheckboxThingie;
+
 using StringTools;
 
 class GameplayChangersSubstate extends MusicBeatSubstate

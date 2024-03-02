@@ -15,6 +15,11 @@ import flixel.FlxG;
 import flixel.ui.FlxBar;
 import flixel.math.FlxPoint;
 
+import sprites.BGSprite;
+import sprites.Character;
+import sprites.ComboSprite;
+import sprites.FlxSpriteExtra;
+
 import states.substates.CustomFadeTransition;
 import states.substates.MusicBeatSubstate;
 

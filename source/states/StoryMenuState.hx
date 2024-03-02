@@ -20,6 +20,9 @@ import lime.net.curl.CURLCode;
 import flixel.graphics.FlxGraphic;
 import WeekData;
 
+import sprites.MenuCharacter;
+import sprites.StoryMenuItem;
+
 import states.substates.GameplayChangersSubstate;
 import states.substates.ResetScoreSubState;
 

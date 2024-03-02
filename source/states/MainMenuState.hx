@@ -22,6 +22,9 @@ import lime.app.Application;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 
+import sprites.AttachedSprite;
+import sprites.HealthIcon;
+
 import states.options.OptionsState;
 
 using StringTools;

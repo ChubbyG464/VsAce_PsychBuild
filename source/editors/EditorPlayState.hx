@@ -20,6 +20,10 @@ import flixel.input.keyboard.FlxKey;
 import openfl.events.KeyboardEvent;
 import FunkinLua;
 
+import sprites.Note;
+import sprites.NoteSplash;
+import sprites.StrumNote;
+
 import states.LoadingState;
 import states.MusicBeatState;
 

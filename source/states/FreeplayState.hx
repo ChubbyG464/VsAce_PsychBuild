@@ -23,6 +23,9 @@ import WeekData;
 import sys.FileSystem;
 #end
 
+import sprites.AttachedSprite;
+import sprites.HealthIcon;
+
 import states.substates.GameplayChangersSubstate;
 import states.substates.ResetScoreSubState;
 

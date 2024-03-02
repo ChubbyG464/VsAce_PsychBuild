@@ -1,4 +1,5 @@
-package;
+package sprites;
+
 
 import flash.geom.Rectangle;
 import flixel.addons.ui.interfaces.IFlxUIClickable;

@@ -15,6 +15,9 @@ import flixel.FlxSubState;
 import flixel.FlxSprite;
 import flixel.FlxCamera;
 
+import sprites.FlxSpriteExtra;
+
+
 class CustomFadeTransition extends MusicBeatSubstate {
 	public static var finishCallback:Void->Void;
 	private var leTween:FlxTween = null;

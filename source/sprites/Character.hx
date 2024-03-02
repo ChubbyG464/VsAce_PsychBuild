@@ -1,4 +1,5 @@
-package;
+package sprites;
+
 
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;

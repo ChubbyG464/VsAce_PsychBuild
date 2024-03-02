@@ -36,7 +36,6 @@ import sys.io.File;
 #end
 import Type.ValueType;
 import Controls;
-import DialogueBoxPsych;
 #if hscript
 import hscript.Parser;
 import hscript.Interp;
@@ -45,6 +44,11 @@ import hscript.Interp;
 #if desktop
 import Discord;
 #end
+
+import sprites.Character;
+import sprites.DialogueBoxPsych;
+import sprites.Note;
+import sprites.StrumNote;
 
 import states.FreeplayState;
 import states.LoadingState;

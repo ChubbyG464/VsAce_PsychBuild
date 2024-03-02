@@ -45,6 +45,8 @@ import lime.app.Application;
 
 import openfl.Assets;
 
+import sprites.AnimationSprite;
+
 using StringTools;
 
 

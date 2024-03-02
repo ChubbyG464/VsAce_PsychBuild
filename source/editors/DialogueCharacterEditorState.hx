@@ -25,7 +25,6 @@ import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import flash.net.FileFilter;
 import haxe.Json;
-import DialogueBoxPsych;
 import flixel.FlxCamera;
 import flixel.group.FlxSpriteGroup;
 import lime.system.Clipboard;
@@ -33,10 +32,14 @@ import lime.system.Clipboard;
 import sys.io.File;
 #end
 
+import sprites.DialogueBoxPsych;
+import sprites.FlxUIDropDownMenuCustom;
+
 import states.MusicBeatState;
 import states.TitleState;
 
 using StringTools;
+
 
 class DialogueCharacterEditorState extends MusicBeatState
 {

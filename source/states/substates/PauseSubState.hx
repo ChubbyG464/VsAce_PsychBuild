@@ -17,6 +17,9 @@ import flixel.FlxCamera;
 import flixel.util.FlxStringUtil;
 import flixel.addons.display.FlxBackdrop;
 
+import sprites.FlxSpriteExtra;
+
+
 class PauseSubState extends MusicBeatSubstate
 {
 	var grpMenuShit:FlxTypedGroup<Alphabet>;

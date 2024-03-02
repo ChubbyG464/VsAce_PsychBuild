@@ -25,11 +25,12 @@ import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import flash.net.FileFilter;
 import haxe.Json;
-import DialogueBoxPsych;
 import lime.system.Clipboard;
 #if sys
 import sys.io.File;
 #end
+
+import sprites.DialogueBoxPsych;
 
 import states.MusicBeatState;
 import states.TitleState;

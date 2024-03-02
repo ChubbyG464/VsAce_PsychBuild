@@ -27,6 +27,9 @@ import flixel.graphics.FlxGraphic;
 import Controls;
 import flixel.addons.display.FlxBackdrop;
 
+import sprites.Character;
+import sprites.CheckboxThingie;
+
 import states.substates.MusicBeatSubstate;
 
 using StringTools;

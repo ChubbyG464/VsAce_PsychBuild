@@ -16,6 +16,8 @@ import flixel.system.FlxSound;
 import sys.FileSystem;
 #end
 
+import sprites.Character;
+
 import states.FreeplayState;
 import states.LoadingState;
 import states.MainMenuState;

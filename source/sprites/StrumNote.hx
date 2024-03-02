@@ -1,4 +1,5 @@
-package;
+package sprites;
+
 
 import flixel.math.FlxRect;
 import flixel.graphics.frames.FlxFrame.FlxFrameAngle;

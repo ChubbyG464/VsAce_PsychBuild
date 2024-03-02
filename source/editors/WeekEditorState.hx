@@ -33,6 +33,10 @@ import sys.FileSystem;
 #end
 import WeekData;
 
+import sprites.HealthIcon;
+import sprites.MenuCharacter;
+import sprites.StoryMenuItem;
+
 import states.MusicBeatState;
 import states.TitleState;
 
