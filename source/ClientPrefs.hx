@@ -62,7 +62,7 @@ class ClientPrefs {
 		'opponentplay' => false
 	];
 
-	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
+	public static var comboOffset:Array<Int> = [-248, -70, -141, 7];
 	public static var ratingOffset:Int = 0;
 	public static var sickWindow:Int = 45;
 	public static var goodWindow:Int = 90;
@@ -101,7 +101,14 @@ class ClientPrefs {
 		//trace(defaultKeys);
 	}
 
+	public static function haveSavedValues() : Bool
+	{
+		return FlxG.save.data.haveSavedValues != null;
+	}
+
 	public static function saveSettings() {
+		FlxG.save.data.haveSavedValues = true;
+
 		FlxG.save.data.iceNotes = iceNotes;
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
