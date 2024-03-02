@@ -1,5 +1,3 @@
-package;
-
 import ComboSprite.ComboGroup;
 import flixel.util.FlxDestroyUtil;
 import flixel.graphics.FlxGraphic;
@@ -67,6 +65,15 @@ import sys.FileSystem;
 #if VIDEOS_ALLOWED
 import vlc.MP4Handler;
 #end
+
+import states.FreeplayState;
+import states.LoadingState;
+import states.MusicBeatState;
+import states.StoryMenuState;
+
+import states.substates.CustomFadeTransition;
+import states.substates.GameOverSubstate;
+import states.substates.PauseSubState;
 
 using StringTools;
 

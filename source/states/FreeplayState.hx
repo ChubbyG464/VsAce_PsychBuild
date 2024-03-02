@@ -1,4 +1,5 @@
-package;
+package states;
+
 
 #if desktop
 import Discord.DiscordClient;
@@ -21,6 +22,9 @@ import WeekData;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
+
+import states.substates.GameplayChangersSubstate;
+import states.substates.ResetScoreSubState;
 
 using StringTools;
 

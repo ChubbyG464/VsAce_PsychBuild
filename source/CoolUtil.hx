@@ -1,5 +1,6 @@
 package;
 
+
 import flixel.util.FlxGradient;
 import flixel.util.FlxColor;
 import flixel.FlxG;
@@ -16,6 +17,7 @@ import openfl.utils.Assets;
 #end
 
 using StringTools;
+
 
 class CoolUtil
 {

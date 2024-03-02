@@ -1,4 +1,5 @@
-package;
+package states;
+
 
 import flixel.FlxCamera;
 import flixel.FlxSubState;
@@ -17,6 +18,8 @@ import flixel.util.FlxColor;
 import flixel.util.FlxGradient;
 import flixel.FlxState;
 import flixel.FlxBasic;
+
+import states.substates.CustomFadeTransition;
 
 class MusicBeatState extends FlxUIState
 {

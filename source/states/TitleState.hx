@@ -1,4 +1,4 @@
-package;
+package states;
 
 
 #if desktop
@@ -44,8 +44,6 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 
 import openfl.Assets;
-
-import options.GraphicsSettingsSubState;
 
 using StringTools;
 

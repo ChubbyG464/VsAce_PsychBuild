@@ -1,4 +1,5 @@
-package;
+package states.substates;
+
 
 #if desktop
 import Discord.DiscordClient;

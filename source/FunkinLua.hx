@@ -46,6 +46,16 @@ import hscript.Interp;
 import Discord;
 #end
 
+import states.FreeplayState;
+import states.LoadingState;
+import states.MainMenuState;
+import states.MusicBeatState;
+import states.StoryMenuState;
+
+import states.substates.CustomFadeTransition;
+import states.substates.GameOverSubstate;
+import states.substates.PauseSubState;
+
 using StringTools;
 
 final _point = new FlxPoint();

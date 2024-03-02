@@ -1,4 +1,5 @@
-package options;
+package states.options;
+
 
 #if desktop
 import Discord.DiscordClient;
@@ -26,6 +27,13 @@ import flixel.graphics.FlxGraphic;
 import Controls;
 import flixel.addons.display.FlxBackdrop;
 
+import states.options.ControlsSubState;
+import states.options.GameplaySettingsSubState;
+import states.options.GraphicsSettingsSubState;
+import states.options.NoteOffsetState;
+import states.options.NotesSubState;
+import states.options.VisualsUISubState;
+
 using StringTools;
 
 class OptionsState extends MusicBeatState
@@ -40,17 +48,17 @@ class OptionsState extends MusicBeatState
 	function openSelectedSubstate(label:String) {
 		switch(label) {
 			case 'Note Colors':
-				openSubState(new options.NotesSubState());
+				openSubState(new NotesSubState());
 			case 'Controls':
-				openSubState(new options.ControlsSubState());
+				openSubState(new ControlsSubState());
 			case 'Graphics':
-				openSubState(new options.GraphicsSettingsSubState());
+				openSubState(new GraphicsSettingsSubState());
 			case 'Visuals and UI':
-				openSubState(new options.VisualsUISubState());
+				openSubState(new VisualsUISubState());
 			case 'Gameplay':
-				openSubState(new options.GameplaySettingsSubState());
+				openSubState(new GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
-				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
+				LoadingState.loadAndSwitchState(new NoteOffsetState());
 		}
 	}
 

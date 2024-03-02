@@ -1,4 +1,5 @@
-package;
+package states;
+
 
 #if desktop
 import Discord.DiscordClient;
@@ -18,6 +19,9 @@ import flixel.util.FlxTimer;
 import lime.net.curl.CURLCode;
 import flixel.graphics.FlxGraphic;
 import WeekData;
+
+import states.substates.GameplayChangersSubstate;
+import states.substates.ResetScoreSubState;
 
 using StringTools;
 

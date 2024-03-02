@@ -1,4 +1,5 @@
-package options;
+package states.options;
+
 
 #if desktop
 import Discord.DiscordClient;
@@ -25,6 +26,8 @@ import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
 import flixel.addons.display.FlxBackdrop;
+
+import states.substates.MusicBeatSubstate;
 
 using StringTools;
 

@@ -50,6 +50,12 @@ import sys.FileSystem;
 import flash.media.Sound;
 #end
 
+import states.LoadingState;
+import states.MusicBeatState;
+import states.TitleState;
+
+import states.substates.Prompt;
+
 using StringTools;
 
 @:access(flixel.system.FlxSound._sound)

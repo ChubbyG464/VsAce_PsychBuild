@@ -1,4 +1,5 @@
-package;
+package states;
+
 
 import flixel.FlxBasic;
 import flixel.FlxG;

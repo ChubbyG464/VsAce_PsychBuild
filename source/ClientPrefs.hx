@@ -6,6 +6,9 @@ import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
 import Controls;
 
+import states.TitleState;
+
+
 class ClientPrefs {
 	public static var mechanics:Bool = true;
 	public static var exZoom:Bool = true;

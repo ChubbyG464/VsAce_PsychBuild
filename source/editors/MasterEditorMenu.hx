@@ -16,6 +16,12 @@ import flixel.system.FlxSound;
 import sys.FileSystem;
 #end
 
+import states.FreeplayState;
+import states.LoadingState;
+import states.MainMenuState;
+import states.MusicBeatState;
+import states.TitleState;
+
 using StringTools;
 
 class MasterEditorMenu extends MusicBeatState

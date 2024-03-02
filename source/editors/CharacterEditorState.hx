@@ -38,6 +38,9 @@ import flixel.animation.FlxAnimation;
 import sys.FileSystem;
 #end
 
+import states.MusicBeatState;
+import states.TitleState;
+
 using StringTools;
 
 /**

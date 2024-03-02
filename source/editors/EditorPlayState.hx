@@ -20,6 +20,9 @@ import flixel.input.keyboard.FlxKey;
 import openfl.events.KeyboardEvent;
 import FunkinLua;
 
+import states.LoadingState;
+import states.MusicBeatState;
+
 using StringTools;
 
 class EditorPlayState extends MusicBeatState

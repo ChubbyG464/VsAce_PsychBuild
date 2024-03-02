@@ -1,4 +1,5 @@
-package;
+package states;
+
 
 #if desktop
 import Discord.DiscordClient;
@@ -20,6 +21,8 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
+
+import states.options.OptionsState;
 
 using StringTools;
 
@@ -338,7 +341,7 @@ class MainMenuState extends MusicBeatState
 										#end
 										MusicBeatState.switchState(new FreeplayState());
 									case 'options':
-										LoadingState.loadAndSwitchState(new options.OptionsState());
+										LoadingState.loadAndSwitchState(new OptionsState());
 									case 'credits':
 										MusicBeatState.switchState(new CreditsState());
 								}

@@ -33,6 +33,9 @@ import sys.FileSystem;
 #end
 import WeekData;
 
+import states.MusicBeatState;
+import states.TitleState;
+
 using StringTools;
 
 class WeekEditorState extends MusicBeatState

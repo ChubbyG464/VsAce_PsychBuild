@@ -30,6 +30,9 @@ import haxe.Json;
 import sys.io.File;
 #end
 
+import states.MusicBeatState;
+import states.TitleState;
+
 using StringTools;
 
 class MenuCharacterEditorState extends MusicBeatState

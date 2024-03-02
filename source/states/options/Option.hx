@@ -1,4 +1,5 @@
-package options;
+package states.options;
+
 
 import flash.text.TextField;
 import flixel.FlxG;
