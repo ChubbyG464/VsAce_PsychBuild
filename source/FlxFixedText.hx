@@ -1,5 +1,3 @@
-package;
-
 import flixel.text.FlxText;
 import flash.display.BitmapData;
 import flixel.FlxG;

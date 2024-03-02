@@ -20,7 +20,6 @@ import flixel.addons.ui.FlxUIInputText;
 import flixel.addons.ui.FlxUINumericStepper;
 import flixel.addons.ui.FlxUITabMenu;
 import flixel.ui.FlxButton;
-import MenuCharacter;
 import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
@@ -30,7 +29,13 @@ import haxe.Json;
 import sys.io.File;
 #end
 
+import sprites.MenuCharacter;
+
+import states.MusicBeatState;
+import states.TitleState;
+
 using StringTools;
+
 
 class MenuCharacterEditorState extends MusicBeatState
 {

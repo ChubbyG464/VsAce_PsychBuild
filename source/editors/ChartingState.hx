@@ -4,8 +4,7 @@ package editors;
 import Discord.DiscordClient;
 #end
 import Conductor.BPMChangeEvent;
-import Section.SwagSection;
-import Song.SwagSong;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxObject;
@@ -49,6 +48,24 @@ import sys.io.File;
 import sys.FileSystem;
 import flash.media.Sound;
 #end
+
+import data.Section;
+import data.Song;
+import data.StageData;
+import data.WeekData;
+
+import sprites.AttachedSprite;
+import sprites.Character;
+import sprites.FlxUIDropDownMenuCustom;
+import sprites.HealthIcon;
+import sprites.Note;
+import sprites.StrumNote;
+
+import states.LoadingState;
+import states.MusicBeatState;
+import states.TitleState;
+
+import states.substates.Prompt;
 
 using StringTools;
 
@@ -2497,7 +2514,7 @@ class ChartingState extends MusicBeatState
 		var rawJson = OpenFlAssets.getText(path);
 		#end
 
-		var json:Character.CharacterFile = cast Json.parse(rawJson);
+		var json:CharacterFile = cast Json.parse(rawJson);
 		return json.healthicon;
 	}
 

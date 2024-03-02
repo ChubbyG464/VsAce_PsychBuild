@@ -1,7 +1,6 @@
 package editors;
 
-import Section.SwagSection;
-import Song.SwagSong;
+
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.util.FlxColor;
@@ -19,6 +18,16 @@ import flixel.util.FlxTimer;
 import flixel.input.keyboard.FlxKey;
 import openfl.events.KeyboardEvent;
 import FunkinLua;
+
+import data.Section.SwagSection;
+import data.Song.SwagSong;
+
+import sprites.Note;
+import sprites.NoteSplash;
+import sprites.StrumNote;
+
+import states.LoadingState;
+import states.MusicBeatState;
 
 using StringTools;
 

@@ -1,13 +1,9 @@
-package;
-
-import ComboSprite.ComboGroup;
 import flixel.util.FlxDestroyUtil;
 import flixel.graphics.FlxGraphic;
 #if desktop
 import Discord.DiscordClient;
 #end
-import Section.SwagSection;
-import Song.SwagSong;
+
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -50,15 +46,12 @@ import editors.ChartingState;
 import editors.CharacterEditorState;
 import flixel.group.FlxSpriteGroup;
 import flixel.input.keyboard.FlxKey;
-import Note.EventNote;
 import openfl.events.KeyboardEvent;
 import flixel.effects.particles.FlxEmitter;
 import flixel.effects.particles.FlxParticle;
 import flixel.util.FlxSave;
 import animateatlas.AtlasFrameMaker;
-import StageData;
 import FunkinLua;
-import DialogueBoxPsych;
 import Conductor.Rating;
 #if sys
 import sys.FileSystem;
@@ -68,7 +61,39 @@ import sys.FileSystem;
 import vlc.MP4Handler;
 #end
 
+import data.Highscore;
+import data.Section.SwagSection;
+import data.Song;
+import data.Song.SwagSong;
+import data.StageData;
+import data.Stickers;
+import data.WeekData;
+
+import sprites.AttachedSprite;
+import sprites.BGSprite;
+import sprites.Boyfriend;
+import sprites.Character;
+import sprites.ComboSprite;
+import sprites.ComboSprite.ComboGroup;
+import sprites.DialogueBoxPsych;
+import sprites.FlxSpriteExtra;
+import sprites.HealthIcon;
+import sprites.Note;
+import sprites.Note.EventNote;
+import sprites.NoteSplash;
+import sprites.StrumNote;
+
+import states.FreeplayState;
+import states.LoadingState;
+import states.MusicBeatState;
+import states.StoryMenuState;
+
+import states.substates.CustomFadeTransition;
+import states.substates.GameOverSubstate;
+import states.substates.PauseSubState;
+
 using StringTools;
+
 
 class PlayState extends MusicBeatState
 {

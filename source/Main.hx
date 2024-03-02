@@ -1,6 +1,3 @@
-package;
-
-
 import flixel.FlxG;
 import flixel.FlxGame;
 
@@ -23,6 +20,8 @@ import openfl.events.UncaughtErrorEvent;
 import sys.FileSystem;
 import sys.io.File;
 #end
+
+import states.TitleState;
 
 using StringTools;
 

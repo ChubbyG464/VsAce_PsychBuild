@@ -31,9 +31,18 @@ import haxe.Json;
 import sys.io.File;
 import sys.FileSystem;
 #end
-import WeekData;
+
+import data.WeekData;
+
+import sprites.HealthIcon;
+import sprites.MenuCharacter;
+import sprites.StoryMenuItem;
+
+import states.MusicBeatState;
+import states.TitleState;
 
 using StringTools;
+
 
 class WeekEditorState extends MusicBeatState
 {

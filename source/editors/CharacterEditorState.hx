@@ -1,5 +1,6 @@
 package editors;
 
+
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -29,7 +30,6 @@ import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import haxe.Json;
-import Character;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
@@ -37,6 +37,14 @@ import flixel.animation.FlxAnimation;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
+
+import sprites.BGSprite;
+import sprites.Character;
+import sprites.FlxUIDropDownMenuCustom;
+import sprites.HealthIcon;
+
+import states.MusicBeatState;
+import states.TitleState;
 
 using StringTools;
 
