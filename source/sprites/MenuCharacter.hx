@@ -32,7 +32,7 @@ class MenuCharacter extends FlxSprite
 		changeCharacter(character);
 	}
 
-	public function changeCharacter(?character:String = 'bf-cold') {
+	public function changeCharacter(?character:String = 'bf-cold') : Void {
 		if(character == null) character = '';
 		if(character == this.character) return;
 

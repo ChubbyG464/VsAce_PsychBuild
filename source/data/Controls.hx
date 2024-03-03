@@ -160,142 +160,142 @@ class Controls extends FlxActionSet
 
 	public var UI_UP(get, never):Bool;
 
-	inline function get_UI_UP()
+	inline function get_UI_UP() : Bool
 		return _ui_up.check();
 
 	public var UI_LEFT(get, never):Bool;
 
-	inline function get_UI_LEFT()
+	inline function get_UI_LEFT() : Bool
 		return _ui_left.check();
 
 	public var UI_RIGHT(get, never):Bool;
 
-	inline function get_UI_RIGHT()
+	inline function get_UI_RIGHT() : Bool
 		return _ui_right.check();
 
 	public var UI_DOWN(get, never):Bool;
 
-	inline function get_UI_DOWN()
+	inline function get_UI_DOWN() : Bool
 		return _ui_down.check();
 
 	public var UI_UP_P(get, never):Bool;
 
-	inline function get_UI_UP_P()
+	inline function get_UI_UP_P() : Bool
 		return _ui_upP.check();
 
 	public var UI_LEFT_P(get, never):Bool;
 
-	inline function get_UI_LEFT_P()
+	inline function get_UI_LEFT_P() : Bool
 		return _ui_leftP.check();
 
 	public var UI_RIGHT_P(get, never):Bool;
 
-	inline function get_UI_RIGHT_P()
+	inline function get_UI_RIGHT_P() : Bool
 		return _ui_rightP.check();
 
 	public var UI_DOWN_P(get, never):Bool;
 
-	inline function get_UI_DOWN_P()
+	inline function get_UI_DOWN_P() : Bool
 		return _ui_downP.check();
 
 	public var UI_UP_R(get, never):Bool;
 
-	inline function get_UI_UP_R()
+	inline function get_UI_UP_R() : Bool
 		return _ui_upR.check();
 
 	public var UI_LEFT_R(get, never):Bool;
 
-	inline function get_UI_LEFT_R()
+	inline function get_UI_LEFT_R() : Bool
 		return _ui_leftR.check();
 
 	public var UI_RIGHT_R(get, never):Bool;
 
-	inline function get_UI_RIGHT_R()
+	inline function get_UI_RIGHT_R() : Bool
 		return _ui_rightR.check();
 
 	public var UI_DOWN_R(get, never):Bool;
 
-	inline function get_UI_DOWN_R()
+	inline function get_UI_DOWN_R() : Bool
 		return _ui_downR.check();
 
 	public var NOTE_UP(get, never):Bool;
 
-	inline function get_NOTE_UP()
+	inline function get_NOTE_UP() : Bool
 		return _note_up.check();
 
 	public var NOTE_LEFT(get, never):Bool;
 
-	inline function get_NOTE_LEFT()
+	inline function get_NOTE_LEFT() : Bool
 		return _note_left.check();
 
 	public var NOTE_RIGHT(get, never):Bool;
 
-	inline function get_NOTE_RIGHT()
+	inline function get_NOTE_RIGHT() : Bool
 		return _note_right.check();
 
 	public var NOTE_DOWN(get, never):Bool;
 
-	inline function get_NOTE_DOWN()
+	inline function get_NOTE_DOWN() : Bool
 		return _note_down.check();
 
 	public var NOTE_UP_P(get, never):Bool;
 
-	inline function get_NOTE_UP_P()
+	inline function get_NOTE_UP_P() : Bool
 		return _note_upP.check();
 
 	public var NOTE_LEFT_P(get, never):Bool;
 
-	inline function get_NOTE_LEFT_P()
+	inline function get_NOTE_LEFT_P() : Bool
 		return _note_leftP.check();
 
 	public var NOTE_RIGHT_P(get, never):Bool;
 
-	inline function get_NOTE_RIGHT_P()
+	inline function get_NOTE_RIGHT_P() : Bool
 		return _note_rightP.check();
 
 	public var NOTE_DOWN_P(get, never):Bool;
 
-	inline function get_NOTE_DOWN_P()
+	inline function get_NOTE_DOWN_P() : Bool
 		return _note_downP.check();
 
 	public var NOTE_UP_R(get, never):Bool;
 
-	inline function get_NOTE_UP_R()
+	inline function get_NOTE_UP_R() : Bool
 		return _note_upR.check();
 
 	public var NOTE_LEFT_R(get, never):Bool;
 
-	inline function get_NOTE_LEFT_R()
+	inline function get_NOTE_LEFT_R() : Bool
 		return _note_leftR.check();
 
 	public var NOTE_RIGHT_R(get, never):Bool;
 
-	inline function get_NOTE_RIGHT_R()
+	inline function get_NOTE_RIGHT_R() : Bool
 		return _note_rightR.check();
 
 	public var NOTE_DOWN_R(get, never):Bool;
 
-	inline function get_NOTE_DOWN_R()
+	inline function get_NOTE_DOWN_R() : Bool
 		return _note_downR.check();
 
 	public var ACCEPT(get, never):Bool;
 
-	inline function get_ACCEPT()
+	inline function get_ACCEPT() : Bool
 		return _accept.check();
 
 	public var BACK(get, never):Bool;
 
-	inline function get_BACK()
+	inline function get_BACK() : Bool
 		return _back.check();
 
 	public var PAUSE(get, never):Bool;
 
-	inline function get_PAUSE()
+	inline function get_PAUSE() : Bool
 		return _pause.check();
 
 	public var RESET(get, never):Bool;
 
-	inline function get_RESET()
+	inline function get_RESET() : Bool
 		return _reset.check();
 
 	#if (haxe >= "4.0.0")
@@ -380,7 +380,7 @@ class Controls extends FlxActionSet
 	}
 	#end
 
-	override function update()
+	override function update() : Void
 	{
 		super.update();
 	}
@@ -442,7 +442,7 @@ class Controls extends FlxActionSet
 	 * @param func
 	 * @return ->Void)
 	 */
-	function forEachBound(control:Control, func:FlxActionDigital->FlxInputState->Void)
+	function forEachBound(control:Control, func:FlxActionDigital->FlxInputState->Void) : Void
 	{
 		switch (control)
 		{
@@ -489,7 +489,7 @@ class Controls extends FlxActionSet
 		}
 	}
 
-	public function replaceBinding(control:Control, device:Device, ?toAdd:Int, ?toRemove:Int)
+	public function replaceBinding(control:Control, device:Device, ?toAdd:Int, ?toRemove:Int) : Void
 	{
 		if (toAdd == toRemove)
 			return;
@@ -510,7 +510,7 @@ class Controls extends FlxActionSet
 		}
 	}
 
-	public function copyFrom(controls:Controls, ?device:Device)
+	public function copyFrom(controls:Controls, ?device:Device) : Void
 	{
 		#if (haxe >= "4.0.0")
 		for (name => action in controls.byName)
@@ -556,7 +556,7 @@ class Controls extends FlxActionSet
 		}
 	}
 
-	inline public function copyTo(controls:Controls, ?device:Device)
+	inline public function copyTo(controls:Controls, ?device:Device) : Void
 	{
 		controls.copyFrom(this, device);
 	}
@@ -579,7 +579,7 @@ class Controls extends FlxActionSet
 	 * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
 	 * If binder is a literal you can inline this
 	 */
-	public function bindKeys(control:Control, keys:Array<FlxKey>)
+	public function bindKeys(control:Control, keys:Array<FlxKey>) : Void
 	{
 		var copyKeys:Array<FlxKey> = keys.copy();
 		for (i in 0...copyKeys.length) {
@@ -597,7 +597,7 @@ class Controls extends FlxActionSet
 	 * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
 	 * If binder is a literal you can inline this
 	 */
-	public function unbindKeys(control:Control, keys:Array<FlxKey>)
+	public function unbindKeys(control:Control, keys:Array<FlxKey>) : Void
 	{
 		var copyKeys:Array<FlxKey> = keys.copy();
 		for (i in 0...copyKeys.length) {
@@ -611,14 +611,14 @@ class Controls extends FlxActionSet
 		#end
 	}
 
-	inline static function addKeys(action:FlxActionDigital, keys:Array<FlxKey>, state:FlxInputState)
+	inline static function addKeys(action:FlxActionDigital, keys:Array<FlxKey>, state:FlxInputState) : Void
 	{
 		for (key in keys)
 			if(key != NONE)
 				action.addKey(key, state);
 	}
 
-	static function removeKeys(action:FlxActionDigital, keys:Array<FlxKey>)
+	static function removeKeys(action:FlxActionDigital, keys:Array<FlxKey>) : Void
 	{
 		var i = action.inputs.length;
 		while (i-- > 0)
@@ -629,7 +629,7 @@ class Controls extends FlxActionSet
 		}
 	}
 
-	public function setKeyboardScheme(scheme:KeyboardScheme, reset = true)
+	public function setKeyboardScheme(scheme:KeyboardScheme, reset = true) : Void
 	{
 		if (reset)
 			removeKeyboard();
@@ -731,7 +731,7 @@ class Controls extends FlxActionSet
 		#end
 	}
 
-	function removeKeyboard()
+	function removeKeyboard() : Void
 	{
 		for (action in this.digitalActions)
 		{
@@ -827,7 +827,7 @@ class Controls extends FlxActionSet
 	 * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
 	 * If binder is a literal you can inline this
 	 */
-	public function bindButtons(control:Control, id, buttons)
+	public function bindButtons(control:Control, id, buttons) : Void
 	{
 		#if (haxe >= "4.0.0")
 		inline forEachBound(control, (action, state) -> addButtons(action, buttons, state, id));
@@ -840,7 +840,7 @@ class Controls extends FlxActionSet
 	 * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
 	 * If binder is a literal you can inline this
 	 */
-	public function unbindButtons(control:Control, gamepadID:Int, buttons)
+	public function unbindButtons(control:Control, gamepadID:Int, buttons) : Void
 	{
 		#if (haxe >= "4.0.0")
 		inline forEachBound(control, (action, _) -> removeButtons(action, gamepadID, buttons));
@@ -849,13 +849,13 @@ class Controls extends FlxActionSet
 		#end
 	}
 
-	inline static function addButtons(action:FlxActionDigital, buttons:Array<FlxGamepadInputID>, state, id)
+	inline static function addButtons(action:FlxActionDigital, buttons:Array<FlxGamepadInputID>, state, id) : Void
 	{
 		for (button in buttons)
 			action.addGamepad(button, state, id);
 	}
 
-	static function removeButtons(action:FlxActionDigital, gamepadID:Int, buttons:Array<FlxGamepadInputID>)
+	static function removeButtons(action:FlxActionDigital, gamepadID:Int, buttons:Array<FlxGamepadInputID>) : Void
 	{
 		var i = action.inputs.length;
 		while (i-- > 0)
@@ -889,7 +889,7 @@ class Controls extends FlxActionSet
 		return list;
 	}
 
-	public function removeDevice(device:Device)
+	public function removeDevice(device:Device) : Void
 	{
 		switch (device)
 		{
@@ -900,7 +900,7 @@ class Controls extends FlxActionSet
 		}
 	}
 
-	static function isDevice(input:FlxActionInput, device:Device)
+	static function isDevice(input:FlxActionInput, device:Device) : Bool
 	{
 		return switch device
 		{
@@ -909,7 +909,7 @@ class Controls extends FlxActionSet
 		}
 	}
 
-	inline static function isGamepad(input:FlxActionInput, deviceID:Int)
+	inline static function isGamepad(input:FlxActionInput, deviceID:Int) : Bool
 	{
 		return input.device == GAMEPAD && (deviceID == FlxInputDeviceID.ALL || input.deviceID == deviceID);
 	}

@@ -27,7 +27,7 @@ class NoteSplash extends FlxColorSwapSprite
 		antialiasing = ClientPrefs.globalAntialiasing;
 	}
 
-	public function setupNoteSplash(x:Float, y:Float, note:Int = 0, texture:String = null, hueColor:Float = 0, satColor:Float = 0, brtColor:Float = 0) {
+	public function setupNoteSplash(x:Float, y:Float, note:Int = 0, texture:String = null, hueColor:Float = 0, satColor:Float = 0, brtColor:Float = 0) : Void {
 		setPosition(x - Note.swagWidth * 0.95, y - Note.swagWidth);
 		alpha = 0.6;
 
@@ -49,7 +49,7 @@ class NoteSplash extends FlxColorSwapSprite
 		if(animation.curAnim != null)animation.curAnim.frameRate = 24 + FlxG.random.int(-2, 2);
 	}
 
-	function loadAnims(skin:String) {
+	function loadAnims(skin:String) : Void {
 		frames = Paths.getSparrowAtlas(skin);
 		for (i in 1...3) {
 			animation.addByPrefix("note1-" + i, "note splash blue " + i, 24, false);
@@ -60,7 +60,7 @@ class NoteSplash extends FlxColorSwapSprite
 		textureLoaded = skin;
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if(animation.curAnim != null && animation.curAnim.finished) kill();
 
 		super.update(elapsed);

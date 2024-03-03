@@ -155,7 +155,7 @@ class DialogueBox extends FlxSpriteGroup
 	var dialogueStarted:Bool = false;
 	var dialogueEnded:Bool = false;
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		// HARD CODING CUZ IM STUPDI
 		if (PlayState.SONG.song.toLowerCase() == 'roses')

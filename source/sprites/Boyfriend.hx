@@ -17,7 +17,7 @@ class Boyfriend extends Character
 		super(x, y, char, true);
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (!debugMode && animation.curAnim != null)
 		{

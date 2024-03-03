@@ -892,7 +892,7 @@ class FlxGame extends Sprite
 		#end
 	}
 
-	inline function getTicks()
+	inline function getTicks() : Int
 	{
 		return getTimer() - _startTime;
 	}

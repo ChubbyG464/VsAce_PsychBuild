@@ -89,7 +89,7 @@ class DialogueCharacter extends FlxSprite
 		if(jsonFile.no_antialiasing == true) antialiasing = false;
 	}
 
-	public function reloadCharacterJson(character:String) {
+	public function reloadCharacterJson(character:String) : Void {
 		var characterPath:String = 'images/dialogue/' + character + '.json';
 		var rawJson = null;
 
@@ -112,7 +112,7 @@ class DialogueCharacter extends FlxSprite
 		jsonFile = cast Json.parse(rawJson);
 	}
 
-	public function reloadAnimations() {
+	public function reloadAnimations() : Void {
 		dialogueAnimations.clear();
 		if(jsonFile.animations != null && jsonFile.animations.length > 0) {
 			for (anim in jsonFile.animations) {
@@ -123,7 +123,7 @@ class DialogueCharacter extends FlxSprite
 		}
 	}
 
-	public function playAnim(animName:String = null, playIdle:Bool = false) {
+	public function playAnim(animName:String = null, playIdle:Bool = false) : Void {
 		var leAnim:String = animName;
 		if(animName == null || !dialogueAnimations.exists(animName)) { //Anim is null, get a random animation
 			var arrayAnims:Array<String> = [];
@@ -233,7 +233,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 	public static var RIGHT_CHAR_X:Float = -100;
 	public static var DEFAULT_CHAR_Y:Float = 60;
 
-	function spawnCharacters() {
+	function spawnCharacters() : Void {
 		#if (haxe >= "4.0.0")
 		var charsMap:Map<String, Bool> = new Map();
 		#else
@@ -284,7 +284,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 	var scrollSpeed = 4500;
 	var daText:Alphabet = null;
 	var ignoreThisFrame:Bool = true; //First frame is reserved for loading dialogue images
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(ignoreThisFrame) {
 			ignoreThisFrame = false;
@@ -528,7 +528,7 @@ class DialogueBoxPsych extends FlxSpriteGroup
 		return cast Json.parse(Assets.getText(path));
 	}
 
-	public static function updateBoxOffsets(box:FlxSprite) { //Had to make it static because of the editors
+	public static function updateBoxOffsets(box:FlxSprite) : Void { //Had to make it static because of the editors
 		box.centerOffsets();
 		box.updateHitbox();
 		if(box.animation.curAnim.name.startsWith('angry')) {

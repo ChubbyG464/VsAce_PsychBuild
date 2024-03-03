@@ -231,7 +231,7 @@ class EditorLua {
 	}
 	#end
 
-	public function set(variable:String, data:Dynamic) {
+	public function set(variable:String, data:Dynamic) : Void {
 		#if LUA_ALLOWED
 		if(lua == null) {
 			return;
@@ -259,7 +259,7 @@ class EditorLua {
 	}
 	#end
 
-	public function stop() {
+	public function stop() : Void {
 		#if LUA_ALLOWED
 		if(lua == null) {
 			return;

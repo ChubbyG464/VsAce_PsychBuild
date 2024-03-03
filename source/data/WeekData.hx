@@ -85,7 +85,7 @@ class WeekData {
 		this.fileName = fileName;
 	}
 
-	public static function reloadWeekFiles(isStoryMode:Null<Bool> = false)
+	public static function reloadWeekFiles(isStoryMode:Null<Bool> = false) : Void
 	{
 		weeksList = [];
 		weeksLoaded.clear();
@@ -183,7 +183,7 @@ class WeekData {
 		#end
 	}
 
-	private static function addWeek(weekToCheck:String, path:String, directory:String, i:Int, originalLength:Int)
+	private static function addWeek(weekToCheck:String, path:String, directory:String, i:Int, originalLength:Int) : Void
 	{
 		if(!weeksLoaded.exists(weekToCheck))
 		{
@@ -236,14 +236,14 @@ class WeekData {
 		return weeksLoaded.get(weeksList[PlayState.storyWeek]);
 	}
 
-	public static function setDirectoryFromWeek(?data:WeekData = null) {
+	public static function setDirectoryFromWeek(?data:WeekData = null) : Void {
 		Paths.currentModDirectory = '';
 		if(data != null && data.folder != null && data.folder.length > 0) {
 			Paths.currentModDirectory = data.folder;
 		}
 	}
 
-	public static function loadTheFirstEnabledMod()
+	public static function loadTheFirstEnabledMod() : Void
 	{
 		Paths.currentModDirectory = '';
 		

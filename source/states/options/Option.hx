@@ -31,7 +31,7 @@ class Option
 	private var child:Alphabet;
 	private var staticText:Alphabet;
 
-	public var text(get, set):String;
+	public var text(get, set):Null<String>;
 
 	public var onChange:Void->Void = null; //Pressed enter (on Bool type options) or pressed/held left/right (on other types)
 
@@ -107,7 +107,7 @@ class Option
 		}
 	}
 
-	public function change()
+	public function change() : Void
 	{
 		//nothing lol
 		if(onChange != null) {
@@ -119,29 +119,30 @@ class Option
 	{
 		return Reflect.getProperty(ClientPrefs, variable);
 	}
-	public function setValue(value:Dynamic)
+	public function setValue(value:Dynamic) : Void
 	{
 		Reflect.setProperty(ClientPrefs, variable, value);
 	}
 
-	public function setChild(child:Alphabet)
+	public function setChild(child:Alphabet) : Void
 	{
 		this.child = child;
 	}
 
-	public function setStatic(staticText:Alphabet)
+	public function setStatic(staticText:Alphabet) : Void
 	{
 		this.staticText = staticText;
 	}
 
-	private function get_text()
+	private function get_text() : Null<String>
 	{
 		if(child != null) {
 			return child.text;
 		}
 		return null;
 	}
-	private function set_text(newValue:String = '')
+
+	private function set_text(newValue:Null<String> = '') : Null<String>
 	{
 		if(child != null) {
 			child.changeText(newValue);
@@ -149,7 +150,7 @@ class Option
 		return null;
 	}
 
-	function set_fontColor(newColor:FlxColor) {
+	function set_fontColor(newColor:FlxColor) : FlxColor {
 		if(staticText != null) {
 			staticText.fontColor = newColor;
 		}
@@ -159,7 +160,7 @@ class Option
 		return fontColor = newColor;
 	}
 
-	private function get_type()
+	private function get_type() : String
 	{
 		var newValue:String = 'bool';
 		switch(type.toLowerCase().trim())

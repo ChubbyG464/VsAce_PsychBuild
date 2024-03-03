@@ -113,7 +113,7 @@ class NotesSubState extends MusicBeatSubstate
 	}
 
 	var changingNote:Bool = false;
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if(changingNote) {
 			if(holdTime < 0.5) {
 				if(controls.UI_LEFT_P) {
@@ -208,7 +208,7 @@ class NotesSubState extends MusicBeatSubstate
 		super.update(elapsed);
 	}
 
-	function changeSelection(change:Int = 0) {
+	function changeSelection(change:Int = 0) : Void {
 		curSelected += change;
 		if (curSelected < 0)
 			curSelected = ClientPrefs.arrowHSV.length-1;
@@ -239,7 +239,7 @@ class NotesSubState extends MusicBeatSubstate
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	function changeType(change:Int = 0) {
+	function changeType(change:Int = 0) : Void {
 		typeSelected += change;
 		if (typeSelected < 0)
 			typeSelected = 2;
@@ -258,7 +258,7 @@ class NotesSubState extends MusicBeatSubstate
 		}
 	}
 
-	function resetValue(selected:Int, type:Int) {
+	function resetValue(selected:Int, type:Int) : Void {
 		curValue = 0;
 		ClientPrefs.arrowHSV[selected][type] = 0;
 		switch(type) {
@@ -271,7 +271,8 @@ class NotesSubState extends MusicBeatSubstate
 		item.changeText('0');
 		item.offset.x = (40 * (item.lettersArray.length - 1)) / 2;
 	}
-	function updateValue(change:Float = 0) {
+
+	function updateValue(change:Float = 0) : Void {
 		curValue += change;
 		var roundedValue:Int = Math.round(curValue);
 		var max:Float = 180;

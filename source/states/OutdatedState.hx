@@ -17,7 +17,7 @@ class OutdatedState extends MusicBeatState
 	public static var leftState:Bool = false;
 
 	var warnText:FlxText;
-	override function create()
+	override function create() : Void
 	{
 		super.create();
 
@@ -37,7 +37,7 @@ class OutdatedState extends MusicBeatState
 		add(warnText);
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(!leftState) {
 			if (controls.ACCEPT) {

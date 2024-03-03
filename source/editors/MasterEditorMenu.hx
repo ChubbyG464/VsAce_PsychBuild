@@ -45,7 +45,7 @@ class MasterEditorMenu extends MusicBeatState
 	private var curDirectory = 0;
 	private var directoryTxt:FlxText;
 
-	override function create()
+	override function create() : Void
 	{
 		FlxG.camera.bgColor = FlxColor.BLACK;
 		#if desktop
@@ -94,7 +94,7 @@ class MasterEditorMenu extends MusicBeatState
 		super.create();
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (controls.UI_UP_P)
 		{
@@ -160,7 +160,7 @@ class MasterEditorMenu extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function changeSelection(change:Int = 0)
+	function changeSelection(change:Int = 0) : Void
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 

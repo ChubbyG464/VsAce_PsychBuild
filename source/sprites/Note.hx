@@ -119,7 +119,7 @@ class Note extends FlxColorSwapSprite
 		return value;
 	}
 
-	public function resizeByRatio(ratio:Float) //haha funny twitter shit
+	public function resizeByRatio(ratio:Float) : Void //haha funny twitter shit
 	{
 		if(isSustainNote && !isHoldEnd)
 		{
@@ -203,7 +203,7 @@ class Note extends FlxColorSwapSprite
 
 	var hasSetup:Bool = false;
 
-	public function playNoteAnim()
+	public function playNoteAnim() : Void
 	{
 		hasSetup = true;
 		offsetX = noteOffsetX;
@@ -336,7 +336,7 @@ class Note extends FlxColorSwapSprite
 	var lastNoteOffsetXForPixelAutoAdjusting:Float = 0;
 	var lastNoteScaleToo:Float = 1;
 	public var originalHeightForCalcs:Float = 6;
-	function reloadNote(?prefix:String = '', ?texture:String = '', ?suffix:String = '') {
+	function reloadNote(?prefix:String = '', ?texture:String = '', ?suffix:String = '') : Void {
 		if(prefix == null) prefix = '';
 		if(texture == null) texture = '';
 		if(suffix == null) suffix = '';
@@ -407,7 +407,7 @@ class Note extends FlxColorSwapSprite
 		}
 	}
 
-	function loadNoteAnims() {
+	function loadNoteAnims() : Void {
 		animation.addByPrefix('greenScroll', 'green0');
 		animation.addByPrefix('redScroll', 'red0');
 		animation.addByPrefix('blueScroll', 'blue0');
@@ -430,7 +430,7 @@ class Note extends FlxColorSwapSprite
 		updateHitbox();
 	}
 
-	function loadPixelNoteAnims() {
+	function loadPixelNoteAnims() : Void {
 		if(isSustainNote) {
 			animation.add('purpleholdend', [PURP_NOTE + 4]);
 			animation.add('greenholdend', [GREEN_NOTE + 4]);
@@ -448,7 +448,7 @@ class Note extends FlxColorSwapSprite
 			animation.add('purpleScroll', [PURP_NOTE + 4]);
 		}
 	}
-	function addCustomNote(type:String) {// pain
+	function addCustomNote(type:String) : Void {// pain
 		switch(type)
 		{
 			case 'iceNote':
@@ -462,7 +462,7 @@ class Note extends FlxColorSwapSprite
 		antialiasing = ClientPrefs.globalAntialiasing;
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		super.update(elapsed);
 

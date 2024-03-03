@@ -46,7 +46,7 @@ class OptionsState extends MusicBeatState
 
 	var stripes:FlxBackdrop;
 
-	function openSelectedSubstate(label:String) {
+	function openSelectedSubstate(label:String) : Void {
 		switch(label) {
 			case 'Note Colors':
 				openSubState(new NotesSubState());
@@ -66,7 +66,7 @@ class OptionsState extends MusicBeatState
 	var selectorLeft:Alphabet;
 	var selectorRight:Alphabet;
 
-	override function create() {
+	override function create() : Void {
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
 		#end	
@@ -113,12 +113,12 @@ class OptionsState extends MusicBeatState
 		super.create();
 	}
 
-	override function closeSubState() {
+	override function closeSubState() : Void {
 		super.closeSubState();
 		ClientPrefs.saveSettings();
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		super.update(elapsed);
 
 		if (controls.UI_UP_P) {
@@ -138,7 +138,7 @@ class OptionsState extends MusicBeatState
 		}
 	}
 	
-	function changeSelection(change:Int = 0) {
+	function changeSelection(change:Int = 0) : Void {
 		curSelected += change;
 		if (curSelected < 0)
 			curSelected = options.length - 1;

@@ -50,7 +50,7 @@ class StrumNote extends FlxColorSwapSprite
 		scrollFactor.set();
 	}
 
-	public function reloadNote()
+	public function reloadNote() : Void
 	{
 		var lastAnim:String = null;
 		if(animation.curAnim != null) lastAnim = animation.curAnim.name;
@@ -127,7 +127,7 @@ class StrumNote extends FlxColorSwapSprite
 		}
 	}
 
-	public function postAddedToGroup() {
+	public function postAddedToGroup() : Void {
 		playAnim('static');
 		x += Note.swagWidth * noteData;
 		x += 50;
@@ -135,7 +135,7 @@ class StrumNote extends FlxColorSwapSprite
 		ID = noteData;
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if(resetAnim > 0) {
 			resetAnim -= elapsed;
 			if(resetAnim <= 0) {
@@ -152,7 +152,7 @@ class StrumNote extends FlxColorSwapSprite
 		super.update(elapsed);
 	}
 
-	public function playAnim(anim:String, ?force:Bool = false, ?note:Note = null) {
+	public function playAnim(anim:String, ?force:Bool = false, ?note:Note = null) : Void {
 		animation.play(anim, force);
 		centerOffsets();
 		centerOrigin();
@@ -171,7 +171,7 @@ class StrumNote extends FlxColorSwapSprite
 		}
 	}
 
-	public function addFrames(otherFrames:FlxAtlasFrames, reload:Bool = true) {
+	public function addFrames(otherFrames:FlxAtlasFrames, reload:Bool = true) : Void {
 		if(otherFrames == null) return;
 		for(frame in otherFrames.frames) {
 			this.frames.pushFrame(frame);

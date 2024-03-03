@@ -33,7 +33,7 @@ typedef SwagSong =
 
 class Song
 {
-	public static function unformatSongName(name:String) {
+	public static function unformatSongName(name:String) : String {
 		name = name.replace("-", " ");
 		var split = name.split(" ");
 
@@ -47,7 +47,7 @@ class Song
 	}
 
 
-	private static function onLoadJson(songJson:Dynamic) // Convert old charts to newest format
+	private static function onLoadJson(songJson:Dynamic) : Void // Convert old charts to newest format
 	{
 		if(songJson.gfVersion == null)
 		{

@@ -33,7 +33,7 @@ class StoryMenuItem extends FlxSprite
 	// I'm still learning how math works thanks whoever is reading this lol
 	var fakeFramerate:Int = Math.round((1 / FlxG.elapsed) / 10);
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		super.update(elapsed);
 		y = FlxMath.lerp(y, (targetY * 120) + 480, CoolUtil.boundTo(elapsed * 10.2, 0, 1));

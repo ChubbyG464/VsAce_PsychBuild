@@ -33,7 +33,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public static var instance:GameOverSubstate;
 
-	public static function resetVariables() {
+	public static function resetVariables() : Void {
 		characterName = 'bf-dead';
 		deathSoundName = 'fnf_loss_sfx';
 		loopSoundName = 'gameOver';
@@ -41,7 +41,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		cameraOffset.set(0, 0);
 	}
 
-	override function create()
+	override function create() : Void
 	{
 		instance = this;
 		PlayState.instance.callOnLuas('onGameOverStart', []);
@@ -79,7 +79,7 @@ class GameOverSubstate extends MusicBeatSubstate
 	}
 
 	var isFollowingAlready:Bool = false;
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		super.update(elapsed);
 
@@ -151,7 +151,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		PlayState.instance.callOnLuas('onUpdatePost', [elapsed]);
 	}
 
-	override function beatHit()
+	override function beatHit() : Void
 	{
 		super.beatHit();
 

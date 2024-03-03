@@ -21,10 +21,10 @@ class FlxSpriteExtra extends FlxSprite
 		return this;
 	}
 
-	public inline function hide() {
+	public inline function hide() : Void {
 		alpha = 0.0001;
 	}
-	public inline function show() {
+	public inline function show() : Void {
 		alpha = 1;
 	}
 }

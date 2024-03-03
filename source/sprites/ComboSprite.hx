@@ -16,7 +16,7 @@ class ComboSprite extends FlxSprite {
 			loadSprite(Sprite);
 	}
 
-	public function resetProps() {
+	public function resetProps() : ComboSprite {
 		FlxTween.cancelTweensOf(this);
 		alpha = 1;
 		acceleration.set();
@@ -29,7 +29,7 @@ class ComboSprite extends FlxSprite {
 		return this;
 	}
 
-	public function loadSprite(Sprite:String) {
+	public function loadSprite(Sprite:String) : ComboSprite {
 		animation.addByPrefix(Sprite, Sprite, 0, false);
 		animation.play(Sprite);
 		updateHitbox();
@@ -37,7 +37,7 @@ class ComboSprite extends FlxSprite {
 		return this;
 	}
 
-	override function updateAnimation(elapsed:Float) {
+	override function updateAnimation(elapsed:Float) : Void {
 	}
 }
 

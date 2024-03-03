@@ -17,7 +17,7 @@ class FlashingState extends MusicBeatState
 	public static var leftState:Bool = false;
 
 	var warnText:FlxText;
-	override function create()
+	override function create() : Void
 	{
 		super.create();
 
@@ -36,7 +36,7 @@ class FlashingState extends MusicBeatState
 		add(warnText);
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(!leftState) {
 			var back:Bool = controls.BACK;

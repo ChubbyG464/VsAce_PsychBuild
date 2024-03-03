@@ -134,7 +134,7 @@ class Prompt extends MusicBeatSubstate
 	}
 	*/
 	
-	function makeSelectorGraphic(panel:FlxSprite,w,h,color:FlxColor)
+	function makeSelectorGraphic(panel:FlxSprite,w,h,color:FlxColor) : Void
 	{
 		panel.makeGraphic(w, h, color);
 		panel.pixels.fillRect(new Rectangle(0, 190, panel.width, 5), 0x0);
@@ -151,7 +151,7 @@ class Prompt extends MusicBeatSubstate
 		drawCircleCornerOnSelector(panel,true, true,color);
 	}
 
-	function drawCircleCornerOnSelector(panel:FlxSprite,flipX:Bool, flipY:Bool,color:FlxColor)
+	function drawCircleCornerOnSelector(panel:FlxSprite,flipX:Bool, flipY:Bool,color:FlxColor) : Void
 	{
 		var antiX:Float = (panel.width - cornerSize);
 		var antiY:Float = flipY ? (panel.height - 1) : 0;

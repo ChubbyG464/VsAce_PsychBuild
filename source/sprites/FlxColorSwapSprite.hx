@@ -11,7 +11,7 @@ class FlxColorSwapSprite extends FlxSprite {
 	public var colorSwap:CSData;
 	public static var staticColorSwap:ColorSwap;
 
-	public function getColorSwap() {
+	public function getColorSwap() : ColorSwapShader {
 		colorSwap = new CSData();
 		if(staticColorSwap == null) {
 			staticColorSwap = new ColorSwap();

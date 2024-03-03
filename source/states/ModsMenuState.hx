@@ -64,7 +64,7 @@ class ModsMenuState extends MusicBeatState
 	var visibleWhenNoMods:Array<FlxBasic> = [];
 	var visibleWhenHasMods:Array<FlxBasic> = [];
 
-	override function create()
+	override function create() : Void
 	{
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
@@ -386,7 +386,7 @@ class ModsMenuState extends MusicBeatState
 		}
 		return arr;
 	}*/
-	function addToModsList(values:Array<Dynamic>)
+	function addToModsList(values:Array<Dynamic>) : Void
 	{
 		for (i in 0...modsList.length)
 		{
@@ -399,7 +399,7 @@ class ModsMenuState extends MusicBeatState
 		modsList.push(values);
 	}
 
-	function updateButtonToggle()
+	function updateButtonToggle() : Void
 	{
 		if (modsList[curSelected][1])
 		{
@@ -413,7 +413,7 @@ class ModsMenuState extends MusicBeatState
 		}
 	}
 
-	function moveMod(change:Int, skipResetCheck:Bool = false)
+	function moveMod(change:Int, skipResetCheck:Bool = false) : Void
 	{
 		if(mods.length > 1)
 		{
@@ -447,7 +447,7 @@ class ModsMenuState extends MusicBeatState
 		}
 	}
 
-	function saveTxt()
+	function saveTxt() : Void
 	{
 		var fileStr:String = '';
 		for (values in modsList)
@@ -463,7 +463,7 @@ class ModsMenuState extends MusicBeatState
 
 	var noModsSine:Float = 0;
 	var canExit:Bool = true;
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(noModsTxt.visible)
 		{
@@ -512,7 +512,7 @@ class ModsMenuState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function setAllLabelsOffset(button:FlxButton, x:Float, y:Float)
+	function setAllLabelsOffset(button:FlxButton, x:Float, y:Float) : Void
 	{
 		for (point in button.labelOffsets)
 		{
@@ -520,7 +520,7 @@ class ModsMenuState extends MusicBeatState
 		}
 	}
 
-	function changeSelection(change:Int = 0)
+	function changeSelection(change:Int = 0) : Void
 	{
 		var noMods:Bool = (mods.length < 1);
 		for (obj in visibleWhenHasMods)
@@ -583,7 +583,7 @@ class ModsMenuState extends MusicBeatState
 		updateButtonToggle();
 	}
 
-	function updatePosition(elapsed:Float = -1)
+	function updatePosition(elapsed:Float = -1) : Void
 	{
 		var i:Int = 0;
 		for (mod in mods)
@@ -612,7 +612,7 @@ class ModsMenuState extends MusicBeatState
 	}
 
 	var cornerSize:Int = 11;
-	function makeSelectorGraphic()
+	function makeSelectorGraphic() : Void
 	{
 		selector.makeGraphic(1100, 450, FlxColor.BLACK);
 		selector.pixels.fillRect(new Rectangle(0, 190, selector.width, 5), 0x0);
@@ -629,7 +629,7 @@ class ModsMenuState extends MusicBeatState
 		drawCircleCornerOnSelector(true, true);
 	}
 
-	function drawCircleCornerOnSelector(flipX:Bool, flipY:Bool)
+	function drawCircleCornerOnSelector(flipX:Bool, flipY:Bool) : Void
 	{
 		var antiX:Float = (selector.width - cornerSize);
 		var antiY:Float = flipY ? (selector.height - 1) : 0;

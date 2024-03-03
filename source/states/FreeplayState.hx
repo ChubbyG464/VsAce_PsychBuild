@@ -68,7 +68,7 @@ class FreeplayState extends MusicBeatState
 	public static var isShowAll = false;
 	#end
 
-	override function create()
+	override function create() : Void
 	{
 		if(Stickers.newMenuItem.contains("freeplay")) {
 			Stickers.newMenuItem.remove("freeplay");
@@ -249,13 +249,13 @@ class FreeplayState extends MusicBeatState
 		super.create();
 	}
 
-	override function closeSubState() {
+	override function closeSubState() : Void {
 		changeSelection(0, false);
 		persistentUpdate = true;
 		super.closeSubState();
 	}
 
-	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, locked:Bool = false)
+	public function addSong(songName:String, weekNum:Int, songCharacter:String, color:Int, locked:Bool = false) : SongMetadata
 	{
 		var meta = new SongMetadata(songName, weekNum, songCharacter, color);
 
@@ -277,7 +277,7 @@ class FreeplayState extends MusicBeatState
 	var instPlaying:Int = -1;
 	public static var vocals:FlxSound = null;
 	var holdTime:Float = 0;
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (FlxG.sound.music.volume < 0.7)
 		{
@@ -464,7 +464,7 @@ class FreeplayState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	public static function destroyFreeplayVocals() {
+	public static function destroyFreeplayVocals() : Void {
 		if(vocals != null) {
 			vocals.stop();
 			vocals.destroy();
@@ -472,7 +472,7 @@ class FreeplayState extends MusicBeatState
 		vocals = null;
 	}
 
-	function changeDiff(change:Int = 0)
+	function changeDiff(change:Int = 0) : Void
 	{
 		curDifficulty += change;
 
@@ -493,7 +493,7 @@ class FreeplayState extends MusicBeatState
 		positionHighscore();
 	}
 
-	function changeChar()
+	function changeChar() : Void
 	{
 		curChar++;
 
@@ -511,7 +511,7 @@ class FreeplayState extends MusicBeatState
 		}
 	}
 
-	function changeSelection(change:Int = 0, playSound:Bool = true)
+	function changeSelection(change:Int = 0, playSound:Bool = true) : Void
 	{
 		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
@@ -610,7 +610,7 @@ class FreeplayState extends MusicBeatState
 		}
 	}
 
-	private function positionHighscore() {
+	private function positionHighscore() : Void {
 		scoreText.x = FlxG.width - scoreText.width - 6;
 
 		scoreBG.scale.x = FlxG.width - scoreText.x + 6;

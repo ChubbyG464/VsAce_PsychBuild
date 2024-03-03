@@ -5,7 +5,7 @@ import flixel.util.FlxSave;
 import flixel.FlxG;
 
 class Stickers {
-	public static function save() {
+	public static function save() : Void {
 		FlxG.save.data.newSongs = newSongs.copy();
 		FlxG.save.data.newMenuItem = newMenuItem.copy();
 
@@ -14,7 +14,7 @@ class Stickers {
 
 	public static var init = false;
 
-	public static function load() {
+	public static function load() : Void {
 		if(FlxG.save != null) {
 			if(!init) {
 				#if debug
@@ -39,7 +39,7 @@ class Stickers {
 		}
 	}
 
-	public static function playedSong(value:String) {
+	public static function playedSong(value:String) : Void {
 		value = Paths.formatToSongPath(value);
 
 		newSongs.remove(value);
@@ -64,7 +64,7 @@ class Stickers {
 		"story-mode"
 	];
 
-	public static function setNew(type:UnlockType, value:String) {
+	public static function setNew(type:UnlockType, value:String) : Bool {
 		value = Paths.formatToSongPath(value);
 
 		var didAdd = switch(type) {
@@ -76,7 +76,7 @@ class Stickers {
 		return didAdd;
 	}
 
-	private static inline function clearArr(array:Array<String>) {
+	private static inline function clearArr(array:Array<String>) : Void {
 		array.splice(0, array.length);
 	}
 }

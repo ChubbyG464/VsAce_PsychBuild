@@ -15,6 +15,8 @@ import lime.utils.Assets as LimeAssets;
 import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
 
+import flash.media.Sound;
+
 import haxe.io.Path;
 
 import data.StageData;
@@ -46,7 +48,7 @@ class LoadingState extends MusicBeatState
 
 	var funkay:FlxSprite;
 	var loadBar:FlxSprite;
-	override function create()
+	override function create() : Void
 	{
 		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
 		add(bg);
@@ -86,7 +88,7 @@ class LoadingState extends MusicBeatState
 		);
 	}
 	
-	function checkLoadSong(path:String)
+	function checkLoadSong(path:String) : Void
 	{
 		if (!Assets.cache.hasSound(path))
 		{
@@ -101,7 +103,7 @@ class LoadingState extends MusicBeatState
 		}
 	}
 	
-	function checkLibrary(library:String) {
+	function checkLibrary(library:String) : Void {
 		trace(Assets.hasLibrary(library));
 		if (Assets.getLibrary(library) == null)
 		{
@@ -114,7 +116,7 @@ class LoadingState extends MusicBeatState
 		}
 	}
 	
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		super.update(elapsed);
 		funkay.setGraphicSize(Std.int(0.88 * FlxG.width + 0.9 * (funkay.width - 0.88 * FlxG.width)));
@@ -131,7 +133,7 @@ class LoadingState extends MusicBeatState
 		}
 	}
 	
-	function onLoad()
+	function onLoad() : Void
 	{
 		if (stopMusic && FlxG.sound.music != null)
 			FlxG.sound.music.stop();
@@ -139,17 +141,17 @@ class LoadingState extends MusicBeatState
 		MusicBeatState.switchState(target);
 	}
 	
-	static function getSongPath()
+	static function getSongPath() : Null<Sound>
 	{
 		return Paths.inst(PlayState.SONG.song);
 	}
 	
-	static function getVocalPath()
+	static function getVocalPath() : Null<Sound>
 	{
 		return Paths.voices(PlayState.SONG.song);
 	}
 	
-	inline static public function loadAndSwitchState(target:FlxState, stopMusic = false)
+	inline static public function loadAndSwitchState(target:FlxState, stopMusic = false) : Void
 	{
 		MusicBeatState.switchState(getNextState(target, stopMusic));
 	}
@@ -192,14 +194,14 @@ class LoadingState extends MusicBeatState
 	}
 	#end
 	
-	override function destroy()
+	override function destroy() : Void
 	{
 		super.destroy();
 		
 		callbacks = null;
 	}
 	
-	static function initSongsManifest()
+	static function initSongsManifest() : Future<AssetLibrary>
 	{
 		var id = "songs";
 		var promise = new Promise<AssetLibrary>();
@@ -282,7 +284,7 @@ class MultiCallback
 		this.logId = logId;
 	}
 	
-	public function add(id = "untitled")
+	public function add(id = "untitled") : (Void -> Void)
 	{
 		id = '$length:$id';
 		length++;
@@ -319,6 +321,13 @@ class MultiCallback
 			trace('$logId: $msg');
 	}
 	
-	public function getFired() return fired.copy();
-	public function getUnfired() return [for (id in unfired.keys()) id];
+	public function getFired() : Array<String>
+	{
+		return fired.copy();
+	}
+
+	public function getUnfired() : Array<String>
+	{
+		return [for (id in unfired.keys()) id];
+	}
 }

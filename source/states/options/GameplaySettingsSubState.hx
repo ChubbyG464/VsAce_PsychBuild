@@ -157,7 +157,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		super();
 	}
 
-	function onChangeHitsoundVolume()
+	function onChangeHitsoundVolume() : Void
 	{
 		FlxG.sound.play(Paths.sound('hitsound'), ClientPrefs.hitsoundVolume);
 	}

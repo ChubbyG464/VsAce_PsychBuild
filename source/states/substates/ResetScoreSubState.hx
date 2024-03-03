@@ -79,7 +79,7 @@ class ResetScoreSubState extends MusicBeatSubstate
 		updateOptions();
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		bg.alpha += elapsed * 1.5;
 		if(bg.alpha > 0.6) bg.alpha = 0.6;
@@ -112,7 +112,7 @@ class ResetScoreSubState extends MusicBeatSubstate
 		super.update(elapsed);
 	}
 
-	function updateOptions() {
+	function updateOptions() : Void {
 		var scales:Array<Float> = [0.75, 1];
 		var alphas:Array<Float> = [0.6, 1.25];
 		var confirmInt:Int = onYes ? 1 : 0;

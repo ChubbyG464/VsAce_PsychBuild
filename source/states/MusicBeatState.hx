@@ -40,7 +40,7 @@ class MusicBeatState extends FlxUIState
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
-	override function create() {
+	override function create() : Void {
 		var skip:Bool = FlxTransitionableState.skipNextTransOut;
 		super.create();
 
@@ -50,7 +50,7 @@ class MusicBeatState extends FlxUIState
 		FlxTransitionableState.skipNextTransOut = false;
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		//everyStep();
 		var oldStep:Int = curStep;
@@ -127,7 +127,7 @@ class MusicBeatState extends FlxUIState
 
 	public static var songLoadingScreen:String = "";
 
-	static function loadingScreen(leState:MusicBeatState, camera:FlxCamera, ?trans:CustomFadeTransition) {
+	static function loadingScreen(leState:MusicBeatState, camera:FlxCamera, ?trans:CustomFadeTransition) : Void {
 		var loading = new FlxSprite().loadGraphic(Paths.image("loading/" + songLoadingScreen));
 		loading.setGraphicSize(FlxG.width, FlxG.height);
 		loading.updateHitbox();
@@ -146,7 +146,7 @@ class MusicBeatState extends FlxUIState
 		songLoadingScreen = "";
 	}
 
-	public static function switchState(nextState:FlxState) {
+	public static function switchState(nextState:FlxState) : Void {
 		// Custom made Trans in
 		var curState:Dynamic = FlxG.state;
 		var leState:MusicBeatState = curState;
@@ -181,7 +181,7 @@ class MusicBeatState extends FlxUIState
 		FlxG.switchState(nextState);
 	}
 
-	public static function resetState() {
+	public static function resetState() : Void {
 		MusicBeatState.switchState(FlxG.state);
 	}
 
@@ -207,7 +207,7 @@ class MusicBeatState extends FlxUIState
 		//trace('Section: ' + curSection + ', Beat: ' + curBeat + ', Step: ' + curStep);
 	}
 
-	function getBeatsOnSection()
+	function getBeatsOnSection() : Float
 	{
 		var val:Null<Float> = 4;
 		if(PlayState.SONG != null && PlayState.SONG.notes[curSection] != null) val = PlayState.SONG.notes[curSection].sectionBeats;
