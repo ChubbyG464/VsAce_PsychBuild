@@ -171,7 +171,7 @@ class PauseSubState extends MusicBeatSubstate
 
 	var holdTime:Float = 0;
 	var cantUnpause:Float = 0.1;
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		cantUnpause -= elapsed;
 		if (pauseMusic.volume < 0.5)
@@ -303,7 +303,7 @@ class PauseSubState extends MusicBeatSubstate
 		}
 	}
 
-	function deleteSkipTimeText()
+	function deleteSkipTimeText() : Void
 	{
 		if(skipTimeText != null)
 		{
@@ -315,7 +315,7 @@ class PauseSubState extends MusicBeatSubstate
 		skipTimeTracker = null;
 	}
 
-	public static function restartSong(noTrans:Bool = false)
+	public static function restartSong(noTrans:Bool = false) : Void
 	{
 		PlayState.instance.paused = true; // For lua
 		FlxG.sound.music.volume = 0;
@@ -332,7 +332,7 @@ class PauseSubState extends MusicBeatSubstate
 		}
 	}
 
-	override function destroy()
+	override function destroy() : Void
 	{
 		pauseMusic.destroy();
 
@@ -405,7 +405,7 @@ class PauseSubState extends MusicBeatSubstate
 		changeSelection();
 	}
 
-	function updateSkipTextStuff()
+	function updateSkipTextStuff() : Void
 	{
 		if(skipTimeText == null || skipTimeTracker == null) return;
 
@@ -414,7 +414,7 @@ class PauseSubState extends MusicBeatSubstate
 		skipTimeText.visible = (skipTimeTracker.alpha >= 1);
 	}
 
-	function updateSkipTimeText()
+	function updateSkipTimeText() : Void
 	{
 		skipTimeText.text = FlxStringUtil.formatTime(Math.max(0, Math.floor(curTime / 1000)), false) + ' / ' + FlxStringUtil.formatTime(Math.max(0, Math.floor(FlxG.sound.music.length / 1000)), false);
 	}

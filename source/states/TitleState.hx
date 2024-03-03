@@ -407,7 +407,7 @@ class TitleState extends MusicBeatState
 	var newTitle:Bool = false;
 	var titleTimer:Float = 0;
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
@@ -506,7 +506,7 @@ class TitleState extends MusicBeatState
 	 * @param textArray text to be displayed
 	 * @param offset vertical offset
 	 */
-	function createCoolText(textArray:Array<String>, ?offset:Float = 0)
+	function createCoolText(textArray:Array<String>, ?offset:Float = 0) : Void
 	{
 		for (i in 0...textArray.length)
 		{
@@ -520,7 +520,7 @@ class TitleState extends MusicBeatState
 		}
 	}
 
-	function addMoreText(text:String, ?offset:Float = 0)
+	function addMoreText(text:String, ?offset:Float = 0) : Void
 	{
 		if(textGroup != null && credGroup != null) {
 			var coolText:Alphabet = new Alphabet(0, 0, text, true, false);
@@ -531,7 +531,7 @@ class TitleState extends MusicBeatState
 		}
 	}
 
-	function deleteCoolText()
+	function deleteCoolText() : Void
 	{
 		while (textGroup.members.length > 0)
 		{
@@ -544,7 +544,7 @@ class TitleState extends MusicBeatState
 	public static var closedState:Bool = false;
 
 
-	override function beatHit()
+	override function beatHit() : Void
 	{
 		super.beatHit();
 

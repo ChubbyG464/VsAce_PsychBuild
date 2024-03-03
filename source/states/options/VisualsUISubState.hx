@@ -149,7 +149,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	}
 
 	var changedMusic:Bool = false;
-	function onChangePauseMusic()
+	function onChangePauseMusic() : Void
 	{
 		if(ClientPrefs.pauseMusic == 'None')
 			FlxG.sound.music.volume = 0;
@@ -159,14 +159,14 @@ class VisualsUISubState extends BaseOptionsMenu
 		changedMusic = true;
 	}
 
-	override function destroy()
+	override function destroy() : Void
 	{
 		if(changedMusic) FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		super.destroy();
 	}
 
 	#if !mobile
-	function onChangeFPSCounter()
+	function onChangeFPSCounter() : Void
 	{
 		if(Main.fpsDisplay != null)
 			Main.fpsDisplay.visible = ClientPrefs.showFPS;

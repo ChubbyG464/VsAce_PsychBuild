@@ -1,6 +1,7 @@
 package;
 
 
+import flixel.FlxSprite;
 import flixel.util.FlxGradient;
 import flixel.util.FlxColor;
 import flixel.FlxG;
@@ -30,14 +31,14 @@ class CoolUtil
 
 	public static var difficulties:Array<String> = [];
 
-	inline public static function quantize(f:Float, snap:Float){
+	inline public static function quantize(f:Float, snap:Float) : Float {
 		// changed so this actually works lol
 		var m:Float = Math.fround(f * snap);
 		trace(snap);
 		return (m / snap);
 	}
 
-	public static function getDifficultyFilePath(num:Null<Int> = null)
+	public static function getDifficultyFilePath(num:Null<Int> = null) : String
 	{
 		if(num == null) num = PlayState.storyDifficulty;
 
@@ -129,11 +130,11 @@ class CoolUtil
 	/**
 	 * Modulo that works for negative numbers
 	 */
-	public inline static function mod(n:Int, m:Int) {
+	public inline static function mod(n:Int, m:Int) : Int {
 		return ((n % m) + m) % m;
 	}
 
-	public static function makeGradient(width:Int, height:Int, colors:Array<FlxColor>, chunkSize:UInt = 1, rotation:Int = 90, interpolate:Bool = true) {
+	public static function makeGradient(width:Int, height:Int, colors:Array<FlxColor>, chunkSize:UInt = 1, rotation:Int = 90, interpolate:Bool = true) : FlxSprite {
 		var gradWidth = width;
 		var gradHeight = height;
 		var gradXScale = 1;
@@ -166,7 +167,7 @@ class CoolUtil
 		Paths.music(sound, library);
 	}
 
-	public static function browserLoad(site:String) {
+	public static function browserLoad(site:String) : Void {
 		#if linux
 		Sys.command('/usr/bin/xdg-open', [site]);
 		#else

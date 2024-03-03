@@ -83,7 +83,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		super();
 	}
 
-	function onChangeAntiAliasing()
+	function onChangeAntiAliasing() : Void
 	{
 		for (sprite in members)
 		{
@@ -95,7 +95,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		}
 	}
 
-	function onChangeFramerate()
+	function onChangeFramerate() : Void
 	{
 		if(ClientPrefs.framerate > FlxG.drawFramerate)
 		{

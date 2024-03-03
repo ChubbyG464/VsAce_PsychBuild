@@ -41,7 +41,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 	private var checkboxGroup:FlxTypedGroup<CheckboxThingie>;
 	private var grpTexts:FlxTypedGroup<AttachedText>;
 
-	function getOptions()
+	function getOptions() : Void
 	{
 		var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', 'string', 'multiplicative', ["multiplicative", "constant"]);
 		optionsArray.push(goption);
@@ -96,7 +96,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		optionsArray.push(option);
 	}
 
-	public function getOptionByName(name:String)
+	public function getOptionByName(name:String) : Null<GameplayOption>
 	{
 		for(i in optionsArray)
 		{
@@ -163,7 +163,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 	var nextAccept:Int = 5;
 	var holdTime:Float = 0;
 	var holdValue:Float = 0;
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (controls.UI_UP_P)
 		{
@@ -327,7 +327,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		super.update(elapsed);
 	}
 
-	function updateTextFrom(option:GameplayOption) {
+	function updateTextFrom(option:GameplayOption) : Void {
 		var text:String = option.displayFormat;
 		var val:Dynamic = option.getValue();
 		if(option.type == 'percent') val *= 100;
@@ -335,7 +335,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		option.text = text.replace('%v', val).replace('%d', def);
 	}
 
-	function clearHold()
+	function clearHold() : Void
 	{
 		if(holdTime > 0.5) {
 			FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -343,7 +343,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		holdTime = 0;
 	}
 	
-	function changeSelection(change:Int = 0)
+	function changeSelection(change:Int = 0) : Void
 	{
 		curSelected += change;
 		if (curSelected < 0)
@@ -372,7 +372,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	function reloadCheckboxes() {
+	function reloadCheckboxes() : Void {
 		for (checkbox in checkboxGroup) {
 			checkbox.daValue = (optionsArray[checkbox.ID].getValue() == true);
 		}
@@ -382,7 +382,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 class GameplayOption
 {
 	private var child:Alphabet;
-	public var text(get, set):String;
+	public var text(get, set):Null<String>;
 	public var onChange:Void->Void = null; //Pressed enter (on Bool type options) or pressed/held left/right (on other types)
 
 	public var type(get, default):String = 'bool'; //bool, int (or integer), float (or fl), percent, string (or str)
@@ -453,7 +453,7 @@ class GameplayOption
 		}
 	}
 
-	public function change()
+	public function change() : Void
 	{
 		//nothing lol
 		if(onChange != null) {
@@ -465,24 +465,24 @@ class GameplayOption
 	{
 		return ClientPrefs.gameplaySettings.get(variable);
 	}
-	public function setValue(value:Dynamic)
+	public function setValue(value:Dynamic) : Void
 	{
 		ClientPrefs.gameplaySettings.set(variable, value);
 	}
 
-	public function setChild(child:Alphabet)
+	public function setChild(child:Alphabet) : Void
 	{
 		this.child = child;
 	}
 
-	private function get_text()
+	private function get_text() : Null<String>
 	{
 		if(child != null) {
 			return child.text;
 		}
 		return null;
 	}
-	private function set_text(newValue:String = '')
+	private function set_text(newValue:Null<String> = '') : Null<String>
 	{
 		if(child != null) {
 			child.changeText(newValue);
@@ -490,7 +490,7 @@ class GameplayOption
 		return null;
 	}
 
-	private function get_type()
+	private function get_type() : String
 	{
 		var newValue:String = 'bool';
 		switch(type.toLowerCase().trim())

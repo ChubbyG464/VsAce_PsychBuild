@@ -67,7 +67,7 @@ class StoryMenuState extends MusicBeatState
 
 	var loadedWeeks:Array<WeekData> = [];
 
-	override function create()
+	override function create() : Void
 	{
 		if(Stickers.newMenuItem.contains("story-mode")) {
 			Stickers.newMenuItem.remove("story-mode");
@@ -228,15 +228,15 @@ class StoryMenuState extends MusicBeatState
 	}
 
 	public var isChangingCharacter(get, never):Bool;
-	function get_isChangingCharacter() {
+	function get_isChangingCharacter() : Bool {
 		return characterSelectors.visible && characterSelectors.exists;
 	}
 	public var isChangingDifficulty(get, never):Bool;
-	function get_isChangingDifficulty() {
+	function get_isChangingDifficulty() : Bool {
 		return !isChangingCharacter;
 	}
 
-	override function closeSubState() {
+	override function closeSubState() : Void {
 		if((subState is ResetScoreSubState) || (subState is GameplayChangersSubstate)) {
 			persistentUpdate = true;
 			changeWeek();
@@ -244,7 +244,7 @@ class StoryMenuState extends MusicBeatState
 		super.closeSubState();
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
@@ -358,7 +358,7 @@ class StoryMenuState extends MusicBeatState
 	var selectedWeek:Bool = false;
 	var stopspamming:Bool = false;
 
-	function selectWeek()
+	function selectWeek() : Void
 	{
 		if (!weekIsLocked(loadedWeeks[curWeek].fileName))
 		{
@@ -474,7 +474,7 @@ class StoryMenuState extends MusicBeatState
 	}
 
 	var isChangingChar = true;
-	function changeSelection(silent:Bool = false)
+	function changeSelection(silent:Bool = false) : Void
 	{
 		//if (!characterUnlocked[curChar])
 			//return;
@@ -600,7 +600,7 @@ class StoryMenuState extends MusicBeatState
 		return (!leWeek.startUnlocked && leWeek.weekBefore.length > 0 && (!weekCompleted.exists(leWeek.weekBefore) || !weekCompleted.get(leWeek.weekBefore)));
 	}
 
-	function updateText()
+	function updateText() : Void
 	{
 		var weekArray:Array<String> = loadedWeeks[curWeek].weekCharacters;
 		for (i in 0...grpWeekCharacters.length) {

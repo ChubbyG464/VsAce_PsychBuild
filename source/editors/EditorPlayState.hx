@@ -72,7 +72,7 @@ class EditorPlayState extends MusicBeatState
 
 	public static var instance:EditorPlayState;
 
-	override function create()
+	override function create() : Void
 	{
 		instance = this;
 
@@ -177,7 +177,7 @@ class EditorPlayState extends MusicBeatState
 		super.create();
 	}
 
-	function sayGo() {
+	function sayGo() : Void {
 		var go:FlxSprite = new FlxSprite().loadGraphic(Paths.image('go'));
 		go.scrollFactor.set();
 
@@ -326,13 +326,13 @@ class EditorPlayState extends MusicBeatState
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1.strumTime, Obj2.strumTime);
 	}
 
-	private function endSong() {
+	private function endSong() : Void {
 		LoadingState.loadAndSwitchState(new editors.ChartingState());
 	}
 
 	public var noteKillOffset:Float = 350;
 	public var spawnTime:Float = 2000;
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if (FlxG.keys.justPressed.ESCAPE)
 		{
 			FlxG.sound.music.pause();
@@ -530,7 +530,7 @@ class EditorPlayState extends MusicBeatState
 		super.onFocusLost();
 	}
 
-	override function beatHit()
+	override function beatHit() : Void
 	{
 		super.beatHit();
 
@@ -540,7 +540,7 @@ class EditorPlayState extends MusicBeatState
 		}
 	}
 
-	override function stepHit()
+	override function stepHit() : Void
 	{
 		super.stepHit();
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
@@ -1002,7 +1002,7 @@ class EditorPlayState extends MusicBeatState
 
 
 	// For Opponent's notes glow
-	function StrumPlayAnim(isDad:Bool, id:Int, time:Float) {
+	function StrumPlayAnim(isDad:Bool, id:Int, time:Float) : Void {
 		var spr:StrumNote = null;
 		if(isDad) {
 			spr = strumLineNotes.members[id];
@@ -1018,7 +1018,7 @@ class EditorPlayState extends MusicBeatState
 
 
 	// Note splash shit, duh
-	function spawnNoteSplashOnNote(note:Note) {
+	function spawnNoteSplashOnNote(note:Note) : Void {
 		if(ClientPrefs.noteSplashes && note != null) {
 			var strum:StrumNote = playerStrums.members[note.noteData];
 			if(strum != null) {
@@ -1027,7 +1027,7 @@ class EditorPlayState extends MusicBeatState
 		}
 	}
 
-	function spawnNoteSplash(x:Float, y:Float, data:Int, ?note:Note = null) {
+	function spawnNoteSplash(x:Float, y:Float, data:Int, ?note:Note = null) : Void {
 		var skin:String = 'noteSplashes';
 		if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) skin = PlayState.SONG.splashSkin;
 		
@@ -1046,7 +1046,7 @@ class EditorPlayState extends MusicBeatState
 		grpNoteSplashes.add(splash);
 	}
 	
-	override function destroy() {
+	override function destroy() : Void {
 		FlxG.sound.music.stop();
 		vocals.stop();
 		vocals.destroy();

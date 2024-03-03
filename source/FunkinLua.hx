@@ -7,6 +7,7 @@ import llua.Convert;
 import flixel.addons.display.FlxBackdrop;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
+import flixel.FlxState;
 import flixel.addons.effects.FlxTrail;
 import flixel.input.keyboard.FlxKey;
 import flixel.tweens.FlxTween;
@@ -2605,7 +2606,7 @@ class FunkinLua {
 		return PlayState.instance.modchartTexts.exists(name) ? PlayState.instance.modchartTexts.get(name) : Reflect.getProperty(PlayState.instance, name);
 	}
 
-	static function getGroupStuff(leArray:Dynamic, variable:String) {
+	static function getGroupStuff(leArray:Dynamic, variable:String) : Dynamic {
 		var killMe:Array<String> = variable.split('.');
 		if(killMe.length > 1) {
 			var coverMeInPiss:Dynamic = Reflect.getProperty(leArray, killMe[0]);
@@ -2627,7 +2628,7 @@ class FunkinLua {
 		};
 	}
 
-	static function loadFrames(spr:FlxSprite, image:String, spriteType:String)
+	static function loadFrames(spr:FlxSprite, image:String, spriteType:String) : Void
 	{
 		switch(spriteType.toLowerCase().trim())
 		{
@@ -2645,7 +2646,7 @@ class FunkinLua {
 		}
 	}
 
-	static function setGroupStuff(leArray:Dynamic, variable:String, value:Dynamic) {
+	static function setGroupStuff(leArray:Dynamic, variable:String, value:Dynamic) : Void {
 		var killMe:Array<String> = variable.split('.');
 		if(killMe.length > 1) {
 			var coverMeInPiss:Dynamic = Reflect.getProperty(leArray, killMe[0]);
@@ -2658,7 +2659,7 @@ class FunkinLua {
 		Reflect.setProperty(leArray, variable, value);
 	}
 
-	static function resetTextTag(tag:String) {
+	static function resetTextTag(tag:String) : Void {
 		if(!PlayState.instance.modchartTexts.exists(tag)) {
 			return;
 		}
@@ -2672,7 +2673,7 @@ class FunkinLua {
 		PlayState.instance.modchartTexts.remove(tag);
 	}
 
-	static function resetSpriteTag(tag:String) {
+	static function resetSpriteTag(tag:String) : Void {
 		if(!PlayState.instance.modchartSprites.exists(tag)) {
 			return;
 		}
@@ -2686,7 +2687,7 @@ class FunkinLua {
 		PlayState.instance.modchartSprites.remove(tag);
 	}
 
-	static function resetBackdropTag(tag:String) {
+	static function resetBackdropTag(tag:String) : Void {
 		if(!PlayState.instance.modchartBackdrops.exists(tag)) {
 			return;
 		}
@@ -2700,7 +2701,7 @@ class FunkinLua {
 		PlayState.instance.modchartBackdrops.remove(tag);
 	}
 
-	static function cancelTween(tag:String) {
+	static function cancelTween(tag:String) : Void {
 		if(PlayState.instance.modchartTweens.exists(tag)) {
 			PlayState.instance.modchartTweens.get(tag).cancel();
 			PlayState.instance.modchartTweens.get(tag).destroy();
@@ -2708,7 +2709,7 @@ class FunkinLua {
 		}
 	}
 
-	static function tweenShit(tag:String, vars:String) {
+	static function tweenShit(tag:String, vars:String) : Dynamic {
 		cancelTween(tag);
 		var variables:Array<String> = vars.replace(' ', '').split('.');
 		var sexyProp:Dynamic;
@@ -2725,13 +2726,13 @@ class FunkinLua {
 			sexyProp = Reflect.getProperty(getInstance(), variables[0]);
 		}
 
-		for (i in 1...variables.length) {
+		for (i in 1...variables.length)  {
 			sexyProp = Reflect.getProperty(sexyProp, variables[i]);
 		}
 		return sexyProp;
 	}
 
-	static function cancelTimer(tag:String) {
+	static function cancelTimer(tag:String) : Void {
 		if(PlayState.instance.modchartTimers.exists(tag)) {
 			var theTimer:FlxTimer = PlayState.instance.modchartTimers.get(tag);
 			theTimer.cancel();
@@ -2741,7 +2742,7 @@ class FunkinLua {
 	}
 
 	//Better optimized than using some getProperty shit or idk
-	static function getFlxEaseByString(?ease:String = '') {
+	static function getFlxEaseByString(?ease:String = '') : Float -> Float {
 		switch(ease.toLowerCase().trim()) {
 			case 'backin': return FlxEase.backIn;
 			case 'backinout': return FlxEase.backInOut;
@@ -2811,7 +2812,7 @@ class FunkinLua {
 		return PlayState.instance.camGame;
 	}
 
-	public function luaTrace(text:String, ignoreCheck:Bool = false, deprecated:Bool = false, color:FlxColor = FlxColor.WHITE) {
+	public function luaTrace(text:String, ignoreCheck:Bool = false, deprecated:Bool = false, color:FlxColor = FlxColor.WHITE) : Bool {
 		#if LUA_ALLOWED
 		if(ignoreCheck || getBool('luaDebugMode')) {
 			if(deprecated && !getBool('luaDeprecatedWarnings')) {
@@ -2930,7 +2931,7 @@ class FunkinLua {
 		return coverMeInPiss;
 	}
 
-	public function set(variable:String, data:Dynamic) {
+	public function set(variable:String, data:Dynamic) : Void {
 		#if LUA_ALLOWED
 		if(currentScript.lua == null) {
 			return;
@@ -2955,7 +2956,7 @@ class FunkinLua {
 	}
 	#end
 
-	public function stop() {
+	public function stop() : Void {
 		#if LUA_ALLOWED
 		if(lua == null) {
 			return;
@@ -2967,7 +2968,7 @@ class FunkinLua {
 		#end
 	}
 
-	public static inline function getInstance()
+	public static inline function getInstance() : FlxState
 	{
 		return PlayState.instance.isDead ? GameOverSubstate.instance : PlayState.instance;
 	}
@@ -3025,7 +3026,7 @@ class DebugLuaText extends FlxText
 		borderSize = 1;
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		super.update(elapsed);
 		disableTime -= elapsed;
 		if(disableTime < 0) disableTime = 0;

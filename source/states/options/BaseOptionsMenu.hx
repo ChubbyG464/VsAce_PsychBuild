@@ -160,7 +160,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		reloadCheckboxes();
 	}
 
-	public function addOption(option:Option) {
+	public function addOption(option:Option) : Void {
 		if(optionsArray == null || optionsArray.length < 1) optionsArray = [];
 		optionsArray.push(option);
 	}
@@ -168,7 +168,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 	var nextAccept:Int = 5;
 	var holdTime:Float = 0;
 	var holdValue:Float = 0;
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (controls.UI_UP_P)
 		{
@@ -304,7 +304,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		super.update(elapsed);
 	}
 
-	function updateTextFrom(option:Option) {
+	function updateTextFrom(option:Option) : Void {
 		var text:String = option.displayFormat;
 		var val:Dynamic = option.getValue();
 		if(option.type == 'percent') val *= 100;
@@ -312,7 +312,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		option.text = text.replace('%v', val).replace('%d', def);
 	}
 
-	function clearHold()
+	function clearHold() : Void
 	{
 		if(holdTime > 0.5) {
 			FlxG.sound.play(Paths.sound('scrollMenu'));
@@ -320,7 +320,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		holdTime = 0;
 	}
 	
-	function changeSelection(change:Int = 0)
+	function changeSelection(change:Int = 0) : Void
 	{
 		curSelected += change;
 		if (curSelected < 0)
@@ -362,7 +362,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	public function reloadBoyfriend()
+	public function reloadBoyfriend() : Void
 	{
 		var wasVisible:Bool = false;
 		if(boyfriend != null) {
@@ -380,7 +380,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		boyfriend.visible = wasVisible;
 	}
 
-	function reloadCheckboxes() {
+	function reloadCheckboxes() : Void {
 		for (checkbox in checkboxGroup) {
 			checkbox.daValue = (optionsArray[checkbox.ID].getValue() == true);
 		}

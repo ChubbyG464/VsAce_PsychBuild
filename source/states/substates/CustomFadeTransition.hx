@@ -70,7 +70,7 @@ class CustomFadeTransition extends MusicBeatSubstate {
 		nextCamera = null;
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if(isTransIn) {
 			transBlack.y = transGradient.y + transGradient.height;
 		} else {
@@ -84,7 +84,7 @@ class CustomFadeTransition extends MusicBeatSubstate {
 		}
 	}
 
-	override function destroy() {
+	override function destroy() : Void {
 		if(leTween != null) {
 			finishCallback();
 			leTween.cancel();

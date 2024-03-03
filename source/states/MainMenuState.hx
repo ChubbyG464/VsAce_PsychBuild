@@ -59,7 +59,7 @@ class MainMenuState extends MusicBeatState
 
 	var currentPlushieCampaign:String = "";
 
-	override function create()
+	override function create() : Void
 	{
 		#if MODS_ALLOWED
 		Paths.pushGlobalMods();
@@ -266,7 +266,7 @@ class MainMenuState extends MusicBeatState
 
 	var selectedSomethin:Bool = false;
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (FlxG.sound.music.volume < 0.8)
 		{
@@ -368,7 +368,7 @@ class MainMenuState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function changeItem(huh:Int = 0)
+	function changeItem(huh:Int = 0) : Void
 	{
 		curSelected += huh;
 

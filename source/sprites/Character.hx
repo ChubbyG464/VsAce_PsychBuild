@@ -227,7 +227,7 @@ class Character extends FlxScaleFixedSprite
 		}
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(!debugMode && animation.curAnim != null)
 		{
@@ -277,7 +277,7 @@ class Character extends FlxScaleFixedSprite
 	/**
 	 * FOR GF DANCING SHIT
 	 */
-	public function dance()
+	public function dance() : Void
 	{
 		if (!debugMode && !skipDance && !specialAnim)
 		{
@@ -329,7 +329,7 @@ class Character extends FlxScaleFixedSprite
 
 	public var danceEveryNumBeats:Int = 2;
 	private var settingCharacterUp:Bool = true;
-	public function recalculateDanceIdle() {
+	public function recalculateDanceIdle() : Void {
 		var lastDanceIdle:Bool = danceIdle;
 		danceIdle = (animation.getByName('danceLeft' + idleSuffix) != null && animation.getByName('danceRight' + idleSuffix) != null);
 
@@ -350,12 +350,12 @@ class Character extends FlxScaleFixedSprite
 		settingCharacterUp = false;
 	}
 
-	public function addOffset(name:String, x:Float = 0, y:Float = 0)
+	public function addOffset(name:String, x:Float = 0, y:Float = 0) : Void
 	{
 		animOffsets[name] = [x, y];
 	}
 
-	public function quickAnimAdd(name:String, anim:String)
+	public function quickAnimAdd(name:String, anim:String) : Void
 	{
 		animation.addByPrefix(name, anim, 24, false);
 	}

@@ -20,7 +20,7 @@ class ZeroEndingState extends FlxSubState {
 
 	public static var endImage:String = "End";
 
-	override function create() {
+	override function create() : Void {
 		zeroEndBG = new FlxSprite(0, 0).loadGraphic(Paths.image("dialogue/" + endImage));
 		zeroEndBG.scrollFactor.set();
 		zeroEndBG.antialiasing = ClientPrefs.globalAntialiasing;
@@ -42,7 +42,7 @@ class ZeroEndingState extends FlxSubState {
 		super.create();
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if (FlxG.keys.justPressed.ENTER) {
 			if (enterPressedOnce/* || PlayState.finishedzero*/) {
 				//SaveDataManager.instance.endingData.setFinishedzeroFlag(true);
@@ -65,7 +65,7 @@ class ZeroEndingState extends FlxSubState {
 	*   @param  alphaVal            The alpha for the group of FlxSprites to fade to.
 	*   @param  stopSpammingFlag    Set to true if the stopspamming flag should be set to false when the tweens are complete.
 	*/
-	function fadeGroup(group:FlxTypedGroup<FlxSprite>, alphaVal:Float, callback:Null<TweenCallback>)
+	function fadeGroup(group:FlxTypedGroup<FlxSprite>, alphaVal:Float, callback:Null<TweenCallback>) : Void
 	{
 		if (callback != null)
 		{

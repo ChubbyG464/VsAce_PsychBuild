@@ -26,7 +26,7 @@ class PlayerSettings
 		this.controls = new Controls('player$id', scheme);
 	}
 
-	public function setKeyboardScheme(scheme)
+	public function setKeyboardScheme(scheme) : Void
 	{
 		controls.setKeyboardScheme(scheme);
 	}
@@ -65,7 +65,7 @@ class PlayerSettings
 		}
 	}
 
-	static public function reset()
+	static public function reset() : Void
 	{
 		player1 = null;
 		player2 = null;

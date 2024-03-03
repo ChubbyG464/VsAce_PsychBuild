@@ -9,7 +9,7 @@ class AnimationSprite extends FlxSprite
 {
     public var animOffsets = new Map<String, Array<Float>>();
 
-    override function destroy() {
+    override function destroy() : Void {
         super.destroy();
 
         if(animOffsets != null) {
@@ -18,11 +18,12 @@ class AnimationSprite extends FlxSprite
         }
     }
 
-    public inline function addAnimationByPrefix(name:String, xmlName:String, offset:Array<Float>, fps:Int=30, looped:Bool=true, flipX:Bool=false, flipY:Bool=false) {
+    public inline function addAnimationByPrefix(name:String, xmlName:String, offset:Array<Float>, fps:Int=30, looped:Bool=true, flipX:Bool=false, flipY:Bool=false) : Void {
         animation.addByPrefix(name, xmlName, fps, looped, flipX, flipY);
         animOffsets[name] = offset;
     }
-    public inline function addAnimationByIndices(name:String, xmlName:String, offset:Array<Float>, frames:Array<Int>, fps:Int=30, looped:Bool=true, flipX:Bool=false, flipY:Bool=false) {
+
+    public inline function addAnimationByIndices(name:String, xmlName:String, offset:Array<Float>, frames:Array<Int>, fps:Int=30, looped:Bool=true, flipX:Bool=false, flipY:Bool=false) : Void {
         animation.addByIndices(name, xmlName, frames, "", fps, looped, flipX, flipY);
         animOffsets[name] = offset;
     }
@@ -46,7 +47,7 @@ class AnimationSprite extends FlxSprite
         playAnim(animName, force, reversed, frame);
     }
 
-    public inline function addOffset(name:String, x:Float = 0, y:Float = 0)
+    public inline function addOffset(name:String, x:Float = 0, y:Float = 0) : Void
     {
         animOffsets[name] = [x, y];
     }

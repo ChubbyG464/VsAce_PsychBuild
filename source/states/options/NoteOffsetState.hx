@@ -50,7 +50,7 @@ class NoteOffsetState extends MusicBeatState
 
 	var changeModeText:FlxText;
 
-	override public function create()
+	override public function create() : Void
 	{
 		// Cameras
 		camGame = new FlxCamera();
@@ -214,7 +214,7 @@ class NoteOffsetState extends MusicBeatState
 	var startMousePos:FlxPoint = new FlxPoint();
 	var startComboOffset:FlxPoint = new FlxPoint();
 
-	override public function update(elapsed:Float)
+	override public function update(elapsed:Float) : Void
 	{
 		var addNum:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) addNum = 10;
@@ -372,7 +372,7 @@ class NoteOffsetState extends MusicBeatState
 
 	var zoomTween:FlxTween;
 	var lastBeatHit:Int = -1;
-	override public function beatHit()
+	override public function beatHit() : Void
 	{
 		super.beatHit();
 
@@ -412,7 +412,7 @@ class NoteOffsetState extends MusicBeatState
 		lastBeatHit = curBeat;
 	}
 
-	function repositionCombo()
+	function repositionCombo() : Void
 	{
 		rating.screenCenter();
 		rating.x = coolText.x - 40 + ClientPrefs.comboOffset[0];
@@ -424,7 +424,7 @@ class NoteOffsetState extends MusicBeatState
 		reloadTexts();
 	}
 
-	function createTexts()
+	function createTexts() : Void
 	{
 		for (i in 0...4)
 		{
@@ -442,7 +442,7 @@ class NoteOffsetState extends MusicBeatState
 		}
 	}
 
-	function reloadTexts()
+	function reloadTexts() : Void
 	{
 		for (i in 0...dumbTexts.length)
 		{
@@ -456,13 +456,13 @@ class NoteOffsetState extends MusicBeatState
 		}
 	}
 
-	function updateNoteDelay()
+	function updateNoteDelay() : Void
 	{
 		ClientPrefs.noteOffset = Math.round(barPercent);
 		timeTxt.text = 'Current offset: ' + Math.floor(barPercent) + ' ms';
 	}
 
-	function updateMode()
+	function updateMode() : Void
 	{
 		rating.visible = onComboMenu;
 		comboNums.visible = onComboMenu;

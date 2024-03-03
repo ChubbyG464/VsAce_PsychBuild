@@ -79,7 +79,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 
 	var curAnim:Int = 0;
 
-	override function create() {
+	override function create() : Void {
 		Alphabet.setDialogueSound();
 
 		persistentUpdate = persistentDraw = true;
@@ -167,7 +167,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 
 	var UI_typebox:FlxUITabMenu;
 	var UI_mainbox:FlxUITabMenu;
-	function addEditorBox() {
+	function addEditorBox() : Void {
 		var tabs = [
 			{name: 'Character Type', label: 'Character Type'},
 		];
@@ -200,7 +200,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 	var leftCheckbox:FlxUICheckBox;
 	var centerCheckbox:FlxUICheckBox;
 	var rightCheckbox:FlxUICheckBox;
-	function addTypeUI() {
+	function addTypeUI() : Void {
 		var tab_group = new FlxUI(null, UI_typebox);
 		tab_group.name = "Character Type";
 
@@ -237,7 +237,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 	var animationInputText:FlxUIInputText;
 	var loopInputText:FlxUIInputText;
 	var idleInputText:FlxUIInputText;
-	function addAnimationsUI() {
+	function addAnimationsUI() : Void {
 		var tab_group = new FlxUI(null, UI_mainbox);
 		tab_group.name = "Animations";
 
@@ -344,7 +344,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 		reloadAnimationsDropDown();
 	}
 
-	function reloadAnimationsDropDown() {
+	function reloadAnimationsDropDown() : Void {
 		animationArray = [];
 		for (anim in character.jsonFile.animations) {
 			animationArray.push(anim.anim);
@@ -359,7 +359,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 	var xStepper:FlxUINumericStepper;
 	var yStepper:FlxUINumericStepper;
 	var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
-	function addCharacterUI() {
+	function addCharacterUI() : Void {
 		var tab_group = new FlxUI(null, UI_mainbox);
 		tab_group.name = "Character";
 
@@ -402,7 +402,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 		UI_mainbox.addGroup(tab_group);
 	}
 
-	function updateCharTypeBox() {
+	function updateCharTypeBox() : Void {
 		leftCheckbox.checked = false;
 		centerCheckbox.checked = false;
 		rightCheckbox.checked = false;
@@ -420,7 +420,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 	}
 
 	private static var DEFAULT_TEXT:String = 'Lorem ipsum dolor sit amet';
-	function reloadText() {
+	function reloadText() : Void {
 		if(daText != null) {
 			daText.killTheTimer();
 			daText.kill();
@@ -433,7 +433,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 		hudGroup.add(daText);
 	}
 
-	function reloadCharacter() {
+	function reloadCharacter() : Void {
 		var charsArray:Array<DialogueCharacter> = [character, ghostLoop, ghostIdle];
 		for (char in charsArray) {
 			char.frames = Paths.getSparrowAtlas('dialogue/' + character.jsonFile.image);
@@ -474,7 +474,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 		#end
 	}
 
-	function updateTextBox() {
+	function updateTextBox() : Void {
 		box.flipX = false;
 		var anim:String = 'normal';
 		switch(character.jsonFile.dialogue_pos) {
@@ -487,7 +487,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 		DialogueBoxPsych.updateBoxOffsets(box);
 	}
 
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) : Void {
 		if(id == FlxUIInputText.CHANGE_EVENT && sender == imageInputText) {
 			character.jsonFile.image = imageInputText.text;
 		} else if(id == FlxUINumericStepper.CHANGE_EVENT && (sender is FlxUINumericStepper)) {
@@ -507,7 +507,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 	var currentGhosts:Int = 0;
 	var lastTab:String = 'Character';
 	var transitioning:Bool = false;
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if(transitioning) {
 			super.update(elapsed);
 			return;
@@ -703,7 +703,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 	}
 
 	var _file:FileReference = null;
-	function loadCharacter() {
+	function loadCharacter() : Void {
 		var jsonFilter:FileFilter = new FileFilter('JSON', 'json');
 		_file = new FileReference();
 		_file.addEventListener(Event.SELECT, onLoadComplete);
@@ -776,7 +776,7 @@ class DialogueCharacterEditorState extends MusicBeatState
 		trace("Problem loading file");
 	}
 
-	function saveCharacter() {
+	function saveCharacter() : Void {
 		var data:String = Json.stringify(character.jsonFile, "\t");
 		if (data.length > 0)
 		{

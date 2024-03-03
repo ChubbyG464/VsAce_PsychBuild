@@ -134,7 +134,7 @@ class ControlsSubState extends MusicBeatSubstate {
 
 	var leaving:Bool = false;
 	var bindingTime:Float = 0;
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if(!rebindingKey) {
 			if (controls.UI_UP_P) {
 				changeSelection(-1);
@@ -205,7 +205,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		super.update(elapsed);
 	}
 
-	function getInputTextNum() {
+	function getInputTextNum() : Int {
 		var num:Int = 0;
 		for (i in 0...curSelected) {
 			if(optionShit[i].length > 1) {
@@ -215,7 +215,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		return num;
 	}
 	
-	function changeSelection(change:Int = 0) {
+	function changeSelection(change:Int = 0) : Void {
 		do {
 			curSelected += change;
 			if (curSelected < 0)
@@ -262,7 +262,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
-	function changeAlt() {
+	function changeAlt() : Void {
 		curAlt = !curAlt;
 		for (i in 0...grpInputs.length) {
 			if(grpInputs[i].sprTracker == grpOptions.members[curSelected]) {
@@ -292,7 +292,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		return optionShit[num].length < 2 && optionShit[num][0] != defaultKey;
 	}
 
-	private function addBindTexts(optionText:Alphabet, num:Int) {
+	private function addBindTexts(optionText:Alphabet, num:Int) : Void {
 		var keys:Array<Dynamic> = ClientPrefs.keyBinds.get(optionShit[num][1]);
 		var text1 = new AttachedText(InputFormatter.getKeyName(keys[0]), 400, -55);
 		text1.setPosition(optionText.x + 400, optionText.y - 55);
@@ -309,7 +309,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		add(text2);
 	}
 
-	function reloadKeys() {
+	function reloadKeys() : Void {
 		while(grpInputs.length > 0) {
 			var item:AttachedText = grpInputs[0];
 			item.kill();

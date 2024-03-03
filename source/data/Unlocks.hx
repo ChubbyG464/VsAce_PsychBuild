@@ -75,7 +75,7 @@ class Unlocks {
 	private static var hasLoadedDefault:Bool = false;
 	public static var isReset(get, never):Bool;
 
-	private static function get_isReset() {
+	private static function get_isReset() : Bool {
 		var u = [];
 		var d = [];
 		u.push(unlockedSongs.join("|"));
@@ -92,7 +92,7 @@ class Unlocks {
 	public static var defaultWeeks:Array<String> = [];
 	public static var defaultBfs:Array<String> = [];
 
-	private static function defaultSetup() {
+	private static function defaultSetup() : Void {
 		if(hasLoadedDefault) {
 			return;
 		}
@@ -104,13 +104,13 @@ class Unlocks {
 		hasLoadedDefault = true;
 	}
 
-	public static function resetProgress() {
+	public static function resetProgress() : Void {
 		unlockedSongs = defaultSongs;
 		unlockedWeeks = defaultWeeks;
 		unlockedBfs = defaultBfs;
 	}
 
-	public static function saveUnlocks() {
+	public static function saveUnlocks() : Void {
 		fixOrder();
 
 		var save:FlxSave = new FlxSave();
@@ -132,7 +132,7 @@ class Unlocks {
 	public static var portedFromOld = false;
 	public static var firstBoot = false;
 
-	public static function loadUnlocks() {
+	public static function loadUnlocks() : Void {
 		defaultSetup();
 
 		var save:FlxSave = new FlxSave();
@@ -176,7 +176,7 @@ class Unlocks {
 	public static var recentlyUnlockedWeeks:Array<String> = [];
 	public static var recentlyUnlockedSongs:Array<String> = [];
 
-	public static function finishedStoryWeek(weekName:String) {
+	public static function finishedStoryWeek(weekName:String) : Void {
 		if(weekName == "week0") {
 		}
 	}
@@ -185,7 +185,7 @@ class Unlocks {
 	* Determines any content that should be unlocked after the specified song ends.
 	* @param song   The name of the song to check for unlocked content.
 	**/
-	public static function finishedSong(song:String) {
+	public static function finishedSong(song:String) : Void {
 		// (Arcy) Other special unlocks for completion of songs
 		switch (song)
 		{
@@ -225,11 +225,11 @@ class Unlocks {
 		//saveUnlocks();
 		}
 	
-	public static function progressCheck() {
+	public static function progressCheck() : Void {
 		fixOrder();
 	}
 
-	public static function playedSong(value:String) {
+	public static function playedSong(value:String) : Void {
 		value = Paths.formatToSongPath(value);
 
 		if(!unlockedSongs.contains(value)) {
@@ -252,7 +252,7 @@ class Unlocks {
 		return false;
 	}
 
-	public static function unlock(type:UnlockType, _value:String, hidden:Bool = false) {
+	public static function unlock(type:UnlockType, _value:String, hidden:Bool = false) : Bool {
 		var value = Paths.formatToSongPath(_value);
 
 		var didAdd = switch(type) {
@@ -284,7 +284,7 @@ class Unlocks {
 	];
 	public static var newMenuItem:Array<String> = [];
 
-	public static function setNew(type:UnlockType, value:String) {
+	public static function setNew(type:UnlockType, value:String) : Bool {
 		value = Paths.formatToSongPath(value);
 
 		var didAdd = switch(type) {
@@ -297,11 +297,11 @@ class Unlocks {
 		return didAdd;
 	}
 
-	private static inline function clearArr(array:Array<String>) {
+	private static inline function clearArr(array:Array<String>) : Void {
 		array.splice(0, array.length);
 	}
 
-	public static function clearRecentType(type:UnlockType) {
+	public static function clearRecentType(type:UnlockType) : Void {
 		switch(type) {
 			case BF: clearArr(recentlyUnlockedChars);
 			case WEEK: clearArr(recentlyUnlockedWeeks);
@@ -312,13 +312,13 @@ class Unlocks {
 
 	// Utils
 
-	public static function fixOrder() {
+	public static function fixOrder() : Void {
 		unlockedBfs = _fixOrder(unlockedBfs, allBfs);
 		unlockedSongs = _fixOrder(unlockedSongs, allSongs);
 		unlockedWeeks = _fixOrder(unlockedWeeks, allWeeks);
 	}
 
-	private static function _fixOrder(unlocked:Array<String>, all:Array<String>) {
+	private static function _fixOrder(unlocked:Array<String>, all:Array<String>) : Array<String> {
 		var newList:Array<String> = [];
 		for(data in all) {
 			if(unlocked.contains(data)) {
@@ -328,21 +328,21 @@ class Unlocks {
 		return newList;
 	}
 
-	public inline static function isBFUnlocked(name:String) {
+	public inline static function isBFUnlocked(name:String) : Bool {
 		return Unlocks.unlockedBfs.contains(name);
 	}
-	public inline static function isBFUnlockedIdx(idx:Int) {
+	public inline static function isBFUnlockedIdx(idx:Int) : Bool {
 		return Unlocks.unlockedBfs.contains(Unlocks.allBfs[idx]);
 	}
 
-	public inline static function isWeekUnlocked(week:String) {
+	public inline static function isWeekUnlocked(week:String) : Bool {
 		if(!Unlocks.allWeeks.contains(week)) return true; // Assume Custom Week
 		return Unlocks.unlockedWeeks.contains(week);
 	}
 
 	public static var debugAllSongs:Bool = false;
 
-	public static function hasUnlockedSong(song:String) {
+	public static function hasUnlockedSong(song:String) : Bool {
 		if(Unlocks.debugAllSongs) return true;
 		song = Paths.formatToSongPath(song);
 		if(!Unlocks.allSongs.contains(song)) return true; // Assume Custom Song

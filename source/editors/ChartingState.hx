@@ -224,7 +224,7 @@ class ChartingState extends MusicBeatState
 	var text:String = "";
 	public static var vortex:Bool = false;
 	public var mouseQuant:Bool = false;
-	override function create()
+	override function create() : Void
 	{
 		if (PlayState.SONG != null)
 			_song = PlayState.SONG;
@@ -1166,7 +1166,7 @@ class ChartingState extends MusicBeatState
 		UI_box.addGroup(tab_group_event);
 	}
 
-	function changeEventSelected(change:Int = 0)
+	function changeEventSelected(change:Int = 0) : Void
 	{
 		if(curSelectedNote != null && curSelectedNote[2] == null) //Is event note
 		{
@@ -1183,7 +1183,7 @@ class ChartingState extends MusicBeatState
 		updateNoteUI();
 	}
 
-	function setAllLabelsOffset(button:FlxButton, x:Float, y:Float)
+	function setAllLabelsOffset(button:FlxButton, x:Float, y:Float) : Void
 	{
 		for (point in button.labelOffsets)
 		{
@@ -1202,7 +1202,7 @@ class ChartingState extends MusicBeatState
 	#end
 	var instVolume:FlxUINumericStepper;
 	var voicesVolume:FlxUINumericStepper;
-	function addChartingUI() {
+	function addChartingUI() : Void {
 		var tab_group_chart = new FlxUI(null, UI_box);
 		tab_group_chart.name = 'Charting';
 
@@ -1383,7 +1383,7 @@ class ChartingState extends MusicBeatState
 		FlxG.sound.music.time = Conductor.songPosition;
 	}
 
-	function generateSong() {
+	function generateSong() : Void {
 		FlxG.sound.playMusic(Paths.inst(currentSongName), 0.6/*, false*/);
 		if (instVolume != null) FlxG.sound.music.volume = instVolume.value;
 		if (check_mute_inst != null && check_mute_inst.checked) FlxG.sound.music.volume = 0;
@@ -1416,7 +1416,7 @@ class ChartingState extends MusicBeatState
 		bullshitUI.add(title);
 	}
 
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>)
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) : Void
 	{
 		if (id == FlxUICheckBox.CLICK_EVENT)
 		{
@@ -1534,7 +1534,7 @@ class ChartingState extends MusicBeatState
 
 	var lastConductorPos:Float;
 	var colorSine:Float = 0;
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		curStep = recalculateSteps();
 
@@ -2043,7 +2043,7 @@ class ChartingState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function updateZoom() {
+	function updateZoom() : Void {
 		var daZoom:Float = zoomList[curZoom];
 		var zoomThing:String = '1 / ' + daZoom;
 		if(daZoom < 1) zoomThing = Math.round(1 / daZoom) + ' / 1';
@@ -2094,7 +2094,7 @@ class ChartingState extends MusicBeatState
 
 	var lastSecBeats:Float = 0;
 	var lastSecBeatsNext:Float = 0;
-	function reloadGridLayer() {
+	function reloadGridLayer() : Void {
 		gridLayer.clear();
 		gridBG = FlxGridOverlay.create(GRID_SIZE, GRID_SIZE, GRID_SIZE * 9, Std.int(GRID_SIZE * getSectionBeats() * 4 * zoomList[curZoom]));
 
@@ -2145,14 +2145,14 @@ class ChartingState extends MusicBeatState
 		else getSectionBeats(curSec + 1);
 	}
 
-	function strumLineUpdateY()
+	function strumLineUpdateY() : Void
 	{
 		strumLine.y = getYfromStrum((Conductor.songPosition - sectionStartTime()) / zoomList[curZoom] % (Conductor.stepCrochet * 16)) / (getSectionBeats() / 4);
 	}
 
 	var waveformPrinted:Bool = true;
 	var wavData:Array<Array<Array<Float>>> = [[[0], [0]], [[0], [0]]];
-	function updateWaveform() {
+	function updateWaveform() : Void {
 		#if desktop
 		if(waveformPrinted) {
 			waveformSprite.makeGraphic(Std.int(GRID_SIZE * 8), Std.int(gridBG.height), 0x00FFFFFF);
@@ -2491,7 +2491,7 @@ class ChartingState extends MusicBeatState
 		}
 	}
 
-	function loadHealthIconFromCharacter(char:String) {
+	function loadHealthIconFromCharacter(char:String) : String {
 		var characterPath:String = 'characters/' + char + '.json';
 		#if MODS_ALLOWED
 		var path:String = Paths.modFolders(characterPath);
@@ -2808,7 +2808,7 @@ class ChartingState extends MusicBeatState
 		updateGrid();
 	}
 
-	public function doANoteThing(cs, d, style){
+	public function doANoteThing(cs, d, style) : Void {
 		var delnote = false;
 		if(strumLineNotes.members[d].overlaps(curRenderedNotes))
 		{
@@ -2881,12 +2881,12 @@ class ChartingState extends MusicBeatState
 	}
 
 	// will figure this out l8r
-	function redo()
+	function redo() : Void
 	{
 		//_song = redos[curRedoIndex];
 	}
 
-	function undo()
+	function undo() : Void
 	{
 		//redos.push(_song);
 		undos.pop();
@@ -2951,12 +2951,12 @@ class ChartingState extends MusicBeatState
 		FlxG.save.flush();
 	}
 
-	function clearEvents() {
+	function clearEvents() : Void {
 		_song.events = [];
 		updateGrid();
 	}
 
-	private function saveLevel()
+	private function saveLevel() : Void
 	{
 		_song.events.sort(sortByTime);
 		var json = {
@@ -2980,7 +2980,7 @@ class ChartingState extends MusicBeatState
 		return FlxSort.byValues(FlxSort.ASCENDING, Obj1[0], Obj2[0]);
 	}
 
-	private function saveEvents()
+	private function saveEvents() : Void
 	{
 		_song.events.sort(sortByTime);
 		var eventsSong:Dynamic = {
@@ -3034,13 +3034,13 @@ class ChartingState extends MusicBeatState
 		FlxG.log.error("Problem saving Level data");
 	}
 
-	function getSectionBeats(?section:Null<Int> = null)
+	function getSectionBeats(?section:Null<Int> = null) : Float
 	{
 		if (section == null) section = curSec;
 		var val:Null<Float> = null;
 		
 		if(_song.notes[section] != null) val = _song.notes[section].sectionBeats;
-		return val != null ? val : 4;
+		return (val != null) ? val : 4;
 	}
 }
 
@@ -3054,7 +3054,7 @@ class AttachedFlxText extends FlxText
 		super(X, Y, FieldWidth, Text, Size, EmbeddedFont);
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		super.update(elapsed);
 

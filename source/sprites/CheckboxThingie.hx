@@ -29,7 +29,7 @@ class CheckboxThingie extends FlxSprite
 		daValue = checked;
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if (sprTracker != null) {
 			setPosition(sprTracker.x - 130 + offsetX, sprTracker.y + 30 + offsetY);
 			if(copyAlpha) {
@@ -52,7 +52,7 @@ class CheckboxThingie extends FlxSprite
 		return check;
 	}
 
-	private function animationFinished(name:String)
+	private function animationFinished(name:String) : Void
 	{
 		switch(name)
 		{

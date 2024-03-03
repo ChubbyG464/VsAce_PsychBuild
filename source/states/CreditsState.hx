@@ -44,14 +44,14 @@ class CreditGroup extends FlxBasic
 
 	}
 
-	public function tweenPosition(X:Float, Y:Float, Duration:Float = 1, ?Options:TweenOptions)
+	public function tweenPosition(X:Float, Y:Float, Duration:Float = 1, ?Options:TweenOptions) : Void
 	{
 		FlxTween.tween(name, {x: X, y: Y}, Duration, Options);
 		FlxTween.tween(tag, {x: X, y: Y + 20}, Duration, Options);
 		FlxTween.tween(icon, {x: X - 50, y: Y}, Duration, Options);
 	}
 
-	public function setPosition(X:Float, Y:Float)
+	public function setPosition(X:Float, Y:Float) : Void
 	{
 		name.setPosition(X, Y);
 		tag.setPosition(X, Y + 20);
@@ -59,12 +59,12 @@ class CreditGroup extends FlxBasic
 	}
 
 
-	public function select()
+	public function select() : Void
 	{
 		name.setFormat("VCR OSD Mono", 24, color);
 	}
 
-	public function deselect()
+	public function deselect() : Void
 	{
 		name.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
 	}
@@ -153,7 +153,7 @@ class CreditsState extends MusicBeatState
 
 	//var shh:FlxSound;
 
-	override function create()
+	override function create() : Void
 	{
 		#if windows
 		// Updating Discord Rich Presence
@@ -371,7 +371,7 @@ class CreditsState extends MusicBeatState
 		super.create();
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		// For animations on beat
 		if (FlxG.sound.music != null)
@@ -426,7 +426,7 @@ class CreditsState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	override function beatHit()
+	override function beatHit() : Void
 	{
 		for (i in 0...iconList.length)
 		{
@@ -438,7 +438,7 @@ class CreditsState extends MusicBeatState
 	// 1 - Down
 	// 2 - Up
 	// 3 - Right
-	function move(direction:Int)
+	function move(direction:Int) : Void
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'));
 
@@ -449,7 +449,7 @@ class CreditsState extends MusicBeatState
 
 	}
 
-	function changeSection(direction:Int)
+	function changeSection(direction:Int) : Void
 	{
 		allowInputs = false;
 

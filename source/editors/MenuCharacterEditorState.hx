@@ -44,7 +44,7 @@ class MenuCharacterEditorState extends MusicBeatState
 	var txtOffsets:FlxText;
 	var defaultCharacters:Array<String> = ['ace', 'bf-cold', 'gf'];
 
-	override function create() {
+	override function create() : Void {
 		characterFile = {
 			image: 'campaign_menu_UI_characters',
 			scale: 1,
@@ -92,7 +92,7 @@ class MenuCharacterEditorState extends MusicBeatState
 	var UI_typebox:FlxUITabMenu;
 	var UI_mainbox:FlxUITabMenu;
 	var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
-	function addEditorBox() {
+	function addEditorBox() : Void {
 		var tabs = [
 			{name: 'Character Type', label: 'Character Type'},
 		];
@@ -134,7 +134,7 @@ class MenuCharacterEditorState extends MusicBeatState
 	var boyfriendCheckbox:FlxUICheckBox;
 	var girlfriendCheckbox:FlxUICheckBox;
 	var curTypeSelected:Int = 0; //0 = Dad, 1 = BF, 2 = GF
-	function addTypeUI() {
+	function addTypeUI() : Void {
 		var tab_group = new FlxUI(null, UI_typebox);
 		tab_group.name = "Character Type";
 
@@ -171,7 +171,7 @@ class MenuCharacterEditorState extends MusicBeatState
 	var confirmDescText:FlxText;
 	var scaleStepper:FlxUINumericStepper;
 	var flipXCheckbox:FlxUICheckBox;
-	function addCharacterUI() {
+	function addCharacterUI() : Void {
 		var tab_group = new FlxUI(null, UI_mainbox);
 		tab_group.name = "Character";
 		
@@ -209,7 +209,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		UI_mainbox.addGroup(tab_group);
 	}
 
-	function updateCharTypeBox() {
+	function updateCharTypeBox() : Void {
 		opponentCheckbox.checked = false;
 		boyfriendCheckbox.checked = false;
 		girlfriendCheckbox.checked = false;
@@ -226,7 +226,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		updateCharacters();
 	}
 
-	function updateCharacters() {
+	function updateCharacters() : Void {
 		for (i in 0...3) {
 			var char:MenuCharacter = grpWeekCharacters.members[i];
 			char.alpha = 0.2;
@@ -236,7 +236,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		reloadSelectedCharacter();
 	}
 	
-	function reloadSelectedCharacter() {
+	function reloadSelectedCharacter() : Void {
 		var char:MenuCharacter = grpWeekCharacters.members[curTypeSelected];
 
 		char.alpha = 1;
@@ -259,7 +259,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		#end
 	}
 
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) : Void {
 		if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
 			if(sender == imageInputText) {
 				characterFile.image = imageInputText.text;
@@ -276,7 +276,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		}
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		var blockInput:Bool = false;
 		for (inputText in blockPressWhileTypingOn) {
 			if(inputText.hasFocus) {
@@ -332,14 +332,14 @@ class MenuCharacterEditorState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function updateOffset() {
+	function updateOffset() : Void {
 		var char:MenuCharacter = grpWeekCharacters.members[curTypeSelected];
 		char.offset.set(characterFile.position[0], characterFile.position[1]);
 		txtOffsets.text = '' + characterFile.position;
 	}
 
 	var _file:FileReference = null;
-	function loadCharacter() {
+	function loadCharacter() : Void {
 		var jsonFilter:FileFilter = new FileFilter('JSON', 'json');
 		_file = new FileReference();
 		_file.addEventListener(Event.SELECT, onLoadComplete);
@@ -409,7 +409,7 @@ class MenuCharacterEditorState extends MusicBeatState
 		trace("Problem loading file");
 	}
 
-	function saveCharacter() {
+	function saveCharacter() : Void {
 		var data:String = Json.stringify(characterFile, "\t");
 		if (data.length > 0)
 		{

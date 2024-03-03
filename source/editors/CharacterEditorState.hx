@@ -86,7 +86,7 @@ class CharacterEditorState extends MusicBeatState
 	var cameraFollowPointer:FlxSprite;
 	var healthBarBG:FlxSprite;
 
-	override function create()
+	override function create() : Void
 	{
 		//FlxG.sound.playMusic(Paths.music('breakfast'), 0.5);
 
@@ -213,7 +213,7 @@ class CharacterEditorState extends MusicBeatState
 
 	var onPixelBG:Bool = false;
 	var OFFSET_X:Float = 300;
-	function reloadBGs() {
+	function reloadBGs() : Void {
 		var i:Int = bgLayer.members.length-1;
 		while(i >= 0) {
 			var memb:FlxSprite = bgLayer.members[i];
@@ -419,7 +419,7 @@ class CharacterEditorState extends MusicBeatState
 		}';
 
 	var charDropDown:FlxUIDropDownMenuCustom;
-	function addSettingsUI() {
+	function addSettingsUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Settings";
 
@@ -516,7 +516,7 @@ class CharacterEditorState extends MusicBeatState
 	var healthColorStepperG:FlxUINumericStepper;
 	var healthColorStepperB:FlxUINumericStepper;
 
-	function addCharacterUI() {
+	function addCharacterUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Character";
 
@@ -616,7 +616,7 @@ class CharacterEditorState extends MusicBeatState
 	var animationIndicesInputText:FlxUIInputText;
 	var animationNameFramerate:FlxUINumericStepper;
 	var animationLoopCheckBox:FlxUICheckBox;
-	function addAnimationsUI() {
+	function addAnimationsUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Animations";
 
@@ -763,7 +763,7 @@ class CharacterEditorState extends MusicBeatState
 		UI_characterbox.addGroup(tab_group);
 	}
 
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) : Void {
 		if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
 			if(sender == healthIconInputText) {
 				leHealthIcon.changeIcon(healthIconInputText.text);
@@ -833,7 +833,7 @@ class CharacterEditorState extends MusicBeatState
 		}
 	}
 
-	function reloadCharacterImage() {
+	function reloadCharacterImage() : Void {
 		var lastAnim:String = '';
 		if(char.animation.curAnim != null) {
 			lastAnim = char.animation.curAnim.name;
@@ -846,12 +846,6 @@ class CharacterEditorState extends MusicBeatState
 		} else {
 			char.frames = Paths.getSparrowAtlas(char.imageFile);
 		}
-
-
-
-
-
-
 
 		if(char.animationsArray != null && char.animationsArray.length > 0) {
 			for (anim in char.animationsArray) {
@@ -917,7 +911,7 @@ class CharacterEditorState extends MusicBeatState
 		}
 	}
 
-	function loadChar(isDad:Bool, blahBlahBlah:Bool = true) {
+	function loadChar(isDad:Bool, blahBlahBlah:Bool = true) : Void {
 		var i:Int = charLayer.members.length-1;
 		while(i >= 0) {
 			var memb:Character = charLayer.members[i];
@@ -961,7 +955,7 @@ class CharacterEditorState extends MusicBeatState
 		updatePointerPos();
 	}
 
-	function updatePointerPos() {
+	function updatePointerPos() : Void {
 		var x:Float = char.getMidpoint().x;
 		var y:Float = char.getMidpoint().y;
 		if(!char.isPlayer) {
@@ -985,7 +979,7 @@ class CharacterEditorState extends MusicBeatState
 		return null;
 	}
 
-	function reloadCharacterOptions() {
+	function reloadCharacterOptions() : Void {
 		if(UI_characterbox != null) {
 			imageInputText.text = char.imageFile;
 			healthIconInputText.text = char.healthIcon;
@@ -1004,7 +998,7 @@ class CharacterEditorState extends MusicBeatState
 		}
 	}
 
-	function reloadAnimationDropDown() {
+	function reloadAnimationDropDown() : Void {
 		var anims:Array<String> = [];
 		var ghostAnims:Array<String> = [''];
 		for (anim in char.animationsArray) {
@@ -1018,7 +1012,7 @@ class CharacterEditorState extends MusicBeatState
 		reloadGhost();
 	}
 
-	function reloadGhost() {
+	function reloadGhost() : Void {
 		ghostChar.frames = char.frames;
 		for (anim in char.animationsArray) {
 			var animAnim:String = '' + anim.anim;
@@ -1047,7 +1041,7 @@ class CharacterEditorState extends MusicBeatState
 		ghostChar.antialiasing = char.antialiasing;
 	}
 
-	function reloadCharacterDropDown() {
+	function reloadCharacterDropDown() : Void {
 		var charsLoaded:Map<String, Bool> = new Map();
 
 		#if MODS_ALLOWED
@@ -1078,21 +1072,21 @@ class CharacterEditorState extends MusicBeatState
 		charDropDown.selectedLabel = daAnim;
 	}
 
-	function resetHealthBarColor() {
+	function resetHealthBarColor() : Void {
 		healthColorStepperR.value = char.healthColorArray[0];
 		healthColorStepperG.value = char.healthColorArray[1];
 		healthColorStepperB.value = char.healthColorArray[2];
 		healthBarBG.color = FlxColor.fromRGB(char.healthColorArray[0], char.healthColorArray[1], char.healthColorArray[2]);
 	}
 
-	function updatePresence() {
+	function updatePresence() : Void {
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Character Editor", "Character: " + daAnim, leHealthIcon.getCharacter());
 		#end
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(char.animationsArray[curAnim] != null) {
 			textAnim.text = char.animationsArray[curAnim].anim;
@@ -1285,7 +1279,7 @@ class CharacterEditorState extends MusicBeatState
 		FlxG.log.error("Problem saving file");
 	}
 
-	function saveCharacter() {
+	function saveCharacter() : Void {
 		var json = {
 			"animations": char.animationsArray,
 			"image": char.imageFile,

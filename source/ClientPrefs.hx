@@ -96,7 +96,7 @@ class ClientPrefs {
 	];
 	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
 
-	public static function loadDefaultKeys() {
+	public static function loadDefaultKeys() : Void {
 		defaultKeys = keyBinds.copy();
 		//trace(defaultKeys);
 	}
@@ -106,7 +106,7 @@ class ClientPrefs {
 		return FlxG.save.data.haveSavedValues != null;
 	}
 
-	public static function saveSettings() {
+	public static function saveSettings() : Void {
 		FlxG.save.data.haveSavedValues = true;
 
 		FlxG.save.data.iceNotes = iceNotes;
@@ -157,7 +157,7 @@ class ClientPrefs {
 		FlxG.log.add("Settings saved!");
 	}
 
-	public static function loadPrefs() {
+	public static function loadPrefs() : Void {
 		if(FlxG.save.data.iceNotes != null) {
 			iceNotes = FlxG.save.data.iceNotes;
 		}
@@ -306,7 +306,7 @@ class ClientPrefs {
 		return /*PlayState.isStoryMode ? defaultValue : */ (gameplaySettings.exists(name) ? gameplaySettings.get(name) : defaultValue);
 	}
 
-	public static function reloadControls() {
+	public static function reloadControls() : Void {
 		PlayerSettings.player1.controls.setKeyboardScheme(KeyboardScheme.Solo);
 
 		TitleState.muteKeys = copyKey(keyBinds.get('volume_mute'));

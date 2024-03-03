@@ -43,7 +43,7 @@ class CutsceneHandler extends FlxBasic
 
 	private var cutsceneTime:Float = 0;
 	private var firstFrame:Bool = false;
-	override function update(elapsed)
+	override function update(elapsed) : Void
 	{
 		super.update(elapsed);
 
@@ -78,12 +78,12 @@ class CutsceneHandler extends FlxBasic
 		}
 	}
 
-	public function push(spr:FlxSprite)
+	public function push(spr:FlxSprite) : Void
 	{
 		objects.push(spr);
 	}
 
-	public function timer(time:Float, func:Void->Void)
+	public function timer(time:Float, func:Void->Void) : Void
 	{
 		timedEvents.push([time, func]);
 		timedEvents.sort(sortByTime);
