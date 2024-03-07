@@ -2,15 +2,19 @@
 	"storyName": "Iceolation",
 	"difficulties": "Easy,Normal,Hard",
 	"hideFreeplay": false,
-	"weekBackground": "stage",
-	"weekBefore": "week2",
+	"weekBackground": "week3",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "week2",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"ace",
+		"bf-cold",
+		"gf"
+	],
 	"songs": [
 		[
 			"Refusal",
@@ -49,11 +53,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"ace",
-		"bf-cold",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "week-ace3"
+	"hideStoryMode": false,
+	"weekName": "week-ace3",
+	"hiddenUntilUnlocked": false
 }
