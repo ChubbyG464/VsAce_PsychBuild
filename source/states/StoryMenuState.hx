@@ -218,11 +218,12 @@ class StoryMenuState extends MusicBeatState
 		add(scoreText);
 		add(txtWeekTitle);
 
-		changeWeek();
+		changeWeek(0, false);
 		changeDifficulty();
+		changeWeek(0, false);
 
-		changeSelection(true);
-		changeSelection(true);
+		//changeSelection(true);
+		//changeSelection(true);
 
 		super.create();
 	}
@@ -373,9 +374,8 @@ class StoryMenuState extends MusicBeatState
 				stopspamming = true;
 			}
 
-			if(curWeek != 2 && curWeek != 3) {
-				PlayState.storyChar = curChar;
-			} else {
+			PlayState.storyChar = curChar;
+			if(curWeek == 2 || curWeek == 3) {
 				PlayState.storyChar = 0;
 			}
 
@@ -399,7 +399,6 @@ class StoryMenuState extends MusicBeatState
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.campaignScore = 0;
 			PlayState.campaignMisses = 0;
-			PlayState.storyChar = curChar;
 			PlayState.storyWeek = curWeek;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
