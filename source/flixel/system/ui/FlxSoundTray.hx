@@ -95,13 +95,7 @@ class FlxSoundTray extends Sprite
 
 		y = -height;
 		visible = false;
-
-		//beepSound = new FlxSound();
-		//beepSound.loadEmbedded(FlxAssets.getSound("flixel/sounds/beep"), false);
-		//beepSound.looped = false;
 	}
-
-	//var beepSound:FlxSound;
 
 	/**
 	 * This function just updates the soundtray object.
@@ -139,9 +133,6 @@ class FlxSoundTray extends Sprite
 	{
 		if (!Silent && !FlxG.sound.muted)
 		{
-			//if (beepSound != null)
-			//	beepSound.play();
-			//beepSound.volume = FlxG.sound.volume;
 			var sound = FlxAssets.getSound("flixel/sounds/beep");
 			if (sound != null)
 				FlxG.sound.load(sound).play();
