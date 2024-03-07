@@ -119,7 +119,7 @@ class CreditsState extends MusicBeatState
 		],
 		[
 			// Charting
-			['ChubbyGamer464', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(201, 162, 92), 'https://twitter.com/ChubbyAlt', []],
+			['ChubbyDumpy', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(195, 98, 74), 'https://twitter.com/ChubbyAlt', []],
 			['Clipee', '@LilyClipster', 'clip', FlxColor.fromRGB(230, 230, 0), 'https://twitter.com/LilyClipster', []],
 			['DJ', '@AlchoholicDj', 'dj', FlxColor.fromRGB(0, 0, 230), 'https://twitter.com/AlchoholicDj', []]
 		],
