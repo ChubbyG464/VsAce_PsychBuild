@@ -1,9 +1,10 @@
-name: TO-DO
-description: Describe a task to be done in the project
-labels: [to-do]
+name: Edit request
+description: Request an edit to be done
+labels: [edit, to-do]
+assignees: [tantalun-moon]
 body:
   - type: textarea
     attributes:
-      label: "Task description:"
+      label: "Describe your desired edit:"
     validations:
       required: true
