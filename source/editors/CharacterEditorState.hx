@@ -53,11 +53,11 @@ using StringTools;
  */
 class CharacterEditorState extends MusicBeatState
 {
-	var char:Character;
-	var ghostChar:Character;
+	var char:EditorCharacter;
+	var ghostChar:EditorCharacter;
 	var textAnim:FlxText;
 	var bgLayer:FlxTypedGroup<FlxSprite>;
-	var charLayer:FlxTypedGroup<Character>;
+	var charLayer:FlxTypedGroup<EditorCharacter>;
 	var dumbTexts:FlxTypedGroup<FlxText>;
 	//var animList:Array<String> = [];
 	var curAnim:Int = 0;
@@ -102,7 +102,7 @@ class CharacterEditorState extends MusicBeatState
 
 		bgLayer = new FlxTypedGroup<FlxSprite>();
 		add(bgLayer);
-		charLayer = new FlxTypedGroup<Character>();
+		charLayer = new FlxTypedGroup<EditorCharacter>();
 		add(charLayer);
 
 		var pointer:FlxGraphic = FlxGraphic.fromClass(GraphicCursorCross);
@@ -454,7 +454,7 @@ class CharacterEditorState extends MusicBeatState
 		var templateCharacter:FlxButton = new FlxButton(140, 50, "Load Template", function()
 		{
 			var parsedJson:CharacterFile = cast Json.parse(TemplateCharacter);
-			var characters:Array<Character> = [char, ghostChar];
+			var characters:Array<EditorCharacter> = [char, ghostChar];
 			for (character in characters)
 			{
 				character.animOffsets.clear();
@@ -914,7 +914,7 @@ class CharacterEditorState extends MusicBeatState
 	function loadChar(isDad:Bool, blahBlahBlah:Bool = true) : Void {
 		var i:Int = charLayer.members.length-1;
 		while(i >= 0) {
-			var memb:Character = charLayer.members[i];
+			var memb:EditorCharacter = charLayer.members[i];
 			if(memb != null) {
 				memb.kill();
 				charLayer.remove(memb);
@@ -923,11 +923,11 @@ class CharacterEditorState extends MusicBeatState
 			--i;
 		}
 		charLayer.clear();
-		ghostChar = new Character(0, 0, daAnim, !isDad);
+		ghostChar = new EditorCharacter(0, 0, daAnim, !isDad);
 		ghostChar.debugMode = true;
 		ghostChar.alpha = 0.6;
 
-		char = new Character(0, 0, daAnim, !isDad);
+		char = new EditorCharacter(0, 0, daAnim, !isDad);
 		if(char.animationsArray[0] != null) {
 			char.playAnim(char.animationsArray[0].anim, true);
 		}

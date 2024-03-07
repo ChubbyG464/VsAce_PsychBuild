@@ -187,19 +187,7 @@ class Character extends FlxScaleFixedSprite
 
 				animationsArray = json.animations;
 				if(animationsArray != null && animationsArray.length > 0) {
-					for (anim in animationsArray.copy()) {
-						if(anim.anim.startsWith("sing")) {
-							var obj = Reflect.copy(anim);
-							//if(obj.indices == null)
-							//	obj.indices = [0];
-							//else
-							//	obj.indices = [obj.indices[0]];
-							obj.fps = 0;
-							obj.anim += "-hold";
-							animationsArray.push(obj);
-							trace(obj);
-						}
-					}
+					addHoldAnims();
 					for (anim in animationsArray) {
 						var animAnim:String = '' + anim.anim;
 						var animName:String = '' + anim.name;
@@ -211,8 +199,6 @@ class Character extends FlxScaleFixedSprite
 						} else {
 							animation.addByPrefix(animAnim, animName, animFps, animLoop);
 						}
-
-						trace("Adding animation " + anim.anim);
 
 						if(anim.offsets != null && anim.offsets.length > 1) {
 							addOffset(anim.anim, anim.offsets[0], anim.offsets[1]);
@@ -232,6 +218,21 @@ class Character extends FlxScaleFixedSprite
 		if (isPlayer)
 		{
 			flipX = !flipX;
+		}
+	}
+
+	function addHoldAnims() {
+		for (anim in animationsArray.copy()) {
+			if(anim.anim.startsWith("sing")) {
+				var obj = Reflect.copy(anim);
+				//if(obj.indices == null)
+				//	obj.indices = [0];
+				//else
+				//	obj.indices = [obj.indices[0]];
+				obj.fps = 0;
+				obj.anim += "-hold";
+				animationsArray.push(obj);
+			}
 		}
 	}
 
