@@ -95,13 +95,7 @@ class FlxSoundTray extends Sprite
 
 		y = -height;
 		visible = false;
-
-		beepSound = new FlxSound();
-		beepSound.loadEmbedded(FlxAssets.getSound("flixel/sounds/beep"), false);
-		beepSound.looped = false;
 	}
-
-	var beepSound:FlxSound;
 
 	/**
 	 * This function just updates the soundtray object.
@@ -137,10 +131,11 @@ class FlxSoundTray extends Sprite
 	 */
 	public function show(Silent:Bool = false):Void
 	{
-		if (!Silent)
+		if (!Silent && !FlxG.sound.muted)
 		{
-			if (beepSound != null)
-				beepSound.play();
+			var sound = FlxAssets.getSound("flixel/sounds/beep");
+			if (sound != null)
+				FlxG.sound.load(sound).play();
 		}
 
 		_timer = 1;

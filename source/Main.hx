@@ -1,3 +1,4 @@
+import flixel.input.keyboard.FlxKey;
 import flixel.FlxG;
 import flixel.FlxGame;
 
@@ -31,7 +32,7 @@ class Main extends Sprite
 	public var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	public var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 
-	public var zoom:Float = -1.0; // If -1, zoom is automatically calculated to fit the window dimensions.
+	public var zoom:Float = 1.0; // If -1, zoom is automatically calculated to fit the window dimensions.
 
 	public static var framerate:Int = 60;
 
@@ -99,6 +100,11 @@ class Main extends Sprite
 		addChild(new FlxGame(gameWidth, gameHeight, TitleState, zoom, framerate, framerate, true, false));
 
 		ClientPrefs.loadDefaultKeys();
+
+		#if mac
+		// "+" key not working fix for macos
+		@:privateAccess FlxG.keys._nativeCorrection.set("0_43", FlxKey.PLUS);
+		#end
 
 		#if !mobile
 		Lib.current.stage.align = "tl";
