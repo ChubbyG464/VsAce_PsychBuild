@@ -1,11 +1,9 @@
 package states;
 
 
-#if desktop
 import Discord.DiscordClient;
 
 import sys.thread.Thread;
-#end
 
 import haxe.Json;
 
@@ -21,10 +19,8 @@ import flixel.input.keyboard.FlxKey;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 
-#if MODS_ALLOWED
 import sys.FileSystem;
 import sys.io.File;
-#end
 
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFrame;
@@ -101,9 +97,8 @@ class TitleState extends MusicBeatState
 		Paths.clearStoredMemory();
 		Paths.clearUnusedMemory();
 
-		#if LUA_ALLOWED
 		Paths.pushGlobalMods();
-		#end
+
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
 		Paths.setCurrentLevel('shared');
 		WeekData.loadTheFirstEnabledMod();
@@ -205,7 +200,7 @@ class TitleState extends MusicBeatState
 			FlxTransitionableState.skipNextTransOut = true;
 			MusicBeatState.switchState(new FlashingState());
 		} else {
-			#if desktop
+
 			if (!DiscordClient.isInitialized)
 			{
 				DiscordClient.initialize();
@@ -213,7 +208,6 @@ class TitleState extends MusicBeatState
 					DiscordClient.shutdown();
 				});
 			}
-			#end
 
 			if (initialized)
 				startIntro();
@@ -313,7 +307,7 @@ class TitleState extends MusicBeatState
 		logoBl.shader = swagShader.shader;
 
 		titleText = new FlxSprite(titleJSON.startx, titleJSON.starty);
-		#if (desktop && MODS_ALLOWED)
+
 		var path = "mods/" + Paths.currentModDirectory + "/images/titleEnter.png";
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)){
@@ -325,10 +319,7 @@ class TitleState extends MusicBeatState
 		}
 		//trace(path, FileSystem.exists(path));
 		titleText.frames = FlxAtlasFrames.fromSparrow(BitmapData.fromFile(path),File.getContent(StringTools.replace(path,".png",".xml")));
-		#else
 
-		titleText.frames = Paths.getSparrowAtlas('titleEnter');
-		#end
 		var animFrames:Array<FlxFrame> = [];
 		@:privateAccess {
 			titleText.animation.findByPrefix(animFrames, "ENTER IDLE");

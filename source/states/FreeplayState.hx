@@ -1,9 +1,8 @@
 package states;
 
 
-#if desktop
 import Discord.DiscordClient;
-#end
+
 import editors.ChartingState;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -18,9 +17,9 @@ import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
 import openfl.utils.Assets as OpenFlAssets;
-#if MODS_ALLOWED
+
 import sys.FileSystem;
-#end
+
 
 import data.Highscore;
 import data.Song;
@@ -81,10 +80,8 @@ class FreeplayState extends MusicBeatState
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
-		#end
 
 		for (i in 0...WeekData.weeksList.length) {
 			var isLocked = weekIsLocked(WeekData.weeksList[i]);
@@ -422,11 +419,8 @@ class FreeplayState extends MusicBeatState
 				super.update(elapsed);
 				return;
 			}
-			/*#if MODS_ALLOWED
+			/*
 			if(!sys.FileSystem.exists(Paths.modsJson(songLowercase + '/' + poop)) && !sys.FileSystem.exists(Paths.json(songLowercase + '/' + poop))) {
-			#else
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-			#end
 				poop = songLowercase;
 				curDifficulty = 1;
 				trace('Couldnt find file');

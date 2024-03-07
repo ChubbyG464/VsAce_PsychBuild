@@ -1,9 +1,8 @@
-#if LUA_ALLOWED
 import llua.Lua;
 import llua.LuaL;
 import llua.State;
 import llua.Convert;
-#end
+
 import flixel.addons.display.FlxBackdrop;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
@@ -41,9 +40,7 @@ import hscript.Parser;
 import hscript.Interp;
 #end
 
-#if desktop
 import Discord;
-#end
 
 import data.Controls;
 import data.Highscore;
@@ -75,9 +72,7 @@ class FunkinLua {
 	public static var Function_StopLua:Dynamic = "##PSYCHLUA_FUNCTIONSTOPLUA";
 
 	//public var errorHandler:String->Void;
-	#if LUA_ALLOWED
 	public var lua:State = null;
-	#end
 	public var scriptName:String = '';
 	public var closed:Bool = false;
 
@@ -88,7 +83,6 @@ class FunkinLua {
 	#end
 
 	public function new(script:String) {
-		#if LUA_ALLOWED
 		lua = LuaL.newstate();
 		LuaL.openlibs(lua);
 		Lua.init_callbacks(lua);
@@ -279,7 +273,7 @@ class FunkinLua {
 			if(luaFile.endsWith(".lua"))
 				cervix = luaFile;
 			var doPush = false;
-			#if MODS_ALLOWED
+
 			if(FileSystem.exists(Paths.modFolders(cervix)))
 			{
 				cervix = Paths.modFolders(cervix);
@@ -295,12 +289,7 @@ class FunkinLua {
 					doPush = true;
 				}
 			}
-			#else
-			cervix = Paths.getPreloadPath(cervix);
-			if(Assets.exists(cervix)) {
-				doPush = true;
-			}
-			#end
+
 			if(doPush)
 			{
 				for (luaInstance in PlayState.instance.luaArray)
@@ -334,7 +323,7 @@ class FunkinLua {
 			var cervix = luaFile + ".lua";
 			if(luaFile.endsWith(".lua"))cervix=luaFile;
 			var doPush = false;
-			#if MODS_ALLOWED
+
 			if(FileSystem.exists(Paths.modFolders(cervix)))
 			{
 				cervix = Paths.modFolders(cervix);
@@ -350,12 +339,7 @@ class FunkinLua {
 					doPush = true;
 				}
 			}
-			#else
-			cervix = Paths.getPreloadPath(cervix);
-			if(Assets.exists(cervix)) {
-				doPush = true;
-			}
-			#end
+
 			if(doPush)
 			{
 				for (luaInstance in PlayState.instance.luaArray)
@@ -387,7 +371,7 @@ class FunkinLua {
 			var cervix = luaFile + ".lua";
 			if(luaFile.endsWith(".lua"))cervix=luaFile;
 			var doPush = false;
-			#if MODS_ALLOWED
+
 			if(FileSystem.exists(Paths.modFolders(cervix)))
 			{
 				cervix = Paths.modFolders(cervix);
@@ -403,12 +387,7 @@ class FunkinLua {
 					doPush = true;
 				}
 			}
-			#else
-			cervix = Paths.getPreloadPath(cervix);
-			if(Assets.exists(cervix)) {
-				doPush = true;
-			}
-			#end
+
 			if(doPush)
 			{
 				for (luaInstance in PlayState.instance.luaArray)
@@ -426,7 +405,7 @@ class FunkinLua {
 			var cervix = luaFile + ".lua";
 			if(luaFile.endsWith(".lua"))cervix=luaFile;
 			var doPush = false;
-			#if MODS_ALLOWED
+
 			if(FileSystem.exists(Paths.modFolders(cervix)))
 			{
 				cervix = Paths.modFolders(cervix);
@@ -442,12 +421,7 @@ class FunkinLua {
 					doPush = true;
 				}
 			}
-			#else
-			cervix = Paths.getPreloadPath(cervix);
-			if(Assets.exists(cervix)) {
-				doPush = true;
-			}
-			#end
+
 			if(doPush)
 			{
 				for (luaInstance in PlayState.instance.luaArray)
@@ -510,7 +484,7 @@ class FunkinLua {
 			var cervix = luaFile + ".lua";
 			if(luaFile.endsWith(".lua"))cervix=luaFile;
 			var doPush = false;
-			#if MODS_ALLOWED
+
 			if(FileSystem.exists(Paths.modFolders(cervix)))
 			{
 				cervix = Paths.modFolders(cervix);
@@ -526,12 +500,6 @@ class FunkinLua {
 					doPush = true;
 				}
 			}
-			#else
-			cervix = Paths.getPreloadPath(cervix);
-			if(Assets.exists(cervix)) {
-				doPush = true;
-			}
-			#end
 
 			if(doPush)
 			{
@@ -550,7 +518,7 @@ class FunkinLua {
 			var cervix = luaFile + ".lua";
 			if(luaFile.endsWith(".lua"))cervix=luaFile;
 			var doPush = false;
-			#if MODS_ALLOWED
+
 			if(FileSystem.exists(Paths.modFolders(cervix)))
 			{
 				cervix = Paths.modFolders(cervix);
@@ -566,12 +534,6 @@ class FunkinLua {
 					doPush = true;
 				}
 			}
-			#else
-			cervix = Paths.getPreloadPath(cervix);
-			if(Assets.exists(cervix)) {
-				doPush = true;
-			}
-			#end
 
 			if(doPush)
 			{
@@ -595,7 +557,7 @@ class FunkinLua {
 			var cervix = luaFile + ".lua";
 			if(luaFile.endsWith(".lua"))cervix=luaFile;
 			var doPush = false;
-			#if MODS_ALLOWED
+
 			if(FileSystem.exists(Paths.modFolders(cervix)))
 			{
 				cervix = Paths.modFolders(cervix);
@@ -611,12 +573,6 @@ class FunkinLua {
 					doPush = true;
 				}
 			}
-			#else
-			cervix = Paths.getPreloadPath(cervix);
-			if(Assets.exists(cervix)) {
-				doPush = true;
-			}
-			#end
 
 			if(doPush)
 			{
@@ -1953,19 +1909,14 @@ class FunkinLua {
 		});
 		Lua_helper.add_callback(lua, "startDialogue", function(dialogueFile:String, music:String = null) {
 			var path:String;
-			#if MODS_ALLOWED
+
 			path = Paths.modsJson(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 			if(!FileSystem.exists(path))
-			#end
 				path = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 
 			//luaTrace('Trying to load dialogue: ' + path);
 
-			#if MODS_ALLOWED
 			if(FileSystem.exists(path))
-			#else
-			if(Assets.exists(path))
-			#end
 			{
 				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
 				if(shit.dialogue.length > 0) {
@@ -2127,9 +2078,7 @@ class FunkinLua {
 		});
 
 		Lua_helper.add_callback(lua, "changePresence", function(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float) {
-			#if desktop
 			DiscordClient.changePresence(details, state, smallImageKey, hasStartTimestamp, endTimestamp);
-			#end
 		});
 
 
@@ -2313,7 +2262,7 @@ class FunkinLua {
 		});
 
 		Lua_helper.add_callback(lua, "checkFileExists", function(filename:String, ?absolute:Bool = false) {
-			#if MODS_ALLOWED
+
 			if(absolute)
 			{
 				return FileSystem.exists(filename);
@@ -2325,13 +2274,6 @@ class FunkinLua {
 				return true;
 			}
 			return FileSystem.exists(Paths.getPath('assets/$filename', TEXT));
-			#else
-			if(absolute)
-			{
-				return Assets.exists(filename);
-			}
-			return Assets.exists(Paths.getPath('assets/$filename', TEXT));
-			#end
 		});
 		Lua_helper.add_callback(lua, "saveFile", function(path:String, content:String, ?absolute:Bool = false)
 		{
@@ -2350,7 +2292,6 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, "deleteFile", function(path:String, ?ignoreModFolders:Bool = false)
 		{
 			try {
-				#if MODS_ALLOWED
 				if(!ignoreModFolders)
 				{
 					var lePath:String = Paths.modFolders(path);
@@ -2360,7 +2301,6 @@ class FunkinLua {
 						return true;
 					}
 				}
-				#end
 
 				var lePath:String = Paths.getPath(path, TEXT);
 				if(Assets.exists(lePath))
@@ -2525,7 +2465,6 @@ class FunkinLua {
 		});
 
 		call('onCreate', []);
-		#end
 	}
 
 	#if hscript
@@ -2813,7 +2752,6 @@ class FunkinLua {
 	}
 
 	public function luaTrace(text:String, ignoreCheck:Bool = false, deprecated:Bool = false, color:FlxColor = FlxColor.WHITE) : Bool {
-		#if LUA_ALLOWED
 		if(ignoreCheck || getBool('luaDebugMode')) {
 			if(deprecated && !getBool('luaDeprecatedWarnings')) {
 				return false;
@@ -2822,12 +2760,11 @@ class FunkinLua {
 			trace(text);
 			return true;
 		}
-		#end
+
 		return false;
 	}
 
 	function getErrorMessage(status:Int):String {
-		#if LUA_ALLOWED
 		var v:String = Lua.tostring(lua, -1);
 		Lua.pop(lua, 1);
 
@@ -2842,13 +2779,12 @@ class FunkinLua {
 		}
 
 		return v;
-		#end
+
 		return null;
 	}
 
 	var lastCalledFunction:String = '';
 	public function call(func:String, args:Array<Dynamic>):Dynamic {
-		#if LUA_ALLOWED
 		if(closed) return Function_Continue;
 
 		lastCalledFunction = func;
@@ -2886,12 +2822,11 @@ class FunkinLua {
 		catch (e:Dynamic) {
 			trace(e);
 		}
-		#end
+
 		return Function_Continue;
 	}
 
 	static function typeToString(type:Int):String {
-		#if LUA_ALLOWED
 		switch(type) {
 			case Lua.LUA_TBOOLEAN: return "boolean";
 			case Lua.LUA_TNUMBER: return "number";
@@ -2900,7 +2835,7 @@ class FunkinLua {
 			case Lua.LUA_TFUNCTION: return "function";
 		}
 		if (type <= Lua.LUA_TNIL) return "nil";
-		#end
+
 		return "unknown";
 	}
 
@@ -2932,17 +2867,14 @@ class FunkinLua {
 	}
 
 	public function set(variable:String, data:Dynamic) : Void {
-		#if LUA_ALLOWED
 		if(currentScript.lua == null) {
 			return;
 		}
 
 		Convert.toLua(currentScript.lua, data);
 		Lua.setglobal(currentScript.lua, variable);
-		#end
 	}
 
-	#if LUA_ALLOWED
 	public function getBool(variable:String) {
 		var result:String = null;
 		Lua.getglobal(currentScript.lua, variable);
@@ -2954,10 +2886,8 @@ class FunkinLua {
 		}
 		return (result == 'true');
 	}
-	#end
 
 	public function stop() : Void {
-		#if LUA_ALLOWED
 		if(lua == null) {
 			return;
 		}
@@ -2965,7 +2895,6 @@ class FunkinLua {
 		Lua.close(lua);
 		lua = null;
 		closed = true;
-		#end
 	}
 
 	public static inline function getInstance() : FlxState

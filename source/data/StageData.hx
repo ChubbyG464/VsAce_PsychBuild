@@ -1,12 +1,9 @@
 package data;
 
 
-#if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
-#else
-import openfl.utils.Assets;
-#end
+
 import haxe.Json;
 
 import data.Song.SwagSong;
@@ -61,18 +58,12 @@ class StageData {
 		var rawJson:String = null;
 		var path:String = Paths.getPreloadPath('stages/' + stage + '.json');
 
-		#if MODS_ALLOWED
 		var modPath:String = Paths.modFolders('stages/' + stage + '.json');
 		if(FileSystem.exists(modPath)) {
 			rawJson = File.getContent(modPath);
 		} else if(FileSystem.exists(path)) {
 			rawJson = File.getContent(path);
 		}
-		#else
-		if(Assets.exists(path)) {
-			rawJson = Assets.getText(path);
-		}
-		#end
 		else
 		{
 			return null;
