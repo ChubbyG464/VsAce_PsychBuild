@@ -647,14 +647,11 @@ class PlayState extends MusicBeatState
 			hasUnderlay = true;
 		}
 
-		#if LUA_ALLOWED
 		luaDebugGroup = new FlxTypedGroup<DebugLuaText>();
 		luaDebugGroup.cameras = [camOther];
 		add(luaDebugGroup);
-		#end
 
 		// "GLOBAL" SCRIPTS
-		#if LUA_ALLOWED
 		var filesPushed:Array<String> = [];
 		var foldersToCheck:Array<String> = [Paths.getPreloadPath('scripts/')];
 
@@ -679,7 +676,6 @@ class PlayState extends MusicBeatState
 				}
 			}
 		}
-		#end
 
 		// STAGE SCRIPTS
 		var doPush:Bool = false;
@@ -920,7 +916,7 @@ class PlayState extends MusicBeatState
 		generateSong(SONG.song);
 
 		WindowTitle.progress(80);
-		#if LUA_ALLOWED
+
 		for (notetype in noteTypeMap.keys())
 		{
 			var luaToLoad:String = Paths.modFolders('custom_notetypes/' + notetype + '.lua');
@@ -970,7 +966,6 @@ class PlayState extends MusicBeatState
 			}
 			#end
 		}
-		#end
 
 		// After all characters being loaded, it makes then invisible 0.01s later so that the player won't freeze when you change characters
 		// add(strumLine);
@@ -1071,7 +1066,6 @@ class PlayState extends MusicBeatState
 		startingSong = true;
 
 		// SONG SPECIFIC SCRIPTS
-		#if LUA_ALLOWED
 		var filesPushed:Array<String> = [];
 		var foldersToCheck:Array<String> = [Paths.getPreloadPath('data/' + formattedSong + '/')];
 
@@ -1096,7 +1090,6 @@ class PlayState extends MusicBeatState
 				}
 			}
 		}
-		#end
 
 		hasIceNotes = noteTypeMap.exists('iceNote');
 
@@ -1271,7 +1264,6 @@ class PlayState extends MusicBeatState
 	}
 
 	public function addTextToDebug(text:String, color:FlxColor) : Void {
-		#if LUA_ALLOWED
 		luaDebugGroup.forEachAlive(function(spr:DebugLuaText) {
 			spr.y += 20;
 		});
@@ -1282,7 +1274,6 @@ class PlayState extends MusicBeatState
 			luaDebugGroup.remove(blah);
 		}
 		luaDebugGroup.insert(0, new DebugLuaText(text, luaDebugGroup, color));
-		#end
 	}
 
 	public function reloadHealthBarColors() : Void {
@@ -1329,7 +1320,6 @@ class PlayState extends MusicBeatState
 
 	function startCharacterLua(name:String) : Void
 	{
-		#if LUA_ALLOWED
 		var doPush:Bool = false;
 		var luaFile:String = 'characters/' + name + '.lua';
 
@@ -1351,7 +1341,6 @@ class PlayState extends MusicBeatState
 			}
 			luaArray.push(new FunkinLua(luaFile));
 		}
-		#end
 	}
 
 	public function getLuaObject(tag:String, text:Bool=true):FlxSprite {
@@ -4311,7 +4300,7 @@ class PlayState extends MusicBeatState
 
 	public function callOnLuas(event:String, args:Array<Dynamic>, ignoreStops = true, exclusions:Array<String> = null):Dynamic {
 		var returnVal:Dynamic = FunkinLua.Function_Continue;
-		#if LUA_ALLOWED
+
 		if(exclusions == null) exclusions = [];
 		for (script in luaArray) {
 			if(exclusions.contains(script.scriptName))
@@ -4328,18 +4317,16 @@ class PlayState extends MusicBeatState
 			if(ret != FunkinLua.Function_Continue)
 				returnVal = ret;
 		}
-		#end
+
 		//trace(event, returnVal);
 		return returnVal;
 	}
 
 	public function setOnLuas(variable:String, arg:Dynamic) : Void {
-		#if LUA_ALLOWED
 		for(script in luaArray) {
 			FunkinLua.currentScript = script;
 			script.set(variable, arg);
 		}
-		#end
 	}
 
 	function StrumPlayAnim(isDad:Bool, id:Int, time:Float) : Void {

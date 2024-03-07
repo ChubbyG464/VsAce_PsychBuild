@@ -1,9 +1,8 @@
-#if LUA_ALLOWED
 import llua.Lua;
 import llua.LuaL;
 import llua.State;
 import llua.Convert;
-#end
+
 import flixel.addons.display.FlxBackdrop;
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
@@ -75,9 +74,7 @@ class FunkinLua {
 	public static var Function_StopLua:Dynamic = "##PSYCHLUA_FUNCTIONSTOPLUA";
 
 	//public var errorHandler:String->Void;
-	#if LUA_ALLOWED
 	public var lua:State = null;
-	#end
 	public var scriptName:String = '';
 	public var closed:Bool = false;
 
@@ -88,7 +85,6 @@ class FunkinLua {
 	#end
 
 	public function new(script:String) {
-		#if LUA_ALLOWED
 		lua = LuaL.newstate();
 		LuaL.openlibs(lua);
 		Lua.init_callbacks(lua);
@@ -2473,7 +2469,6 @@ class FunkinLua {
 		});
 
 		call('onCreate', []);
-		#end
 	}
 
 	#if hscript
@@ -2761,7 +2756,6 @@ class FunkinLua {
 	}
 
 	public function luaTrace(text:String, ignoreCheck:Bool = false, deprecated:Bool = false, color:FlxColor = FlxColor.WHITE) : Bool {
-		#if LUA_ALLOWED
 		if(ignoreCheck || getBool('luaDebugMode')) {
 			if(deprecated && !getBool('luaDeprecatedWarnings')) {
 				return false;
@@ -2770,12 +2764,11 @@ class FunkinLua {
 			trace(text);
 			return true;
 		}
-		#end
+
 		return false;
 	}
 
 	function getErrorMessage(status:Int):String {
-		#if LUA_ALLOWED
 		var v:String = Lua.tostring(lua, -1);
 		Lua.pop(lua, 1);
 
@@ -2790,13 +2783,12 @@ class FunkinLua {
 		}
 
 		return v;
-		#end
+
 		return null;
 	}
 
 	var lastCalledFunction:String = '';
 	public function call(func:String, args:Array<Dynamic>):Dynamic {
-		#if LUA_ALLOWED
 		if(closed) return Function_Continue;
 
 		lastCalledFunction = func;
@@ -2834,12 +2826,11 @@ class FunkinLua {
 		catch (e:Dynamic) {
 			trace(e);
 		}
-		#end
+
 		return Function_Continue;
 	}
 
 	static function typeToString(type:Int):String {
-		#if LUA_ALLOWED
 		switch(type) {
 			case Lua.LUA_TBOOLEAN: return "boolean";
 			case Lua.LUA_TNUMBER: return "number";
@@ -2848,7 +2839,7 @@ class FunkinLua {
 			case Lua.LUA_TFUNCTION: return "function";
 		}
 		if (type <= Lua.LUA_TNIL) return "nil";
-		#end
+
 		return "unknown";
 	}
 
@@ -2880,17 +2871,14 @@ class FunkinLua {
 	}
 
 	public function set(variable:String, data:Dynamic) : Void {
-		#if LUA_ALLOWED
 		if(currentScript.lua == null) {
 			return;
 		}
 
 		Convert.toLua(currentScript.lua, data);
 		Lua.setglobal(currentScript.lua, variable);
-		#end
 	}
 
-	#if LUA_ALLOWED
 	public function getBool(variable:String) {
 		var result:String = null;
 		Lua.getglobal(currentScript.lua, variable);
@@ -2902,10 +2890,8 @@ class FunkinLua {
 		}
 		return (result == 'true');
 	}
-	#end
 
 	public function stop() : Void {
-		#if LUA_ALLOWED
 		if(lua == null) {
 			return;
 		}
@@ -2913,7 +2899,6 @@ class FunkinLua {
 		Lua.close(lua);
 		lua = null;
 		closed = true;
-		#end
 	}
 
 	public static inline function getInstance() : FlxState

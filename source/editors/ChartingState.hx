@@ -948,7 +948,6 @@ class ChartingState extends MusicBeatState
 			key++;
 		}
 
-		#if LUA_ALLOWED
 		var directories:Array<String> = [];
 
 		directories.push(Paths.mods('custom_notetypes/'));
@@ -973,7 +972,6 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
-		#end
 
 		for (i in 1...displayNameList.length) {
 			displayNameList[i] = i + '. ' + displayNameList[i];
@@ -1007,7 +1005,6 @@ class ChartingState extends MusicBeatState
 		var tab_group_event = new FlxUI(null, UI_box);
 		tab_group_event.name = 'Events';
 
-		#if LUA_ALLOWED
 		var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
 		var directories:Array<String> = [];
 
@@ -1034,7 +1031,6 @@ class ChartingState extends MusicBeatState
 		}
 		eventPushedMap.clear();
 		eventPushedMap = null;
-		#end
 
 		descText = new FlxText(20, 200, 0, eventStuff[0][0]);
 
