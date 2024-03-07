@@ -40,9 +40,7 @@ import hscript.Parser;
 import hscript.Interp;
 #end
 
-#if desktop
 import Discord;
-#end
 
 import data.Controls;
 import data.Highscore;
@@ -2080,9 +2078,7 @@ class FunkinLua {
 		});
 
 		Lua_helper.add_callback(lua, "changePresence", function(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float) {
-			#if desktop
 			DiscordClient.changePresence(details, state, smallImageKey, hasStartTimestamp, endTimestamp);
-			#end
 		});
 
 

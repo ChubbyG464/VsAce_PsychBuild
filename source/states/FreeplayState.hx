@@ -1,9 +1,8 @@
 package states;
 
 
-#if desktop
 import Discord.DiscordClient;
-#end
+
 import editors.ChartingState;
 import flash.text.TextField;
 import flixel.FlxG;
@@ -81,10 +80,8 @@ class FreeplayState extends MusicBeatState
 		PlayState.isStoryMode = false;
 		WeekData.reloadWeekFiles(false);
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
-		#end
 
 		for (i in 0...WeekData.weeksList.length) {
 			var isLocked = weekIsLocked(WeekData.weeksList[i]);

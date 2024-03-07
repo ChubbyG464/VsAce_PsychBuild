@@ -24,9 +24,7 @@ import sys.io.File;
 #end
 import Type.ValueType;
 
-#if desktop
 import Discord;
-#end
 
 import data.Controls;
 

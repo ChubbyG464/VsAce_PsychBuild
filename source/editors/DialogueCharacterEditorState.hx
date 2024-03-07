@@ -1,8 +1,8 @@
 package editors;
 
-#if desktop
+
 import Discord.DiscordClient;
-#end
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
@@ -468,10 +468,8 @@ class DialogueCharacterEditorState extends MusicBeatState
 		curAnim = 0;
 		animText.text = 'Animation: ' + character.jsonFile.animations[curAnim].anim + ' (' + (curAnim + 1) +' / ' + character.jsonFile.animations.length + ') - Press W or S to scroll';
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Dialogue Character Editor", "Editting: " + character.jsonFile.image);
-		#end
 	}
 
 	function updateTextBox() : Void {

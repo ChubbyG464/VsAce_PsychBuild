@@ -1,8 +1,7 @@
 import flixel.util.FlxDestroyUtil;
 import flixel.graphics.FlxGraphic;
-#if desktop
+
 import Discord.DiscordClient;
-#end
 
 import flixel.FlxBasic;
 import flixel.FlxCamera;
@@ -276,12 +275,10 @@ class PlayState extends MusicBeatState
 
 	var cutsceneSprite:Character;
 
-	#if desktop
 	// Discord RPC variables
 	var storyDifficultyText:String = "";
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
-	#end
 
 	// Lua shit
 	public static var instance:PlayState;
@@ -485,7 +482,6 @@ class PlayState extends MusicBeatState
 
 		formattedSong = Paths.formatToSongPath(SONG.song);
 
-		#if desktop
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
@@ -500,7 +496,6 @@ class PlayState extends MusicBeatState
 
 		// String for when the game is paused
 		detailsPausedText = "Paused - " + detailsText;
-		#end
 
 		GameOverSubstate.resetVariables();
 		var songName:String = Paths.formatToSongPath(SONG.song);
@@ -1123,10 +1118,8 @@ class PlayState extends MusicBeatState
 			precacheList.set(Paths.formatToSongPath(ClientPrefs.pauseMusic), 'music');
 		}
 
-		#if desktop
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-		#end
 
 		if(!ClientPrefs.controllerMode)
 		{
@@ -1902,10 +1895,9 @@ class PlayState extends MusicBeatState
 
 		}
 
-		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength);
-		#end
+
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
 	}
@@ -2445,7 +2437,6 @@ class PlayState extends MusicBeatState
 			paused = false;
 			callOnLuas('onResume', []);
 
-			#if desktop
 			if (startTimer != null && startTimer.finished)
 			{
 				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter(), true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
@@ -2454,7 +2445,6 @@ class PlayState extends MusicBeatState
 			{
 				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 			}
-			#end
 		}
 
 		super.closeSubState();
@@ -2462,7 +2452,6 @@ class PlayState extends MusicBeatState
 
 	override public function onFocus():Void
 	{
-		#if desktop
 		if (health > 0 && !paused)
 		{
 			if (Conductor.songPosition > 0.0)
@@ -2474,19 +2463,16 @@ class PlayState extends MusicBeatState
 				DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 			}
 		}
-		#end
 
 		super.onFocus();
 	}
 
 	override public function onFocusLost():Void
 	{
-		#if desktop
 		if (health > 0 && !paused)
 		{
 			DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 		}
-		#end
 
 		super.onFocusLost();
 	}
@@ -2881,9 +2867,7 @@ class PlayState extends MusicBeatState
 		openSubState(new PauseSubState());
 		//}
 
-		#if desktop
 		DiscordClient.changePresence(detailsPausedText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-		#end
 	}
 
 	function openChartEditor() : Void
@@ -2894,9 +2878,7 @@ class PlayState extends MusicBeatState
 		MusicBeatState.switchState(new ChartingState());
 		chartingMode = true;
 
-		#if desktop
 		DiscordClient.changePresence("Chart Editor", null, null, true);
-		#end
 	}
 
 	public var isDead:Bool = false; //Don't mess with this on Lua!!!
@@ -2925,10 +2907,9 @@ class PlayState extends MusicBeatState
 
 				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
-				#if desktop
 				// Game Over doesn't get his own variable because it's only used here
 				DiscordClient.changePresence("Game Over - " + detailsText, SONG.song + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-				#end
+
 				isDead = true;
 				return true;
 			}
