@@ -2,15 +2,19 @@
 	"storyName": "Ace (again)",
 	"difficulties": "Easy,Normal,Hard,Swapped",
 	"hideFreeplay": false,
-	"weekBackground": "stage",
-	"weekBefore": "week0",
+	"weekBackground": "week2",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "week0",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"ace",
+		"bf-cold",
+		"gf"
+	],
 	"songs": [
 		[
 			"Groundhog Day",
@@ -40,11 +44,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"ace",
-		"bf-cold",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "week-ace1"
+	"hideStoryMode": false,
+	"weekName": "week-ace1",
+	"hiddenUntilUnlocked": false
 }

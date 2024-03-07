@@ -1,9 +1,8 @@
 package editors;
 
 
-#if desktop
 import Discord.DiscordClient;
-#end
+
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -34,9 +33,7 @@ import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
 
-#if MODS_ALLOWED
 import sys.FileSystem;
-#end
 
 import sprites.BGSprite;
 import sprites.Character;
@@ -1044,7 +1041,6 @@ class CharacterEditorState extends MusicBeatState
 	function reloadCharacterDropDown() : Void {
 		var charsLoaded:Map<String, Bool> = new Map();
 
-		#if MODS_ALLOWED
 		characterList = [];
 		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Paths.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
 		for(mod in Paths.getGlobalMods())
@@ -1064,9 +1060,6 @@ class CharacterEditorState extends MusicBeatState
 				}
 			}
 		}
-		#else
-		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
-		#end
 
 		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
 		charDropDown.selectedLabel = daAnim;
@@ -1080,10 +1073,8 @@ class CharacterEditorState extends MusicBeatState
 	}
 
 	function updatePresence() : Void {
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Character Editor", "Character: " + daAnim, leHealthIcon.getCharacter());
-		#end
 	}
 
 	override function update(elapsed:Float) : Void

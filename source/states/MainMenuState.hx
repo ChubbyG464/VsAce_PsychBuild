@@ -1,9 +1,8 @@
 package states;
 
 
-#if desktop
 import Discord.DiscordClient;
-#end
+
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -61,15 +60,12 @@ class MainMenuState extends MusicBeatState
 
 	override function create() : Void
 	{
-		#if MODS_ALLOWED
 		Paths.pushGlobalMods();
-		#end
 		WeekData.loadTheFirstEnabledMod();
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
-		#end
+
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = new FlxCamera();
@@ -356,13 +352,11 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
-			#if desktop
 			else if (FlxG.keys.anyJustPressed(debugKeys))
 			{
 				selectedSomethin = true;
 				MusicBeatState.switchState(new MasterEditorMenu());
 			}
-			#end
 		}
 
 		super.update(elapsed);

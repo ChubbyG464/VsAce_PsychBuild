@@ -2,15 +2,19 @@
 	"storyName": "Mace",
 	"difficulties": "Easy,Normal,Hard,Swapped",
 	"hideFreeplay": false,
-	"weekBackground": "stage",
-	"weekBefore": "week1",
+	"weekBackground": "week-1",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "week1",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"mace",
+		"bf-minus",
+		""
+	],
 	"songs": [
 		[
 			"Running Laps",
@@ -49,11 +53,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"mace",
-		"bf-minus",
-		""
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "week-ace3"
+	"hideStoryMode": false,
+	"weekName": "week-ace3",
+	"hiddenUntilUnlocked": false
 }

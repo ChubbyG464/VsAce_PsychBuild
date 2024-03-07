@@ -3,10 +3,12 @@ package sprites;
 
 import animateatlas.AtlasFrameMaker;
 import flixel.tweens.FlxTween;
-#if MODS_ALLOWED
+import flixel.util.FlxSort;
+
 import sys.io.File;
 import sys.FileSystem;
-#end
+
+import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import haxe.Json;
 
@@ -93,33 +95,24 @@ class Character extends FlxScaleFixedSprite
 			default:
 				var characterPath:String = 'characters/' + curCharacter + '.json';
 
-				#if MODS_ALLOWED
 				var path:String = Paths.modFolders(characterPath);
 				if (!FileSystem.exists(path)) {
 					path = Paths.getPreloadPath(characterPath);
 				}
 
 				if (!FileSystem.exists(path))
-				#else
-				var path:String = Paths.getPreloadPath(characterPath);
-				if (!Assets.exists(path))
-				#end
 				{
 					path = Paths.getPreloadPath('characters/' + DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
 				}
 
-				#if MODS_ALLOWED
 				var rawJson = File.getContent(path);
-				#else
-				var rawJson = Assets.getText(path);
-				#end
 
 				var json:CharacterFile = cast Json.parse(rawJson);
 				var spriteType = "sparrow";
 				//sparrow
 				//packer
 				//texture
-				#if MODS_ALLOWED
+
 				var modTxtToFind:String = Paths.modsTxt(json.image);
 				var txtToFind:String = Paths.getPath('images/' + json.image + '.txt', TEXT);
 
@@ -127,14 +120,10 @@ class Character extends FlxScaleFixedSprite
 				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
 
 				if (FileSystem.exists(modTxtToFind) || FileSystem.exists(txtToFind) || Assets.exists(txtToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
-				#end
 				{
 					spriteType = "packer";
 				}
 
-				#if MODS_ALLOWED
 				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
 				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
 
@@ -142,9 +131,6 @@ class Character extends FlxScaleFixedSprite
 				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
 
 				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || Assets.exists(animToFind))
-				#else
-				if (Assets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
-				#end
 				{
 					spriteType = "texture";
 				}
