@@ -1,11 +1,11 @@
 local keepScroll = false
 local keepNotes = false
 function onCreate()
-setProperty('camHUD.visible',true)
-setProperty('notes.cameras',true)
-setProperty('strumLineNotes.cameras',true)
-setProperty('gf.alpha', 1)
-setProperty('doof.cameras',true)
+	setProperty('camHUD.visible',true)
+	setProperty('notes.cameras',true)
+	setProperty('strumLineNotes.cameras',true)
+	setProperty('gf.alpha', 1)
+	setProperty('doof.cameras',true)
 
 	if getPropertyFromClass('ClientPrefs', 'middleScroll') == true then
 		keepScroll = true;

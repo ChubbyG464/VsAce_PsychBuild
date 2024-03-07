@@ -1,6 +1,7 @@
 function onCreatePost()
-	setPropertyFromClass("GameOverSubstate", "characterName", "bf-playerace");
-	setPropertyFromClass("GameOverSubstate", "deathSoundName", "ace_death");
-	setPropertyFromClass("GameOverSubstate", "loopSoundName", "gameOver");
-	setPropertyFromClass("GameOverSubstate", "endSoundName", "gameOverEnd");
+	setPropertyFromClass("states.substates.GameOverSubstate", "characterName", "bf-playerace");
+	setPropertyFromClass("states.substates.GameOverSubstate", "deathSoundName", "ace_death");
+	setPropertyFromClass("states.substates.GameOverSubstate", "loopSoundName", "GameOver");
+	setPropertyFromClass("states.substates.GameOverSubstate", "endSoundName", "GameOverEnd");
+	close(true)
 end

@@ -49,7 +49,9 @@ class GameOverSubstate extends MusicBeatSubstate
 		super.create();
 	}
 
-	public function new(x:Float, y:Float, camX:Float, camY:Float)
+	var center = new FlxPoint();
+
+	public function new(x:Float, y:Float)
 	{
 		super();
 
@@ -62,19 +64,36 @@ class GameOverSubstate extends MusicBeatSubstate
 		boyfriend.y += boyfriend.positionArray[1];
 		add(boyfriend);
 
-		camFollow = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
+		// i hate centering so much
+		if(characterName == "bf-playerace")
+			cameraOffset.y -= 100;
+		if(characterName == "bf-retry")
+			cameraOffset.x -= 35;
+
+		boyfriend.playAnim('firstDeath');
+		boyfriend.updateHitbox();
+
+		var posx = boyfriend.x;
+		var posy = boyfriend.y;
+		boyfriend.screenCenter();
+		center.set(boyfriend.x, boyfriend.y);
+
+		camFollow = new FlxPoint(boyfriend.x + boyfriend.width / 2, boyfriend.y + boyfriend.height / 2);
+
+		boyfriend.setPosition(posx, posy);
+		boyfriend.playAnim('firstDeath', true); // reset offset
+		center.add(boyfriend.offset.x, boyfriend.offset.y);
 
 		FlxG.sound.play(Paths.sound(deathSoundName));
 		Conductor.changeBPM(100);
-		// FlxG.camera.followLerp = 1;
-		// FlxG.camera.focusOn(FlxPoint.get(FlxG.width / 2, FlxG.height / 2));
 		FlxG.camera.scroll.set();
 		FlxG.camera.target = null;
 
-		boyfriend.playAnim('firstDeath');
-		
 		camFollowPos = new FlxObject(0, 0, 1, 1);
-		camFollowPos.setPosition(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
+		camFollowPos.setPosition(
+			FlxG.camera.scroll.x + (FlxG.camera.width / 2),
+			FlxG.camera.scroll.y + (FlxG.camera.height / 2)
+		);
 		add(camFollowPos);
 	}
 
@@ -86,7 +105,14 @@ class GameOverSubstate extends MusicBeatSubstate
 		PlayState.instance.callOnLuas('onUpdate', [elapsed]);
 		if(updateCamera) {
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 0.6, 0, 1);
-			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x + cameraOffset.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y + cameraOffset.y, lerpVal));
+			camFollowPos.setPosition(
+				FlxMath.lerp(camFollowPos.x, camFollow.x + cameraOffset.x, lerpVal),
+				FlxMath.lerp(camFollowPos.y, camFollow.y + cameraOffset.y, lerpVal)
+			);
+			boyfriend.setPosition(
+				FlxMath.lerp(boyfriend.x, center.x, lerpVal),
+				FlxMath.lerp(boyfriend.y, center.y, lerpVal)
+			);
 		}
 
 		if (controls.ACCEPT)
@@ -121,26 +147,9 @@ class GameOverSubstate extends MusicBeatSubstate
 
 			if (boyfriend.animation.curAnim.finished && !playingDeathSound)
 			{
-				if (PlayState.SONG.stage == 'tank')
-				{
-					playingDeathSound = true;
-					coolStartDeath(0.2);
-					
-					var exclude:Array<Int> = [];
-					//if(!ClientPrefs.cursing) exclude = [1, 3, 8, 13, 17, 21];
-
-					FlxG.sound.play(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, exclude)), 1, false, null, true, function() {
-						if(!isEnding)
-						{
-							FlxG.sound.music.fadeIn(0.2, 1, 4);
-						}
-					});
-				}
-				else
-				{
-					coolStartDeath();
-				}
+				coolStartDeath();
 				boyfriend.startedDeath = true;
+				playingDeathSound = true;
 			}
 		}
 
