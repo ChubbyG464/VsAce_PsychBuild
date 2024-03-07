@@ -1,7 +1,7 @@
 name: Bug report
 description: Report a bug to be fixed
 labels: [bug, to-do]
-assignees: [tantalun-moon]
+assignees: [tantalun-moon, NeeEoo]
 body:
   - type: textarea
     id: description
