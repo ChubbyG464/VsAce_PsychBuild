@@ -1,7 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="BFPortraits.png">
-	<SubTexture name="Neutral0000" x="22" y="31" width="354" height="430"/>
-    <SubTexture name="Happy0000" x="487" y="31" width="354" height="430"/>
-    <SubTexture name="Surprised0000" x="22" y="462" width="353" height="436"/>
-    <SubTexture name="Miss0000" x="518" y="462" width="324" height="436"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="BFPortraits.png" width="1391" height="438">
+	<SubTexture name="Neutral0000" x="358" y="1" width="354" height="430" frameX="-0" frameY="-0" frameWidth="354" frameHeight="430"/>
+	<SubTexture name="Happy0000" x="1" y="1" width="354" height="430" frameX="-0" frameY="-0" frameWidth="354" frameHeight="430"/>
+	<SubTexture name="Surprised0000" x="715" y="1" width="349" height="433" frameX="-0" frameY="-0" frameWidth="353" frameHeight="436"/>
+	<SubTexture name="Miss0000" x="1067" y="1" width="323" height="436" frameX="-0" frameY="-0" frameWidth="324" frameHeight="436"/>
 </TextureAtlas>

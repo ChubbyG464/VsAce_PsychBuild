@@ -1,9 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="RetroBFPortraits.png">
-	<SubTexture name="Neutral0000" x="71" y="76" width="563" height="476"/>
-  <SubTexture name="Happy0000" x="713" y="76" width="532" height="476"/>
-  <SubTexture name="Smug0000" x="1385" y="76" width="561" height="476"/>
-  <SubTexture name="Sad0000" x="2059" y="76" width="563" height="476"/>
-  <SubTexture name="Confused0000" x="2713" y="76" width="578" height="476"/>
-  <SubTexture name="Flushed0000" x="3371" y="76" width="563" height="476"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="RetroBFPortraits.png" width="3377" height="478">
+	<SubTexture name="Neutral0000" x="1148" y="1" width="563" height="476" frameX="-0" frameY="-0" frameWidth="563" frameHeight="476"/>
+	<SubTexture name="Happy0000" x="2844" y="1" width="532" height="476" frameX="-0" frameY="-0" frameWidth="532" frameHeight="476"/>
+	<SubTexture name="Smug0000" x="2280" y="1" width="561" height="476" frameX="-0" frameY="-0" frameWidth="561" frameHeight="476"/>
+	<SubTexture name="Sad0000" x="1714" y="1" width="563" height="476" frameX="-0" frameY="-0" frameWidth="563" frameHeight="476"/>
+	<SubTexture name="Confused0000" x="1" y="1" width="578" height="476" frameX="-0" frameY="-0" frameWidth="578" frameHeight="476"/>
+	<SubTexture name="Flushed0000" x="582" y="1" width="563" height="476" frameX="-0" frameY="-0" frameWidth="563" frameHeight="476"/>
 </TextureAtlas>
