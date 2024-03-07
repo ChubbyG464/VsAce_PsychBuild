@@ -1,0 +1,10 @@
+name: Refactor request
+description: Request a refactor to be done
+labels: [refactor, to-do]
+assignees: [tantalun-moon]
+body:
+  - type: textarea
+    attributes:
+      label: "Describe what piece of code you want refactored:"
+    validations:
+      required: true
