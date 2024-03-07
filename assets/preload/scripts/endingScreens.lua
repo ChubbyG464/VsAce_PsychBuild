@@ -27,7 +27,7 @@ function onCreatePost()
 		return
 	end
 
-	luaDebugMode = true
+	--luaDebugMode = true
 
 	makeLuaSprite("endScreen")
 	setProperty("endScreen.active", false)
