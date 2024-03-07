@@ -115,7 +115,8 @@ class CreditsState extends MusicBeatState
 			['Candy', '@D0GFREAK', 'candy', FlxColor.fromRGB(255, 192, 203), 'https://twitter.com/D0GFREAK', []],
 			['Mk', '@Mkv8Art', 'mk', FlxColor.fromRGB(255, 25, 102), 'https://twitter.com/Mkv8Art', []],
 			['Tech', '@ThatTechCoyote', 'tech', FlxColor.fromRGB(153, 0, 0), 'https://twitter.com/ThatTechCoyote', []],
-			['Ne_Eo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch', []]
+			['Ne_Eo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch', []],
+			['Tantalun', '@tantalun', 'tantalun', FlxColor.fromRGB(0, 82, 82), 'https://twitter.com/tantalun',[]]
 		],
 		[
 			// Charting
@@ -129,12 +130,21 @@ class CreditsState extends MusicBeatState
 			['Kade', '@KadeDev', 'kade', FlxColor.fromRGB(25, 77, 0), 'https://twitter.com/kade0912', []],
 			['TKTems', '@TKtems', 'tk', FlxColor.fromRGB(0, 230, 191), 'https://twitter.com/TKTems', []],
 			['TiredPinkPanda', '@TiredPinkPanda', 'panda', FlxColor.fromRGB(158, 22, 22), 'https://twitter.com/TiredPinkPanda', []],
-			['Trackye', '@Trackye', 'track', FlxColor.fromRGB(43, 59, 255), 'https://www.youtube.com/channel/UC4IrLVtl26x-2hb9yYqCyVw', []]
+			['Trackye', '@Trackye', 'track', FlxColor.fromRGB(43, 59, 255), 'https://www.youtube.com/channel/UC4IrLVtl26x-2hb9yYqCyVw', []],
+			['Ferzy', '@_Ferzy', 'ferzy', FlxColor.fromRGB(251, 162, 79), 'https://twitter.com/_Ferzy', []]
+		],
+		[
+			// VsAce Psych Port
+			['ChubbyDumpy', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(195, 98, 74), 'https://twitter.com/ChubbyAlt', []],
+			['Tantalun', '@tantalun', 'tantalun', FlxColor.fromRGB(0, 82, 82), 'https://twitter.com/tantalun',[]],
+			['Ne_Eo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch', []],
+			['Mk', '@Mkv8Art', 'mk', FlxColor.fromRGB(255, 25, 102), 'https://twitter.com/Mkv8Art', []],
+			['Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/KamexVGM', []]
 		]
 	];
 
 	var titleNames:Array<String> = ['Artists', 'Animators', 'Programming', 'Special Thanks'];
-	var title2Names:Array<String> = ['', 'Audio', 'Charting', ''];
+	var title2Names:Array<String> = ['', 'Audio', 'Charting', 'VsAce Psych Port'];
 
 	var iconList:FlxTypedGroup<FlxSprite>;
 	var titleList:FlxTypedGroup<FlxText>;
