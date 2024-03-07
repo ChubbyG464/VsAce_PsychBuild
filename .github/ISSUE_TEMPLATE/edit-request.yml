@@ -1,10 +1,10 @@
-name: Edit request
-description: Request an edit to be done
-labels: [edit, to-do]
+name: Change request
+description: Request a change to be made
+labels: [change, to-do]
 assignees: [tantalun-moon]
 body:
   - type: textarea
     attributes:
-      label: "Describe your desired edit:"
+      label: "Describe your desired change:"
     validations:
       required: true
