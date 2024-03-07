@@ -1959,7 +1959,7 @@ class FunkinLua {
 			#end
 				path = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 
-			luaTrace('Trying to load dialogue: ' + path);
+			//luaTrace('Trying to load dialogue: ' + path);
 
 			#if MODS_ALLOWED
 			if(FileSystem.exists(path))
@@ -1970,7 +1970,7 @@ class FunkinLua {
 				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
 				if(shit.dialogue.length > 0) {
 					PlayState.instance.startDialogue(shit, music);
-					luaTrace('Successfully loaded dialogue', false, false, FlxColor.GREEN);
+					FlxG.log.notice('Successfully loaded dialogue');
 					return true;
 				} else {
 					luaTrace('Your dialogue file is badly formatted!', false, false, FlxColor.RED);

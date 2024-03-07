@@ -284,27 +284,28 @@ class TitleState extends MusicBeatState
 		add(bg);
 
 		logoBl = new FlxSprite(titleJSON.titlex, titleJSON.titley);
-		logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		//logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
+		logoBl.loadGraphic(Paths.image('logoBumpin'));
 
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
-		logoBl.animation.addByPrefix('bump', 'logoBumpin', 24, false);
-		logoBl.animation.play('bump');
+		//logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
+		//logoBl.animation.play('bump');
 		logoBl.scale.set(0.9, 0.9);
 		logoBl.updateHitbox();
-		 logoBl.screenCenter(X);
+		logoBl.screenCenter(X);
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
 		//gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
 
 
-		gfDance = new AnimationSprite(titleJSON.gfx, titleJSON.gfy);
-		gfDance.frames = Paths.getSparrowAtlas('characters/gf');
-		gfDance.animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-		gfDance.animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
-		gfDance.animation.addByPrefix('cheer', 'GF Cheer', 24, false);
-		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
-		gfDance.scale.set(0.9, 0.9);
+		//gfDance = new AnimationSprite(titleJSON.gfx, titleJSON.gfy);
+		//gfDance.frames = Paths.getSparrowAtlas('characters/gf');
+		//gfDance.animation.addByIndices('danceLeft', 'GF Dancing Beat', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+		//gfDance.animation.addByIndices('danceRight', 'GF Dancing Beat', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+		//gfDance.animation.addByPrefix('cheer', 'GF Cheer', 24, false);
+		//gfDance.antialiasing = ClientPrefs.globalAntialiasing;
+		//gfDance.scale.set(0.9, 0.9);
 
 		//add(gfDance);
 		//gfDance.shader = swagShader.shader;
@@ -333,20 +334,20 @@ class TitleState extends MusicBeatState
 			titleText.animation.findByPrefix(animFrames, "ENTER IDLE");
 			titleText.animation.findByPrefix(animFrames, "ENTER FREEZE");
 		}
-		
+
 		if (animFrames.length > 0) {
 			newTitle = true;
-			
+
 			titleText.animation.addByPrefix('idle', "ENTER IDLE", 24);
 			titleText.animation.addByPrefix('press', ClientPrefs.flashing ? "ENTER PRESSED" : "ENTER FREEZE", 24);
 		}
 		else {
 			newTitle = false;
-			
+
 			titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
 			titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
 		}
-		
+
 		titleText.antialiasing = ClientPrefs.globalAntialiasing;
 		titleText.animation.play('idle');
 		titleText.updateHitbox();
@@ -403,7 +404,7 @@ class TitleState extends MusicBeatState
 
 	var transitioning:Bool = false;
 	private static var playJingle:Bool = false;
-	
+
 	var newTitle:Bool = false;
 	var titleTimer:Float = 0;
 
@@ -437,7 +438,7 @@ class TitleState extends MusicBeatState
 				pressedEnter = true;
 			#end
 		}
-		
+
 		if (newTitle) {
 			titleTimer += CoolUtil.boundTo(elapsed, 0, 1);
 			if (titleTimer > 2) titleTimer -= 2;
@@ -452,21 +453,21 @@ class TitleState extends MusicBeatState
 				var timer:Float = titleTimer;
 				if (timer >= 1)
 					timer = (-timer) + 2;
-				
+
 				timer = FlxEase.quadInOut(timer);
-				
+
 				titleText.color = FlxColor.interpolate(titleTextColors[0], titleTextColors[1], timer);
 				titleText.alpha = FlxMath.lerp(titleTextAlphas[0], titleTextAlphas[1], timer);
 			}
-			
+
 			if(pressedEnter)
 			{
 				titleText.color = FlxColor.WHITE;
 				titleText.alpha = 1;
-				
+
 				if(titleText != null) titleText.animation.play('press');
 
-				gfDance.animation.play("cheer");
+				if(gfDance != null) gfDance.animation.play("cheer");
 
 				FlxG.camera.flash(ClientPrefs.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
@@ -548,8 +549,8 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		if(logoBl != null)
-			logoBl.animation.play('bump', true);
+		//if(logoBl != null)
+		//	logoBl.animation.play('bump', true);
 
 		if(!transitioning && gfDance != null) {
 			danceLeft = !danceLeft;
@@ -557,7 +558,7 @@ class TitleState extends MusicBeatState
 				gfDance.animation.play('danceRight');
 			else
 				gfDance.animation.play('danceLeft');
-			
+
 		}
 
 		if(!closedState) {
@@ -613,17 +614,17 @@ class TitleState extends MusicBeatState
 		{
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
-	
+
 			logoBl.angle = -4;
-	
+
 			new FlxTimer().start(0.01, function(tmr:FlxTimer)
 			{
-				if(logoBl.angle == -4) 
+				if(logoBl.angle == -4)
 					FlxTween.angle(logoBl, logoBl.angle, 4, 4, {ease: FlxEase.quartInOut});
-				if (logoBl.angle == 4) 
+				if (logoBl.angle == 4)
 					FlxTween.angle(logoBl, logoBl.angle, -4, 4, {ease: FlxEase.quartInOut});
 			}, 0);
-	
+
 			skippedIntro = true;
 		}
 	}

@@ -327,7 +327,7 @@ class StoryMenuState extends MusicBeatState
 			}
 			else if (controls.ACCEPT)
 			{
-				if (isChangingDifficulty || curWeek == 2)
+				if (isChangingDifficulty || curWeek == 2 || curWeek == 3)
 					selectWeek();
 				else
 					changeSelection();
@@ -519,17 +519,14 @@ class StoryMenuState extends MusicBeatState
 		txtWeekTitle.text = leName.toUpperCase();
 		txtWeekTitle.x = FlxG.width - (txtWeekTitle.width + 10);
 
-		var bullShit:Int = 0;
-
 		var unlocked:Bool = !weekIsLocked(leWeek.fileName);
-		for (item in grpWeekText.members)
+		for (i=>item in grpWeekText.members)
 		{
-			item.targetY = bullShit - curWeek;
-			if (item.targetY == Std.int(0) && unlocked)
+			item.targetY = i - curWeek;
+			if (item.targetY == 0 && unlocked)
 				item.alpha = 1;
 			else
 				item.alpha = 0.6;
-			bullShit++;
 		}
 
 		bgSprite.visible = true;
