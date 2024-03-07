@@ -1,7 +1,6 @@
 name: Refactor request
 description: Request a refactor to be done
 labels: [refactor, to-do]
-assignees: [tantalun-moon]
 body:
   - type: textarea
     attributes:
