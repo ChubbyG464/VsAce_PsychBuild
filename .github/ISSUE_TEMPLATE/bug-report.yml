@@ -1,6 +1,6 @@
 name: Bug report
 description: Report a bug to be fixed
-labels: [bug]
+labels: [bug, to-do]
 assignees: [tantalun-moon]
 body:
   - type: textarea
