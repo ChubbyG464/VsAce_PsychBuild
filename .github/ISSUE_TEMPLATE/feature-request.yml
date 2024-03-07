@@ -1,10 +1,10 @@
-name: Feature Request
+name: Feature request
 description: Request a feature to be added
 labels: [feature]
 assignees: [tantalun-moon]
 body:
   - type: textarea
     attributes:
-      label: Describe your desired feature:
+      label: "Describe your desired feature:"
     validations:
       required: true
