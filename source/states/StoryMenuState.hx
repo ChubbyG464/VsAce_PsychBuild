@@ -336,7 +336,7 @@ class StoryMenuState extends MusicBeatState
 
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
-			if (isChangingDifficulty && curWeek != 2)
+			if (isChangingDifficulty && curWeek != 2 && curWeek != 3)
 				changeSelection();
 			else{
 				FlxG.sound.play(Paths.sound('cancelMenu'));
@@ -604,7 +604,7 @@ class StoryMenuState extends MusicBeatState
 	{
 		var weekArray:Array<String> = loadedWeeks[curWeek].weekCharacters;
 		for (i in 0...grpWeekCharacters.length) {
-			if(i == 1 && curWeek != 2) {
+			if(i == 1 && curWeek != 2 && curWeek != 3) {
 				grpWeekCharacters.members[1].changeCharacter(["bf-cold", "bf-ace", "bf-retro"][curChar]);
 			} else {
 				grpWeekCharacters.members[i].changeCharacter(weekArray[i]);
