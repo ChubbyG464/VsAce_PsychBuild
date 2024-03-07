@@ -3754,13 +3754,17 @@ class PlayState extends MusicBeatState
 				}
 			});
 
-			if (controlHoldArray.contains(true) && !endingSong) {
+			var isHoldingKeys = controlHoldArray.contains(true) && !endingSong;
 
-			}
-			else if (boyfriend.holdTimer > Conductor.stepCrochet * 0.0011 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
+			if (!isHoldingKeys && boyfriend.holdTimer > Conductor.stepCrochet * 0.0011 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing') && !boyfriend.animation.curAnim.name.endsWith('miss'))
 			{
 				boyfriend.dance();
 				//boyfriend.animation.curAnim.finish();
+			} else if(!isHoldingKeys) {
+				if(boyfriend.isHolding) {
+					boyfriend.playAnim(boyfriend.animation.name.replace("-hold", ""), true);
+					boyfriend.isHolding = false;
+				}
 			}
 		}
 
@@ -3887,16 +3891,19 @@ class PlayState extends MusicBeatState
 
 			var char:Character = dad;
 			var animToPlay:String = singAnimations[Std.int(Math.abs(note.noteData))] + altAnim;
-			if(note.secondDad) {
+			if(note.secondDad)
 				char = dad2;
-			}
-			if(note.gfNote) {
+			if(note.gfNote)
 				char = gf;
-			}
 
 			if(char != null)
 			{
-				char.playAnim(animToPlay, true);
+				var ending = "";
+				if(note.isSustainNote && !note.isHoldEnd) {
+					char.isHolding = true;
+					ending = "-hold";
+				}
+				char.playAnim(animToPlay + ending, true);
 				char.holdTimer = 0;
 			}
 		}
@@ -3987,6 +3994,10 @@ class PlayState extends MusicBeatState
 
 				if(char != null)
 				{
+					if(note.isSustainNote && !note.isHoldEnd) {
+						char.isHolding = true;
+						note.animSuffix += "-hold";
+					}
 					char.playAnim(animToPlay + note.animSuffix, true);
 					char.holdTimer = 0;
 				}

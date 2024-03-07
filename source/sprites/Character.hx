@@ -2,22 +2,14 @@ package sprites;
 
 
 import animateatlas.AtlasFrameMaker;
-import flixel.FlxG;
-import flixel.FlxSprite;
-import flixel.addons.effects.FlxTrail;
-import flixel.animation.FlxBaseAnimation;
-import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.tweens.FlxTween;
-import flixel.util.FlxSort;
 #if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
 #end
-import openfl.utils.AssetType;
 import openfl.utils.Assets;
 import haxe.Json;
 
-import data.Section.SwagSection;
 
 using StringTools;
 
@@ -71,6 +63,8 @@ class Character extends FlxScaleFixedSprite
 	public var cameraPosition:Array<Float> = [0, 0];
 
 	public var hasMissAnimations:Bool = false;
+
+	public var isHolding:Bool = false;
 
 	//Used on Character Editor
 	public var imageFile:String = '';
@@ -128,10 +122,10 @@ class Character extends FlxScaleFixedSprite
 				#if MODS_ALLOWED
 				var modTxtToFind:String = Paths.modsTxt(json.image);
 				var txtToFind:String = Paths.getPath('images/' + json.image + '.txt', TEXT);
-				
+
 				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
 				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
-				
+
 				if (FileSystem.exists(modTxtToFind) || FileSystem.exists(txtToFind) || Assets.exists(txtToFind))
 				#else
 				if (Assets.exists(Paths.getPath('images/' + json.image + '.txt', TEXT)))
@@ -139,14 +133,14 @@ class Character extends FlxScaleFixedSprite
 				{
 					spriteType = "packer";
 				}
-				
+
 				#if MODS_ALLOWED
 				var modAnimToFind:String = Paths.modFolders('images/' + json.image + '/Animation.json');
 				var animToFind:String = Paths.getPath('images/' + json.image + '/Animation.json', TEXT);
-				
+
 				//var modTextureToFind:String = Paths.modFolders("images/"+json.image);
 				//var textureToFind:String = Paths.getPath('images/' + json.image, new AssetType();
-				
+
 				if (FileSystem.exists(modAnimToFind) || FileSystem.exists(animToFind) || Assets.exists(animToFind))
 				#else
 				if (Assets.exists(Paths.getPath('images/' + json.image + '/Animation.json', TEXT)))
@@ -156,13 +150,13 @@ class Character extends FlxScaleFixedSprite
 				}
 
 				switch (spriteType){
-					
+
 					case "packer":
 						frames = Paths.getPackerAtlas(json.image);
-					
+
 					case "sparrow":
 						frames = Paths.getSparrowAtlas(json.image);
-					
+
 					case "texture":
 						frames = AtlasFrameMaker.construct(json.image);
 				}
@@ -193,6 +187,19 @@ class Character extends FlxScaleFixedSprite
 
 				animationsArray = json.animations;
 				if(animationsArray != null && animationsArray.length > 0) {
+					for (anim in animationsArray.copy()) {
+						if(anim.anim.startsWith("sing")) {
+							var obj = Reflect.copy(anim);
+							//if(obj.indices == null)
+							//	obj.indices = [0];
+							//else
+							//	obj.indices = [obj.indices[0]];
+							obj.fps = 0;
+							obj.anim += "-hold";
+							animationsArray.push(obj);
+							trace(obj);
+						}
+					}
 					for (anim in animationsArray) {
 						var animAnim:String = '' + anim.anim;
 						var animName:String = '' + anim.name;
@@ -204,6 +211,8 @@ class Character extends FlxScaleFixedSprite
 						} else {
 							animation.addByPrefix(animAnim, animName, animFps, animLoop);
 						}
+
+						trace("Adding animation " + anim.anim);
 
 						if(anim.offsets != null && anim.offsets.length > 1) {
 							addOffset(anim.anim, anim.offsets[0], anim.offsets[1]);
@@ -223,7 +232,6 @@ class Character extends FlxScaleFixedSprite
 		if (isPlayer)
 		{
 			flipX = !flipX;
-
 		}
 	}
 
@@ -281,6 +289,8 @@ class Character extends FlxScaleFixedSprite
 	{
 		if (!debugMode && !skipDance && !specialAnim)
 		{
+			isHolding = false;
+
 			if(danceIdle)
 			{
 				danced = !danced;
@@ -306,8 +316,8 @@ class Character extends FlxScaleFixedSprite
 			var daOffset = animOffsets.get(AnimName);
 			offset.set(daOffset[0], daOffset[1]);
 		}
-		else
-			offset.set(0, 0);
+		//else
+		//	offset.set(0, 0);
 
 		if (curCharacter.startsWith('gf'))
 		{
@@ -320,7 +330,7 @@ class Character extends FlxScaleFixedSprite
 				danced = false;
 			}
 
-			if (AnimName == 'singUP' || AnimName == 'singDOWN')
+			else if (AnimName == 'singUP' || AnimName == 'singDOWN')
 			{
 				danced = !danced;
 			}
@@ -328,26 +338,9 @@ class Character extends FlxScaleFixedSprite
 	}
 
 	public var danceEveryNumBeats:Int = 2;
-	private var settingCharacterUp:Bool = true;
 	public function recalculateDanceIdle() : Void {
-		var lastDanceIdle:Bool = danceIdle;
 		danceIdle = (animation.getByName('danceLeft' + idleSuffix) != null && animation.getByName('danceRight' + idleSuffix) != null);
-
-		if(settingCharacterUp)
-		{
-			danceEveryNumBeats = (danceIdle ? 1 : 2);
-		}
-		else if(lastDanceIdle != danceIdle)
-		{
-			var calc:Float = danceEveryNumBeats;
-			if(danceIdle)
-				calc /= 2;
-			else
-				calc *= 2;
-
-			danceEveryNumBeats = Math.round(Math.max(calc, 1));
-		}
-		settingCharacterUp = false;
+		danceEveryNumBeats = (danceIdle ? 1 : 2);
 	}
 
 	public function addOffset(name:String, x:Float = 0, y:Float = 0) : Void
