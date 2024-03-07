@@ -12,9 +12,8 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.system.FlxSound;
-#if MODS_ALLOWED
+
 import sys.FileSystem;
-#end
 
 import data.WeekData;
 
@@ -68,8 +67,7 @@ class MasterEditorMenu extends MusicBeatState
 			leText.targetY = i;
 			grpTexts.add(leText);
 		}
-		
-		#if MODS_ALLOWED
+
 		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 42).makeGraphic(FlxG.width, 42, 0xFF000000);
 		textBG.alpha = 0.6;
 		add(textBG);
@@ -87,7 +85,7 @@ class MasterEditorMenu extends MusicBeatState
 		var found:Int = directories.indexOf(Paths.currentModDirectory);
 		if(found > -1) curDirectory = found;
 		changeDirectory();
-		#end
+
 		changeSelection();
 
 		FlxG.mouse.visible = false;
@@ -104,7 +102,7 @@ class MasterEditorMenu extends MusicBeatState
 		{
 			changeSelection(1);
 		}
-		#if MODS_ALLOWED
+
 		if(controls.UI_LEFT_P)
 		{
 			changeDirectory(-1);
@@ -113,7 +111,7 @@ class MasterEditorMenu extends MusicBeatState
 		{
 			changeDirectory(1);
 		}
-		#end
+
 
 		if (controls.BACK)
 		{
@@ -172,7 +170,6 @@ class MasterEditorMenu extends MusicBeatState
 			curSelected = 0;
 	}
 
-	#if MODS_ALLOWED
 	function changeDirectory(change:Int = 0)
 	{
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
@@ -194,5 +191,4 @@ class MasterEditorMenu extends MusicBeatState
 		}
 		directoryTxt.text = directoryTxt.text.toUpperCase();
 	}
-	#end
 }

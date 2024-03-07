@@ -465,7 +465,7 @@ class ChartingState extends MusicBeatState
 			var songName:String = Paths.formatToSongPath(_song.song);
 			var file:String = Paths.json(songName + '/events');
 			#if sys
-			if (#if MODS_ALLOWED FileSystem.exists(Paths.modsJson(songName + '/events')) || #end FileSystem.exists(file))
+			if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file))
 			#else
 			if (OpenFlAssets.exists(file))
 			#end
@@ -510,13 +510,9 @@ class ChartingState extends MusicBeatState
 		stepperSpeed.value = _song.speed;
 		stepperSpeed.name = 'song_speed';
 		blockPressWhileTypingOnStepper.push(stepperSpeed);
-		#if MODS_ALLOWED
 		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Paths.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
 		for(mod in Paths.getGlobalMods())
 			directories.push(Paths.mods(mod + '/characters/'));
-		#else
-		var directories:Array<String> = [Paths.getPreloadPath('characters/')];
-		#end
 
 		var tempMap:Map<String, Bool> = new Map<String, Bool>();
 		var characters:Array<String> = CoolUtil.coolTextFile(Paths.txt('characterList'));
@@ -524,7 +520,6 @@ class ChartingState extends MusicBeatState
 			tempMap.set(characters[i], true);
 		}
 
-		#if MODS_ALLOWED
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
 			if(FileSystem.exists(directory)) {
@@ -540,7 +535,6 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
-		#end
 
 		var player1DropDown = new FlxUIDropDownMenuCustom(10, stepperSpeed.y + 45, FlxUIDropDownMenuCustom.makeStrIdLabelArray(characters, true), function(character:String)
 		{
@@ -566,13 +560,9 @@ class ChartingState extends MusicBeatState
 		player2DropDown.selectedLabel = _song.player2;
 		blockPressWhileScrolling.push(player2DropDown);
 
-		#if MODS_ALLOWED
 		var directories:Array<String> = [Paths.mods('stages/'), Paths.mods(Paths.currentModDirectory + '/stages/'), Paths.getPreloadPath('stages/')];
 		for(mod in Paths.getGlobalMods())
 			directories.push(Paths.mods(mod + '/stages/'));
-		#else
-		var directories:Array<String> = [Paths.getPreloadPath('stages/')];
-		#end
 
 		tempMap.clear();
 		var stageFile:Array<String> = CoolUtil.coolTextFile(Paths.txt('stageList'));
@@ -584,7 +574,7 @@ class ChartingState extends MusicBeatState
 			}
 			tempMap.set(stageToCheck, true);
 		}
-		#if MODS_ALLOWED
+
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
 			if(FileSystem.exists(directory)) {
@@ -600,7 +590,6 @@ class ChartingState extends MusicBeatState
 				}
 			}
 		}
-		#end
 
 		if(stages.length < 1) stages.push('stage');
 
@@ -962,12 +951,10 @@ class ChartingState extends MusicBeatState
 		#if LUA_ALLOWED
 		var directories:Array<String> = [];
 
-		#if MODS_ALLOWED
 		directories.push(Paths.mods('custom_notetypes/'));
 		directories.push(Paths.mods(Paths.currentModDirectory + '/custom_notetypes/'));
 		for(mod in Paths.getGlobalMods())
 			directories.push(Paths.mods(mod + '/custom_notetypes/'));
-		#end
 
 		for (i in 0...directories.length) {
 			var directory:String =  directories[i];
@@ -1024,13 +1011,11 @@ class ChartingState extends MusicBeatState
 		var eventPushedMap:Map<String, Bool> = new Map<String, Bool>();
 		var directories:Array<String> = [];
 
-		#if MODS_ALLOWED
 		directories.push(Paths.getPreloadPath('custom_events/'));
 		directories.push(Paths.mods('custom_events/'));
 		directories.push(Paths.mods(Paths.currentModDirectory + '/custom_events/'));
 		for(mod in Paths.getGlobalMods())
 			directories.push(Paths.mods(mod + '/custom_events/'));
-		#end
 
 		for (i in 0...directories.length) {
 			var directory:String =  directories[i];
@@ -2057,38 +2042,34 @@ class ChartingState extends MusicBeatState
 			audioBuffers[0].dispose();
 		}
 		audioBuffers[0] = null;
-		#if MODS_ALLOWED
+
 		if(FileSystem.exists(Paths.modFolders('songs/' + currentSongName + '/Inst.ogg'))) {
 			audioBuffers[0] = AudioBuffer.fromFile(Paths.modFolders('songs/' + currentSongName + '/Inst.ogg'));
 			//trace('Custom vocals found');
 		}
-		else { #end
+		else {
 			var leVocals:String = Paths.getPath(currentSongName + '/Inst.' + Paths.SOUND_EXT, SOUND, 'songs');
 			if (OpenFlAssets.exists(leVocals)) { //Vanilla inst
 				audioBuffers[0] = AudioBuffer.fromFile('./' + leVocals.substr(6));
 				//trace('Inst found');
 			}
-		#if MODS_ALLOWED
 		}
-		#end
 
 		if(audioBuffers[1] != null) {
 			audioBuffers[1].dispose();
 		}
 		audioBuffers[1] = null;
-		#if MODS_ALLOWED
+
 		if(FileSystem.exists(Paths.modFolders('songs/' + currentSongName + '/Voices.ogg'))) {
 			audioBuffers[1] = AudioBuffer.fromFile(Paths.modFolders('songs/' + currentSongName + '/Voices.ogg'));
 			//trace('Custom vocals found');
-		} else { #end
+		} else {
 			var leVocals:String = Paths.getPath(currentSongName + '/Voices.' + Paths.SOUND_EXT, SOUND, 'songs');
 			if (OpenFlAssets.exists(leVocals)) { //Vanilla voices
 				audioBuffers[1] = AudioBuffer.fromFile('./' + leVocals.substr(6));
 				//trace('Voices found, LETS FUCKING GOOOO');
 			}
-		#if MODS_ALLOWED
 		}
-		#end
 	}
 	*/
 
@@ -2493,26 +2474,18 @@ class ChartingState extends MusicBeatState
 
 	function loadHealthIconFromCharacter(char:String) : String {
 		var characterPath:String = 'characters/' + char + '.json';
-		#if MODS_ALLOWED
+
 		var path:String = Paths.modFolders(characterPath);
 		if (!FileSystem.exists(path)) {
 			path = Paths.getPreloadPath(characterPath);
 		}
 
 		if (!FileSystem.exists(path))
-		#else
-		var path:String = Paths.getPreloadPath(characterPath);
-		if (!OpenFlAssets.exists(path))
-		#end
 		{
 			path = Paths.getPreloadPath('characters/' + Character.DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
 		}
 
-		#if MODS_ALLOWED
 		var rawJson = File.getContent(path);
-		#else
-		var rawJson = OpenFlAssets.getText(path);
-		#end
 
 		var json:CharacterFile = cast Json.parse(rawJson);
 		return json.healthicon;

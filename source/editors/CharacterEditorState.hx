@@ -34,9 +34,7 @@ import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
 
-#if MODS_ALLOWED
 import sys.FileSystem;
-#end
 
 import sprites.BGSprite;
 import sprites.Character;
@@ -1044,7 +1042,6 @@ class CharacterEditorState extends MusicBeatState
 	function reloadCharacterDropDown() : Void {
 		var charsLoaded:Map<String, Bool> = new Map();
 
-		#if MODS_ALLOWED
 		characterList = [];
 		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Paths.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
 		for(mod in Paths.getGlobalMods())
@@ -1064,9 +1061,6 @@ class CharacterEditorState extends MusicBeatState
 				}
 			}
 		}
-		#else
-		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
-		#end
 
 		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
 		charDropDown.selectedLabel = daAnim;
