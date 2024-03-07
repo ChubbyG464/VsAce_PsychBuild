@@ -1,7 +1,6 @@
 name: Change request
 description: Request a change to be made
 labels: [change, to-do]
-assignees: [tantalun-moon]
 body:
   - type: textarea
     attributes:
