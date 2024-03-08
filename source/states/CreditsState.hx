@@ -12,425 +12,307 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.group.FlxSpriteGroup;
 
-using StringTools;
 #if windows
 import Discord.DiscordClient;
 #end
 
-// yoinked code from retrospecter srry arcy
-class CreditGroup extends FlxBasic
+using StringTools;
+
+
+enum Directions
 {
-	public var name:FlxTypeText; // Positions are based off this text location
-	public var nameStr:String;
-	public var tag:FlxTypeText;
-	public var icon:FlxSprite;
-	public var color:FlxColor;
+	RIGHT;
+	UP;
+	LEFT;
+	DOWN;
+}
+
+
+class Credit extends FlxSpriteGroup
+{
+	public var nameSprite:FlxTypeText;
+	public var twitterSprite:FlxTypeText;
+	public var iconSprite:FlxSprite;
+
+	public var highlightColor:FlxColor;
+
 	public var link:String;
-	public var nodes:Array<CreditGroup>; // Left, Down, Up, Right
 
 
-	public function new(Name:FlxTypeText, NameString:String, Tag:FlxTypeText, Icon:FlxSprite, Color:FlxColor, Link:String)
+	public function new(name:String, twitter:String, iconName:String, highlightColor:FlxColor, link:String)
 	{
 		super();
 
-		name = Name;
-		nameStr = NameString;
-		tag = Tag;
-		icon = Icon;
-		color = Color;
-		link = Link;
-		nodes = [null, null, null, null];
+		this.highlightColor = highlightColor;
+		this.link = link;
 
+		this.nameSprite = new FlxTypeText(0, 0, 0, name);
+		this.nameSprite.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
+		this.nameSprite.start(0.1);
+		this.add(this.nameSprite);
+
+		this.twitterSprite = new FlxTypeText(0, 20, 0, twitter);
+		this.twitterSprite.setFormat("VCR OSD Mono", 18, 0xFFd1d1d1);
+		this.twitterSprite.start(0.1);
+		this.add(this.twitterSprite);
+
+		this.iconSprite = new FlxSprite(-60, 0);
+		this.iconSprite.loadGraphic(Paths.image('crediticons/' + iconName, 'preload'));
+		this.iconSprite.setGraphicSize(50, 50);
+		this.iconSprite.updateHitbox();
+		this.iconSprite.antialiasing = ClientPrefs.globalAntialiasing;
+		this.add(this.iconSprite);
 	}
 
-	public function tweenPosition(X:Float, Y:Float, Duration:Float = 1, ?Options:TweenOptions) : Void
+	override public function update(elapsed:Float) : Void
 	{
-		FlxTween.tween(name, {x: X, y: Y}, Duration, Options);
-		FlxTween.tween(tag, {x: X, y: Y + 20}, Duration, Options);
-		FlxTween.tween(icon, {x: X - 50, y: Y}, Duration, Options);
+		this.iconSprite.setGraphicSize(Std.int(FlxMath.lerp(50, this.iconSprite.width, 0.50)));
+		this.iconSprite.updateHitbox();
+
+		super.update(elapsed);
 	}
 
-	public function setPosition(X:Float, Y:Float) : Void
+	public function beatHit() : Void
 	{
-		name.setPosition(X, Y);
-		tag.setPosition(X, Y + 20);
-		icon.setPosition(X - 50, Y);
-	}
-
-
-	public function select() : Void
-	{
-		name.setFormat("VCR OSD Mono", 24, color);
-	}
-
-	public function deselect() : Void
-	{
-		name.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
+		FlxTween.tween(this.iconSprite, {width: 60, height: 60}, 0.05, {ease: FlxEase.cubeOut});
 	}
 }
 
+
+class CreditGroup extends FlxSpriteGroup
+{
+	public var nameSprite:FlxText;
+
+	public var credits:Array<Credit>;
+	public var creditsPerLine:Int = 3;
+
+
+	public function new(name:String, ?credits:Null<Array<Credit>> = null)
+	{
+		super();
+
+		this.nameSprite = new FlxText(0, 0, 0, name);
+		this.nameSprite.setFormat("VCR OSD Mono", 50, FlxColor.WHITE);
+		this.nameSprite.screenCenter(X);
+		this.add(this.nameSprite);
+
+		if (credits == null)
+		{
+			credits = new Array<Credit>();
+		}
+
+		this.credits = credits;
+
+		this.arrangeCredits();
+	}
+
+	private function arrangeCredits() : Void
+	{
+		for (creditIndex in 0...this.credits.length)
+		{
+			var credit:Credit = this.credits[creditIndex];
+
+			credit.screenCenter(X);
+
+			var x:Float = credit.x - 20 + (((creditIndex % this.creditsPerLine) - 1) * 400);
+			var y:Float = 75 + (Std.int(creditIndex / this.creditsPerLine) * 80);
+
+			credit.setPosition(x, y);
+
+			this.add(credit);
+		}
+	}
+
+	public function beatHit() : Void
+	{
+		for (credit in this.credits)
+		{
+			credit.beatHit();
+		}
+	}
+}
+
+
+class CreditPage extends FlxSpriteGroup
+{
+	public var groups:Array<CreditGroup>;
+
+	public var currentGroup:Int = 0;
+
+
+	public function new(?groups:Null<Array<CreditGroup>> = null)
+	{
+		super(0, 150);
+
+		if (groups == null)
+		{
+			groups = new Array<CreditGroup>();
+		}
+
+		this.groups = groups;
+
+		this.arrangeGroups();
+	}
+
+	private function arrangeGroups() : Void
+	{
+		for (groupIndex in 0...this.groups.length)
+		{
+			var group:CreditGroup = this.groups[groupIndex];
+
+			group.setPosition(0, 300 * (groupIndex % 2));
+
+			this.add(group);
+		}
+	}
+
+	public function beatHit() : Void
+	{
+		for (group in this.groups)
+		{
+			group.beatHit();
+		}
+	}
+}
+
+
 class CreditsState extends MusicBeatState
 {
-	// Array key:
-	// 0 - Name
-	// 1 - Twitter Tag
-	// 2 - Icon name
-	// 3 - Color
-	// 4 - Twitter Link
-	// 5 - Array of quot- just kidding no quotes
-
-	var sectionArrays:Array<Dynamic> = [
-		[
-			// Artists
-			['Aurum', '@AurumArt_', 'aurum', FlxColor.fromRGB(255, 221, 114), 'https://twitter.com/AurumArt_', []],
-			['BonesTheSkelebunny01', '@BSkelebunny01', 'bon', FlxColor.fromRGB(255, 51, 187), 'https://twitter.com/BSkelebunny01', []],
-			['Dax', '@Daxite_', 'dax', FlxColor.fromRGB(0, 38, 230), 'https://twitter.com/daxite_', []],
-			['D6', '@DSiiiiiix', 'd6', FlxColor.fromRGB(107, 104, 120), 'https://twitter.com/DSiiiiiix', []],
-			['Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/KamexVGM', []],
-			['Lectro', '@LectroArt', 'lectro', FlxColor.fromRGB(255, 255, 58), 'https://twitter.com/LectroArt', []],
-			['Juno Songs', '@JunoSongsYT', 'juno', FlxColor.fromRGB(191, 0, 230), 'https://twitter.com/JunoSongsYT', []],
-			['Pincer', '@PincerProd', 'pincer', FlxColor.fromRGB(25, 255, 255), 'https://twitter.com/PincerProd', []],
-			['Shiba Chichi', '@lolychichi', 'chichi', FlxColor.fromRGB(255, 179, 191), 'https://twitter.com/lolychichi', []],
-			['Sinna_roll', '@Sinna_roll', 'zhi', FlxColor.fromRGB(204, 255, 102), 'https://twitter.com/Sinna_roll', []],
-			['Springy_4264', '@Springy_4264', 'springy', FlxColor.fromRGB(179, 0, 30), 'https://twitter.com/Springy_4264', []],
-			['Wildface', '@wildface1010', 'wildface', FlxColor.fromRGB(233, 19, 19), 'https://twitter.com/wildface1010', []],
-			['Wolfwrathknight', '@Wolfwrathknight', 'wolf', FlxColor.fromRGB(0, 124, 254), 'https://twitter.com/wolfwrathknight', []]
-		],
-		[
-			// Animators
-			['Aurum', '@AurumArt_', 'aurum', FlxColor.fromRGB(255, 221, 114), 'https://twitter.com/AurumArt_', []],
-			['Shiba Chichi', '@lolychichi', 'chichi', FlxColor.fromRGB(255, 179, 191), 'https://twitter.com/lolychichi', []],
-			['Tenzu', '@Tenzubushi', 'tenzu', FlxColor.GRAY, 'https://twitter.com/Tenzubushi', []],
-			['Wildface', '@wildface1010', 'wildface', FlxColor.fromRGB(233, 19, 19), 'https://twitter.com/wildface1010', []]
-		],
-		[
-			// Audio
-			['Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/kamexvgm', []]
-		],
-		[
-			// Programming
-			['ArcyDev', '@AwkwardArcy', 'arcy', FlxColor.fromRGB(255, 140, 25), 'https://twitter.com/AwkwardArcy', []],
-			['AyeTSG', '@AyeTSG', 'tsg', FlxColor.fromRGB(120, 114, 114), 'https://twitter.com/ayetsg', []],
-			['Candy', '@D0GFREAK', 'candy', FlxColor.fromRGB(255, 192, 203), 'https://twitter.com/D0GFREAK', []],
-			['Mk', '@Mkv8Art', 'mk', FlxColor.fromRGB(255, 25, 102), 'https://twitter.com/Mkv8Art', []],
-			['Tech', '@ThatTechCoyote', 'tech', FlxColor.fromRGB(153, 0, 0), 'https://twitter.com/ThatTechCoyote', []],
-			['Ne_Eo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch', []],
-			['Tantalun', '@tantalun', 'tantalun', FlxColor.fromRGB(0, 82, 82), 'https://twitter.com/tantalun',[]]
-		],
-		[
-			// Charting
-			['ChubbyDumpy', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(195, 98, 74), 'https://twitter.com/ChubbyAlt', []],
-			['Clipee', '@LilyClipster', 'clip', FlxColor.fromRGB(230, 230, 0), 'https://twitter.com/LilyClipster', []],
-			['DJ', '@AlchoholicDj', 'dj', FlxColor.fromRGB(0, 0, 230), 'https://twitter.com/AlchoholicDj', []]
-		],
-		[
-			// Special Thanks
-			['RetroSpecter', '@RetroSpecter_', 'retro', FlxColor.fromRGB(23, 216, 228), 'https://twitter.com/Retrospecter_', []],
-			['Kade', '@KadeDev', 'kade', FlxColor.fromRGB(25, 77, 0), 'https://twitter.com/kade0912', []],
-			['TKTems', '@TKtems', 'tk', FlxColor.fromRGB(0, 230, 191), 'https://twitter.com/TKTems', []],
-			['TiredPinkPanda', '@TiredPinkPanda', 'panda', FlxColor.fromRGB(158, 22, 22), 'https://twitter.com/TiredPinkPanda', []],
-			['Trackye', '@Trackye', 'track', FlxColor.fromRGB(43, 59, 255), 'https://www.youtube.com/channel/UC4IrLVtl26x-2hb9yYqCyVw', []],
-			['Ferzy', '@_Ferzy', 'ferzy', FlxColor.fromRGB(251, 162, 79), 'https://twitter.com/_Ferzy', []]
-		],
-		[
-			// VsAce Psych Port
-			['ChubbyDumpy', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(195, 98, 74), 'https://twitter.com/ChubbyAlt', []],
-			['Tantalun', '@tantalun', 'tantalun', FlxColor.fromRGB(0, 82, 82), 'https://twitter.com/tantalun',[]],
-			['Ne_Eo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch', []],
-			['Mk', '@Mkv8Art', 'mk', FlxColor.fromRGB(255, 25, 102), 'https://twitter.com/Mkv8Art', []],
-			['Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/KamexVGM', []]
-		]
+	public final pages:Array<CreditPage> = [
+		new CreditPage([
+			new CreditGroup("Artists", [
+				new Credit('Aurum', '@AurumArt_', 'aurum', FlxColor.fromRGB(255, 221, 114), 'https://twitter.com/AurumArt_'),
+				new Credit('BonesTheSkelebunny01', '@BSkelebunny01', 'bon', FlxColor.fromRGB(255, 51, 187), 'https://twitter.com/BSkelebunny01'),
+				new Credit('Dax', '@Daxite_', 'dax', FlxColor.fromRGB(0, 38, 230), 'https://twitter.com/daxite_'),
+				new Credit('D6', '@DSiiiiiix', 'd6', FlxColor.fromRGB(107, 104, 120), 'https://twitter.com/DSiiiiiix'),
+				new Credit('Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/KamexVGM'),
+				new Credit('Lectro', '@LectroArt', 'lectro', FlxColor.fromRGB(255, 255, 58), 'https://twitter.com/LectroArt'),
+				new Credit('Juno Songs', '@JunoSongsYT', 'juno', FlxColor.fromRGB(191, 0, 230), 'https://twitter.com/JunoSongsYT'),
+				new Credit('Pincer', '@PincerProd', 'pincer', FlxColor.fromRGB(25, 255, 255), 'https://twitter.com/PincerProd'),
+				new Credit('Shiba Chichi', '@lolychichi', 'chichi', FlxColor.fromRGB(255, 179, 191), 'https://twitter.com/lolychichi'),
+				new Credit('Sinna_roll', '@Sinna_roll', 'zhi', FlxColor.fromRGB(204, 255, 102), 'https://twitter.com/Sinna_roll'),
+				new Credit('Springy_4264', '@Springy_4264', 'springy', FlxColor.fromRGB(179, 0, 30), 'https://twitter.com/Springy_4264'),
+				new Credit('Wildface', '@wildface1010', 'wildface', FlxColor.fromRGB(233, 19, 19), 'https://twitter.com/wildface1010'),
+				new Credit('Wolfwrathknight', '@Wolfwrathknight', 'wolf', FlxColor.fromRGB(0, 124, 254), 'https://twitter.com/wolfwrathknight')
+			])
+		]),
+		new CreditPage([
+			new CreditGroup("Animators", [
+				new Credit('Aurum', '@AurumArt_', 'aurum', FlxColor.fromRGB(255, 221, 114), 'https://twitter.com/AurumArt_'),
+				new Credit('Shiba Chichi', '@lolychichi', 'chichi', FlxColor.fromRGB(255, 179, 191), 'https://twitter.com/lolychichi'),
+				new Credit('Tenzu', '@Tenzubushi', 'tenzu', FlxColor.GRAY, 'https://twitter.com/Tenzubushi'),
+				new Credit('Wildface', '@wildface1010', 'wildface', FlxColor.fromRGB(233, 19, 19), 'https://twitter.com/wildface1010')
+			]),
+			new CreditGroup("Audio", [
+				new Credit('Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/kamexvgm')
+			])
+		]),
+		new CreditPage([
+			new CreditGroup("Programming", [
+				new Credit('ArcyDev', '@AwkwardArcy', 'arcy', FlxColor.fromRGB(255, 140, 25), 'https://twitter.com/AwkwardArcy'),
+				new Credit('AyeTSG', '@AyeTSG', 'tsg', FlxColor.fromRGB(120, 114, 114), 'https://twitter.com/ayetsg'),
+				new Credit('Candy', '@D0GFREAK', 'candy', FlxColor.fromRGB(255, 192, 203), 'https://twitter.com/D0GFREAK'),
+				new Credit('Mk', '@Mkv8Art', 'mk', FlxColor.fromRGB(255, 25, 102), 'https://twitter.com/Mkv8Art'),
+				new Credit('Tech', '@ThatTechCoyote', 'tech', FlxColor.fromRGB(153, 0, 0), 'https://twitter.com/ThatTechCoyote'),
+				new Credit('Ne_Eo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch'),
+				new Credit('Tantalun', '@tantalun', 'tantalun', FlxColor.fromRGB(0, 82, 82), 'https://twitter.com/tantalun')
+			]),
+			new CreditGroup("Charting", [
+				new Credit('ChubbyDumpy', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(195, 98, 74), 'https://twitter.com/ChubbyAlt'),
+				new Credit('Clipee', '@LilyClipster', 'clip', FlxColor.fromRGB(230, 230, 0), 'https://twitter.com/LilyClipster'),
+				new Credit('DJ', '@AlchoholicDj', 'dj', FlxColor.fromRGB(0, 0, 230), 'https://twitter.com/AlchoholicDj')
+			])
+		]),
+		new CreditPage([
+			new CreditGroup("Special Thanks", [
+				new Credit('RetroSpecter', '@RetroSpecter_', 'retro', FlxColor.fromRGB(23, 216, 228), 'https://twitter.com/Retrospecter_'),
+				new Credit('Kade', '@KadeDev', 'kade', FlxColor.fromRGB(25, 77, 0), 'https://twitter.com/kade0912'),
+				new Credit('TKTems', '@TKtems', 'tk', FlxColor.fromRGB(0, 230, 191), 'https://twitter.com/TKTems'),
+				new Credit('TiredPinkPanda', '@TiredPinkPanda', 'panda', FlxColor.fromRGB(158, 22, 22), 'https://twitter.com/TiredPinkPanda'),
+				new Credit('Trackye', '@Trackye', 'track', FlxColor.fromRGB(43, 59, 255), 'https://www.youtube.com/channel/UC4IrLVtl26x-2hb9yYqCyVw'),
+				new Credit('Ferzy', '@_Ferzy', 'ferzy', FlxColor.fromRGB(251, 162, 79), 'https://twitter.com/_Ferzy')
+			]),
+			new CreditGroup("VsAce Psych Port", [
+				new Credit('ChubbyDumpy', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(195, 98, 74), 'https://twitter.com/ChubbyAlt'),
+				new Credit('Tantalun', '@tantalun', 'tantalun', FlxColor.fromRGB(0, 82, 82), 'https://twitter.com/tantalun'),
+				new Credit('Ne_Eo', '@Ne_Eo_Twitch', 'neeo', FlxColor.fromRGB(48, 38, 39), 'https://twitter.com/Ne_Eo_Twitch'),
+				new Credit('Mk', '@Mkv8Art', 'mk', FlxColor.fromRGB(255, 25, 102), 'https://twitter.com/Mkv8Art'),
+				new Credit('Kamex', '@KamexVGM', 'kamex', FlxColor.fromRGB(186, 226, 255), 'https://twitter.com/KamexVGM')
+			])
+		])
 	];
 
-	var titleNames:Array<String> = ['Artists', 'Animators', 'Programming', 'Special Thanks'];
-	var title2Names:Array<String> = ['', 'Audio', 'Charting', 'VsAce Psych Port'];
-
-	var iconList:FlxTypedGroup<FlxSprite>;
-	var titleList:FlxTypedGroup<FlxText>;
-	var secondTitleList:FlxTypedGroup<FlxText>;
-	var cur_section:Int = 0;
-	var curSelected:CreditGroup;
-	var textLength:FlxText;
-	// var quoteText:FlxTypeText;
-	// var memeText:FlxTypeText;
-	// var quotePerson:FlxTypeText;
-
-	var creditSections:FlxTypedGroup<FlxTypedGroup<CreditGroup>>;
-	var credit2Sections:FlxTypedGroup<FlxTypedGroup<CreditGroup>>;
-	var artistCredits:FlxTypedGroup<CreditGroup>;
 	var allowInputs:Bool = true;
 
-	//var shh:FlxSound;
+	private var currentPageIndex:Int = 0;
+
 
 	override function create() : Void
 	{
-		#if windows
-		// Updating Discord Rich Presence
+#if windows
 		DiscordClient.changePresence("Reading Credits", null);
-		#end
-
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
-		bg.color = 0xFF803fff;
-		bg.setGraphicSize(Std.int(bg.width * 1.1));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		bg.alpha = 0.75;
-		add(bg);
-
-		iconList = new FlxTypedGroup<FlxSprite>();
-		titleList = new FlxTypedGroup<FlxText>();
-		secondTitleList = new FlxTypedGroup<FlxText>();
-		creditSections = new FlxTypedGroup<FlxTypedGroup<CreditGroup>>();
-		credit2Sections = new FlxTypedGroup<FlxTypedGroup<CreditGroup>>();
-		artistCredits = new FlxTypedGroup<CreditGroup>();
+#end
+		var background:FlxSprite = new FlxSprite();
+		background.loadGraphic(Paths.image("menuDesat"));
+		background.setGraphicSize(Std.int(background.width * 1.1));
+		background.updateHitbox();
+		background.screenCenter();
+		background.color = 0xFF803fff;
+		background.alpha = 0.75;
+		background.antialiasing = ClientPrefs.globalAntialiasing;
+		this.add(background);
 
 		var title:FlxText = new FlxText(0, 25, 0, 'CREDITS', 100);
 		title.setFormat("VCR OSD Mono", 100, FlxColor.WHITE);
 		title.screenCenter(X);
-		add(title);
+		this.add(title);
 
-		var instructions:FlxText = new FlxText(10, 10, 500, 'Move to select a person\nConfirm to go to their Twitter page\nQ and E to change sections');
+		var instructions:FlxText = new FlxText(10, 10, 500,
+			'Move to select a person\nConfirm to go to their Twitter page\nQ and E to change sections'
+		);
 		instructions.setFormat("VCR OSD Mono", 18, FlxColor.WHITE, FlxTextAlign.LEFT);
-		add(instructions);
+		this.add(instructions);
 
-		// textLength = new FlxText(0, 600, 0, '');
-		// textLength.setFormat("VCR OSD Mono", 36, FlxColor.WHITE);
-		// quoteText = new FlxTypeText(textLength.x, 600, 1280, '');
-		// quoteText.setFormat("VCR OSD Mono", 36, FlxColor.WHITE);
-		// quoteText.sounds = [FlxG.sound.load(Paths.sound('bfText'), 0.6)];
-		// add(quoteText);
-		// memeText = new FlxTypeText(textLength.x, 600, 0, '');
-		// memeText.setFormat("VCR OSD Mono", 36, FlxColor.WHITE);
-		// memeText.sounds = [FlxG.sound.load(Paths.sound('bfText'), 0.6)];
-		// memeText.visible = false;
-		// add(memeText);
-		// quotePerson = new FlxTypeText(650, 675, 0, '');
-		// quotePerson.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
-		// add(quotePerson);
-
-		for (i in 0...titleNames.length)
+		for (page in this.pages)
 		{
-			var subTitle:FlxText = new FlxText(2175, 150, 0, titleNames[i], 50);
-			subTitle.setFormat("VCR OSD Mono", 50, FlxColor.WHITE);
-			titleList.add(subTitle);
-
-			var secondSubTitle:FlxText = new FlxText(2175, 400, 0, title2Names[i], 50);
-			secondSubTitle.setFormat("VCR OSD Mono", 50, FlxColor.WHITE);
-			secondTitleList.add(secondSubTitle);
+			page.setPosition(0, 2000);
 		}
 
-		// Hard code workaround
-		credit2Sections.add(new FlxTypedGroup<CreditGroup>());
+		this.pages[this.currentPageIndex].setPosition(0, 150);
 
-		for (i in 0...sectionArrays.length)
+		for (page in this.pages)
 		{
-			var section:FlxTypedGroup<CreditGroup> = new FlxTypedGroup<CreditGroup>();
-
-			for (j in 0...sectionArrays[i].length)
-			{
-				var icon:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('crediticons/' + sectionArrays[i][j][2], 'preload'));
-				icon.setGraphicSize(50, 50);
-				icon.antialiasing = ClientPrefs.globalAntialiasing;
-				icon.updateHitbox();
-				var name:FlxTypeText = new FlxTypeText(0, 0, 0, sectionArrays[i][j][0]);
-				name.setFormat("VCR OSD Mono", 24, FlxColor.WHITE);
-				name.start(0.1);
-				add(name);
-				var tag:FlxTypeText = new FlxTypeText(0, 0, 0, sectionArrays[i][j][1]);
-				tag.setFormat("VCR OSD Mono", 18, 0xFFd1d1d1);
-				tag.start(0.1);
-				add(tag);
-				var credit:CreditGroup = new CreditGroup(name, sectionArrays[i][j][0], tag, icon, sectionArrays[i][j][3], sectionArrays[i][j][4]);
-
-				iconList.add(icon);
-				section.add(credit);
-			}
-
-			for (i in 0...section.length)
-			{
-				section.members[i].setPosition(2175 + ((i % 3) * 400), 250 + (Std.int(i / 3) * 100));
-
-				// Left
-				if (i % 3 != 0)
-				{
-					section.members[i].nodes[0] = section.members[i - 1];
-				}
-				else if (i + 2 < section.length)
-				{
-					section.members[i].nodes[0] = section.members[i + 2];
-				}
-				else
-				{
-					section.members[i].nodes[0] = section.members[section.length - 1];
-				}
-				// Down
-				if (i + 3 < section.length)
-				{
-					section.members[i].nodes[1] = section.members[i + 3];
-				}
-				else
-				{
-					section.members[i].nodes[1] = section.members[i % 3];
-				}
-				// Up
-				if (i - 3 >= 0)
-				{
-					section.members[i].nodes[2] = section.members[i - 3];
-				}
-				else
-				{
-					var remainder:Int = section.length % 3;
-					var column:Int = i % 3;
-					if (remainder < column + 1)
-					{
-						section.members[i].nodes[2] = section.members[section.length - remainder - (3 - column - 1) - 1];
-					}
-					else if (remainder > column + 1)
-					{
-						section.members[i].nodes[2] = section.members[section.length - (3 - column - 1)];
-					}
-					else
-					{
-						section.members[i].nodes[2] = section.members[section.length - 1];
-					}
-				}
-				// Right
-				if (i + 1 >= section.length)
-				{
-					section.members[i].nodes[3] = section.members[i - (i % 3)];
-				}
-				else if (i % 3 != 2)
-				{
-					section.members[i].nodes[3] = section.members[i + 1];
-				}
-				else if (i - 2 < section.length)
-				{
-					section.members[i].nodes[3] = section.members[i - 2];
-				}
-				else
-				{
-					section.members[i].nodes[3] = section.members[section.length - 1];
-				}
-			}
-
-			if (i == 2 || i == 4)
-			{
-				credit2Sections.add(section);
-			}
-			else
-			{
-				creditSections.add(section);
-			}
+			this.add(page);
 		}
-
-		// this should make everything connect together hopefullyskjgs (candy)
-		// arcy is a fucking legend
-
-		// Animators/Audio
-		creditSections.members[1].members[3].nodes[1] = credit2Sections.members[1].members[0]; // Down | Wildface -> Kamex
-		credit2Sections.members[1].members[0].nodes[1] = creditSections.members[1].members[0]; // Down | Kamex -> Aurum
-		credit2Sections.members[1].members[0].nodes[2] = creditSections.members[1].members[3]; // Up | Kamex -> Wildface
-		creditSections.members[1].members[0].nodes[2] = credit2Sections.members[1].members[0]; // Up | Aurum -> Kamex
-		creditSections.members[1].members[3].nodes[2] = creditSections.members[1].members[0]; // Up | Wildface -> Aurum (idk if this actually worked or not but the code is functional so -vsn)
-
-		// Programming/Charters
-		credit2Sections.members[2].members[0].nodes[2] = creditSections.members[2].members[3];	// Up	| Chubby -> Mk
-		creditSections.members[2].members[1].nodes[2] = credit2Sections.members[2].members[1];	// Up	| TSG -> Clipee
-		credit2Sections.members[2].members[1].nodes[2] = creditSections.members[2].members[4];	// Up	| Clipee -> tech
-		creditSections.members[2].members[2].nodes[2] = credit2Sections.members[2].members[2];	// Up	| candy -> DJ
-		credit2Sections.members[2].members[2].nodes[2] = creditSections.members[2].members[5];	// Up	| DJ -> tech
-
-		creditSections.members[2].members[3].nodes[1] = credit2Sections.members[2].members[0];	// Down	| Mk -> Chubby
-		creditSections.members[2].members[4].nodes[1] = credit2Sections.members[2].members[1];	// Down	| tech -> Clipee
-		credit2Sections.members[2].members[1].nodes[1] = creditSections.members[2].members[1];	// Down	| Clipee -> TSG
-		creditSections.members[2].members[5].nodes[1] = credit2Sections.members[2].members[2];	// Down	| neeo -> dj
-		credit2Sections.members[2].members[2].nodes[1] = creditSections.members[2].members[2];	// Down	| DJ -> candy
-
-
-
-		credit2Sections.add(new FlxTypedGroup<CreditGroup>());
-
-		// Initialize
-		titleList.members[cur_section].setPosition(640 - (titleList.members[cur_section].width / 2), 150);
-		secondTitleList.members[cur_section].setPosition(640 - (secondTitleList.members[cur_section].width / 2), 400);
-		for (i in 0...creditSections.members[cur_section].length)
-		{
-			creditSections.members[cur_section].members[i].setPosition(175 + ((i % 3) * 400), 250 + (Std.int(i / 3) * 75));
-		}
-		for (i in 0...credit2Sections.members[cur_section].length)
-		{
-			credit2Sections.members[cur_section].members[i].setPosition(175 + ((i % 3) * 400), 500 + (Std.int(i / 3) * 75));
-		}
-
-		curSelected = creditSections.members[cur_section].members[0];
-		curSelected.select();
-
-		/*shh = new FlxSound().loadEmbedded(Paths.sound('forD6', 'shared'));
-		FlxG.sound.list.add(shh);*/
-
-		add(titleList);
-		add(secondTitleList);
-		add(iconList);
-		add(creditSections);
-		add(credit2Sections);
-
-
 
 		super.create();
 	}
 
 	override function update(elapsed:Float) : Void
 	{
-		// For animations on beat
 		if (FlxG.sound.music != null)
 		{
 			Conductor.songPosition = FlxG.sound.music.time;
 		}
 
-
-		if (controls.BACK)
+		if (this.controls.BACK)
 		{
 			FlxG.switchState(new MainMenuState());
 		}
-		else if (controls.ACCEPT)
+
+		if (this.allowInputs)
 		{
-			// (tsg - 8/14/2021) dont try to open null links (such as kevin's)
-			if (curSelected.link != null) {
-				FlxG.openURL(curSelected.link);
+			if (FlxG.keys.justPressed.Q)
+			{
+				this.changePage(Directions.LEFT);
 			}
-		}
 
-		if (allowInputs && FlxG.keys.justPressed.Q)
-		{
-			changeSection(-1);
-		}
-		else if (allowInputs && FlxG.keys.justPressed.E)
-		{
-			changeSection(1);
-		}
-		else if (controls.UI_LEFT_P)
-		{
-			move(0);
-		}
-		else if (controls.UI_RIGHT_P)
-		{
-			move(3);
-		}
-		else if (controls.UI_UP_P)
-		{
-			move(2);
-		}
-		else if (controls.UI_DOWN_P)
-		{
-			move(1);
-		}
-
-		for (i in 0...iconList.length)
-		{
-			iconList.members[i].setGraphicSize(Std.int(FlxMath.lerp(50, iconList.members[i].width, 0.50)));
-			iconList.members[i].updateHitbox();
+			if (FlxG.keys.justPressed.E)
+			{
+				this.changePage(Directions.RIGHT);
+			}
 		}
 
 		super.update(elapsed);
@@ -438,75 +320,81 @@ class CreditsState extends MusicBeatState
 
 	override function beatHit() : Void
 	{
-		for (i in 0...iconList.length)
+		for (page in this.pages)
 		{
-			FlxTween.tween(iconList.members[i], {width: 60, height: 60}, 0.05, {ease: FlxEase.cubeOut});
+			page.beatHit();
 		}
 	}
 
-	// 0 - Left
-	// 1 - Down
-	// 2 - Up
-	// 3 - Right
-	function move(direction:Int) : Void
+	function changePage(direction:Directions) : Void
 	{
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (direction == Directions.UP || direction == Directions.DOWN)
+		{
+			return;
+		}
 
-		curSelected.deselect();
-		curSelected = curSelected.nodes[direction];
-		curSelected.select();
-
-
-	}
-
-	function changeSection(direction:Int) : Void
-	{
 		allowInputs = false;
 
-		FlxTween.tween(titleList.members[cur_section], {x: (direction < 0 ? 2175 : -1825) - (titleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut});
-		FlxTween.tween(secondTitleList.members[cur_section], {x: (direction < 0 ? 2175 : -1825) - (secondTitleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut});
-		for (i in 0...creditSections.members[cur_section].length)
-		{
-			creditSections.members[cur_section].members[i].tweenPosition((direction < 0 ? 2175 : -1825) + ((i % 3) * 400),  250 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
-		}
-		for (i in 0...credit2Sections.members[cur_section].length)
-		{
-			credit2Sections.members[cur_section].members[i].tweenPosition((direction < 0 ? 2175 : -1825) + ((i % 3) * 400),  500 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
-		}
+		var currentPage:CreditPage = this.pages[currentPageIndex];
 
-		cur_section += direction;
+		var nextPageIndex:Int = this.currentPageIndex;
 
-		if (cur_section >= creditSections.length)
+		var nextPageStartX:Int = 0;
+
+		if (direction == Directions.RIGHT)
 		{
-			cur_section = 0;
-		}
-		else if (cur_section < 0)
-		{
-			cur_section = creditSections.length - 1;
+			nextPageStartX = 2000;
+
+			nextPageIndex += 1;
+
+			if (nextPageIndex > this.pages.length - 1)
+			{
+				nextPageIndex = 0;
+			}
 		}
 
-		curSelected.deselect();
-		curSelected = creditSections.members[cur_section].members[0];
-		curSelected.select();
-
-
-		titleList.members[cur_section].setPosition((direction < 0 ? -1825 : 2175) + (titleList.members[cur_section].width / 2), 150);
-		secondTitleList.members[cur_section].setPosition((direction < 0 ? -1825 : 2175) + (titleList.members[cur_section].width / 2), 400);
-		FlxTween.tween(titleList.members[cur_section], {x: 640 - (titleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut, onComplete: function(flx:FlxTween) { allowInputs = true; }});
-		FlxTween.tween(secondTitleList.members[cur_section], {x: 640 - (secondTitleList.members[cur_section].width / 2)}, 1, {ease: FlxEase.cubeInOut, onComplete: function(flx:FlxTween) { allowInputs = true; }});
-		for (i in 0...creditSections.members[cur_section].length)
+		if (direction == Directions.LEFT)
 		{
-			creditSections.members[cur_section].members[i].setPosition((direction < 0 ? -1825 : 2175) + ((i % 3) * 400), 250 + (Std.int(i / 3) * 75));
-			creditSections.members[cur_section].members[i].tweenPosition(175 + ((i % 3) * 400),  250 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
+			nextPageStartX = -2000;
+
+			nextPageIndex -= 1;
+
+			if (nextPageIndex < 0)
+			{
+				nextPageIndex = this.pages.length - 1;
+			}
 		}
 
-		for (i in 0...credit2Sections.members[cur_section].length)
-		{
-			credit2Sections.members[cur_section].members[i].setPosition((direction < 0 ? -1825 : 2175) + ((i % 3) * 400), 500 + (Std.int(i / 3) * 75));
-			credit2Sections.members[cur_section].members[i].tweenPosition(175 + ((i % 3) * 400),  500 + (Std.int(i / 3) * 75), 1, {ease: FlxEase.cubeInOut});
-		}
+		var nextPage:CreditPage = this.pages[nextPageIndex];
+
+		nextPage.setPosition(nextPageStartX, 150);
+
+		FlxTween.tween(
+			currentPage,
+			{
+				x: (direction == Directions.LEFT ? 2000 : -2000)
+			},
+			1,
+			{
+				ease: FlxEase.cubeInOut
+			}
+		);
+
+		FlxTween.tween(
+			nextPage,
+			{
+				x: 0
+			},
+			1,
+			{
+				ease: FlxEase.cubeInOut,
+				onComplete: function (flx:FlxTween)
+					{
+						this.allowInputs = true;
+					}
+			}
+		);
+
+		this.currentPageIndex = nextPageIndex;
 	}
-
-
-
 }
