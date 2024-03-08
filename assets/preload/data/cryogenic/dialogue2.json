@@ -53,7 +53,7 @@
 			"speed": 0.04,
 			"portrait": "gfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": ":D"
 		}
 	]

@@ -4495,7 +4495,7 @@
 		"player2": "ace",
 		"song": "Sub Zero",
 		"validScore": true,
-		"stage": "background3",
+		"stage": "bg3-snowier",
 		"needsVoices": true,
 		"bpm": 172,
 		"speed": 2.5

@@ -1,6 +1,0 @@
-Neutral:zer:I know you're nervous, but you got this!
-Embarassed:dad:I don't really sing as fast as you do though. My stuff is usually more chill.
-Happy:zer:You'll do fine, my little blue snowball.
-Confused:dad:What did you just call me?
-Blush:zer:N-nothing.
-Laugh:zer:Look, just sing the song already!

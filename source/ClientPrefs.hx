@@ -1,17 +1,21 @@
-package;
-
 import flixel.FlxG;
 import flixel.util.FlxSave;
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.FlxGraphic;
-import Controls;
+
+import data.Controls;
+import data.PlayerSettings;
+
+import states.TitleState;
+
 
 class ClientPrefs {
 	public static var mechanics:Bool = true;
+	public static var exZoom:Bool = true;
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
-	public static var showFPS:Bool = true;
+	public static var showFPS:Bool = false;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -58,7 +62,7 @@ class ClientPrefs {
 		'opponentplay' => false
 	];
 
-	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
+	public static var comboOffset:Array<Int> = [-182, -203, -15, -127];
 	public static var ratingOffset:Int = 0;
 	public static var sickWindow:Int = 45;
 	public static var goodWindow:Int = 90;
@@ -92,12 +96,19 @@ class ClientPrefs {
 	];
 	public static var defaultKeys:Map<String, Array<FlxKey>> = null;
 
-	public static function loadDefaultKeys() {
+	public static function loadDefaultKeys() : Void {
 		defaultKeys = keyBinds.copy();
 		//trace(defaultKeys);
 	}
 
-	public static function saveSettings() {
+	public static function haveSavedValues() : Bool
+	{
+		return FlxG.save.data.haveSavedValues != null;
+	}
+
+	public static function saveSettings() : Void {
+		FlxG.save.data.haveSavedValues = true;
+
 		FlxG.save.data.iceNotes = iceNotes;
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
@@ -113,6 +124,7 @@ class ClientPrefs {
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
+		FlxG.save.data.exZoom = exZoom;
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
@@ -124,8 +136,6 @@ class ClientPrefs {
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
 		FlxG.save.data.laneTransparency = laneTransparency;
 		FlxG.save.data.comboOffset = comboOffset;
-		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
-		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
 
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
@@ -147,7 +157,7 @@ class ClientPrefs {
 		FlxG.log.add("Settings saved!");
 	}
 
-	public static function loadPrefs() {
+	public static function loadPrefs() : Void {
 		if(FlxG.save.data.iceNotes != null) {
 			iceNotes = FlxG.save.data.iceNotes;
 		}
@@ -162,8 +172,8 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;
-			if(Main.fpsVar != null) {
-				Main.fpsVar.visible = showFPS;
+			if(Main.fpsDisplay != null) {
+				Main.fpsDisplay.visible = showFPS;
 			}
 		}
 		if(FlxG.save.data.flashing != null) {
@@ -199,6 +209,9 @@ class ClientPrefs {
 		}*/
 		if(FlxG.save.data.camZooms != null) {
 			camZooms = FlxG.save.data.camZooms;
+		}
+		if(FlxG.save.data.exZoom != null) {
+			exZoom = FlxG.save.data.exZoom;
 		}
 		if(FlxG.save.data.laneTransparency != null) {
 			laneTransparency = FlxG.save.data.laneTransparency;
@@ -293,7 +306,7 @@ class ClientPrefs {
 		return /*PlayState.isStoryMode ? defaultValue : */ (gameplaySettings.exists(name) ? gameplaySettings.get(name) : defaultValue);
 	}
 
-	public static function reloadControls() {
+	public static function reloadControls() : Void {
 		PlayerSettings.player1.controls.setKeyboardScheme(KeyboardScheme.Solo);
 
 		TitleState.muteKeys = copyKey(keyBinds.get('volume_mute'));

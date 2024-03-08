@@ -13,12 +13,16 @@ function onStartCountdown()
 		allowCountdown = true
 		return Function_Stop
 	end
+	runTimer("closeScript", 0.1)
 	return Function_Continue
 end
 
 function onTimerCompleted(tag, loops, loopsLeft)
 	if tag == 'startDialogue' then -- Timer completed, play dialogue
 
+	end
+	if tag == 'closeScript' then -- Timer completed, play dialogue
+		close(true)
 	end
 end
 
@@ -30,7 +34,7 @@ function onSkipDialogue(count)
 
 end
 
-local allowEndShit = false
+--[[local allowEndShit = false
 
 function onEndSong()
 	if not allowEndShit and isStoryMode then
@@ -47,4 +51,4 @@ function onEndSong()
 		return Function_Stop
 	end
 	return Function_Continue
-end
+end]]

@@ -13,7 +13,7 @@
 			"speed": 0.04,
 			"portrait": "aceportraits",
 			"boxState": "normal",
-			"expression": "shocked",
+			"expression": "Shocked",
 			"text": "Oh, hey, guys! I'm surprised to see you two back in NYC so soon."
 		},
 		{
@@ -29,7 +29,7 @@
 			"speed": 0.05,
 			"portrait": "gfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": ":D"
 		},
 		{

@@ -4973,8 +4973,8 @@
 			}
 		],
 		"player2": "sakuroma",
-		"player3": "gf_blank",
-		"stage": "background1",
+		"player3": "gf",
+		"stage": "bg1",
 		"song": "Cold Hearted",
 		"needsVoices": true,
 		"validScore": true,

@@ -1,17 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<TextureAtlas imagePath="MetroPortraits.png">
-	<!-- Created with Adobe Animate version 20.0.0.17400 -->
-	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Angry0000" x="10" y="10" width="639" height="481" />
-	<SubTexture name="Annoyed0000" x="659" y="10" width="464" height="485"/>
-	<SubTexture name="Ball0000" x="1133" y="10" width="624" height="504"/>
-	<SubTexture name="Ball20000" x="10" y="524" width="624" height="504"/>
-	<SubTexture name="Confused0000" x="644" y="524" width="522" height="511"/>
-	<SubTexture name="Flushed0000" x="1176" y="524" width="463" height="504"/>
-	<SubTexture name="Happy0000" x="10" y="1045" width="464" height="504"/>
-	<SubTexture name="Neutral0000" x="484" y="1045" width="464" height="509" />
-	<SubTexture name="Smug0000" x="958" y="1045" width="464" height="504"/>
-	<SubTexture name="Surprised0000" x="1432" y="1045" width="516" height="511"/>
-	<SubTexture name="Flexing0000" x="2000" y="11" width="716" height="514"/>
-	<SubTexture name="Sad0000" x="2756" y="11" width="514" height="514"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="MetroPortraits.png" width="6422" height="513">
+	<SubTexture name="Angry0000" x="1" y="1" width="639" height="481" frameX="-0" frameY="-0" frameWidth="639" frameHeight="481"/>
+	<SubTexture name="Annoyed0000" x="643" y="1" width="464" height="484" frameX="-0" frameY="-1" frameWidth="464" frameHeight="485"/>
+	<SubTexture name="Ball0000" x="3196" y="1" width="624" height="504" frameX="-0" frameY="-0" frameWidth="624" frameHeight="504"/>
+	<SubTexture name="Ball20000" x="3823" y="1" width="624" height="504" frameX="-0" frameY="-0" frameWidth="624" frameHeight="504"/>
+	<SubTexture name="Confused0000" x="5382" y="1" width="521" height="511" frameX="-0" frameY="-0" frameWidth="522" frameHeight="511"/>
+	<SubTexture name="Flushed0000" x="4450" y="1" width="463" height="504" frameX="-0" frameY="-0" frameWidth="463" frameHeight="504"/>
+	<SubTexture name="Happy0000" x="2262" y="1" width="464" height="503" frameX="-0" frameY="-1" frameWidth="464" frameHeight="504"/>
+	<SubTexture name="Neutral0000" x="4916" y="1" width="463" height="509" frameX="-0" frameY="-0" frameWidth="464" frameHeight="509"/>
+	<SubTexture name="Smug0000" x="2729" y="1" width="464" height="503" frameX="-0" frameY="-0" frameWidth="464" frameHeight="504"/>
+	<SubTexture name="Surprised0000" x="5906" y="1" width="515" height="511" frameX="-0" frameY="-0" frameWidth="516" frameHeight="511"/>
+	<SubTexture name="Flexing0000" x="1576" y="1" width="683" height="503" frameX="-15" frameY="-11" frameWidth="716" frameHeight="514"/>
+	<SubTexture name="Sad0000" x="1110" y="1" width="463" height="484" frameX="-15" frameY="-30" frameWidth="514" frameHeight="514"/>
 </TextureAtlas>

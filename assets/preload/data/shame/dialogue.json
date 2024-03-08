@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"expression": "Crying",
+			"text": "Please, let me take care of it. I can do it myself.",
+			"boxState": "normal",
+			"portrait": "Iceolation",
+			"speed": 0.05,
+			"sound": "iceo"
+		},
+		{
+			"expression": "Miss",
+			"text": "Beep?",
+			"boxState": "normal",
+			"portrait": "BFportraits",
+			"speed": 0.05,
+			"sound": "bf"
+		},
+		{
+			"expression": "Confused",
+			"text": ":O?",
+			"boxState": "normal",
+			"portrait": "GFPortraits",
+			"speed": 0.05,
+			"sound": "gf"
+		},
+		{
+			"expression": "Crying",
+			"text": "I'm trying my best, I promise.",
+			"boxState": "normal",
+			"portrait": "Iceolation",
+			"speed": 0.05,
+			"sound": "iceo"
+		}
+	]
+}

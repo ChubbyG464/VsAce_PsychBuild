@@ -1,0 +1,50 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		150,
+		-90
+	],
+	"scale": 0.999999999999999,
+	"animations": [
+		{
+			"idle_offsets": [
+				0,
+				0
+			],
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Neutral",
+			"loop_name": "Neutral"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Smile",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "Smile",
+			"idle_name": "Smile"
+		},
+		{
+			"loop_name": "Angry",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Angry",
+			"anim": "Angry",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "elise"
+}

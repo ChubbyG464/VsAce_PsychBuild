@@ -7013,11 +7013,11 @@
 		],
 		"gfVersion": null,
 		"events": [],
-		"player3": "gf_blank",
+		"player3": "gf",
 		"song": "Cold Hearted",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "background1",
+		"stage": "bg1",
 		"speed": 2.5,
 		"bpm": 128
 	}

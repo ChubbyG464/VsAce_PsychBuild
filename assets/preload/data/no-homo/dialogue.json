@@ -21,7 +21,7 @@
 			"speed": 0.04,
 			"portrait": "maceportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "It's fine. Just please let me fend for myself unless I ask for help."
 		},
 		{
@@ -29,7 +29,7 @@
 			"speed": 0.04,
 			"portrait": "metroportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Yeah, I gotcha. Won't happen again, I promise."
 		},
 		{
@@ -37,7 +37,7 @@
 			"speed": 0,
 			"portrait": "maceportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "..."
 		},
 		{
@@ -45,7 +45,7 @@
 			"speed": 0,
 			"portrait": "metroportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "..."
 		},
 		{

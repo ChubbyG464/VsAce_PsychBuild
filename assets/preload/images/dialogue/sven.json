@@ -1,0 +1,50 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		78,
+		-120
+	],
+	"scale": 1.05,
+	"animations": [
+		{
+			"loop_name": "Smile",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Smile",
+			"anim": "Smile",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Frown",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Frown",
+			"anim": "Frown",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "Confused",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Confused",
+			"anim": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "sven"
+}

@@ -1,0 +1,20 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "sakuportraits",
+			"boxState": "normal",
+			"expression": "Angry",
+			"text": "Wait-- That isn't what I meant by \"quickie\"."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "I know. Goodnight!"
+		}
+	]
+}

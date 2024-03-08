@@ -1,8 +1,8 @@
 package editors;
 
-#if desktop
+
 import Discord.DiscordClient;
-#end
+
 import animateatlas.AtlasFrameMaker;
 import flixel.FlxG;
 import flixel.FlxObject;
@@ -29,14 +29,19 @@ import openfl.net.FileReference;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
 import haxe.Json;
-import Character;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 import flixel.animation.FlxAnimation;
 
-#if MODS_ALLOWED
 import sys.FileSystem;
-#end
+
+import sprites.BGSprite;
+import sprites.Character;
+import sprites.FlxUIDropDownMenuCustom;
+import sprites.HealthIcon;
+
+import states.MusicBeatState;
+import states.TitleState;
 
 using StringTools;
 
@@ -45,11 +50,11 @@ using StringTools;
  */
 class CharacterEditorState extends MusicBeatState
 {
-	var char:Character;
-	var ghostChar:Character;
+	var char:EditorCharacter;
+	var ghostChar:EditorCharacter;
 	var textAnim:FlxText;
 	var bgLayer:FlxTypedGroup<FlxSprite>;
-	var charLayer:FlxTypedGroup<Character>;
+	var charLayer:FlxTypedGroup<EditorCharacter>;
 	var dumbTexts:FlxTypedGroup<FlxText>;
 	//var animList:Array<String> = [];
 	var curAnim:Int = 0;
@@ -78,7 +83,7 @@ class CharacterEditorState extends MusicBeatState
 	var cameraFollowPointer:FlxSprite;
 	var healthBarBG:FlxSprite;
 
-	override function create()
+	override function create() : Void
 	{
 		//FlxG.sound.playMusic(Paths.music('breakfast'), 0.5);
 
@@ -94,7 +99,7 @@ class CharacterEditorState extends MusicBeatState
 
 		bgLayer = new FlxTypedGroup<FlxSprite>();
 		add(bgLayer);
-		charLayer = new FlxTypedGroup<Character>();
+		charLayer = new FlxTypedGroup<EditorCharacter>();
 		add(charLayer);
 
 		var pointer:FlxGraphic = FlxGraphic.fromClass(GraphicCursorCross);
@@ -205,7 +210,7 @@ class CharacterEditorState extends MusicBeatState
 
 	var onPixelBG:Bool = false;
 	var OFFSET_X:Float = 300;
-	function reloadBGs() {
+	function reloadBGs() : Void {
 		var i:Int = bgLayer.members.length-1;
 		while(i >= 0) {
 			var memb:FlxSprite = bgLayer.members[i];
@@ -411,7 +416,7 @@ class CharacterEditorState extends MusicBeatState
 		}';
 
 	var charDropDown:FlxUIDropDownMenuCustom;
-	function addSettingsUI() {
+	function addSettingsUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Settings";
 
@@ -446,7 +451,7 @@ class CharacterEditorState extends MusicBeatState
 		var templateCharacter:FlxButton = new FlxButton(140, 50, "Load Template", function()
 		{
 			var parsedJson:CharacterFile = cast Json.parse(TemplateCharacter);
-			var characters:Array<Character> = [char, ghostChar];
+			var characters:Array<EditorCharacter> = [char, ghostChar];
 			for (character in characters)
 			{
 				character.animOffsets.clear();
@@ -508,7 +513,7 @@ class CharacterEditorState extends MusicBeatState
 	var healthColorStepperG:FlxUINumericStepper;
 	var healthColorStepperB:FlxUINumericStepper;
 
-	function addCharacterUI() {
+	function addCharacterUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Character";
 
@@ -608,7 +613,7 @@ class CharacterEditorState extends MusicBeatState
 	var animationIndicesInputText:FlxUIInputText;
 	var animationNameFramerate:FlxUINumericStepper;
 	var animationLoopCheckBox:FlxUICheckBox;
-	function addAnimationsUI() {
+	function addAnimationsUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Animations";
 
@@ -755,7 +760,7 @@ class CharacterEditorState extends MusicBeatState
 		UI_characterbox.addGroup(tab_group);
 	}
 
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) : Void {
 		if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
 			if(sender == healthIconInputText) {
 				leHealthIcon.changeIcon(healthIconInputText.text);
@@ -825,7 +830,7 @@ class CharacterEditorState extends MusicBeatState
 		}
 	}
 
-	function reloadCharacterImage() {
+	function reloadCharacterImage() : Void {
 		var lastAnim:String = '';
 		if(char.animation.curAnim != null) {
 			lastAnim = char.animation.curAnim.name;
@@ -838,12 +843,6 @@ class CharacterEditorState extends MusicBeatState
 		} else {
 			char.frames = Paths.getSparrowAtlas(char.imageFile);
 		}
-
-
-
-
-
-
 
 		if(char.animationsArray != null && char.animationsArray.length > 0) {
 			for (anim in char.animationsArray) {
@@ -909,10 +908,10 @@ class CharacterEditorState extends MusicBeatState
 		}
 	}
 
-	function loadChar(isDad:Bool, blahBlahBlah:Bool = true) {
+	function loadChar(isDad:Bool, blahBlahBlah:Bool = true) : Void {
 		var i:Int = charLayer.members.length-1;
 		while(i >= 0) {
-			var memb:Character = charLayer.members[i];
+			var memb:EditorCharacter = charLayer.members[i];
 			if(memb != null) {
 				memb.kill();
 				charLayer.remove(memb);
@@ -921,11 +920,11 @@ class CharacterEditorState extends MusicBeatState
 			--i;
 		}
 		charLayer.clear();
-		ghostChar = new Character(0, 0, daAnim, !isDad);
+		ghostChar = new EditorCharacter(0, 0, daAnim, !isDad);
 		ghostChar.debugMode = true;
 		ghostChar.alpha = 0.6;
 
-		char = new Character(0, 0, daAnim, !isDad);
+		char = new EditorCharacter(0, 0, daAnim, !isDad);
 		if(char.animationsArray[0] != null) {
 			char.playAnim(char.animationsArray[0].anim, true);
 		}
@@ -953,7 +952,7 @@ class CharacterEditorState extends MusicBeatState
 		updatePointerPos();
 	}
 
-	function updatePointerPos() {
+	function updatePointerPos() : Void {
 		var x:Float = char.getMidpoint().x;
 		var y:Float = char.getMidpoint().y;
 		if(!char.isPlayer) {
@@ -977,7 +976,7 @@ class CharacterEditorState extends MusicBeatState
 		return null;
 	}
 
-	function reloadCharacterOptions() {
+	function reloadCharacterOptions() : Void {
 		if(UI_characterbox != null) {
 			imageInputText.text = char.imageFile;
 			healthIconInputText.text = char.healthIcon;
@@ -996,7 +995,7 @@ class CharacterEditorState extends MusicBeatState
 		}
 	}
 
-	function reloadAnimationDropDown() {
+	function reloadAnimationDropDown() : Void {
 		var anims:Array<String> = [];
 		var ghostAnims:Array<String> = [''];
 		for (anim in char.animationsArray) {
@@ -1010,7 +1009,7 @@ class CharacterEditorState extends MusicBeatState
 		reloadGhost();
 	}
 
-	function reloadGhost() {
+	function reloadGhost() : Void {
 		ghostChar.frames = char.frames;
 		for (anim in char.animationsArray) {
 			var animAnim:String = '' + anim.anim;
@@ -1039,10 +1038,9 @@ class CharacterEditorState extends MusicBeatState
 		ghostChar.antialiasing = char.antialiasing;
 	}
 
-	function reloadCharacterDropDown() {
+	function reloadCharacterDropDown() : Void {
 		var charsLoaded:Map<String, Bool> = new Map();
 
-		#if MODS_ALLOWED
 		characterList = [];
 		var directories:Array<String> = [Paths.mods('characters/'), Paths.mods(Paths.currentModDirectory + '/characters/'), Paths.getPreloadPath('characters/')];
 		for(mod in Paths.getGlobalMods())
@@ -1062,29 +1060,24 @@ class CharacterEditorState extends MusicBeatState
 				}
 			}
 		}
-		#else
-		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
-		#end
 
 		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
 		charDropDown.selectedLabel = daAnim;
 	}
 
-	function resetHealthBarColor() {
+	function resetHealthBarColor() : Void {
 		healthColorStepperR.value = char.healthColorArray[0];
 		healthColorStepperG.value = char.healthColorArray[1];
 		healthColorStepperB.value = char.healthColorArray[2];
 		healthBarBG.color = FlxColor.fromRGB(char.healthColorArray[0], char.healthColorArray[1], char.healthColorArray[2]);
 	}
 
-	function updatePresence() {
-		#if desktop
+	function updatePresence() : Void {
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Character Editor", "Character: " + daAnim, leHealthIcon.getCharacter());
-		#end
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(char.animationsArray[curAnim] != null) {
 			textAnim.text = char.animationsArray[curAnim].anim;
@@ -1277,7 +1270,7 @@ class CharacterEditorState extends MusicBeatState
 		FlxG.log.error("Problem saving file");
 	}
 
-	function saveCharacter() {
+	function saveCharacter() : Void {
 		var json = {
 			"animations": char.animationsArray,
 			"image": char.imageFile,

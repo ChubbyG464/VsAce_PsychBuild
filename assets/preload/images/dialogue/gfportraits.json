@@ -1,37 +1,63 @@
 {
+	"dialogue_pos": "center",
 	"position": [
 		0,
 		50
 	],
-	"dialogue_pos": "center",
 	"scale": 1.25,
-	"image": "GFPortraits",
 	"animations": [
 		{
-			"loop_offsets": [
-				0,
-				0
-			],
-			"anim": "Neutral",
 			"idle_offsets": [
 				-20,
 				40
 			],
-			"loop_name": "Neutral",
-			"idle_name": "Neutral"
-		},
-		{
+			"anim": "Neutral",
 			"loop_offsets": [
 				0,
 				0
 			],
-			"anim": "Confused",
+			"idle_name": "Neutral",
+			"loop_name": "Neutral"
+		},
+		{
 			"idle_offsets": [
 				11,
 				40
 			],
-			"loop_name": "Confused",
-			"idle_name": "Confused"
+			"anim": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Confused",
+			"loop_name": "Confused"
+		},
+		{
+			"loop_name": "Sad",
+			"idle_offsets": [
+				-30,
+				23
+			],
+			"idle_name": "Sad",
+			"anim": "Sad",
+			"loop_offsets": [
+				-33,
+				23
+			]
+		},
+		{
+			"loop_name": "Miss",
+			"idle_offsets": [
+				-10,
+				10
+			],
+			"idle_name": "Miss",
+			"anim": "Miss",
+			"loop_offsets": [
+				-10,
+				10
+			]
 		}
-	]
+	],
+	"image": "GFPortraits"
 }

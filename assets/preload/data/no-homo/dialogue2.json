@@ -21,7 +21,7 @@
 			"speed": 0.04,
 			"portrait": "metroportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Maybe later though, I'm starving."
 		},
 		{
@@ -61,7 +61,7 @@
 			"speed": 0.04,
 			"portrait": "metroportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "I'm not sure how some of them would react."
 		},
 		{

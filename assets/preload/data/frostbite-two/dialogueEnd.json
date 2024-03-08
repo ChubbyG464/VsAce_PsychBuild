@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Wow, you have a nice voice!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "Thanks, you too! You sound a lot like one of my boyfriends!"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Embarassed",
+			"text": "Haha... Well.. Anyways I should probably figure out where the hell I am."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "makuportraits",
+			"boxState": "normal",
+			"expression": "Giggling",
+			"text": "Good luck!"
+		}
+	]
+}

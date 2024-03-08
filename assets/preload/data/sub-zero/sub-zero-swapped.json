@@ -3984,7 +3984,7 @@
 		"song": "Sub Zero",
 		"needsVoices": true,
 		"validScore": true,
-		"stage": "background3",
+		"stage": "bg3-snowier",
 		"speed": 2.5,
 		"bpm": 172
 	}

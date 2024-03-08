@@ -5527,7 +5527,7 @@
 		"song": "Cold Front",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "Bridge",
+		"stage": "bridge",
 		"speed": 2.5,
 		"bpm": 182
 	}

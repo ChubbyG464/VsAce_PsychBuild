@@ -1,5 +1,3 @@
-package;
-
 import flixel.FlxG;
 import flixel.input.keyboard.FlxKey;
 import flixel.math.FlxMath;
@@ -237,7 +235,7 @@ class FlxFixedTypeText extends FlxFixedText
 	 * Internal function that replace last space in a line for a line break.
 	 * To prevent a word start typing in a line and jump to next.
 	 */
-	function insertBreakLines()
+	function insertBreakLines() : Void
 	{
 		var saveText = text;
 

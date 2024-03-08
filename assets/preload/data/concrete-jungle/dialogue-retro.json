@@ -1,7 +1,7 @@
 {
 	"dialogue": [
 		{
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Can you grab me some McDemon's?",
 			"boxState": "normal",
 			"sound": "",
@@ -25,7 +25,7 @@
 			"portrait": "RetroBFPortraits"
 		},
 		{
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Yo get me 2 McDevil's and Acid Shake",
 			"boxState": "normal",
 			"sound": "",

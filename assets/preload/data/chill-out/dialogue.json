@@ -21,7 +21,7 @@
 			"speed": 0.05,
 			"portrait": "mbfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Beep bap?"
 		},
 		{
@@ -45,7 +45,7 @@
 			"speed": 0.04,
 			"portrait": "metroportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Sad",
 			"text": "Sorry, I thought he was--"
 		},
 		{
@@ -85,7 +85,7 @@
 			"speed": 0.04,
 			"portrait": "maceportraits",
 			"boxState": "normal",
-			"expression": "Relieved",
+			"expression": "Worried",
 			"text": "Sorry about that... I had no idea you guys had beef. I almost thought there'd be another fight..."
 		},
 		{
@@ -93,7 +93,7 @@
 			"speed": 0.04,
 			"portrait": "maceportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "That man is way too overprotective of the people he cares about."
 		},
 		{
@@ -101,7 +101,7 @@
 			"speed": 0.05,
 			"portrait": "mbfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Beep boop."
 		},
 		{
@@ -141,7 +141,7 @@
 			"speed": 0.05,
 			"portrait": "mbfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Happy",
 			"text": "Boop bop"
 		},
 		{

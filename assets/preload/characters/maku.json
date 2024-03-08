@@ -1,103 +1,103 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "m-saku-idle0"
+			"fps": 24,
+			"name": "m-saku-idle0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				40,
 				37
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "m-saku-left0"
+			"fps": 24,
+			"name": "m-saku-left0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-50,
 				46
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "m-saku-right0"
+			"fps": 24,
+			"name": "m-saku-right0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				140,
 				-210
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "m-saku-down0"
+			"fps": 24,
+			"name": "m-saku-down0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				210
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP-alt",
-			"indices": [],
-			"name": "m-saku-up-alt0"
+			"fps": 24,
+			"name": "m-saku-up-alt0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				110,
 				80
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT-alt",
-			"indices": [],
-			"name": "m-saku-left-alt0"
+			"fps": 24,
+			"name": "m-saku-left-alt0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-50,
 				170
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT-alt",
-			"indices": [],
-			"name": "m-saku-right-alt0"
+			"fps": 24,
+			"name": "m-saku-right-alt0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				60,
 				-230
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN-alt",
-			"indices": [],
-			"name": "m-saku-down-alt0"
+			"fps": 24,
+			"name": "m-saku-down-alt0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				209
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "m-saku-up-alt0"
+			"fps": 24,
+			"name": "m-saku-up-alt0",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -114,8 +114,8 @@
 		107
 	],
 	"camera_position": [
-		-200,
-		-100
+		-300,
+		-60
 	],
 	"sing_duration": 4,
 	"scale": 1.6

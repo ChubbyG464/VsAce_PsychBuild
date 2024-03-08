@@ -1,37 +1,63 @@
 {
+	"dialogue_pos": "right",
 	"position": [
 		0,
 		50
 	],
-	"dialogue_pos": "right",
 	"scale": 1.25,
-	"image": "BFPortraits",
 	"animations": [
 		{
-			"loop_offsets": [
-				0,
-				0
+			"idle_offsets": [
+				30,
+				40
 			],
 			"anim": "Neutral",
-			"idle_offsets": [
-				30,
-				40
-			],
-			"loop_name": "Neutral",
-			"idle_name": "Neutral"
-		},
-		{
 			"loop_offsets": [
 				0,
 				0
 			],
-			"anim": "Happy",
+			"idle_name": "Neutral",
+			"loop_name": "Neutral"
+		},
+		{
 			"idle_offsets": [
 				30,
 				40
 			],
-			"loop_name": "Happy",
-			"idle_name": "Happy"
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			],
+			"idle_name": "Happy",
+			"loop_name": "Happy"
+		},
+		{
+			"loop_name": "Surprised",
+			"idle_offsets": [
+				50,
+				40
+			],
+			"idle_name": "Surprised",
+			"anim": "Surprised",
+			"loop_offsets": [
+				50,
+				40
+			]
+		},
+		{
+			"loop_name": "Miss",
+			"idle_offsets": [
+				50,
+				40
+			],
+			"idle_name": "Miss",
+			"anim": "Miss",
+			"loop_offsets": [
+				50,
+				40
+			]
 		}
-	]
+	],
+	"image": "BFPortraits"
 }

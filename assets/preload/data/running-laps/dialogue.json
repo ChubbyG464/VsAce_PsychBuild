@@ -13,7 +13,7 @@
 			"speed": 0.05,
 			"portrait": "MBFPortraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Beep?"
 		},
 		{
@@ -61,7 +61,7 @@
 			"speed": 0.05,
 			"portrait": "mbfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Bep"
 		},
 		{

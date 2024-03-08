@@ -11,8 +11,8 @@
 	"weekBefore": "week1",
 	"startUnlocked": false,
 	"weekCharacters": [
-		"dad",
-		"bf",
+		"ace",
+		"bf-cold",
 		"gf"
 	],
 	"songs": [
@@ -32,15 +32,6 @@
 				248,
 				54,
 				107
-			]
-		],
-		[
-			"Ectospasm",
-			"retro",
-			[
-				23,
-				216,
-				228
 			]
 		]
 	],

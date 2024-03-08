@@ -106,7 +106,7 @@ function makeCrowd(id)
 
 	curDirection = curInfo.direction
 
-	makeAnimSprite("crowd", id, curInfo.x, curInfo.y)
+	makeAnimSprite("crowd", "crowd/"..id, curInfo.x, curInfo.y)
 	addAnimationByPrefix("crowd", 'walk', "walkin", 24, true)
 	playAnim("crowd", "walk")
 	setScrollFactor("crowd", 0.9, 0.9)

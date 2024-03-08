@@ -8597,7 +8597,7 @@
 		"song": "Frostbite",
 		"needsVoices": true,
 		"validScore": true,
-		"stage": "background4",
+		"stage": "frostbite",
 		"speed": 3,
 		"bpm": 200
 	}

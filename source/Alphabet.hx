@@ -1,5 +1,3 @@
-package;
-
 import flixel.util.FlxColor;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -76,20 +74,20 @@ class Alphabet extends FlxSpriteGroup
 		}
 	}
 
-	function setFontColor(letter:AlphaCharacter, color:FlxColor) {
+	function setFontColor(letter:AlphaCharacter, color:FlxColor) : Void {
 		if(!letter.isBold) {
 			letter.colorTransform.color = color;
 		}
 	}
 
-	function set_fontColor(newColor:FlxColor) {
+	function set_fontColor(newColor:FlxColor) : FlxColor {
 		for(letter in lettersArray) {
 			setFontColor(letter, newColor);
 		}
 		return fontColor = newColor;
 	}
 
-	public function changeText(newText:String, newTypingSpeed:Float = -1)
+	public function changeText(newText:String, newTypingSpeed:Float = -1) : Void
 	{
 		for (i in 0...lettersArray.length) {
 			var letter = lettersArray[0];
@@ -128,7 +126,7 @@ class Alphabet extends FlxSpriteGroup
 		x = lastX;
 	}
 
-	public function addText()
+	public function addText() : Void
 	{
 		doSplitWords();
 
@@ -217,7 +215,8 @@ class Alphabet extends FlxSpriteGroup
 	var dialogueSound:FlxSound = null;
 	private static var soundDialog:Sound = null;
 	var consecutiveSpaces:Int = 0;
-	public static function setDialogueSound(name:String = '')
+
+	public static function setDialogueSound(name:String = '') : Void
 	{
 		if (name == null || name.trim() == '') name = 'dialogue';
 		soundDialog = Paths.sound(name);
@@ -253,7 +252,7 @@ class Alphabet extends FlxSpriteGroup
 	}
 
 	var LONG_TEXT_ADD:Float = -24; //text is over 2 rows long, make it go up a bit
-	public function timerCheck(?tmr:FlxTimer = null) {
+	public function timerCheck(?tmr:FlxTimer = null) : Void {
 		var autoBreak:Bool = false;
 		if ((loopNum <= splitWords.length - 2 && splitWords[loopNum] == "\\" && splitWords[loopNum+1] == "n") ||
 			((autoBreak = true) && xPos >= FlxG.width * 0.65 && splitWords[loopNum] == ' ' ))
@@ -361,7 +360,7 @@ class Alphabet extends FlxSpriteGroup
 		}
 	}
 
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if (isMenuItem)
 		{
@@ -379,7 +378,7 @@ class Alphabet extends FlxSpriteGroup
 		super.update(elapsed);
 	}
 
-	public function killTheTimer() {
+	public function killTheTimer() : Void {
 		if(typeTimer != null) {
 			typeTimer.cancel();
 			typeTimer.destroy();
@@ -413,7 +412,7 @@ class AlphaCharacter extends FlxSprite
 		antialiasing = ClientPrefs.globalAntialiasing;
 	}
 
-	public function createBoldLetter(letter:String)
+	public function createBoldLetter(letter:String) : Void
 	{
 		animation.addByPrefix(letter, letter.toUpperCase() + " bold", 24);
 		animation.play(letter);
@@ -431,7 +430,7 @@ class AlphaCharacter extends FlxSprite
 		isBold = true;
 	}
 
-	public function createBoldSymbol(letter:String)
+	public function createBoldSymbol(letter:String) : Void
 	{
 		switch (letter)
 		{
@@ -507,7 +506,7 @@ class AlphaCharacter extends FlxSprite
 		isBold = false;
 	}
 
-	public function createSymbol(letter:String)
+	public function createSymbol(letter:String) : Void
 	{
 		switch (letter)
 		{

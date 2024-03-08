@@ -1,0 +1,92 @@
+{
+	"dialogue": [
+		{
+			"expression": "ShirtlessGroggy",
+			"text": "Ugh, what happened?",
+			"boxState": "normal",
+			"sound": "ace",
+			"speed": 0.05,
+			"portrait": "AcePortraits"
+		},
+		{
+			"expression": "Smile",
+			"text": "Hey man, glad to see you're back to normal.",
+			"boxState": "normal",
+			"sound": "sven",
+			"speed": 0.05,
+			"portrait": "Sven"
+		},
+		{
+			"expression": "ShirtlessConfused",
+			"text": "Back to norm-",
+			"boxState": "normal",
+			"sound": "ace",
+			"speed": 0.05,
+			"portrait": "aceportraits"
+		},
+		{
+			"expression": "ShirtlessBlush",
+			"text": "Aw crap it happened again, didn't it?",
+			"boxState": "normal",
+			"sound": "ace",
+			"speed": 0.05,
+			"portrait": "aceportraits"
+		},
+		{
+			"expression": "Smile",
+			"text": "Yup, and caused a record breaking\\nblizzard along with it!",
+			"boxState": "normal",
+			"sound": "sven",
+			"speed": 0.05,
+			"portrait": "Sven"
+		},
+		{
+			"expression": "Angry",
+			"text": "Sven! Don't make him feel any worse\\nthan he already does, you fool!",
+			"boxState": "normal",
+			"sound": "elise",
+			"speed": 0.05,
+			"portrait": "Elise"
+		},
+		{
+			"expression": "Confused",
+			"text": "Ontspan oude dame.",
+			"boxState": "normal",
+			"sound": "sven",
+			"speed": 0.05,
+			"portrait": "sven"
+		},
+		{
+			"expression": "ShirtlessGroggy",
+			"text": "Can we go now? I have a splitting headache.",
+			"boxState": "normal",
+			"sound": "ace",
+			"speed": 0.05,
+			"portrait": "aceportraits"
+		},
+		{
+			"expression": "Smile",
+			"text": "Yes, yes. Come on boys. Excuse us, you two!",
+			"boxState": "normal",
+			"sound": "elise",
+			"speed": 0.05,
+			"portrait": "Elise"
+		},
+		{
+			"expression": "Miss",
+			"text": "Bep-",
+			"boxState": "normal",
+			"sound": "bf",
+			"speed": 0.05,
+			"portrait": "bfportraits"
+		},
+		{
+			"expression": "Miss",
+			"text": "...",
+			"boxState": "normal",
+			"sound": "gf",
+			"speed": 0.05,
+			"portrait": "gfportraits"
+		}
+	]
+}

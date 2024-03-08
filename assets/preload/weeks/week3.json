@@ -1,0 +1,59 @@
+{
+	"storyName": "Iceolation",
+	"difficulties": "Easy,Normal,Hard",
+	"hideFreeplay": false,
+	"weekBackground": "week3",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "week2",
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf-cold",
+		"gf"
+	],
+	"songs": [
+		[
+			"Refusal",
+			"iceolation",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"Seclusion",
+			"iceolation",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"Shame",
+			"iceolation",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"coffee-shop",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "week-ace3",
+	"hiddenUntilUnlocked": false
+}

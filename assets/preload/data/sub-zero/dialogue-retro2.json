@@ -13,7 +13,7 @@
 			"speed": 0.04,
 			"portrait": "AcePortraits",
 			"boxState": "normal",
-			"expression": "confused",
+			"expression": "Confused",
 			"text": "Did you even get my anything?"
 		},
 		{
@@ -29,7 +29,7 @@
 			"speed": 0.05,
 			"portrait": "RetroBFPortraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Me and BG Retro are gonna go eat"
 		},
 		{

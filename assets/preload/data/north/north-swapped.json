@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "playable-character",
 		"events": [],
-		"gfVersion": "gf_blank",
+		"gfVersion": "gf",
 		"player2": "ace",
 		"notes": [
 			{

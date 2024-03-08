@@ -1,0 +1,32 @@
+{
+	"storyName": "Hidden2-ecto",
+	"difficulties": "Easy,Normal,Hard,Swapped,Inst",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"weekBefore": "Extras2",
+	"startUnlocked": false,
+	"weekCharacters": [
+		"ace",
+		"bf-cold",
+		"gf"
+	],
+	"songs": [
+		[
+			"Ectospasm",
+			"retro",
+			[
+				23,
+				216,
+				228
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Extras2-ecto",
+	"hiddenUntilUnlocked": false
+}

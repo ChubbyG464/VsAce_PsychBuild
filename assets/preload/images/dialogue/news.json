@@ -1,0 +1,37 @@
+{
+	"position": [
+		-330,
+		-360
+	],
+	"dialogue_pos": "center",
+	"scale": 0.549999999999999,
+	"image": "news",
+	"animations": [
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Neutral0000",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "Neutral0000",
+			"idle_name": "Neutral0000"
+		},
+		{
+			"loop_offsets": [
+				0,
+				0
+			],
+			"anim": "Happy0000",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"loop_name": "Happy0000",
+			"idle_name": "Happy0000"
+		}
+	]
+}

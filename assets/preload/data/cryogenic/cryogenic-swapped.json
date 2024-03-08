@@ -4732,10 +4732,11 @@
 			}
 		],
 		"gfVersion": "gf",
-		"stage": "snowbridge1",
+		"stage": "snowbridge",
 		"song": "Cryogenic",
 		"needsVoices": true,
 		"validScore": true,
+		"gfVersion": "gf",
 		"speed": 2.7,
 		"bpm": 212
 	}

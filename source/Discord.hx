@@ -1,12 +1,10 @@
-package;
-
 import Sys.sleep;
 import discord_rpc.DiscordRpc;
 
-#if LUA_ALLOWED
 import llua.Lua;
 import llua.State;
-#end
+
+import states.MainMenuState;
 
 using StringTools;
 
@@ -34,12 +32,12 @@ class DiscordClient
 		DiscordRpc.shutdown();
 	}
 	
-	public static function shutdown()
+	public static function shutdown() : Void
 	{
 		DiscordRpc.shutdown();
 	}
 	
-	static function onReady()
+	static function onReady() : Void
 	{
 		DiscordRpc.presence({
 			details: "In the Menus",
@@ -49,17 +47,17 @@ class DiscordClient
 		});
 	}
 
-	static function onError(_code:Int, _message:String)
+	static function onError(_code:Int, _message:String) : Void
 	{
 		trace('Error! $_code : $_message');
 	}
 
-	static function onDisconnected(_code:Int, _message:String)
+	static function onDisconnected(_code:Int, _message:String) : Void
 	{
 		trace('Disconnected! $_code : $_message');
 	}
 
-	public static function initialize()
+	public static function initialize() : Void
 	{
 		var DiscordDaemon = sys.thread.Thread.create(() ->
 		{
@@ -69,7 +67,7 @@ class DiscordClient
 		isInitialized = true;
 	}
 
-	public static function changePresence(details:String, state:Null<String>, ?smallImageKey : String, ?hasStartTimestamp : Bool, ?endTimestamp: Float)
+	public static function changePresence(details:String, state:Null<String>, ?smallImageKey : String, ?hasStartTimestamp : Bool, ?endTimestamp: Float) : Void
 	{
 		var startTimestamp:Float = if(hasStartTimestamp) Date.now().getTime() else 0;
 
@@ -92,11 +90,9 @@ class DiscordClient
 		//trace('Discord RPC Updated. Arguments: $details, $state, $smallImageKey, $hasStartTimestamp, $endTimestamp');
 	}
 
-	#if LUA_ALLOWED
 	public static function addLuaCallbacks(lua:State) {
 		Lua_helper.add_callback(lua, "changePresence", function(details:String, state:Null<String>, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float) {
 			changePresence(details, state, smallImageKey, hasStartTimestamp, endTimestamp);
 		});
 	}
-	#end
 }

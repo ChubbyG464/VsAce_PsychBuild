@@ -2760,7 +2760,7 @@
 		],
 		"player2": "ace",
 		"song": "Sub Zero",
-		"stage": "background3",
+		"stage": "bg3-snowier",
 		"needsVoices": true,
 		"validScore": true,
 		"bpm": 172,

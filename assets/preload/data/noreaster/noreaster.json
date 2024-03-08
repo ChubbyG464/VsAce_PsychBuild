@@ -23387,7 +23387,7 @@
 		"song": "Noreaster",
 		"validScore": true,
 		"needsVoices": true,
-		"stage": "background2",
+		"stage": "bg2-snow",
 		"bpm": 170,
 		"speed": 2
 	}

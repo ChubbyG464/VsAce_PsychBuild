@@ -3291,7 +3291,7 @@
 		],
 		"player3": "gf",
 		"song": "Cold Front",
-		"stage": "Bridge",
+		"stage": "bridge",
 		"needsVoices": true,
 		"validScore": true,
 		"speed": 1.4,

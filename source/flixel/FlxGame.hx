@@ -11,9 +11,9 @@ import flixel.system.FlxSplash;
 import flixel.util.FlxArrayUtil;
 import openfl.Assets;
 import openfl.filters.BitmapFilter;
-#if desktop
+
 import flash.events.FocusEvent;
-#end
+
 #if FLX_POST_PROCESS
 import flixel.effects.postprocess.PostProcess;
 import openfl.display.OpenGLView;
@@ -892,7 +892,7 @@ class FlxGame extends Sprite
 		#end
 	}
 
-	inline function getTicks()
+	inline function getTicks() : Int
 	{
 		return getTimer() - _startTime;
 	}

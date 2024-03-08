@@ -1,8 +1,8 @@
 package editors;
 
-#if desktop
+
 import Discord.DiscordClient;
-#end
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
@@ -31,9 +31,18 @@ import haxe.Json;
 import sys.io.File;
 import sys.FileSystem;
 #end
-import WeekData;
+
+import data.WeekData;
+
+import sprites.HealthIcon;
+import sprites.MenuCharacter;
+import sprites.StoryMenuItem;
+
+import states.MusicBeatState;
+import states.TitleState;
 
 using StringTools;
+
 
 class WeekEditorState extends MusicBeatState
 {
@@ -54,7 +63,7 @@ class WeekEditorState extends MusicBeatState
 		else weekFileName = 'week1';
 	}
 
-	override function create() {
+	override function create() : Void {
 		txtWeekTitle = new FlxText(FlxG.width * 0.7, 10, 0, "", 32);
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
@@ -120,7 +129,7 @@ class WeekEditorState extends MusicBeatState
 
 	var UI_box:FlxUITabMenu;
 	var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
-	function addEditorBox() {
+	function addEditorBox() : Void {
 		var tabs = [
 			{name: 'Week', label: 'Week'},
 			{name: 'Other', label: 'Other'},
@@ -172,7 +181,7 @@ class WeekEditorState extends MusicBeatState
 
 	public static var weekFileName:String = 'week1';
 	
-	function addWeekUI() {
+	function addWeekUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Week";
 		
@@ -231,7 +240,7 @@ class WeekEditorState extends MusicBeatState
 	var lockedCheckbox:FlxUICheckBox;
 	var hiddenUntilUnlockCheckbox:FlxUICheckBox;
 
-	function addOtherUI() {
+	function addOtherUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Other";
 
@@ -267,7 +276,7 @@ class WeekEditorState extends MusicBeatState
 	}
 
 	//Used on onCreate and when you load a week
-	function reloadAllShit() {
+	function reloadAllShit() : Void {
 		var weekString:String = weekFile.songs[0][0];
 		for (i in 1...weekFile.songs.length) {
 			weekString += ', ' + weekFile.songs[i][0];
@@ -300,7 +309,7 @@ class WeekEditorState extends MusicBeatState
 		updateText();
 	}
 
-	function updateText()
+	function updateText() : Void
 	{
 		for (i in 0...grpWeekCharacters.length) {
 			grpWeekCharacters.members[i].changeCharacter(weekFile.weekCharacters[i]);
@@ -326,13 +335,13 @@ class WeekEditorState extends MusicBeatState
 		txtWeekTitle.x = FlxG.width - (txtWeekTitle.width + 10);
 	}
 
-	function reloadBG() {
+	function reloadBG() : Void {
 		bgSprite.visible = true;
 		var assetName:String = weekFile.weekBackground;
 
 		var isMissing:Bool = true;
 		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('menubackgrounds/menu_' + assetName)) || #end
+			if(FileSystem.exists(Paths.modsImages('menubackgrounds/menu_' + assetName)) ||
 			Assets.exists(Paths.getPath('images/menubackgrounds/menu_' + assetName + '.png', IMAGE), IMAGE)) {
 				bgSprite.loadGraphic(Paths.image('menubackgrounds/menu_' + assetName));
 				isMissing = false;
@@ -344,14 +353,14 @@ class WeekEditorState extends MusicBeatState
 		}
 	}
 
-	function reloadWeekThing() {
+	function reloadWeekThing() : Void {
 		weekThing.visible = true;
 		missingFileText.visible = false;
 		var assetName:String = weekFileInputText.text.trim();
 		
 		var isMissing:Bool = true;
 		if(assetName != null && assetName.length > 0) {
-			if( #if MODS_ALLOWED FileSystem.exists(Paths.modsImages('storymenu/' + assetName)) || #end
+			if(FileSystem.exists(Paths.modsImages('storymenu/' + assetName)) ||
 			Assets.exists(Paths.getPath('images/storymenu/' + assetName + '.png', IMAGE), IMAGE)) {
 				weekThing.loadGraphic(Paths.image('storymenu/' + assetName));
 				isMissing = false;
@@ -365,13 +374,11 @@ class WeekEditorState extends MusicBeatState
 		}
 		recalculateStuffPosition();
 
-		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("Week Editor", "Editting: " + weekFileName);
-		#end
 	}
 	
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) : Void {
 		if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
 			if(sender == weekFileInputText) {
 				weekFileName = weekFileInputText.text.trim();
@@ -419,7 +426,7 @@ class WeekEditorState extends MusicBeatState
 		}
 	}
 	
-	override function update(elapsed:Float)
+	override function update(elapsed:Float) : Void
 	{
 		if(loadedWeek != null) {
 			weekFile = loadedWeek;
@@ -457,13 +464,13 @@ class WeekEditorState extends MusicBeatState
 		missingFileText.y = weekThing.y + 36;
 	}
 
-	function recalculateStuffPosition() {
+	function recalculateStuffPosition() : Void {
 		weekThing.screenCenter(X);
 		lock.x = weekThing.width + 10 + weekThing.x;
 	}
 
 	private static var _file:FileReference;
-	public static function loadWeek() {
+	public static function loadWeek() : Void {
 		var jsonFilter:FileFilter = new FileFilter('JSON', 'json');
 		_file = new FileReference();
 		_file.addEventListener(Event.SELECT, onLoadComplete);
@@ -533,7 +540,7 @@ class WeekEditorState extends MusicBeatState
 		trace("Problem loading file");
 	}
 
-	public static function saveWeek(weekFile:WeekFile) {
+	public static function saveWeek(weekFile:WeekFile) : Void {
 		var data:String = Json.stringify(weekFile, "\t");
 		if (data.length > 0)
 		{
@@ -594,7 +601,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 
 	var curSelected = 0;
 
-	override function create() {
+	override function create() : Void {
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 
@@ -630,7 +637,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 	
 	var UI_box:FlxUITabMenu;
 	var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
-	function addEditorBox() {
+	function addEditorBox() : Void {
 		var tabs = [
 			{name: 'Freeplay', label: 'Freeplay'},
 		];
@@ -670,7 +677,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 		add(saveWeekButton);
 	}
 	
-	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) {
+	override function getEvent(id:String, sender:Dynamic, data:Dynamic, ?params:Array<Dynamic>) : Void {
 		if(id == FlxUIInputText.CHANGE_EVENT && (sender is FlxUIInputText)) {
 			weekFile.songs[curSelected][1] = iconInputText.text;
 			iconArray[curSelected].changeIcon(iconInputText.text);
@@ -685,7 +692,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 	var bgColorStepperG:FlxUINumericStepper;
 	var bgColorStepperB:FlxUINumericStepper;
 	var iconInputText:FlxUIInputText;
-	function addFreeplayUI() {
+	function addFreeplayUI() : Void {
 		var tab_group = new FlxUI(null, UI_box);
 		tab_group.name = "Freeplay";
 
@@ -739,14 +746,14 @@ class WeekEditorFreeplayState extends MusicBeatState
 		UI_box.addGroup(tab_group);
 	}
 
-	function updateBG() {
+	function updateBG() : Void {
 		weekFile.songs[curSelected][2][0] = Math.round(bgColorStepperR.value);
 		weekFile.songs[curSelected][2][1] = Math.round(bgColorStepperG.value);
 		weekFile.songs[curSelected][2][2] = Math.round(bgColorStepperB.value);
 		bg.color = FlxColor.fromRGB(weekFile.songs[curSelected][2][0], weekFile.songs[curSelected][2][1], weekFile.songs[curSelected][2][2]);
 	}
 
-	function changeSelection(change:Int = 0) {
+	function changeSelection(change:Int = 0) : Void {
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;
@@ -786,7 +793,7 @@ class WeekEditorFreeplayState extends MusicBeatState
 		updateBG();
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float) : Void {
 		if(WeekEditorState.loadedWeek != null) {
 			super.update(elapsed);
 			FlxTransitionableState.skipNextTransIn = true;

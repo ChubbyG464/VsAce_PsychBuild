@@ -1,0 +1,36 @@
+{
+	"dialogue": [
+		{
+			"expression": "Happy",
+			"text": "Beep boop!",
+			"boxState": "normal",
+			"portrait": "BFPortraits",
+			"speed": 0.05,
+			"sound": "bf"
+		},
+		{
+			"expression": "Neutral",
+			"text": "Please... leave me alone.",
+			"boxState": "normal",
+			"portrait": "ishadow",
+			"speed": 0.05,
+			"sound": "iceo"
+		},
+		{
+			"expression": "Surprised",
+			"text": "Beep?",
+			"boxState": "normal",
+			"portrait": "BFPortraits",
+			"speed": 0.05,
+			"sound": "bf"
+		},
+		{
+			"expression": "Neutral",
+			"text": "I don't want you to see me like this.",
+			"boxState": "normal",
+			"portrait": "ishadow",
+			"speed": 0.05,
+			"sound": "iceo"
+		}
+	]
+}

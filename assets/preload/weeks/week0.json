@@ -2,15 +2,19 @@
 	"storyName": "Ace",
 	"difficulties": "Easy,Normal,Hard,Swapped",
 	"hideFreeplay": false,
-	"weekBackground": "stage",
-	"weekBefore": "tutorial",
+	"weekBackground": "week1",
 	"freeplayColor": [
 		146,
 		113,
 		253
 	],
+	"weekBefore": "tutorial",
 	"startUnlocked": true,
-	"hideStoryMode": false,
+	"weekCharacters": [
+		"ace",
+		"bf-cold",
+		"gf"
+	],
 	"songs": [
 		[
 			"Concrete Jungle",
@@ -40,11 +44,7 @@
 			]
 		]
 	],
-	"weekCharacters": [
-		"ace",
-		"bf-cold",
-		"gf"
-	],
-	"hiddenUntilUnlocked": false,
-	"weekName": "week-ace"
+	"hideStoryMode": false,
+	"weekName": "week-ace",
+	"hiddenUntilUnlocked": false
 }

@@ -6027,7 +6027,7 @@
 		"gfVersion": "gf",
 		"needsVoices": true,
 		"uiType": "normal",
-		"stage": "background2",
+		"stage": "bg2-snow",
 		"sections": 0,
 		"bpm": 193,
 		"gf": "gf"

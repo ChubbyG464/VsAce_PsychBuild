@@ -1,15 +1,13 @@
-package;
-
 import openfl.Lib;
 
 class WindowTitle {
 	public static var DEFAULT(get, null):String = "";
 
-	public static function changeTitle(text:String) {
+	public static function changeTitle(text:String) : Void {
 		Lib.application.window.title = text;
 	}
 
-	public static function progress(_progress:Int) {
+	public static function progress(_progress:Int) : Void {
 		var progress:Float = _progress / 100;
 		var length = 10;
 		var act = "#";
@@ -29,11 +27,11 @@ class WindowTitle {
 
 		Lib.application.window.title = DEFAULT + " - " + str;
 	}
-	public static inline function defaultTitle() {
+	public static inline function defaultTitle() : Void {
 		changeTitle(DEFAULT);
 	}
 
-	static function get_DEFAULT() {
+	static function get_DEFAULT() : String {
 		if(DEFAULT == "") {
 			DEFAULT = Lib.application.meta["name"];
 		}

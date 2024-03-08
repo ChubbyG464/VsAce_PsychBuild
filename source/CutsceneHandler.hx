@@ -1,19 +1,6 @@
-package;
-
-import flixel.FlxCamera;
 import flixel.FlxG;
 import flixel.FlxBasic;
-import flixel.FlxObject;
 import flixel.FlxSprite;
-import flixel.graphics.atlas.FlxAtlas;
-import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.group.FlxGroup.FlxTypedGroup;
-import flixel.system.FlxSound;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-import flixel.util.FlxTimer;
-import flixel.group.FlxSpriteGroup;
-import animateatlas.AtlasFrameMaker;
 import flixel.util.FlxSort;
 
 class CutsceneHandler extends FlxBasic
@@ -43,7 +30,7 @@ class CutsceneHandler extends FlxBasic
 
 	private var cutsceneTime:Float = 0;
 	private var firstFrame:Bool = false;
-	override function update(elapsed)
+	override function update(elapsed) : Void
 	{
 		super.update(elapsed);
 
@@ -78,12 +65,12 @@ class CutsceneHandler extends FlxBasic
 		}
 	}
 
-	public function push(spr:FlxSprite)
+	public function push(spr:FlxSprite) : Void
 	{
 		objects.push(spr);
 	}
 
-	public function timer(time:Float, func:Void->Void)
+	public function timer(time:Float, func:Void->Void) : Void
 	{
 		timedEvents.push([time, func]);
 		timedEvents.sort(sortByTime);

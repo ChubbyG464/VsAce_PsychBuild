@@ -5533,7 +5533,7 @@
 		"sections": 0,
 		"needsVoices": true,
 		"uiType": "normal",
-		"stage": "background2",
+		"stage": "bg2-snow",
 		"gf": "gf",
 		"bpm": 193
 	}

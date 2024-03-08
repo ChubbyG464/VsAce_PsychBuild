@@ -6697,7 +6697,7 @@
 		],
 		"player2": "ace",
 		"song": "Frostbite",
-		"stage": "background4",
+		"stage": "frostbite",
 		"needsVoices": true,
 		"validScore": true,
 		"bpm": 200,

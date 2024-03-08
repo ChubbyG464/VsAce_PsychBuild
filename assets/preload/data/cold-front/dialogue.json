@@ -5,7 +5,7 @@
 			"speed": 0.04,
 			"portrait": "bfportraits",
 			"boxState": "normal",
-			"expression": "talk",
+			"expression": "Neutral",
 			"text": "Boop?"
 		},
 		{

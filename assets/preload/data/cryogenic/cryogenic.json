@@ -4101,10 +4101,11 @@
 			}
 		],
 		"player3": "null",
-		"stage": "snowbridge1",
+		"stage": "snowbridge",
 		"song": "Cryogenic",
 		"needsVoices": true,
 		"validScore": true,
+		"gfVersion": "gf",
 		"speed": 2,
 		"bpm": 212
 	}

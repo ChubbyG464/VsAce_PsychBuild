@@ -1,0 +1,44 @@
+{
+	"dialogue": [
+		{
+			"sound": "pixelText",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Neutral",
+			"text": "How was that?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "zerktroportraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "..."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Confused",
+			"text": "Retro?"
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "zerktroportraits",
+			"boxState": "normal",
+			"expression": "Happy",
+			"text": "I love you."
+		},
+		{
+			"sound": "",
+			"speed": 0.04,
+			"portrait": "aceportraits",
+			"boxState": "normal",
+			"expression": "Blush",
+			"text": "I love you too..."
+		}
+	]
+}

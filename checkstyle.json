@@ -1,0 +1,364 @@
+{
+    "defaultSeverity": "IGNORE",
+    "checks": [
+        {
+            "type": "BlockBreakingConditional",
+            "props": {
+                "severity": "INFO"
+            }
+        },
+
+        {
+            "type": "ConditionalCompilation",
+            "props": {
+                "severity": "WARNING",
+                "policy": "startOfLine",
+                "allowSingleline": false
+            }
+        },
+
+        {
+            "type": "EmptyBlock",
+            "props": {
+                "severity": "INFO",
+                "option": "empty",
+                "tokens": [
+                    "CLASS_DEF",
+                    "ENUM_DEF",
+                    "ABSTRACT_DEF",
+                    "TYPEDEF_DEF",
+                    "INTERFACE_DEF",
+                    "OBJECT_DECL",
+                    "FUNCTION",
+                    "FOR",
+                    "IF",
+                    "WHILE",
+                    "SWITCH",
+                    "TRY",
+                    "CATCH"
+                ]
+            }
+        },
+
+        {
+            "type": "NeedBraces",
+            "props": {
+                "severity": "WARNING",
+                "allowSingleLineStatement": false,
+                "tokens": [
+                    "FOR",
+                    "IF",
+                    "ELSE_IF",
+                    "WHILE",
+                    "DO_WHILE"
+                ]
+            }
+        },
+
+        {
+            "type": "LeftCurly",
+            "props": {
+                "severity": "WARNING",
+                "option": "eol",
+                "ignoreEmptySingleline": true,
+                "tokens": [
+                    "TYPEDEF_DEF",
+
+                    "TRY",
+                    "CATCH",
+
+                    "REIFICATION",
+                    "ARRAY_COMPREHENSION"
+                ]
+            }
+        },
+
+        {
+            "type": "LeftCurly",
+            "props": {
+                "severity": "WARNING",
+                "option": "nl",
+                "ignoreEmptySingleline": true,
+                "tokens": [
+                    "CLASS_DEF",
+                    "ENUM_DEF",
+                    "ABSTRACT_DEF",
+                    "INTERFACE_DEF",
+
+                    "FUNCTION",
+
+                    "IF",
+                    "SWITCH",
+
+                    "FOR",
+                    "WHILE"
+                ]
+            }
+        },
+
+        {
+            "type": "RightCurly",
+            "props": {
+                "severity": "WARNING",
+                "option": "aloneorsingle",
+                "tokens": [
+                    "ABSTRACT_DEF",
+                    "CLASS_DEF",
+                    "ENUM_DEF",
+                    "INTERFACE_DEF",
+
+                    "TYPEDEF_DEF",
+
+                    "IF",
+                    "SWITCH",
+
+                    "FOR",
+                    "WHILE"
+                ]
+            }
+        },
+
+        {
+            "type": "DefaultComesLast",
+            "props": {
+                "severity": "ERROR"
+            }
+        },
+
+        {
+            "type": "MultipleVariableDeclarations",
+            "props": {
+                "severity": "WARNING"
+            }
+        },
+
+        {
+            "type": "NestedControlFlow",
+            "props": {
+                "severity": "INFO",
+                "max": 4
+            }
+        },
+
+        {
+            "type": "EmptyPackage",
+            "props": {
+                "enforceEmptyPackage": false,
+                "severity": "WARNING"
+            }
+        },
+
+        {
+            "type": "ModifierOrder",
+            "props": {
+                "severity": "INFO",
+                "modifiers": [
+                    "MACRO",
+                    "OVERRIDE",
+                    "PUBLIC_PRIVATE",
+                    "STATIC",
+                    "INLINE",
+                    "DYNAMIC"
+                ]
+            }
+        },
+
+        {
+            "type": "FileLength",
+            "props": {
+                "severity": "WARNING",
+                "max": 1024,
+                "ignoreEmptyLines": true
+            }
+        },
+
+        {
+            "type": "LineLength",
+            "props": {
+                "severity": "WARNING",
+                "max": 128
+            }
+        },
+
+        {
+            "type": "MethodLength",
+            "props": {
+                "severity": "WARNING",
+                "max": 128,
+                "ignoreEmptyLines": true
+            }
+        },
+
+        {
+            "type": "Anonymous",
+            "props": {
+                "severity": "WARNING"
+            }
+        },
+
+        {
+            "type": "Dynamic",
+            "props": {
+                "severity": "INFO"
+            }
+        },
+
+        {
+            "type": "Return",
+            "props": {
+                "severity": "ERROR",
+                "allowEmptyReturn": true,
+                "enforceReturnType": true,
+                "enforceReturnTypeForAnonymous": false
+            }
+        },
+
+        {
+            "type": "Type",
+            "props": {
+                "severity": "WARNING",
+                "ignoreEnumAbstractValues": true
+            }
+        },
+
+        {
+            "type": "ArrayAccess",
+            "props": {
+                "severity": "WARNING",
+                "spaceBefore": false,
+                "spaceInside": false
+            }
+        },
+
+        {
+            "type": "ExtendedEmptyLines",
+            "props": {
+                "severity": "WARNING",
+                "max": 1,
+                "defaultPolicy": "ignore",
+                "none": [
+                    "beforePackage",
+
+                    "afterLeftCurly",
+                    "beforeRightCurly",
+
+                    "beginAbstract",
+                    "beginClass",
+                    "beginEnum",
+                    "beginInterface",
+                    "beginTypedef",
+
+                    "endAbstract",
+                    "endClass",
+                    "endEnum",
+                    "endInterface",
+                    "endTypedef",
+
+                    "typeDefinition"
+                ],
+                "upto": [
+                    "betweenImports",
+
+                    "betweenAbstractVars",
+
+                    "betweenClassStaticVars",
+                    "betweenClassVars",
+
+                    "betweenEnumFields",
+                    "betweenInterfaceFields",
+                    "betweenTypedefFields",
+
+                    "inFunction"
+                ],
+                "exact": [
+                    "beforeUsing",
+
+                    "beforeFileEnd"
+                ],
+                "atleast": [
+                    "afterAbstractVars",
+
+                    "afterClassStaticVars",
+
+                    "betweenClassMethods",
+                    "betweenAbstractMethods"
+                ]
+            }
+        },
+
+        {
+            "type": "ExtendedEmptyLines",
+            "props": {
+                "severity": "WARNING",
+                "max": 2,
+                "defaultPolicy": "ignore",
+                "exact": [
+                    "afterPackage",
+                    "afterImports",
+
+                    "betweenTypes",
+
+                    "afterClassVars"
+                ]
+            }
+        },
+
+        {
+            "type": "Indentation",
+            "props": {
+                "severity":"WARNING",
+                "character": "tab",
+                "ignoreComments": true,
+                "ignoreConditionals": true
+            }
+        },
+
+        {
+            "type": "OperatorWhitespace",
+            "props": {
+                "severity": "WARNING",
+                "assignOpPolicy": "around",
+                "unaryOpPolicy": "none",
+                "ternaryOpPolicy": "around",
+                "arithmeticOpPolicy": "around",
+                "compareOpPolicy": "around",
+                "bitwiseOpPolicy": "around",
+                "boolOpPolicy": "around",
+                "intervalOpPolicy": "none",
+                "arrowPolicy": "around",
+                "arrowFunctionPolicy": "around",
+                "oldFunctionTypePolicy": "around",
+                "newFunctionTypePolicy": "around"
+            }
+        },
+
+        {
+            "type": "SeparatorWhitespace",
+            "props": {
+                "severity": "WARNING",
+                "dotPolicy": "none",
+                "commaPolicy": "after",
+                "semicolonPolicy": "after"
+            }
+        },
+
+        {
+            "type": "Spacing",
+            "props": {
+                "severity": "WARNING",
+                "spaceIfCondition": "should",
+                "spaceForLoop": "should",
+                "spaceWhileLoop": "should",
+                "spaceSwitchCase": "should",
+                "spaceCatch": "should"
+            }
+        },
+
+        {
+            "type": "TrailingWhitespace",
+            "props": {
+                "severity": "INFO"
+            }
+        }
+    ]
+}
