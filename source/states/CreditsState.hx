@@ -232,7 +232,7 @@ class CreditsState extends MusicBeatState
 				new Credit('TKTems', '@TKtems', 'tk', FlxColor.fromRGB(0, 230, 191), 'https://twitter.com/TKTems'),
 				new Credit('TiredPinkPanda', '@TiredPinkPanda', 'panda', FlxColor.fromRGB(158, 22, 22), 'https://twitter.com/TiredPinkPanda'),
 				new Credit('Trackye', '@Trackye', 'track', FlxColor.fromRGB(43, 59, 255), 'https://www.youtube.com/channel/UC4IrLVtl26x-2hb9yYqCyVw'),
-				new Credit('Ferzy', '@_Ferzy', 'ferzy', FlxColor.fromRGB(251, 162, 79), 'https://twitter.com/_Ferzy')
+				new Credit('Ferzy', '@_Ferzy', 'Ferzy', FlxColor.fromRGB(251, 162, 79), 'https://twitter.com/_Ferzy')
 			]),
 			new CreditGroup("VsAce Psych Port", [
 				new Credit('ChubbyDumpy', '@ChubbyAlt', 'chubby', FlxColor.fromRGB(195, 98, 74), 'https://twitter.com/ChubbyAlt'),
