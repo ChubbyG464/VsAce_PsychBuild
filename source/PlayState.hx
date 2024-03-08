@@ -914,27 +914,17 @@ class PlayState extends MusicBeatState
 
 		for (notetype in noteTypeMap.keys())
 		{
+			trace("Note Type: " + notetype);
+
 			var luaToLoad:String = Paths.modFolders('custom_notetypes/' + notetype + '.lua');
 			if(FileSystem.exists(luaToLoad))
-			{
 				luaArray.push(new FunkinLua(luaToLoad));
-			}
 			else
 			{
 				luaToLoad = Paths.getPreloadPath('custom_notetypes/' + notetype + '.lua');
 				if(FileSystem.exists(luaToLoad) || OpenFlAssets.exists(luaToLoad))
-				{
 					luaArray.push(new FunkinLua(luaToLoad));
-				}
 			}
-
-			#if sys
-			var luaToLoad:String = Paths.getPreloadPath('custom_notetypes/' + notetype + '.lua');
-			if(OpenFlAssets.exists(luaToLoad))
-			{
-				luaArray.push(new FunkinLua(luaToLoad));
-			}
-			#end
 		}
 		for (event in eventPushedMap.keys())
 		{
@@ -942,24 +932,12 @@ class PlayState extends MusicBeatState
 
 			var luaToLoad:String = Paths.modFolders('custom_events/' + event + '.lua');
 			if(FileSystem.exists(luaToLoad))
-			{
 				luaArray.push(new FunkinLua(luaToLoad));
-			}
-			else
-			{
+			else {
 				luaToLoad = Paths.getPreloadPath('custom_events/' + event + '.lua');
 				if(FileSystem.exists(luaToLoad) || OpenFlAssets.exists(luaToLoad))
-				{
 					luaArray.push(new FunkinLua(luaToLoad));
-				}
 			}
-			#if sys
-			var luaToLoad:String = Paths.getPreloadPath('custom_events/' + event + '.lua');
-			if(OpenFlAssets.exists(luaToLoad))
-			{
-				luaArray.push(new FunkinLua(luaToLoad));
-			}
-			#end
 		}
 
 		// After all characters being loaded, it makes then invisible 0.01s later so that the player won't freeze when you change characters
