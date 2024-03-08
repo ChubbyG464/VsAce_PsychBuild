@@ -3796,7 +3796,7 @@
 			}
 		],
 		"player2": "mace",
-		"gfVersion": "gf_blank",
+		"gfVersion": "gf",
 		"initialSpeed": 1.125,
 		"sliderVelocities": null,
 		"song": "Chill Out",

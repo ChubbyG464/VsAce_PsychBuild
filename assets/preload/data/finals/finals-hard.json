@@ -2,7 +2,7 @@
 	"song": {
 		"player1": "nothing-metro",
 		"events": [],
-		"gfVersion": "gf_blank",
+		"gfVersion": "gf",
 		"notes": [
 			{
 				"sectionNotes": [],

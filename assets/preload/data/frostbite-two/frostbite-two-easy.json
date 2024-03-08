@@ -7781,7 +7781,7 @@
 				"mustHitSection": true
 			}
 		],
-		"gfVersion": "gf_blank",
+		"gfVersion": "gf",
 		"events": [],
 		"player3": null,
 		"initialSpeed": 1.215,
