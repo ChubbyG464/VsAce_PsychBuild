@@ -1286,6 +1286,9 @@ class FunkinLua {
 			PlayState.instance.moveCamera(isDad);
 			return isDad;
 		});
+		Lua_helper.add_callback(lua, "cameraUpdateCamera", function() {
+			PlayState.instance.moveCameraSection();
+		});
 		Lua_helper.add_callback(lua, "cameraShake", function(camera:String, intensity:Float, duration:Float) {
 			cameraFromString(camera).shake(intensity, duration);
 		});
