@@ -1,0 +1,59 @@
+{
+	"storyName": "Rechilled",
+	"difficulties": "Easy,Normal,Hard",
+	"hideFreeplay": false,
+	"weekBackground": "week1",
+	"weekBefore": "week2",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"hideStoryMode": false,
+	"songs": [
+		[
+			"Concrete Jungle V2",
+			"iceolation",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"Noreaster V2",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"SubZero V2",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		],
+		[
+			"Frostbite 3",
+			"ace",
+			[
+				186,
+				226,
+				255
+			]
+		]
+	],
+	"weekCharacters": [
+		"Ace",
+		"bf-cold",
+		"gf"
+	],
+	"hiddenUntilUnlocked": false,
+	"weekName": "week-ace1R"
+}

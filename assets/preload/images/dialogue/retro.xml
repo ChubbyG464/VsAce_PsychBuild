@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="retro.png" width="3105" height="3204">
+	<SubTexture name="retro_angry" x="0" y="0" width="1037" height="658" frameX="-231" frameY="-617" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_cof" x="0" y="2042" width="692" height="615" rotated="true" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_confused" x="1347" y="1482" width="603" height="697" frameX="-204" frameY="-579" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_cute" x="2429" y="696" width="542" height="692" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_flipe" x="1955" y="1482" width="603" height="697" frameX="-204" frameY="-579" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_flushed" x="0" y="1359" width="692" height="678" rotated="true" frameX="-97" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_go_away" x="0" y="663" width="951" height="691" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_heh" x="1791" y="2184" width="542" height="691" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_hey" x="1042" y="0" width="691" height="780" rotated="true" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_humpf" x="697" y="2183" width="542" height="692" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_lookathim" x="956" y="785" width="757" height="691" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_meh" x="0" y="2662" width="692" height="542" rotated="true" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_neutral" x="1244" y="2184" width="542" height="692" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_phone_one" x="2338" y="2184" width="542" height="691" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_phone_two" x="2429" y="0" width="599" height="691" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_phone_zero" x="1738" y="0" width="686" height="691" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_surprised" x="697" y="1481" width="645" height="697" frameX="-204" frameY="-579" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_talking" x="2563" y="1393" width="542" height="691" frameX="-204" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+	<SubTexture name="retro_ugh" x="1718" y="785" width="706" height="692" frameX="-97" frameY="-584" frameWidth="1500" frameHeight="1500"/>
+</TextureAtlas>

@@ -1,0 +1,220 @@
+{
+	"dialogue_pos": "left",
+	"position": [
+		-10,
+		-90
+	],
+	"no_antialiasing": false,
+	"scale": 1.6,
+	"animations": [
+		{
+			"loop_name": "gayce_annoyed",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_annoyed",
+			"anim": "Annoyed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_blushing",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_blushing",
+			"anim": "Blushing",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_confused",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_confused",
+			"anim": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_embarassed",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_embarassed",
+			"anim": "Embarrassed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_eyeroll",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_eyeroll",
+			"anim": "Eyeroll",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_happy",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_happy",
+			"anim": "Happy",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_neutral",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_neutral",
+			"anim": "neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_postfrostbite",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_postfrostbite",
+			"anim": "PostFrostbite",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_prefrostbite",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_prefrostbite",
+			"anim": "PreFrostbite",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_shirthless_embarassed",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_shirthless_embarassed",
+			"anim": "ShirtlessEmbarrassed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_shirtless_confused",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_shirtless_confused",
+			"anim": "ShirtlessConfused",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_shirtless_groggy",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_shirtless_groggy",
+			"anim": "ShirtlessGroggy",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_smug",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_smug",
+			"anim": "Smug",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_spell",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_spell",
+			"anim": "Spell",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_surprised",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_surprised",
+			"anim": "Surprised",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "gayce_tired",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "gayce_tired",
+			"anim": "Tired",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	],
+	"image": "gayce"
+}

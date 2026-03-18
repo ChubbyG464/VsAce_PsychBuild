@@ -1,0 +1,246 @@
+{
+	"position": [
+		-250,
+		-670
+	],
+	"dialogue_pos": "left",
+	"no_antialiasing": false,
+	"scale": 0.95,
+	"image": "retro",
+	"animations": [
+		{
+			"loop_name": "retro_angry",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_angry",
+			"anim": "Angry",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_cof",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_cof",
+			"anim": "Cough",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_confused",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_confused",
+			"anim": "Confused",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_flipe",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_flipe",
+			"anim": "Confused Flip",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_flushed",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_flushed",
+			"anim": "Flushed",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_go_away",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_go_away",
+			"anim": "GoAway",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_heh",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_heh",
+			"anim": "Heh",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_hey",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_hey",
+			"anim": "Hey",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_humpf",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_humpf",
+			"anim": "Humpf",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_lookathim",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_lookathim",
+			"anim": "LookAtHim",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_meh",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_meh",
+			"anim": "Meh",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_neutral",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_neutral",
+			"anim": "Neutral",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_phone_one",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_phone_one",
+			"anim": "PhoneOne",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_phone_two",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_phone_two",
+			"anim": "PhoneTwo",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_phone_zero",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_phone_zero",
+			"anim": "PhoneZero",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_surprised",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_surprised",
+			"anim": "Surprised",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_talking",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_talking",
+			"anim": "talking",
+			"loop_offsets": [
+				0,
+				0
+			]
+		},
+		{
+			"loop_name": "retro_ugh",
+			"idle_offsets": [
+				0,
+				0
+			],
+			"idle_name": "retro_ugh",
+			"anim": "Ugh",
+			"loop_offsets": [
+				0,
+				0
+			]
+		}
+	]
+}

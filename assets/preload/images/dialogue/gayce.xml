@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="gayce.png" width="1702" height="1795">
+	<SubTexture name="gayce_annoyed" x="933" y="0" width="382" height="427" frameX="-135" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_blushing" x="863" y="1296" width="391" height="413" frameX="-126" frameY="-83" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_confused" x="432" y="990" width="426" height="410" rotated="true" frameX="-135" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_embarassed" x="1259" y="1296" width="413" height="391" rotated="true" frameX="-126" frameY="-83" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_eyeroll" x="933" y="432" width="382" height="427" frameX="-135" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_happy" x="0" y="990" width="427" height="380" rotated="true" frameX="-137" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_neutral" x="928" y="864" width="382" height="427" frameX="-135" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_postfrostbite" x="1320" y="0" width="382" height="427" frameX="-135" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_prefrostbite" x="1320" y="432" width="382" height="427" frameX="-135" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_shirthless_embarassed" x="0" y="574" width="472" height="411" rotated="true" frameX="-156" frameY="-41" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_shirtless_confused" x="513" y="0" width="415" height="532" frameX="-130" frameY="-68" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_shirtless_groggy" x="513" y="537" width="410" height="448" frameX="-157" frameY="-65" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_smug" x="1315" y="864" width="382" height="427" frameX="-135" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_spell" x="0" y="0" width="508" height="569" frameX="-181" frameY="-92" frameWidth="900" frameHeight="800"/>
+	<SubTexture name="gayce_surprised" x="0" y="1375" width="427" height="420" rotated="true" frameX="-136" frameY="-69" frameWidth="675" frameHeight="600"/>
+	<SubTexture name="gayce_tired" x="432" y="1405" width="425" height="357" rotated="true" frameX="-135" frameY="-71" frameWidth="675" frameHeight="600"/>
+</TextureAtlas>
