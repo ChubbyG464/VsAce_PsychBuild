@@ -93,6 +93,7 @@
 
 	<haxelib name="flixel" />
 	<haxedev set='webgl' />
+	<setenv name="HAXEPATH" value="./"/>
 
 	<!--In case you want to use the addons package-->
 	<haxelib name="flixel-addons" />

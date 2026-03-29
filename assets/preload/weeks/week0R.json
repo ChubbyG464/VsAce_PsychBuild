@@ -1,6 +1,6 @@
 {
 	"storyName": "Rechilled",
-	"difficulties": "Easy,Normal,Hard",
+	"difficulties": "Easy,Normal,Rechilled",
 	"hideFreeplay": false,
 	"weekBackground": "week1",
 	"weekBefore": "week2",
@@ -14,7 +14,7 @@
 	"songs": [
 		[
 			"Concrete Jungle V2",
-			"iceolation",
+			"newace",
 			[
 				186,
 				226,
@@ -23,7 +23,7 @@
 		],
 		[
 			"Noreaster V2",
-			"ace",
+			"newace",
 			[
 				186,
 				226,
@@ -31,8 +31,8 @@
 			]
 		],
 		[
-			"SubZero V2",
-			"ace",
+			"Sub Zero V2",
+			"newace",
 			[
 				186,
 				226,
@@ -40,8 +40,8 @@
 			]
 		],
 		[
-			"Frostbite 3",
-			"ace",
+			"Frostbite V3",
+			"newace",
 			[
 				186,
 				226,
